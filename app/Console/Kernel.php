@@ -11,11 +11,7 @@ class Kernel extends ConsoleKernel
      * Define the application's command schedule.
      */
     protected function schedule(Schedule $schedule): void
-    {
-        $schedule->command("command:send-message")->hourly();
-        $schedule->command("command:delete-torisetsu")->dailyAt("1:00");
-        $schedule->command("command:delete-kotobamu-message-image")->dailyAt("1:00");
-    }
+    {}
 
     /**
      * Register the commands for the application.
