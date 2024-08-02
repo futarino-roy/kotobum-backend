@@ -11,15 +11,15 @@ fi
 echo "Deployment started ...[branch is $1]"
 
 # 本番環境(mainブランチ)
-if [ "$1" = "main" ]
-then
-    cd /var/www/vhosts/official_backend/official_0319
-fi
+# if [ "$1" = "main" ]
+# then
+#     cd /var/www/vhosts/official_backend/official_0319
+# fi
 
 # 開発環境(releaseブランチ)
 if [ "$1" = "release" ]
 then
-    cd /var/www/vhosts/official/backend/
+    cd /var/www/vhosts/kotobum-back/kotobum-backend/
 fi
 
 # username="deploy.sh ($1/`hostname -s`)"
@@ -38,48 +38,12 @@ fi
 
 set +e
 
-# Install composer dependencies
-composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
-result=$?
-if [ $result -ne 0 ]; then
-    exit $result
-fi
-
-# Clear the old cache
-php artisan optimize:clear
-result=$?
-if [ $result -ne 0 ]; then
-    exit $result
-fi
-
-# Recreate cache
-php artisan optimize
-result=$?
-if [ $result -ne 0 ]; then
-    exit $result
-fi
-
-# Run database migrations
-php artisan migrate --force
-result=$?
-if [ $result -ne 0 ]; then
-    exit $result
-fi
-
 # worker restart
 # 本番ではsupervisorが再起動をかける
 php artisan queue:restart
 result=$?
 if [ $result -ne 0 ]; then
     exit $result
-fi
-
-# lineの友達登録してるユーザを強制的にDBに追加(そのためのlineAPIが認証済公式垢でしか使えないのでmainマージ時のみ実行)
-# 時間かかるのでデプロイ頻度が多いなら毎回やらなくてもいいかも
-if [ "$1" = "main" ]
-then
-    echo "Start line followers putting in DB"
-    php artisan command:line-followers-put-in-db
 fi
 
 # Exit maintenance mode
