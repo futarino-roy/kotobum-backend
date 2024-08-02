@@ -22,7 +22,6 @@ Route::prefix('original_admin')->group(function () {
         Route::get('/user_admin/user_admin', [UserAdminController::class, 'index'])->name('user_admin');
         Route::post('/user_admin/user_admin', [UserAdminController::class, 'admin_store'])->name('admin_store');
         Route::patch('/user_admin/user_admin/{user}', [UserAdminController::class, 'remove_admin'])->name('remove_admin');
-        Route::patch('/user_admin/user_admin/{user}', [UserAdminController::class, 'remove_admin'])->name('remove_admin');
     });
     Route::get('/login', [LoginController::class, 'login_form'])->name('original_admin.login_form');
     Route::post('/login', [LoginController::class, 'login'])->name('original_admin.login');
