@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TorisetsuController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,6 @@ use App\Http\Controllers\TorisetsuController;
 |
 */
 
-Route::get('/torisetsu_latest/{user}', [TorisetsuController::class, 'latest'])->name('torisetsu.latest');
+
 
 include __DIR__ . '/original_admin.php';
