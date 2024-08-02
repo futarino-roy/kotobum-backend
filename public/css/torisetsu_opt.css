@@ -1,0 +1,238 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "torisetsu";
+  src: url("/fonts/NotoSansJP-VariableFont_wght.ttf") format("truetype");
+}
+
+body {
+  background-color: #f7c6bd;
+  font-family: "torisetsu";
+}
+
+.custom-file-input:lang(ja) ~ .custom-file-label::after {
+  content: "参照";
+}
+
+.custom-file {
+  overflow: hidden;
+}
+.custom-file-label {
+  white-space: nowrap;
+}
+
+#sheet_list {
+  display: flex;
+  align-items: flex-start;
+  overflow: auto;
+  width: 100%;
+  gap: 10px 15px;
+}
+
+.sheet {
+  width: 630px;
+  position: relative;
+  flex-shrink: 0;
+  background-color: #fff;
+  padding: 30px 0;
+}
+.sheet .torisetsu {
+  border: 2px solid #252525;
+  width: 570px;
+  margin: 0 auto;
+}
+.sheet .torisetsu h2 {
+  font-size: 15px;
+  font-weight: 700;
+}
+.sheet .torisetsu p {
+  font-weight: 500;
+}
+.sheet .torisetsu .up {
+  width: 100%;
+  display: flex;
+  border-bottom: 2px solid #252525;
+}
+.sheet .torisetsu .up .title {
+  width: 12%;
+  display: flex;
+  justify-content: space-between;
+  writing-mode: vertical-rl;
+  padding-top: 30px;
+  text-align: center;
+  border-right: 2px solid #252525;
+}
+.sheet .torisetsu .up .title img {
+  width: 22px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sheet .torisetsu .up .title p {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+}
+.sheet .torisetsu .up .main {
+  width: 88%;
+  height: 100%;
+}
+.sheet .torisetsu .up .main .top {
+  height: 30px;
+  display: flex;
+  border-bottom: 2px solid #252525;
+  font-size: 13px;
+  font-weight: 600;
+}
+.sheet .torisetsu .up .main .top .sub-title {
+  width: 65%;
+  height: 100%;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  border-right: 2px solid #252525;
+  letter-spacing: 2px;
+}
+.sheet .torisetsu .up .main .top .date {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sheet .torisetsu .up .main .name {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 25px;
+  border-bottom: 2px solid #252525;
+  font-weight: 800;
+}
+.sheet .torisetsu .up .main .name p {
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.sheet .torisetsu .up .main .name img {
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.sheet .torisetsu .up .main .content {
+  min-height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  flex-flow: column;
+  position: relative;
+}
+.sheet .torisetsu .up .main .content div {
+  z-index: 2;
+}
+.sheet .torisetsu .up .main .content .human_icon {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  width: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.sheet .torisetsu .up .main .content p {
+  margin-left: 12px;
+  font-size: 12px;
+}
+.sheet .torisetsu .up .main .content span {
+  background-color: #fff;
+}
+.sheet .torisetsu .down {
+  min-height: 150px;
+  width: 100%;
+  display: flex;
+}
+.sheet .torisetsu .down .icon {
+  width: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px solid #252525;
+}
+.sheet .torisetsu .down .icon img {
+  width: 35px;
+  text-align: center;
+}
+.sheet .torisetsu .down .more {
+  width: 88%;
+  padding: 15px 20px;
+}
+.sheet .torisetsu .down .more h3 {
+  padding-left: 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.sheet .torisetsu .down .more p {
+  font-size: 12px;
+  padding-left: 12px;
+}
+.sheet .note {
+  position: absolute;
+  bottom: 15px;
+  right: 40px;
+  font-size: 10px;
+}
+
+#nowLoading {
+  display: table;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  opacity: 0.8;
+  z-index: 99;
+}
+
+#innerMsg {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 140px;
+  z-index: 100;
+  background: url("/icons/load.gif") center center no-repeat;
+}/*# sourceMappingURL=optimize.css.map */
+
+
+.navbar {
+    width: 100%;
+    background-color: #ad6f6f;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 .4rem .4rem #0005;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+.logo {
+    margin-left: 80px;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.nav-menu {
+    padding: 28px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+a {
+    padding: 35px 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}

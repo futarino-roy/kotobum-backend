@@ -1,0 +1,21 @@
+name: Laravel Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to prod
+      id: prod_deploy_pull
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.PROD_XSERVER_HOST }}
+        username: ${{ secrets.PROD_XSERVER_USER }}
+        key: ${{ secrets.PROD_XSERVER_SECRET }}
+        script: |
+          cd /var/www/vhosts/official_backend/official_0319/
+          ./scripts/deploy.sh main

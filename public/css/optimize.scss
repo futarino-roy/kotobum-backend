@@ -1,0 +1,268 @@
+@font-face {
+    font-family: 'torisetsu-black';
+    src: url("/fonts/NotoSansJP-Black.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'torisetsu-bold';
+    src: url("/fonts/NotoSansJP-Bold.ttf") format("truetype");
+}
+
+.sheet {
+    width: 630px;
+    position: relative;
+    background-color: #fff;
+    padding: 30px 0;
+    font-family: "torisetsu-bold";
+
+
+    .torisetsu {
+        border: 2px solid #252525;
+        width: 570px;
+        margin: 0 auto;
+
+        .up {
+            width: 100%;
+            position: relative;
+            border-bottom: 2px solid #252525;
+            overflow: hidden;
+            &::after {
+                content: "";
+                clear: both;
+                display: block;
+            }
+
+            &__title {
+                width: 12%;
+                float: left;
+                padding-top: 30px;
+                border-right: 2px solid #252525;
+                padding-bottom: 10000px;
+                margin-bottom: -10000px;
+                position: relative;
+
+                &-img {
+                    position: absolute;
+                    right: 0;
+                    left: 0;
+                    margin: 0 auto;
+                    width: 45%;
+                }
+            }
+
+            &__main {
+                width: 88%;
+                height: 100%;
+                float: left;
+
+                &_top {
+                    height: 30px;
+                    border-bottom: 2px solid #252525;
+                    font-size: 13px;
+                    &::after {
+                        content: "";
+                        clear: both;
+                        display: block;
+                    }
+
+                    &-sub_title {
+                        float: left;
+                        width: 65%;
+                        height: 100%;
+                        padding: 7px 0px 7px 20px;
+                        border-right: 2px solid #252525;
+                        letter-spacing: 2px;
+                    }
+
+                    &-date {
+                        float: left;
+                        width: 35%;
+                        text-align: center;
+                        height: 100%;
+                        padding: 7px 0px 7px 0px;
+                    }
+                }
+
+                &_name {
+                    width: 100%;
+                    height: 90px;
+                    padding: 10px 25px;
+                    border-bottom: 2px solid #252525;
+                    &::after {
+                        content: "";
+                        clear: both;
+                        display: block;
+                    }
+
+                    p {
+                        font-size: 45px;
+                        height: 100%;
+                        width: 80%;
+                        float: left;
+                        padding: 10px 0px 10px 0px;
+                        font-family: 'torisetsu-black';
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    &-img {
+                        height: 100%;
+                        width: 20%;
+                        float: right;
+
+                        img{
+                            object-fit: contain;
+                            height: 100%;
+                        }
+                    }
+                }
+
+                &_content {
+                    min-height: 500px;
+                    width: 100%;
+                    padding: 15px 13px 15px 20px;
+
+                    div {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        position: relative;
+                        z-index: 2;
+
+                        h2 {
+                            // margin-bottom: 5px;
+                            &::after {
+                                content: "";
+                                clear: both;
+                                display: block;
+                            }
+
+                            img {
+                                vertical-align: middle;
+                                width: 28px;
+                                float: left;
+                                margin-right: 7px;
+                            }
+
+                            div {
+                                float: left;
+                                span {
+                                    font-size: 10px;
+                                }
+                            }
+                        }
+                        p {
+                            margin-left: 35px;
+                            font-size: 13px;
+                            word-wrap: break-word;
+                            span {
+                                background-color: #fff;
+                                line-height: 18px;
+                            }
+                        }
+                    }
+
+                    &-human_icon {
+                        position: absolute;
+                        bottom: 5px;
+                        right: -15px;
+                        width: 280px;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+
+        .down {
+            &__title{
+                width: 100%;
+                background-color: #252525;
+                color: white;
+                text-align: center;
+                padding: 8px 0;
+            }
+            &__content {
+                min-height: 150px;
+                width: 100%;
+                overflow: hidden;
+                &::after {
+                    content: "";
+                    clear: both;
+                    display: block;
+                }
+
+                &-icon {
+                    width: 12%;
+                    float: left;
+                    border-right: 2px solid #252525;
+                    padding-top: 20px;
+                    padding-bottom: 10000px;
+                    margin-bottom: -10000px;
+                    text-align: center;
+                    border-top: 2px solid #252525;
+
+                    img {
+                        width: 35px;
+                        margin: 0 auto;
+                    }
+                }
+
+                &-more {
+                    float: left;
+                    width: 88%;
+                    padding-bottom: 10000px;
+                    margin-bottom: -10000px;
+
+                    &_list {
+                        position: relative;
+                        .vertical-separator {
+                            width: 2px;
+                            background-color: #252525;
+                            position: absolute;
+                            left: 25%;
+                            top: 0;
+                            height: 10000px;
+                        }
+                    }
+                    &_zero {
+                        border-top: 2px solid #252525;
+                        padding: 10px;
+                        font-size: 13px;
+                    }
+
+                    &_item{
+                        border-top: 2px solid #252525;
+
+                        &::after {
+                            content: "";
+                            clear: both;
+                            display: block;
+                        }
+
+                        .scene{
+                            float: left;
+                            width: 25%;
+                            padding: 10px 0;
+                            text-align: center;
+                            font-size: 14px;
+                        }
+                        .input {
+                            font-size: 13px;
+                            float: left;
+                            width: 75%;
+                            word-wrap: break-word;
+                            padding: 10px;
+                            line-height: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .note {
+        position: absolute;
+        bottom: 15px;
+        right: 40px;
+        font-size: 10px;
+    }
+}
