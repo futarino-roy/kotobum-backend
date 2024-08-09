@@ -12,27 +12,21 @@ use Symfony\Component\HttpFoundation\Response;
 class RegisterController extends Controller
 {
     public function register(Request $request)
-    {
-        // バリデーション
-        $validator = Validator::make($request->all(), [
-            'name' => ['required'], // 名前は必須
-            'email' => ['required', 'email', 'unique:users,email'], // メールアドレスは必須かつユニーク
-            'password' => ['required', 'string', 'min:8'], // パスワードは必須かつ8文字以上
-        ]);
+{
+    // リクエストのバリデーション
+    $request->validate([
+        'name' => 'required|string|max:255', // 名前は必須で、最大255文字
+        'email' => 'required|string|email|max:255|unique:users,email', // メールは必須・正しい形式・ユニーク
+        'password' => 'required|string|min:8|confirmed', // パスワードは必須・8文字以上・確認用パスワードと一致
+    ]);
 
-        // バリデーションエラーがあればレスポンスを返す
-        if ($validator->fails()) {
-            \Log::info('Validation failed', $validator->messages()->toArray());
-            return response()->json($validator->messages(), Response::HTTP_UNPROCESSABLE_ENTITY);
-        }
+    // ユーザーを作成
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => Hash::make($request->password), // パスワードをハッシュ化
+    ]);
 
-        // ユーザーを作成
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password), // パスワードをハッシュ化
-        ]);
-
-        return response()->json('User registration completed', Response::HTTP_OK);
-    }
+    return response()->json('User registration completed', Response::HTTP_OK);
+}
 }
