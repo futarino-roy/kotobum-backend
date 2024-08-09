@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-include __DIR__ . '/original_admin.php';
+Route::get('/', function () {
+    return view('welcome');
+});
