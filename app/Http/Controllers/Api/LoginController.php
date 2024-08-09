@@ -15,8 +15,8 @@ class LoginController extends Controller
     public function login(Request $request){
         // バリデーション
         $validator = Validator::make($request->all(), [
-            'email' => ['required', 'email'],
-            'password' => ['required']
+            'email' => 'required|email',
+            'password' => 'required'
         ]);
 
         if ($validator->fails()) {

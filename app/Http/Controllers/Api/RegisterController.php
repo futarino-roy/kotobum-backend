@@ -22,7 +22,7 @@ class RegisterController extends Controller
 
         // バリデーションエラーがあればレスポンスを返す
         if ($validator->fails()) {
-            \Log::info('Validation failed', $validator->messages()->toArray());
+            // \Log::info('Validation failed', $validator->messages()->toArray());
             return response()->json($validator->messages(), Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
