@@ -15,9 +15,9 @@ class RegisterController extends Controller
     {
         // バリデーション
         $validator = Validator::make($request->all(), [
-            'name' => ['required|string|max:255'],
-            'email' => ['required', 'email', 'unique:users,email'],
-            'password' => ['required', 'string', 'min:8'],
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users|email',
+            'password' => 'required|string|min:8',
         ]);
 
         // バリデーションエラーがあればレスポンスを返す
