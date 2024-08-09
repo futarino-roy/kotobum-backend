@@ -17,10 +17,11 @@ class RegisterController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => ['required'],
             'email' => ['required', 'email'],
-            'password' => ['required']
+            'password' => ['required', 'string', 'min:8']
         ]);
 
         if ($validator->fails()) {
+            \Log::info('Validation failed', $validator->messages()->toArray());
             return response()->json($validator->messages(), Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
