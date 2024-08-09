@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use \Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response;
 
 class RegisterController extends Controller
 {
@@ -15,11 +15,12 @@ class RegisterController extends Controller
     {
         // バリデーション
         $validator = Validator::make($request->all(), [
-            'name' => ['required'],
-            'email' => ['required', 'email'],
-            'password' => ['required']
+            'name' => ['required'], // 名前は必須
+            'email' => ['required', 'email', 'unique:users,email'], // メールアドレスは必須かつユニーク
+            'password' => ['required', 'string', 'min:8'], // パスワードは必須かつ8文字以上
         ]);
 
+        // バリデーションエラーがあればレスポンスを返す
         if ($validator->fails()) {
             \Log::info('Validation failed', $validator->messages()->toArray());
             return response()->json($validator->messages(), Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -29,7 +30,7 @@ class RegisterController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make($request->password), // パスワードをハッシュ化
         ]);
 
         return response()->json('User registration completed', Response::HTTP_OK);
