@@ -17,7 +17,7 @@ class RegisterController extends Controller
     $request->validate([
         'name' => 'required|string|max:255', // 名前は必須で、最大255文字
         'email' => 'required|string|email|max:255|unique:users,email', // メールは必須・正しい形式・ユニーク
-        'password' => 'required|string|min:8|confirmed', // パスワードは必須・8文字以上・確認用パスワードと一致
+        'password' => 'required|string|min:8', // パスワードは必須・8文字以上・確認用パスワードと一致
     ]);
 
     // ユーザーを作成
