@@ -21,6 +21,7 @@ class RegisterController extends Controller
         ]);
 
         if ($validator->fails()) {
+            \Log::info('Validation failed', $validator->messages()->toArray());
             return response()->json($validator->messages(), Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
