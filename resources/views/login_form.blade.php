@@ -1,4 +1,4 @@
-@extends('original_admin.base')
+@extends('admin.base')
 
 @section('content')
 
@@ -8,7 +8,7 @@
 <p>{{ $message }}</p>
 @enderror
 
-<form method="POST" action="{{ route('original_admin.login') }}">
+<form method="POST" action="{{ route('admin.login') }}">
     @csrf
     <div class="form-group">
         <label>メールアドレス</label>
