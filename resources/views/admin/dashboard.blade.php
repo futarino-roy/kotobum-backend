@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>管理者ダッシュボード</title>
-</head>
-<body>
+<!-- resources/views/admin/dashboard.blade.php -->
+@extends('admin.base')
+
+@section('title', '管理者ダッシュボード')
+
+@section('content')
     <ul class="nav-list2">
         <li class="list-items btn btn-danger"><a href="javascript:void(0);" onclick="confirmLogout()" class="nav-link">ログアウト</a></li>
     </ul>
-    <div class="container">
-        <h1>管理者ダッシュボード</h1>
-        <p>ようこそ、{{ $admin->email }} さん。</p>
-    </div>
+    <h1>管理者ダッシュボード</h1>
+    <p>ようこそ、{{ $admin->email }} さん。</p>
 
     <h2>ユーザー一覧</h2>
     <table border="1">
@@ -35,13 +31,14 @@
             @endforeach
         </tbody>
     </table>
+@endsection
 
-    <script>
-    function confirmLogout() {
-        if (confirm('ログアウトしてもよろしいですか？')) {
-            window.location.href = "{{ route('admin.logout') }}";
-        }
+@section('scripts')
+<script>
+function confirmLogout() {
+    if (confirm('ログアウトしてもよろしいですか？')) {
+        window.location.href = "{{ route('admin.logout') }}";
     }
+}
 </script>
-</body>
-</html>
+@endsection
