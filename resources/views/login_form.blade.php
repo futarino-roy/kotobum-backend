@@ -1,23 +1,17 @@
 @extends('admin.base')
 
 @section('content')
-
-<h1>管理者ログイン</h1>
-
-@error('login')
-<p>{{ $message }}</p>
-@enderror
-
-<form method="POST" action="{{ route('admin.login') }}">
-    @csrf
-    <div class="form-group">
-        <label>メールアドレス</label>
-        <input type="email" name="email" class="form-control"><br>
-    </div>
-    <div class="form-group">
-        <label>パスワード</label>
-        <input type="password" name="password" class="form-control"><br>
-    </div>
-    <input type="submit" value="ログイン" class="btn btn-primary">
-</form>
+    <h1>ログイン</h1>
+    <form action="{{ route('admin.login') }}" method="POST">
+        @csrf
+        <div class="form-group">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="password">パスワード</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">ログイン</button>
+    </form>
 @endsection

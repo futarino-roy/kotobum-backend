@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DashboardController;
 
 Route::prefix('admin')->group(function () {
-    Route::middleware('auth.admin')->group(function () {
+    Route::middleware('auth:admin')->group(function () {
         Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
         // Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
         // Route::resource('/users', UserController::class);

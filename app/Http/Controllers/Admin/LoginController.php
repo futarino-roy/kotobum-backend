@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function showLoginForm()
+    public function login_form()
     {
         if (Auth::guard('admin')->check()) {
             return redirect()->route('admin.dashboard');
