@@ -12,19 +12,19 @@
 </head>
 
 <body>
-    <header class="header">
+    <!-- <header class="header">
         <div class="navbar1">
             <div class="logo1">
                 <a class="nav-link" href="{{ route('kotobamu.index') }}">コトバム管理者サイト</a>
             </div>
     <footer class="footer bg-dark text-center text-light p-2 z-3 fixed-bottom" style=" vertical-align: center;">
         管理者用サイト.
-    </footer>
+    </footer> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script>
     function confirmLogout() {
         if (confirm('ログアウトしてもよろしいですか？')) {
-            window.location.href = "{{ route('original_admin.logout') }}";
+            window.location.href = "{{ route('admin.logout') }}";
         }
     }
 </script>
