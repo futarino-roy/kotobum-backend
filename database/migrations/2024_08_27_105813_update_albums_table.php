@@ -4,14 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnsToAlbumsTable extends Migration
+class UpdateAlbumsTable extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
         Schema::table('albums', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->after('id');
-            $table->string('cover')->nullable()->after('user_id');
-            $table->text('body')->nullable()->after('cover');
+            $table->longText('cover')->nullable()->after('user_id');
+            $table->longText('body')->nullable()->after('cover');
             $table->boolean('is_sent')->default(false)->after('body');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -29,4 +32,3 @@ class AddColumnsToAlbumsTable extends Migration
         });
     }
 }
-
