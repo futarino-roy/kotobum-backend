@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Album;
-use PDF;
-use Barryvdh\DomPDF\Facade as DomPDF;
 
 class AlbumController extends Controller
 {
@@ -21,6 +19,7 @@ class AlbumController extends Controller
             'user_id' => auth()->id(),
             'cover' => $request->cover,
             'body' => $request->body,
+            'template' => auth()->user()->template,
         ]);
 
         return response()->json($album, 201);
@@ -42,30 +41,24 @@ class AlbumController extends Controller
         return response()->json($album);
     }
 
-    public function send(Album $album)
+    public function send(Request $request, Album $album)
     {
-        // 認証されたユーザーがアルバムの所有者であることを確認
-        if ($album->user_id !== auth()->id() || $album->is_sent) {
+        if ($album->user_id !== auth()->id()) {
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 
-        // PDF生成のロジック
-        $pdf = DomPDF::loadView('albums.pdf', compact('album'));
+        $album->is_sent = true;
+        $album->save();
 
-        // PDFファイルの保存パスを指定
-        $path = storage_path('app/public/albums/' . $album->id . '.pdf');
+        return response()->json($album);
+    }
 
-        // PDFを指定したパスに保存
-        // $pdf->save($path);
+    public function show(Album $album)
+    {
+        if ($album->user_id !== auth()->id()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
 
-        // アルバムの状態を更新
-        $album->update(['is_sent' => true]);
-
-        // 必要に応じて、管理画面へのアップロード処理を追加できます。
-        // ここでは例として、PDFファイルのパスを返します。
-        return response()->json([
-            'message' => 'Album sent successfully',
-            'pdf_path' => $path
-        ]);
+        return response()->json($album);
     }
 }
