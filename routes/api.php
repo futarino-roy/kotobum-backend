@@ -9,34 +9,24 @@ use App\Http\Controllers\Api\TemplateController;
 use App\Http\Controllers\Api\AlbumController;
 
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
 
-Route::post('/register', [RegisterController::class, 'register']); // ユーザー登録
-Route::post('/login', [LoginController::class, 'login']); // ログイン
+Route::post('/register', [RegisterController::class, 'register']); // ユーザー登録 / User registration
+Route::post('/login', [LoginController::class, 'login']); // ログイン / Login
 
 Route::middleware('auth:sanctum')->group(function () {
-    // ユーザー情報の取得
+    // ユーザー情報の取得 / Obtaining user information
     Route::get('/user', [UserController::class, 'show'])->name('user.show');
 
-     // テンプレート選択
+     // テンプレート選択 / Template selection
     Route::post('/select-template', [TemplateController::class, 'selectTemplate']);
     
-    // アルバム操作
+    // アルバム操作 / Album operation
     Route::post('/albums', [AlbumController::class, 'create']);
     Route::put('/albums/{album}', [AlbumController::class, 'update']);
     Route::post('/albums/{album}/send', [AlbumController::class, 'send']);
     Route::get('/albums/{album}', [AlbumController::class, 'show']);
     
-    // 簡易ユーザー情報取得
+    // 簡易ユーザー情報取得 / Simple user information acquisition
     Route::get('/profile', function (Request $request) {
         return $request->user();
     });
