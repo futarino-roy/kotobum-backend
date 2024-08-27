@@ -50,7 +50,7 @@ class AlbumController extends Controller
         }
 
         // PDF生成のロジック
-        // $pdf = DomPDF::loadView('albums.pdf', compact('album'));
+        $pdf = DomPDF::loadView('albums.pdf', compact('album'));
 
         // PDFファイルの保存パスを指定
         $path = storage_path('app/public/albums/' . $album->id . '.pdf');

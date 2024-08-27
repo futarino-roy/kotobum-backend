@@ -30,6 +30,9 @@
         <!-- メインコンテンツ -->
         @yield('content')
     </div>
+    <footer class="footer bg-dark text-center text-light p-2 z-3 fixed-bottom" style=" vertical-align: center;">
+        コトバム公式管理者用サイト.
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- <script>

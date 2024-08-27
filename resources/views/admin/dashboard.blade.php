@@ -8,7 +8,6 @@
         <li class="list-items btn btn-danger"><a href="javascript:void(0);" onclick="confirmLogout()" class="nav-link">ログアウト</a></li>
     </ul>
     <h1>管理者ダッシュボード</h1>
-    <p>ようこそ、{{ $admin->email }} さん。</p>
 
     <h2>ユーザー一覧</h2>
     <table border="1">
