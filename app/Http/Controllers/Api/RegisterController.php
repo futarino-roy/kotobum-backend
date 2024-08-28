@@ -18,6 +18,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users|email',
             'password' => 'required|string|min:8',
+            'template' => 'required|string',
         ]);
 
         // バリデーションエラーがあればレスポンスを返す
@@ -31,6 +32,7 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'template' => $request->template,
         ]);
 
         return response()->json('User registration completed', Response::HTTP_OK);
