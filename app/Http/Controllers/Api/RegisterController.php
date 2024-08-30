@@ -35,6 +35,13 @@ class RegisterController extends Controller
             'template' => $request->template,
         ]);
 
-        return response()->json('User registration completed', Response::HTTP_OK);
+        // トークンを生成
+        $token = $user->createToken('Personal Access Token')->plainTextToken;
+
+        return response()->json([
+            'message' => 'User registration completed',
+            'token' => $token,
+            'user' => $user
+        ], Response::HTTP_OK);
     }
 }
