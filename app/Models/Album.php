@@ -9,7 +9,7 @@ class Album extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['user_id', 'cover', 'body', 'is_sent'];
+    protected $fillable = ['user_id', 'cover', 'body', 'is_sent', 'template'];
 
     public function user()
     {
