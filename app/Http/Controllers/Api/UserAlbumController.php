@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Album;
 
 class UserAlbumController extends Controller
 {
@@ -13,7 +14,7 @@ class UserAlbumController extends Controller
         $userId = Auth::id();
         
         // ユーザーに関連するアルバムを取得
-        $album = \App\Models\Album::where('user_id', $userId)->first();
+        $album = Album::where('user_id', $userId)->first();
 
         if ($album) {
             return response()->json(['albumId' => $album->id]);
