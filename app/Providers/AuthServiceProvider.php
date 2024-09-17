@@ -22,8 +22,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->app['auth']->extend('line-token', function ($app, $name, array $config) {
-            return new LineAccessTokenGuard(Auth::createUserProvider($config['provider']), $app['request']);
-        });
+        
     }
 }

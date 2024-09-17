@@ -47,9 +47,10 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
-        'original_admins' => [
+
+        'admin' => [
             'driver' => 'session',
-            'provider' => 'original_admins',
+            'provider' => 'admins',
         ],
     ],
 
@@ -75,9 +76,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'original_admins' => [
+
+        'admins' => [
             'driver' => 'eloquent',
-            'model' => App\Models\OriginalAdmin::class,
+            'model' => App\Models\Admin::class,
         ],
 
         // 'users' => [
