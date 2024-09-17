@@ -20,5 +20,4 @@ jobs:
           cd /var/www/vhosts/kotobum-back/kotobum-backend/
           sudo -u nginx git fetch origin
           sudo -u nginx git merge origin/release
-          sudo -u nginx composer install --no-dev --optimize-autoloader
           ./scripts/deploy.sh release
