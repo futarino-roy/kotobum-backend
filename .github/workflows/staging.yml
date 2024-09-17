@@ -17,7 +17,5 @@ jobs:
         username: ${{ secrets.DEV_XSERVER_USER }}
         key: ${{ secrets.DEV_XSERVER_SECRET }}
         script: |
-          cd /var/www/vhosts/kotobum-back/kotobum-backend/
-          sudo -u nginx git fetch origin
-          sudo -u nginx git merge origin/release
+          cd /var/www/vhosts/kotobum-backend/
           ./scripts/deploy.sh release
