@@ -19,7 +19,7 @@ fi
 # 開発環境(releaseブランチ)
 if [ "$1" = "release" ]
 then
-    cd /var/www/vhosts/kotobum-backend/
+    cd /var/www/vhosts/kotobum-back/kotobum-backend/
 fi
 
 # username="deploy.sh ($1/`hostname -s`)"
