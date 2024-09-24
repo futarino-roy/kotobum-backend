@@ -16,6 +16,7 @@
                 <th>ID</th>
                 <th>名前</th>
                 <th>メールアドレス</th>
+                <th>テンプレート</th>
                 <th>作成日</th>
             </tr>
         </thead>
@@ -25,6 +26,7 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
+                    <td>{{ $user->template }}</td>
                     <td>{{ $user->created_at }}</td>
                 </tr>
             @endforeach

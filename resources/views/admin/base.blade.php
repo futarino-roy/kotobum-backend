@@ -9,6 +9,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <header class="bg-light p-2 z-3 fixed-top">
+        <div class="container d-flex align-items-center">
+            <a href="/" class="mr-auto">
+                <img src="{{ asset('img/f-black@4x 1.png') }}" alt="ロゴ">
+            </a>
+        </div>
+    </header>
     <div class="container">
         <!-- フラッシュメッセージの表示 -->
         <!-- @if (session('login_msg'))
