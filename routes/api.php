@@ -18,7 +18,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [UserController::class, 'show'])->name('user.show');
 
     // ユーザーのアルバムIDを取得
-    Route::get('/user/album', [UserAlbumController::class, 'getAlbum']);
+    // Route::get('/user/album', [UserAlbumController::class, 'getAlbum']);
 
     // テンプレート選択
     Route::post('/select-template', [TemplateController::class, 'selectTemplate']);
