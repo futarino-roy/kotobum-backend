@@ -28,7 +28,6 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->template }}</td>
                     <td>{{ $user->created_at }}</td>
-                    <td>{{ $user->created_at }}</td>
                 </tr>
             @endforeach
         </tbody>
