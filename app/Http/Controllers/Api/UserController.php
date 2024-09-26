@@ -12,10 +12,12 @@ class UserController extends Controller
         // ユーザー情報を取得
         $user = $request->user();
 
-        // 名前を取得
-        $name = $user->name;
-
-        // 名前をJSON形式で返す
-        return response()->json(['name' => $name]);
+        // 必要な情報を取得
+        return response()->json([
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email,
+            'template' => $user->template,
+        ]);
     }
 }
