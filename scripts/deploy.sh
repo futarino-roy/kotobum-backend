@@ -29,7 +29,7 @@ fi
 (php artisan down) || true
 
 # Pull the latest version of the app
-if ! (git stash; git fetch origin $1; git checkout $1; git reset --hard origin/$1)
+if ! (sudo git stash; sudo git fetch origin $1; sudo git checkout $1; sudo git reset --hard origin/$1)
 then
     php artisan up
     echo "git pull failed"
