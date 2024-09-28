@@ -15,20 +15,12 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
-
-    'allowed_methods' => ['POST', 'GET'],
-
-    'allowed_origins' => [env('CORS_ORIGIN', '*')],
-
+    'paths' => ['api/*'],
+    'allowed_methods' => ['*'],
+    'allowed_origins' => ['*'], // ここを特定のオリジンに設定することも可能
     'allowed_origins_patterns' => [],
-
     'allowed_headers' => ['*'],
-
     'exposed_headers' => [],
-
     'max_age' => 0,
-
     'supports_credentials' => false,
-
 ];

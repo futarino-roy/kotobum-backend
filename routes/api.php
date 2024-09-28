@@ -16,12 +16,8 @@ Route::post('/login', [LoginController::class, 'login']); // ログイン
 Route::middleware('auth:sanctum')->group(function () {
     // ユーザー情報の取得
     Route::get('/user', [UserController::class, 'show'])->name('user.show');
-
-    // ユーザーのアルバムIDを取得
-    Route::get('/user/album', [UserAlbumController::class, 'getAlbum']);
-
-    // テンプレート選択
     Route::post('/select-template', [TemplateController::class, 'selectTemplate']);
+    Route::get('/user/album', [UserAlbumController::class, 'getAlbum']);
     
     // カバー操作
     Route::post('/albums/{album}/cover', [CoverController::class, 'createOrUpdateCover']);

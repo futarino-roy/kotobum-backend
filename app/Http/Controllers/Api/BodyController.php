@@ -16,18 +16,23 @@ class BodyController extends Controller
             'body' => 'required|string',
         ]);
 
+        // ユーザーの権限をチェック
         if ($album->user_id !== auth()->id() || $album->is_sent) {
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
         }
 
-        $album->update(['body' => $request->body]);
+        // リクエストからボディデータを取得
+        $body = $request->input('body'); // リクエストからボディデータを取得
+        $album->body = $body; // アルバムのボディを更新
+        $album->save(); // データベースに保存
 
-        return response()->json($album, 201);
+        return response()->json(['message' => 'ボディが保存されました', 'album' => $album], 201);
     }
 
     // ボディを更新する
     public function updateBody(Request $request, Album $album)
     {
+        // ユーザーの権限をチェック
         if ($album->user_id !== auth()->id() || $album->is_sent) {
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
         }
@@ -36,14 +41,17 @@ class BodyController extends Controller
             'body' => 'required|string',
         ]);
 
-        $album->update(['body' => $request->body]);
+        // リクエストからボディデータを取得してアルバムに設定
+        $album->body = $request->input('body'); // リクエストからボディデータを取得
+        $album->save(); // データベースに保存
 
-        return response()->json($album);
+        return response()->json(['message' => 'ボディが更新されました', 'album' => $album], 200);
     }
 
     // ボディを送信する
     public function sendBody(Request $request, Album $album)
     {
+        // ユーザーの権限をチェック
         if ($album->user_id !== auth()->id()) {
             return response()->json(['message' => 'Unauthorized'], 403);
         }
@@ -59,7 +67,6 @@ class BodyController extends Controller
         $pdf = PDF::loadView('pdf.album_body', ['album' => $album]);
         $pdf->save(storage_path('app/public/albums/' . $album->id . '_body.pdf'));
 
-        return response()->json($album);
+        return response()->json(['message' => 'ボディが送信され、PDFが生成されました', 'album' => $album], 200);
     }
 }
-
