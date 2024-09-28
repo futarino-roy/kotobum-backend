@@ -40,14 +40,14 @@ set +e
 
 # worker restart
 # 本番ではsupervisorが再起動をかける
-php artisan queue:restart
+sudo php artisan queue:restart
 result=$?
 if [ $result -ne 0 ]; then
     exit $result
 fi
 
 # Exit maintenance mode
-php artisan up
+sudo php artisan up
 result=$?
 if [ $result -ne 0 ]; then
     exit $result
