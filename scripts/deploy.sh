@@ -26,12 +26,12 @@ fi
 
 # Enter maintenance mode or return true
 # if already is in maintenance mode
-(php artisan down) || true
+(sudo php artisan down) || true
 
 # Pull the latest version of the app
 if ! (sudo git stash; sudo git fetch origin $1; sudo git checkout $1; sudo git reset --hard origin/$1)
 then
-    php artisan up
+    sudo php artisan up
     echo "git pull failed"
     exit 1
 fi
@@ -40,14 +40,14 @@ set +e
 
 # worker restart
 # 本番ではsupervisorが再起動をかける
-php artisan queue:restart
+sudo php artisan queue:restart
 result=$?
 if [ $result -ne 0 ]; then
     exit $result
 fi
 
 # Exit maintenance mode
-php artisan up
+sudo php artisan up
 result=$?
 if [ $result -ne 0 ]; then
     exit $result
