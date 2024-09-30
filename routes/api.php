@@ -17,7 +17,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // ユーザー情報の取得
     Route::get('/user', [UserController::class, 'show'])->name('user.show');
     Route::post('/select-template', [TemplateController::class, 'selectTemplate']);
-    Route::get('/user/album', [UserAlbumController::class, 'getAlbum']);
+    Route::get('/user/album', [UserAlbumController::class, 'getOrCreateAlbum']);
     
     // カバー操作
     Route::post('/albums/{album}/cover', [CoverController::class, 'createOrUpdateCover']);
