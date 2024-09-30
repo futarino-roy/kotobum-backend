@@ -11,7 +11,6 @@ class UserAlbumController extends Controller
 {
     public function getOrCreateAlbum(Request $request)
 {
-    try {
         $userId = Auth::id();
 
         // ユーザーに関連するアルバムを取得または作成
@@ -21,10 +20,6 @@ class UserAlbumController extends Controller
         );
 
         return response()->json(['albumId' => $album->id]);
-    } catch (\Exception $e) {
-        \Log::error('Album retrieval or creation error: ' . $e->getMessage());
-        return response()->json(['error' => 'Internal Server Error'], 500);
-    }
 }
 
 }
