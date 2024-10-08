@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('bodies', function (Blueprint $table) {
             $table->id();
-            $table->nsignedBigInteger('albums_id');
+            $table->unsignedBigInteger('albums_id');
             $table->text('htmlContent')->nullable();
             $table->text('cssContent')->nullable();
             $table->JSON('cssUrls')->nullable();
