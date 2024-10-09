@@ -15,12 +15,12 @@ return [
     |
     */
 
-    'paths' => ['api/*'],
+    'paths' => ['*'],
     'allowed_methods' => ['*'],
-    'allowed_origins' => ['*'], // ここを特定のオリジンに設定することも可能
+    'allowed_origins' => ['*'],
     'allowed_origins_patterns' => [],
     'allowed_headers' => ['*'],
     'exposed_headers' => [],
     'max_age' => 0,
-    'supports_credentials' => false,
+    'supports_credentials' => true,
 ];
