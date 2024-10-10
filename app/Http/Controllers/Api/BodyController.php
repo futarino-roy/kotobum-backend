@@ -27,6 +27,8 @@ class BodyController extends Controller
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
         } */
 
+        dd($request->all());
+
         // ボディデータを作成
         $body = new Body();
         $body->albums_id = $album->id;
