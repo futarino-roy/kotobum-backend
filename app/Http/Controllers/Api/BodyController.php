@@ -22,10 +22,8 @@ class BodyController extends Controller
             'imageDBData' => 'nullable|string',
         ]);  
 
-        $ID = auth()->id();
-
         // ユーザーの権限をチェック
-        if ($album->user_id !== $ID || $album->is_sent) {
+        if ($album->user_id !== auth()->id() || $album->is_sent) {
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
         }
 
