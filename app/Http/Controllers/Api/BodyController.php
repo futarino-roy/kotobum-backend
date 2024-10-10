@@ -13,14 +13,14 @@ class BodyController extends Controller
     // ボディを作成または更新する
     public function createOrUpdateBody(Request $request, Album $album)
     {
-        $request->validate([
+        /* $request->validate([
             'htmlContent' => 'required|string',
             'cssContent' => 'required|string',
             'cssUrls' => 'required|json',
             'localStorageData' => 'required|json',
             'newImageDatabase1Data' => 'required|json',
             'imageDBData' => 'required|json',
-        ]);
+        ]); */
 
         // ユーザーの権限をチェック
         /* if ($album->user_id !== auth()->id() || $album->is_sent) {
