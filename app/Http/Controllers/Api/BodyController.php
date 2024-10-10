@@ -13,14 +13,14 @@ class BodyController extends Controller
     // ボディを作成または更新する
     public function createOrUpdateBody(Request $request, Album $album)
     {
-        /* $request->validate([
+        $request->validate([
             'htmlContent' => 'required|string',
-            'cssContent' => 'required|string',
-            'cssUrls' => 'required|json',
-            'localStorageData' => 'required|json',
-            'newImageDatabase1Data' => 'required|json',
-            'imageDBData' => 'required|json',
-        ]); */
+            'cssContent' => 'nullable|string',
+            'cssUrls' => 'nullable|string',
+            'localStorageData' => 'nullable|string',
+            'newImageDatabase1Data' => 'nullable|string',
+            'imageDBData' => 'nullable|string',
+        ]);        
 
         // ユーザーの権限をチェック
         /* if ($album->user_id !== auth()->id() || $album->is_sent) {
@@ -28,7 +28,7 @@ class BodyController extends Controller
         } */
 
         // ボディデータを作成
-       /*  $body = new Body();
+        $body = new Body();
         $body->albums_id = $album->id;
 
         // リクエストからボディデータを取得
@@ -43,10 +43,10 @@ class BodyController extends Controller
         $body->localStorageData = json_decode($request->input('localStorageData'), true);
         $body->newImageDatabase1Data = json_decode($request->input('newImageDatabase1Data'), true);
         $body->imageDBData = json_decode($request->input('imageDBData'), true);
-        $body->save(); */
+        $body->save();
         $album->save();
 
-        return response()->json(['message' => 'ボディが保存されました'/* , 'body' => $body */], 201);
+        return response()->json(['message' => 'ボディが保存されました', 'body' => $body], 201);
     }
 
 
