@@ -20,7 +20,9 @@ class BodyController extends Controller
             'localStorageData' => 'nullable|string',
             'newImageDatabase1Data' => 'nullable|string',
             'imageDBData' => 'nullable|string',
-        ]);        
+        ]);  
+
+        $ID = auth()->id();
 
         // ユーザーの権限をチェック
         /* if ($album->user_id !== auth()->id() || $album->is_sent) {
