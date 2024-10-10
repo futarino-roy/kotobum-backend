@@ -43,8 +43,12 @@ class BodyController extends Controller
         $body->localStorageData = json_decode($request->input('localStorageData'), true);
         $body->newImageDatabase1Data = json_decode($request->input('newImageDatabase1Data'), true);
         $body->imageDBData = json_decode($request->input('imageDBData'), true);
-        $body->save();
-        $album->save();
+        try {
+            $body->save();
+            $album->save();
+        } catch (\Exception $e) {
+            return response()->json(['error' => '保存エラー: ' . $e->getMessage()], 500);
+        }
 
         return response()->json(['message' => 'ボディが保存されました', 'body' => $body], 201);
     }
