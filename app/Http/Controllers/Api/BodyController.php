@@ -27,11 +27,6 @@ class BodyController extends Controller
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
         } */
 
-        $cssUrls = json_decode($request->input('cssUrls'), true);
-if (json_last_error() !== JSON_ERROR_NONE) {
-    return response()->json(['error' => 'cssUrlsの形式が無効です'], 400);
-}
-
         // ボディデータを作成
         $body = new Body();
         $body->albums_id = $album->id;
