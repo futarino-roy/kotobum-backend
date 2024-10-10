@@ -29,7 +29,7 @@ class BodyController extends Controller
 
         // ボディデータを作成
         $body = new Body();
-        $body->albums_id = $album->id;
+        /* $body->albums_id = $album->id;
 
         // リクエストからボディデータを取得
         // $body = $request->input('body'); // リクエストからボディデータを取得
@@ -42,13 +42,9 @@ class BodyController extends Controller
         $body->cssUrls = json_decode($request->input('cssUrls'), true);
         $body->localStorageData = json_decode($request->input('localStorageData'), true);
         $body->newImageDatabase1Data = json_decode($request->input('newImageDatabase1Data'), true);
-        $body->imageDBData = json_decode($request->input('imageDBData'), true);
-        try {
-            $body->save();
-            $album->save();
-        } catch (\Exception $e) {
-            return response()->json(['error' => '保存エラー: ' . $e->getMessage()], 500);
-        }
+        $body->imageDBData = json_decode($request->input('imageDBData'), true); */
+        $body->save();
+        $album->save();
 
         return response()->json(['message' => 'ボディが保存されました', 'body' => $body], 201);
     }
