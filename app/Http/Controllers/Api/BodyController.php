@@ -28,8 +28,8 @@ class BodyController extends Controller
         } */
 
         // ボディデータを作成
-        $body = new Body();
-        /* $body->albums_id = $album->id;
+       /*  $body = new Body();
+        $body->albums_id = $album->id;
 
         // リクエストからボディデータを取得
         // $body = $request->input('body'); // リクエストからボディデータを取得
@@ -42,11 +42,11 @@ class BodyController extends Controller
         $body->cssUrls = json_decode($request->input('cssUrls'), true);
         $body->localStorageData = json_decode($request->input('localStorageData'), true);
         $body->newImageDatabase1Data = json_decode($request->input('newImageDatabase1Data'), true);
-        $body->imageDBData = json_decode($request->input('imageDBData'), true); */
-        $body->save();
+        $body->imageDBData = json_decode($request->input('imageDBData'), true);
+        $body->save(); */
         $album->save();
 
-        return response()->json(['message' => 'ボディが保存されました', 'body' => $body], 201);
+        return response()->json(['message' => 'ボディが保存されました'/* , 'body' => $body */], 201);
     }
 
 
