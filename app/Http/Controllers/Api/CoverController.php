@@ -23,9 +23,9 @@ class CoverController extends Controller
          ]); */
 
         // ユーザーの権限をチェック
-        if ($album->user_id !== auth()->id() || $album->is_sent) {
+        /* if ($album->user_id !== auth()->id() || $album->is_sent) {
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
-        }
+        } */
 
         // カバーデータを作成
         $cover = new Cover();
