@@ -18,11 +18,9 @@
                 <li class="list-items btn btn-danger"><a href="javascript:void(0);" onclick="confirmLogout()" class="nav-link">ログアウト</a></li>
             </ul>
         </div>
-        <ul class="nav-list2">
-            <li class="list-items btn btn-danger"><a href="javascript:void(0);" onclick="confirmLogout()" class="nav-link">ログアウト</a></li>
-        </ul>
     </header>
     <main id="main-content" ></main>
+    
     <div class="container">
         <!-- フラッシュメッセージの表示 -->
         <!-- @if (session('login_msg'))
