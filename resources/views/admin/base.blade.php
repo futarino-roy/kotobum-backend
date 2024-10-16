@@ -9,13 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <header class="bg-light p-2 z-3 fixed-top">
+    <header class="bg-light p-2 z-3 fixed-top" id="header">
         <div class="container d-flex align-items-center">
             <a href="/" class="mr-auto">
                 <img src="{{ asset('img/f-black@4x 1.png') }}" alt="ロゴ">
             </a>
         </div>
     </header>
+    <main id="main-content" ></main>
     <div class="container">
         <!-- フラッシュメッセージの表示 -->
         <!-- @if (session('login_msg'))
@@ -41,7 +42,32 @@
         コトバム公式管理者用サイト.
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+            window.onload = function() {
+        var header = document.getElementById('header');
+        var mainContent = document.getElementById('main-content');
+        
+        // ヘッダーの高さを取得
+        var headerHeight = header.offsetHeight;
+        
+        // メインコンテンツにマージンを設定
+        mainContent.style.marginTop = headerHeight + 'px';
+    };
+    </script>
+
+    <!-- <script>
+    window.onload = function() {
+        var header = document.getElementById('header');
+        var mainContent = document.getElementById('main-content');
+        
+        // ヘッダーの高さを取得
+        var headerHeight = header.offsetHeight;
+        
+        // メインコンテンツにマージンを設定
+        mainContent.style.marginTop = headerHeight + 'px';
+    };
+    </script> -->
+
     <!-- <script>
         // フラッシュメッセージを数秒後に非表示にする
         document.addEventListener('DOMContentLoaded', function () {
