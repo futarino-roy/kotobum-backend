@@ -55,7 +55,7 @@
     };
     </script>
 
-    <!-- <script>
+    <script>
     window.onload = function() {
         var header = document.getElementById('header');
         var mainContent = document.getElementById('main-content');
@@ -66,7 +66,7 @@
         // メインコンテンツにマージンを設定
         mainContent.style.marginTop = headerHeight + 'px';
     };
-    </script> -->
+    </script>
 
     <!-- <script>
         // フラッシュメッセージを数秒後に非表示にする
