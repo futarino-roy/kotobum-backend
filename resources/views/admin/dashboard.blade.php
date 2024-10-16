@@ -4,9 +4,6 @@
 @section('title', '管理者ダッシュボード')
 
 @section('content')
-    <ul class="nav-list2">
-        <li class="list-items btn btn-danger"><a href="javascript:void(0);" onclick="confirmLogout()" class="nav-link">ログアウト</a></li>
-    </ul>
     <h1>管理者ダッシュボード</h1>
 
     <h2>ユーザー一覧</h2>

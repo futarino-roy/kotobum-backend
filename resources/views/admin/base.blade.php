@@ -14,6 +14,9 @@
             <a href="/" class="mr-auto">
                 <img src="{{ asset('img/f-black@4x 1.png') }}" alt="ロゴ">
             </a>
+            <ul class="nav-list2">
+                <li class="list-items btn btn-danger"><a href="javascript:void(0);" onclick="confirmLogout()" class="nav-link">ログアウト</a></li>
+            </ul>
         </div>
         <ul class="nav-list2">
             <li class="list-items btn btn-danger"><a href="javascript:void(0);" onclick="confirmLogout()" class="nav-link">ログアウト</a></li>
