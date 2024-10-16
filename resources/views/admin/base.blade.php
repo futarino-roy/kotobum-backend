@@ -51,7 +51,7 @@
         var headerHeight = header.offsetHeight;
         
         // メインコンテンツにマージンを設定
-        mainContent.style.marginTop = headerHeight + 'px';
+        mainContent.style.marginTop = headerHeight + '50px';
     };
     </script>
 
