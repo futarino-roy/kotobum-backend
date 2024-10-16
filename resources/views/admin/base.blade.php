@@ -15,6 +15,9 @@
                 <img src="{{ asset('img/f-black@4x 1.png') }}" alt="ロゴ">
             </a>
         </div>
+        <ul class="nav-list2">
+            <li class="list-items btn btn-danger"><a href="javascript:void(0);" onclick="confirmLogout()" class="nav-link">ログアウト</a></li>
+        </ul>
     </header>
     <main id="main-content" ></main>
     <div class="container">
@@ -42,18 +45,7 @@
         コトバム公式管理者用サイト.
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
-            window.onload = function() {
-        var header = document.getElementById('header');
-        var mainContent = document.getElementById('main-content');
-        
-        // ヘッダーの高さを取得
-        var headerHeight = header.offsetHeight;
-        
-        // メインコンテンツにマージンを設定
-        mainContent.style.marginTop = headerHeight + '50px';
-    };
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
     window.onload = function() {
