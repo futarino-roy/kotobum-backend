@@ -44,7 +44,7 @@ class BodyController extends Controller
         $body->newImageDatabase1Data = json_decode($request->input('newImageDatabase1Data'), true);
         $body->imageDBData = json_decode($request->input('imageDBData'), true);
         $body->save();
-        $album->save();
+       /*  $album->save(); */
 
         return response()->json(['message' => 'ボディが保存されました', 'body' => $body], 201);
     }
