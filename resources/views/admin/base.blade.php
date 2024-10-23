@@ -10,11 +10,11 @@
 </head>
 <body>
     <header class="bg-light p-2 z-3 fixed-top" id="header">
-        <div class="container d-flex align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
             <a href="/" class="mr-auto">
                 <img src="{{ asset('img/f-black@4x 1.png') }}" alt="ロゴ">
             </a>
-            <ul class="nav-list2">
+            <ul class="nav-list2 d-flex justify-content-end" >
                 <li class="list-items btn btn-danger"><a href="javascript:void(0);" onclick="confirmLogout()" class="nav-link">ログアウト</a></li>
             </ul>
         </div>
