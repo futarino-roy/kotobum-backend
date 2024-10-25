@@ -30,8 +30,11 @@ class BodyController extends Controller
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
         }
 
+        Log::info('Album Data:', $album->all());
+
         // ボディデータを作成
         $body = new Body();
+        Log::info('Called.');
         $body->albums_id = $album->id;
 
         // リクエストからボディデータを取得
