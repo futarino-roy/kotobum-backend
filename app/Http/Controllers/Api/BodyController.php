@@ -31,20 +31,19 @@ class BodyController extends Controller
         }
 
         Log::info('Album Data:', $album->toArray());
+        Log::info('Album ID:', ['id' => $album->id]);  
 
         // ボディデータを作成
         $body = Body::firstOrCreate(
-            [
-                'albums_id' => $album->id
-            ],
+            ['albums_id' => $album->id],
             [
                 'htmlContent' => null, 
                 'cssContent' => null,
                 'cssUrls' => null,
                 "localStorageData" => null,
                 "newImageDatabase1Data" => null,
-                "imageDBData" => null,
-                ]
+                "imageDBData" => null
+            ]
         );
         Log::info('Called.');
 
