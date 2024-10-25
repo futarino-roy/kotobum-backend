@@ -13,7 +13,7 @@ class BodyController extends Controller
     // ボディを作成または更新する
     public function createOrUpdateBody(Request $request, Album $album)
     {
-       
+        try {
 
             // データ処理ロジック
             $request->validate([
@@ -49,8 +49,7 @@ class BodyController extends Controller
             $body->save();
             $album->save();
             return response()->json(['message' => 'ボディが保存されました', 'body' => $body], 201);
-            
-        try {
+
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
