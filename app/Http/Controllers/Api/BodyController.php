@@ -13,40 +13,47 @@ class BodyController extends Controller
     // ボディを作成または更新する
     public function createOrUpdateBody(Request $request, Album $album)
     {
-        $request->validate([
-            'htmlContent' => 'required|string',
-            'cssContent' => 'nullable|string',
-            'cssUrls' => 'nullable|string',
-            'localStorageData' => 'nullable|string',
-            'newImageDatabase1Data' => 'nullable|string',
-            'imageDBData' => 'nullable|string',
-        ]);  
+       
 
-        // ユーザーの権限をチェック
-        if (/* $album->user_id !== auth()->id() || */ $album->is_sent) {
-            return response()->json(['message' => 'Unauthorized or already sent'], 403);
+            // データ処理ロジック
+            $request->validate([
+                'htmlContent' => 'required|string',
+                'cssContent' => 'nullable|string',
+                'cssUrls' => 'nullable|string',
+                'localStorageData' => 'nullable|string',
+                'newImageDatabase1Data' => 'nullable|string',
+                'imageDBData' => 'nullable|string',
+            ]);  
+    
+            // ユーザーの権限をチェック
+            if (/* $album->user_id !== auth()->id() || */ $album->is_sent) {
+                return response()->json(['message' => 'Unauthorized or already sent'], 403);
+            }
+    
+            // ボディデータを作成
+            $body = new Body();
+            $body->albums_id = $album->id;
+    
+            // リクエストからボディデータを取得
+            // $body = $request->input('body'); // リクエストからボディデータを取得
+            // $album->body = $body; // アルバムのボディを更新
+            // $album->save(); // データベースに保存
+    
+            // ボディデータ格納とアルバムデータの保存
+            $body->htmlContent = $request->input('htmlContent');
+            $body->cssContent = $request->input('cssContent');
+            $body->cssUrls = $request->input('cssUrls');
+            $body->localStorageData = $request->input('localStorageData');
+            $body->newImageDatabase1Data = $request->input('newImageDatabase1Data');
+            $body->imageDBData = $request->input('imageDBData');
+            $body->save();
+            $album->save();
+            return response()->json(['message' => 'ボディが保存されました', 'body' => $body], 201);
+            
+        try {
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
         }
-
-        // ボディデータを作成
-        $body = new Body();
-        $body->albums_id = $album->id;
-
-        // リクエストからボディデータを取得
-        // $body = $request->input('body'); // リクエストからボディデータを取得
-        // $album->body = $body; // アルバムのボディを更新
-        // $album->save(); // データベースに保存
-
-        // ボディデータ格納とアルバムデータの保存
-        $body->htmlContent = $request->input('htmlContent');
-        $body->cssContent = $request->input('cssContent');
-        $body->cssUrls = $request->input('cssUrls');
-        $body->localStorageData = $request->input('localStorageData');
-        $body->newImageDatabase1Data = $request->input('newImageDatabase1Data');
-        $body->imageDBData = $request->input('imageDBData');
-        $body->save();
-        $album->save();
-
-        return response()->json(['message' => 'ボディが保存されました', 'body' => $body], 201);
     }
 
 
