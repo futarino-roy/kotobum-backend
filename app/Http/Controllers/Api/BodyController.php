@@ -7,12 +7,15 @@ use Illuminate\Http\Request;
 use App\Models\Album;
 use App\Models\Body;
 use Barryvdh\DomPDF\Facade\PDF;
+use Illuminate\Support\Facades\Log;
+
 
 class BodyController extends Controller
 {
     // ボディを作成または更新する
     public function createOrUpdateBody(Request $request, Album $album)
     {
+        Log::info('Request Data:', $request->all());
         $request->validate([
             'htmlContent' => 'required|string',
             'cssContent' => 'nullable|string',
