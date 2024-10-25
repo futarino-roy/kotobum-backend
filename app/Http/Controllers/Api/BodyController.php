@@ -20,10 +20,10 @@ class BodyController extends Controller
             $request->validate([
                 'htmlContent' => 'required|string',
                 'cssContent' => 'nullable|string',
-                'cssUrls' => 'nullable|json',
-                'localStorageData' => 'nullable|json',
-                'newImageDatabase1Data' => 'nullable|json',
-                'imageDBData' => 'nullable|json',
+                'cssUrls' => 'nullable|array',
+                'localStorageData' => 'nullable|array',
+                'newImageDatabase1Data' => 'nullable|array',
+                'imageDBData' => 'nullable|array',
             ]);  
     
             // ユーザーの権限をチェック
