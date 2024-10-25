@@ -16,7 +16,7 @@ class UserAlbumController extends Controller
         // ユーザーに関連するアルバムを取得または作成
         $album = Album::firstOrCreate(
             ['user_id' => $userId],
-            [/* 'cover' => null, 'body' => null, */ 'is_sent' => false, 'template' => null]
+            ['is_sent' => false, 'template' => null]
         );
 
         return response()->json(['albumId' => $album->id]);

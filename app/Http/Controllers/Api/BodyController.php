@@ -34,6 +34,19 @@ class BodyController extends Controller
 
         // ボディデータを作成
         $body = new Body();
+        $body = Body::firstOrCreate(
+            [
+                'albums_id' => $album->id
+            ],
+            [
+                'htmlContent' => null, 
+                'cssContent' => null,
+                'cssUrls' => null,
+                "localStorageData" => null,
+                "newImageDatabase1Data" => null,
+                "imageDBData" => null,
+                ]
+        );
         Log::info('Called.');
         $body->albums_id = $album->id;
 
