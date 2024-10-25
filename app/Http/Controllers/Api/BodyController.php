@@ -33,7 +33,6 @@ class BodyController extends Controller
         Log::info('Album Data:', $album->toArray());
 
         // ボディデータを作成
-        $body = new Body();
         $body = Body::firstOrCreate(
             [
                 'albums_id' => $album->id
@@ -48,7 +47,6 @@ class BodyController extends Controller
                 ]
         );
         Log::info('Called.');
-        $body->albums_id = $album->id;
 
         // リクエストからボディデータを取得
         // $body = $request->input('body'); // リクエストからボディデータを取得
