@@ -39,10 +39,10 @@ class BodyController extends Controller
         // ボディデータ格納とアルバムデータの保存
         $body->htmlContent = $request->input('htmlContent');
         $body->cssContent = $request->input('cssContent');
-        $body->cssUrls = json_decode($request->input('cssUrls'), true);
-        $body->localStorageData = json_decode($request->input('localStorageData'), true);
-        $body->newImageDatabase1Data = json_decode($request->input('newImageDatabase1Data'), true);
-        $body->imageDBData = json_decode($request->input('imageDBData'), true);
+        $body->cssUrls = $request->input('cssUrls');
+        $body->localStorageData = $request->input('localStorageData');
+        $body->newImageDatabase1Data = $request->input('newImageDatabase1Data');
+        $body->imageDBData = $request->input('imageDBData');
         $body->save();
         $album->save();
 
