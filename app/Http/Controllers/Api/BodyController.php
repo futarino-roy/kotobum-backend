@@ -30,7 +30,7 @@ class BodyController extends Controller
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
         }
 
-        Log::info('Album Data:', $album);
+        Log::info('Album Data:', $album->toArray());
 
         // ボディデータを作成
         $body = new Body();
