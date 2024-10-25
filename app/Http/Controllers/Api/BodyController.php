@@ -14,21 +14,23 @@ class BodyController extends Controller
     public function createOrUpdateBody(Request $request, Album $album)
     {
         try {
-
+            Log::info('Received request', $request->all());
             // データ処理ロジック
             $request->validate([
                 'htmlContent' => 'required|string',
                 'cssContent' => 'nullable|string',
-                'cssUrls' => 'nullable|string',
-                'localStorageData' => 'nullable|string',
-                'newImageDatabase1Data' => 'nullable|string',
-                'imageDBData' => 'nullable|string',
+                'cssUrls' => 'nullable|json',
+                'localStorageData' => 'nullable|json',
+                'newImageDatabase1Data' => 'nullable|json',
+                'imageDBData' => 'nullable|json',
             ]);  
     
             // ユーザーの権限をチェック
             if (/* $album->user_id !== auth()->id() || */ $album->is_sent) {
                 return response()->json(['message' => 'Unauthorized or already sent'], 403);
             }
+
+            Log::info('Data validation passed');
     
             // ボディデータを作成
             $body = new Body();
@@ -47,7 +49,10 @@ class BodyController extends Controller
             $body->newImageDatabase1Data = $request->input('newImageDatabase1Data');
             $body->imageDBData = $request->input('imageDBData');
             $body->save();
-            $album->save();
+          /*   $album->save(); */
+
+          Log::info('Body saved', ['body' => $body]);
+
             return response()->json(['message' => 'ボディが保存されました', 'body' => $body], 201);
 
         } catch (\Exception $e) {
