@@ -16,7 +16,7 @@ class BodyController extends Controller
     public function createOrUpdateBody(Request $request, Album $album)
     {
 
-        Log::info('Album Data:', $album->toArray());
+        Log::info('Album Data:', $album->all());
         Log::info('Album ID:', ['id' => $album->id]); 
         /* Log::info('Request Data:', $request->all()); */
         $request->validate([
