@@ -15,7 +15,7 @@ class BodyController extends Controller
     // ボディを作成または更新する
     public function createOrUpdateBody(Request $request, Album $album)
     {
-        Log::info('Request Data:', $request->all());
+        /* Log::info('Request Data:', $request->all()); */
         $request->validate([
             'htmlContent' => 'required|string',
             'cssContent' => 'nullable|string',
