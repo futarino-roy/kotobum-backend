@@ -15,6 +15,9 @@ class BodyController extends Controller
     // ボディを作成または更新する
     public function createOrUpdateBody(Request $request, Album $album)
     {
+
+        Log::info('Album Data:', $album->toArray());
+        Log::info('Album ID:', ['id' => $album->id]); 
         /* Log::info('Request Data:', $request->all()); */
         $request->validate([
             'htmlContent' => 'required|string',
@@ -30,8 +33,7 @@ class BodyController extends Controller
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
         }
 
-        Log::info('Album Data:', $album->toArray());
-        Log::info('Album ID:', ['id' => $album->id]);  
+         
 
         // ボディデータを作成
         $body = Body::firstOrCreate(
@@ -47,11 +49,6 @@ class BodyController extends Controller
             ]
         );
         Log::info('Called.');
-
-        // リクエストからボディデータを取得
-        // $body = $request->input('body'); // リクエストからボディデータを取得
-        // $album->body = $body; // アルバムのボディを更新
-        // $album->save(); // データベースに保存
 
         // ボディデータ格納とアルバムデータの保存
         $body->htmlContent = $request->input('htmlContent');
