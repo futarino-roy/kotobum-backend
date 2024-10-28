@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Log;
 class BodyController extends Controller
 {
     // ボディを作成または更新する
-    public function createOrUpdateBody(Request $request, Album $album)
+    public function createOrUpdateBody(Request $request, $albumid)
     {
 
-        Log::info('Album Data:', $album->toArray());
+        /* Log::info('Album Data:', $album->toArray());
         Log::info('Album ID:', ['id' => $album->id]); 
-        /* Log::info('Request Data:', $request->all()); */
+        Log::info('Request Data:', $request->all()); */
         $request->validate([
             'htmlContent' => 'required|string',
             'cssContent' => 'nullable|string',
@@ -38,7 +38,7 @@ class BodyController extends Controller
         // ボディデータを作成
         $body = Body::firstOrCreate(
             [
-                'albums_id' => $album->id],
+                'albums_id' => $albumid],
             [
                 'htmlContent' => null, 
                 'cssContent' => null,
@@ -58,7 +58,7 @@ class BodyController extends Controller
         $body->newImageDatabase1Data = $request->input('newImageDatabase1Data');
         $body->imageDBData = $request->input('imageDBData');
         $body->save();
-        $album->save();
+        /* $album->save(); */
 
         return response()->json(['message' => 'ボディが保存されました', 'body' => $body], 201);
     
