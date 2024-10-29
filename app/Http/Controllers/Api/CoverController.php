@@ -11,30 +11,26 @@ use Barryvdh\DomPDF\Facade\PDF;
 class CoverController extends Controller
 {
     // カバーを作成または更新する
-    public function createOrUpdateCover(Request $request, Album $album)
+    public function createOrUpdateCover(Request $request, $albumid)
     {
-       /*  $request->validate([
+        $request->validate([
             'htmlContent' => 'required|string',
-            'cssContent' => 'required|string',
-            'cssUrls' => 'required|json',
-            'localStorageData' => 'required|json',
-            'newImageDatabase1Data' => 'required|json',
-            'imageDBData' => 'required|json',       
-         ]); */
+            'cssContent' => 'nullable|string',
+            'cssUrls' => 'nullable|array',
+            'localStorageData' => 'nullable|array',
+            'newImageDatabase1Data' => 'nullable|array',
+            'imageDBData' => 'nullable|array',
+        ]);  
+
+        $album = Album::findOrFail($albumid);
 
         // ユーザーの権限をチェック
-        /* if ($album->user_id !== auth()->id() || $album->is_sent) {
+        if ($album->user_id !== auth()->id() || $album->is_sent) {
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
-        } */
+        }
 
-        // カバーデータを作成
-        $cover = new Cover();
+        $cover = $album->cover ?? new Cover();
         $cover->albums_id = $album->id;
-
-        // リクエストからカバーデータを取得してアルバムに設定
-       /*  $cover = $request->input('cover'); // リクエストからカバーデータを取得
-        $album->cover = $cover; // アルバムのカバーを更新
-        $album->save(); // データベースに保存 */
 
         // カバーデータ格納とアルバムデータの保存
         $cover->htmlContent = $request->input('cover.htmlContent');
