@@ -20,12 +20,9 @@ class BodyController extends Controller
         Log::info('Album ID:', ['id' => $album->id]); 
         Log::info('Request Data:', $request->all()); */
         $request->validate([
-            'htmlContent' => 'required|string',
-            'cssContent' => 'nullable|string',
-            'cssUrls' => 'nullable|array',
-            'localStorageData' => 'nullable|array',
-            'newImageDatabase1Data' => 'nullable|array',
-            'imageDBData' => 'nullable|array',
+            'textData' => 'required|array',
+            'imgageData' => 'required|array',
+            'textColor' => 'required|array',
         ]);  
 
         $album = Album::findOrFail($albumid);
@@ -41,12 +38,9 @@ class BodyController extends Controller
         /* Log::info('Called.'); */
 
         // ボディデータ格納とアルバムデータの保存
-        $body->htmlContent = $request->input('htmlContent');
-        $body->cssContent = $request->input('cssContent');
-        $body->cssUrls = $request->input('cssUrls');
-        $body->localStorageData = $request->input('localStorageData');
-        $body->newImageDatabase1Data = $request->input('newImageDatabase1Data');
-        $body->imageDBData = $request->input('imageDBData');
+        $body->textData = $request->input('textData');
+        $body->imgageData = $request->input('imgageData');
+        $body->textColor = $request->input('textColor');
         $body->save();
         $body->touch();
         /* $album->save(); */
