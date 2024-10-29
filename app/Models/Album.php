@@ -25,8 +25,8 @@ class Album extends Model
         return $this->hasOne(Body::class, 'albums_id');
     }
 
-    public function Cover()
+    public function cover()
     {
-        return $this->hasOne(Cover::class);
+        return $this->hasOne(Cover::class, 'albums_id');
     }
 }
