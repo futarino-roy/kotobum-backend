@@ -20,9 +20,9 @@ class BodyController extends Controller
         Log::info('Album ID:', ['id' => $album->id]); 
         Log::info('Request Data:', $request->all()); */
         $request->validate([
-            'textData' => 'required|array',
-            'imageData' => 'required|array',
-            'colors' => 'required|array',
+            'textData' => 'required|JSON',
+            'imageData' => 'required|JSON',
+            'colors' => 'required|JSON',
         ]);  
 
         $album = Album::findOrFail($albumid);
