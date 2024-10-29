@@ -21,8 +21,8 @@ class BodyController extends Controller
         Log::info('Request Data:', $request->all()); */
         $request->validate([
             'textData' => 'required|array',
-            'imgageData' => 'required|array',
-            'textColor' => 'required|array',
+            'imageData' => 'required|array',
+            'Color' => 'required|array',
         ]);  
 
         $album = Album::findOrFail($albumid);
@@ -40,7 +40,7 @@ class BodyController extends Controller
         // ボディデータ格納とアルバムデータの保存
         $body->textData = $request->input('textData');
         $body->imgageData = $request->input('imgageData');
-        $body->textColor = $request->input('textColor');
+        $body->textColor = $request->input('colors');
         $body->save();
         $body->touch();
         /* $album->save(); */
