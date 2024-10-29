@@ -22,7 +22,7 @@ class BodyController extends Controller
         $request->validate([
             'textData' => 'required|array',
             'imageData' => 'required|array',
-            'Color' => 'required|array',
+            'colors' => 'required|array',
         ]);  
 
         $album = Album::findOrFail($albumid);
