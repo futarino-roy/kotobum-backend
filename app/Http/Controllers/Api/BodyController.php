@@ -39,7 +39,7 @@ class BodyController extends Controller
 
         // ボディデータ格納とアルバムデータの保存
         $body->textData = $request->input('textData');
-        $body->imgageData = $request->input('imageData');
+        $body->imageData = $request->input('imageData');
         $body->colors = $request->input('colors');
         $body->save();
         $body->touch();
