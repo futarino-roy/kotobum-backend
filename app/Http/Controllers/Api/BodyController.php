@@ -19,11 +19,11 @@ class BodyController extends Controller
         /* Log::info('Album Data:', $album->toArray());
         Log::info('Album ID:', ['id' => $album->id]); 
         Log::info('Request Data:', $request->all()); */
-        /* $request->validate([
+        $request->validate([
             'textData' => 'required|array',
             'imageData' => 'required|array',
             'colors' => 'required|array',
-        ]);   */
+        ]);  
 
         $album = Album::findOrFail($albumid);
 
