@@ -48,6 +48,7 @@ class BodyController extends Controller
         $body->newImageDatabase1Data = $request->input('newImageDatabase1Data');
         $body->imageDBData = $request->input('imageDBData');
         $body->save();
+        $body->touch();
         /* $album->save(); */
 
         return response()->json(['message' => 'ボディが保存されました', 'body' => $body], 201);
