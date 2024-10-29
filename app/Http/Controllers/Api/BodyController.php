@@ -28,15 +28,18 @@ class BodyController extends Controller
             'imageDBData' => 'nullable|array',
         ]);  
 
+        $album = Album::findOrFail($albumid);
+
         // ユーザーの権限をチェック
         /* if ($album->user_id !== auth()->id() || $album->is_sent) {
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
         } */
 
-         
+        $body = $album->body ?? new Body();
+        $body->albums_id = $album->id;
 
         // ボディデータを作成
-        $body = Body::firstOrCreate(
+       /*  $body = Body::firstOrCreate(
             [
                 'albums_id' => $albumid],
             [
@@ -47,7 +50,7 @@ class BodyController extends Controller
                 "newImageDatabase1Data" => null,
                 "imageDBData" => null
             ]
-        );
+        ); */
         Log::info('Called.');
 
         // ボディデータ格納とアルバムデータの保存
