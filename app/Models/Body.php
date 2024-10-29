@@ -21,6 +21,6 @@ class Body extends Model
 
     public function album()
     {
-        return $this->belongsTo(Album::class);
+        return $this->belongsTo(Album::class, 'albums_id');
     }
 }

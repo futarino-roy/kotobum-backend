@@ -22,7 +22,7 @@ class Album extends Model
 
     public function body()
     {
-        return $this->hasOne(Body::class);
+        return $this->hasOne(Body::class, 'albums_id');
     }
 
     public function Cover()
