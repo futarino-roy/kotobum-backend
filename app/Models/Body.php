@@ -19,7 +19,7 @@ class Body extends Model
         'imageDBData'
     ];
 
-    public function Album()
+    public function album()
     {
         return $this->belongsTo(Album::class);
     }

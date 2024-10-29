@@ -20,7 +20,7 @@ class Album extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function Body()
+    public function body()
     {
         return $this->hasOne(Body::class);
     }
