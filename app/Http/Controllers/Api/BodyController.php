@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Log;
 class BodyController extends Controller
 {
     // ボディ情報を取得する
-    public function showBody($albumid)
+    public function showBody(Request $request, $albumid)
     {
         $album = Album::findOrFail($albumid);
         $body = $album->body;

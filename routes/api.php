@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/albums/{albumid}/cover/send', [CoverController::class, 'sendCover']);
 
     // ボディ操作
-    Route::get('/albums/{albumid}/body/show', [BodyController::class, 'showBody']);
+    Route::get('/albums/{albumid}/body', [BodyController::class, 'showBody']);
     Route::post('/albums/{albumid}/body', [BodyController::class, 'createOrUpdateBody']);
     Route::put('/albums/{albumid}/body', [BodyController::class, 'updateBody']);
     Route::post('/albums/{albumid}/body/send', [BodyController::class, 'sendBody']);
