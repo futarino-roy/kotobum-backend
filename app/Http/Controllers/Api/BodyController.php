@@ -12,13 +12,30 @@ use Illuminate\Support\Facades\Log;
 
 class BodyController extends Controller
 {
+    // ボディ情報を取得する
+    public function showBody($albumid)
+    {
+        $album = Album::findOrFail($albumid);
+        $body = $album->body;
+
+        if ($body) {
+            // Bodyが存在する場合、データを返す
+            return response()->json([
+                'textData' => $body->textData,
+                'imageData' => $body->imageData,
+                'colors' => $body->colors,
+            ]);
+        }
+    
+        // Bodyが存在しない場合はそのまま返す
+        return response()->json(null, 204); // 204 No Content
+    }
+
+
+
     // ボディを作成または更新する
     public function createOrUpdateBody(Request $request, $albumid)
     {
-
-        /* Log::info('Album Data:', $album->toArray());
-        Log::info('Album ID:', ['id' => $album->id]); 
-        Log::info('Request Data:', $request->all()); */
         $request->validate([
             'textData' => 'required|JSON',
             'imageData' => 'required|JSON',
@@ -35,19 +52,18 @@ class BodyController extends Controller
         $body = $album->body ?? new Body();
         $body->albums_id = $album->id;
 
-        /* Log::info('Called.'); */
-
         // ボディデータ格納とアルバムデータの保存
         $body->textData = $request->input('textData');
         $body->imageData = $request->input('imageData');
         $body->colors = $request->input('colors');
         $body->save();
-        $body->touch();
+        /* $body->touch(); */
         /* $album->save(); */
 
         return response()->json(['message' => 'ボディが保存されました', 'body' => $body], 201);
     
     }
+
 
 
     // ボディを更新する
@@ -87,6 +103,7 @@ class BodyController extends Controller
         return response()->json(['message' => 'ボディが更新されました', 'body' => $body], 200);
     }
 
+    
 
     // ボディを送信する
     public function sendBody(Request $request, Album $album)
