@@ -14,12 +14,9 @@ class CoverController extends Controller
     public function createOrUpdateCover(Request $request, $albumid)
     {
         $request->validate([
-            'htmlContent' => 'required|string',
-            'cssContent' => 'nullable|string',
-            'cssUrls' => 'nullable|array',
-            'localStorageData' => 'nullable|array',
-            'newImageDatabase1Data' => 'nullable|array',
-            'imageDBData' => 'nullable|array',
+            'textData' => 'required|JSON',
+            'imageData' => 'required|JSON',
+            'colors' => 'required|JSON',
         ]);  
 
         $album = Album::findOrFail($albumid);
@@ -32,18 +29,15 @@ class CoverController extends Controller
         $cover = $album->cover ?? new Cover();
         $cover->albums_id = $album->id;
 
-        // カバーデータ格納とアルバムデータの保存
-        $cover->htmlContent = $request->input('cover.htmlContent');
-        $cover->cssContent = $request->input('cover.cssContent');
-        $cover->cssUrls = json_decode($request->input('cover.cssUrls'), true);
-        $cover->localStorageData = json_decode($request->input('cover.localStorageData'), true);
-        $cover->newImageDatabase1Data = json_decode($request->input('cover.newImageDatabase1Data'), true);
-        $cover->imageDBData = json_decode($request->input('cover.imageDBData'), true);
+        // ボディデータ格納とアルバムデータの保存
+        $cover->textData = $request->input('textData');
+        $cover->imageData = $request->input('imageData');
+        $cover->colors = $request->input('colors');
         $cover->save();
-        $album->save();
+        /* $cover->touch(); */
+        /* $album->save(); */
 
-
-        return response()->json(['message' => 'カバーが保存されました', 'cover' => $cover], 201);
+        return response()->json(['message' => 'ボディが保存されました', 'cover' => $cover], 201);
     }
 
     // カバーを更新する
