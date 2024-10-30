@@ -10,8 +10,6 @@ use Barryvdh\DomPDF\Facade\PDF;
 use Illuminate\Support\Facades\Log;
 
 
-
-
 class BodyController extends Controller
 {
     // ボディ情報を取得する
