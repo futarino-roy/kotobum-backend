@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Album;
 use App\Models\Body;
 use Barryvdh\DomPDF\Facade\PDF;
-use Illuminate\Support\Facades\Log;
 
 
 class BodyController extends Controller
