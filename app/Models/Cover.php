@@ -11,12 +11,9 @@ class Cover extends Model
 
     protected $fillable = [
         'albums_id', 
-        'htmlContet', 
-        'cssContent',
-        'cssUrls', 
-        'localStorageData',
-        'newUmageDatabase1Data',
-        'imageDBData'
+        'textData',
+        'imageData',   
+        'colors'
     ];
 
     public function album()

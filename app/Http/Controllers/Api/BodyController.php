@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Album;
 use App\Models\Body;
 use Barryvdh\DomPDF\Facade\PDF;
-use Illuminate\Support\Facades\Log;
 
 
 class BodyController extends Controller
@@ -51,8 +50,6 @@ class BodyController extends Controller
 
         $body = $album->body ?? new Body();
         $body->albums_id = $album->id;
-
-        Log::info('Called.');
 
         // ボディデータ格納とアルバムデータの保存
         $body->textData = $request->input('textData');
