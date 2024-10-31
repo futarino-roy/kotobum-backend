@@ -10,6 +10,26 @@ use Barryvdh\DomPDF\Facade\PDF;
 
 class CoverController extends Controller
 {
+    // カバー情報を取得する
+    public function showCover($albumid)
+    {
+        $album = Album::findOrFail($albumid);
+        $cover = $album->cover;
+
+        if ($cover) {
+            // Bodyが存在する場合、データを返す
+            return response()->json([
+                'textData' => $cover->textData,
+                'imageData' => $cover->imageData,
+                'colors' => $cover->colors,
+            ]);
+        }
+    
+        // Coverが存在しない場合はそのまま返す
+        return response()->json(null, 204); // 204 No Content
+    }
+
+
     // カバーを作成または更新する
     public function createOrUpdateCover(Request $request, $albumid)
     {

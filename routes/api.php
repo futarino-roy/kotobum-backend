@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user/album', [UserAlbumController::class, 'getOrCreateAlbum']);
     
     // カバー操作
-    Route::get('/albums/{albumid}/cover', [CoverController::class, 'showCover']);
+    Route::get('/albums/{albumid}/showCover', [CoverController::class, 'showCover']);
     Route::post('/albums/{albumid}/cover', [CoverController::class, 'createOrUpdateCover']);
     Route::put('/albums/{albumid}/cover', [CoverController::class, 'updateCover']);
     Route::post('/albums/{albumid}/cover/send', [CoverController::class, 'sendCover']);
