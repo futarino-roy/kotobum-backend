@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::table('albums', function (Blueprint $table) {
             //校了済み属性をボディとカバーそれぞれ設定する
             $table->renameColumn('is_sent', 'body_is_sent');
-            $table->string('cover_is_sent')->after('body_is_sent');
         });
     }
 
@@ -26,7 +25,6 @@ return new class extends Migration
         Schema::table('albums', function (Blueprint $table) {
             //
             $table->renameColumn('body_is_sent', 'is_sent');
-            $table->dropColumn('cover_is_sent');
         });
     }
 };
