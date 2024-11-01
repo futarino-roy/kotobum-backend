@@ -11,7 +11,8 @@ class Album extends Model
     
     protected $fillable = [
         'user_id', 
-        'is_sent', 
+        'body_is_sent', 
+        'cover_is_sent',
         'template'
     ];
 

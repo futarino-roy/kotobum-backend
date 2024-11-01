@@ -18,7 +18,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'login_id',
         'password',
         'template',
     ];
@@ -38,9 +38,9 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    protected $casts = [
+    /* protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
+    ]; */
 
     // public function Album()
     // {

@@ -30,6 +30,7 @@ class CoverController extends Controller
     }
 
 
+
     // カバーを作成または更新する
     public function createOrUpdateCover(Request $request, $albumid)
     {
@@ -42,7 +43,7 @@ class CoverController extends Controller
         $album = Album::findOrFail($albumid);
 
         // ユーザーの権限をチェック
-        if ($album->user_id !== auth()->id() || $album->is_sent) {
+        if ($album->user_id !== auth()->id() || $album->cover_is_sent) {
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
         }
 
@@ -60,7 +61,9 @@ class CoverController extends Controller
         return response()->json(['message' => 'ボディが保存されました', 'cover' => $cover], 201);
     }
 
-    // カバーを更新する
+
+
+    // カバーを更新する(現在不使用)
     public function updateCover(Request $request, Album $album)
     {
         $request->validate([
@@ -73,7 +76,7 @@ class CoverController extends Controller
         ]);
 
         // ユーザーの権限をチェック
-        if ($album->user_id !== auth()->id() || $album->is_sent) {
+        if ($album->user_id !== auth()->id() || $album->cover_is_sent) {
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
         }
 
@@ -97,24 +100,26 @@ class CoverController extends Controller
         return response()->json(['message' => 'カバーが更新されました', 'cover' => $cover], 200);
     }
 
+
+
     // カバーを送信する
-    public function sendCover(Request $request, Album $album)
+    public function sendCover(Request $request, $albumid)
     {
+        $album = Album::findOrFail($albumid);
+
         // ユーザーの権限をチェック
         if ($album->user_id !== auth()->id()) {
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 
-        if ($album->is_sent) {
+        if ($album->cover_is_sent) {
             return response()->json(['message' => 'Already sent'], 400);
         }
 
         $cover = Cover::where('albums_id', $album->id)->get();
 
-        $album->is_sent = true;
+        $album->cove_is_sent = true;
         $album->save();
-
-  
 
         // カバーのみを含むPDF生成を追加
         $pdf = PDF::loadView('pdf.album_cover', ['album' => $cover]);

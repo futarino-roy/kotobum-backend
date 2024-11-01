@@ -44,7 +44,7 @@ class BodyController extends Controller
         $album = Album::findOrFail($albumid);
 
         // ユーザーの権限をチェック
-        if ($album->user_id !== auth()->id() || $album->is_sent) {
+        if ($album->user_id !== auth()->id() || $album->body_is_sent) {
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
         }
 
@@ -64,7 +64,7 @@ class BodyController extends Controller
 
 
 
-    // ボディを更新する
+    // ボディを更新する（現在不使用）
     public function updateBody(Request $request, Album $album, Body $body)
     {
          $request->validate([
@@ -77,7 +77,7 @@ class BodyController extends Controller
         ]);
 
         // ユーザーの権限をチェック
-        if ($album->user_id !== auth()->id() || $album->is_sent) {
+        if ($album->user_id !== auth()->id() || $album->body_is_sent) {
             return response()->json(['message' => 'Unauthorized or already sent'], 403);
         }
 
@@ -104,26 +104,29 @@ class BodyController extends Controller
     
 
     // ボディを送信する
-    public function sendBody(Request $request, Album $album)
+    public function sendBody(Request $request, $albumid)
     {
+
+        $album = Album::findOrFail($albumid);
+
         // ユーザーの権限をチェック
         if ($album->user_id !== auth()->id()) {
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 
-        if ($album->is_sent) {
+        if ($album->body_is_sent) {
             return response()->json(['message' => 'Already sent'], 400);
         }
 
         $body = Body::where('albums_id', $album->id)->get();
 
-        $album->is_sent = true;
+        $album->body_is_sent = true;
         $album->save();
 
 
         // ボディのみを含むPDF生成を追加
-        $pdf = PDF::loadView('pdf.album_body', ['body' => $body]);
-        $pdf->save(storage_path('app/public/albums/' . $body->album_id . '_body.pdf'));
+        /* $pdf = PDF::loadView('pdf.album_body', ['body' => $body]);
+        $pdf->save(storage_path('app/public/albums/' . $body->album_id . '_body.pdf')); */
 
         return response()->json(['message' => 'ボディが送信され、PDFが生成されました', 'body' => $body], 200);
     }

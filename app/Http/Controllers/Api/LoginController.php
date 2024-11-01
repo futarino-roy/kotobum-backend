@@ -15,7 +15,7 @@ class LoginController extends Controller
     public function login(Request $request){
         // バリデーション
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
+            'login_id' => 'required',
             'password' => 'required'
         ]);
 
@@ -24,8 +24,8 @@ class LoginController extends Controller
         }
 
         // ユーザー認証
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $user = User::where('email', $request->email)->first();
+        if (Auth::attempt(['login_id' => $request->login_id, 'password' => $request->password])) {
+            $user = User::where('login_id', $request->login_id)->first();
             $user->tokens()->delete();
             $token = $user->createToken("login:user{$user->id}")->plainTextToken;
 

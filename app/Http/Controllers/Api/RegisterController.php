@@ -16,7 +16,7 @@ class RegisterController extends Controller
         // バリデーション
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users|email',
+            'login_id' => 'required|unique:users',
             'password' => 'required|string|min:8',
             'template' => 'required|string',
         ]);
@@ -30,7 +30,7 @@ class RegisterController extends Controller
         // ユーザーを作成
         $user = User::create([
             'name' => $request->name,
-            'email' => $request->email,
+            'login_id' => $request->login_id,
             'password' => Hash::make($request->password),
             'template' => $request->template,
         ]);
