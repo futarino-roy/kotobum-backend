@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('albums', function (Blueprint $table) {
             //
-            $table->string('cover_is_sent')->after('body_is_sent');
+            $table->boolean('cover_is_sent')->default(false)->after('body_is_sent');
         });
     }
 
