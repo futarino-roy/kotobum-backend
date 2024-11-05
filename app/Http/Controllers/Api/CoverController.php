@@ -103,7 +103,7 @@ class CoverController extends Controller
 
 
     // カバーを送信する
-    public function sendCover(Request $request, $albumid)
+    public function sendCover($albumid)
     {
         $album = Album::findOrFail($albumid);
 
@@ -116,15 +116,15 @@ class CoverController extends Controller
             return response()->json(['message' => 'Already sent'], 400);
         }
 
-        $cover = Cover::where('albums_id', $album->id)->get();
+        /* $cover = Cover::where('albums_id', $album->id)->get(); */
 
-        $album->cove_is_sent = true;
+        $album->cover_is_sent = true;
         $album->save();
 
         // カバーのみを含むPDF生成を追加
-        $pdf = PDF::loadView('pdf.album_cover', ['album' => $cover]);
-        $pdf->save(storage_path('app/public/albums/' . $cover->album_id . '_cover.pdf'));
+        /* $pdf = PDF::loadView('pdf.album_cover', ['album' => $cover]);
+        $pdf->save(storage_path('app/public/albums/' . $cover->album_id . '_cover.pdf')); */
 
-        return response()->json(['message' => 'カバーが送信され、PDFが生成されました', 'cover' => $cover], 200);
+        return response()->json(['message' => 'カバーが送信されました'/* , 'cover' => $cover */], 200);
     }
 }

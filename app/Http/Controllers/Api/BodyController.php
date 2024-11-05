@@ -118,7 +118,7 @@ class BodyController extends Controller
             return response()->json(['message' => 'Already sent'], 400);
         }
 
-        $body = Body::where('albums_id', $album->id)->get();
+        /* $body = Body::where('albums_id', $album->id)->get(); */
 
         $album->body_is_sent = true;
         $album->save();
@@ -128,6 +128,6 @@ class BodyController extends Controller
         /* $pdf = PDF::loadView('pdf.album_body', ['body' => $body]);
         $pdf->save(storage_path('app/public/albums/' . $body->album_id . '_body.pdf')); */
 
-        return response()->json(['message' => 'ボディが送信され、PDFが生成されました', 'body' => $body], 200);
+        return response()->json(['message' => 'ボディが送信されました'/* , 'body' => $body */], 200);
     }
 }
