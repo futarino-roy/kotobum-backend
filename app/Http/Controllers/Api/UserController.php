@@ -18,7 +18,7 @@ class UserController extends Controller
             'name' => $user->name,
             'login_id' => $user->login_id,
             'template' => $user->template,
-            'format' => $user->fotmat,
+            'format' => $user->format,
         ]);
     }
 }
