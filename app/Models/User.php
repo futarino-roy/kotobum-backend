@@ -21,6 +21,7 @@ class User extends Authenticatable
         'login_id',
         'password',
         'template',
+        'format',
     ];
 
     /**
