@@ -19,6 +19,7 @@ class RegisterController extends Controller
             'login_id' => 'required|unique:users',
             'password' => 'required|string|min:8',
             'template' => 'required|string',
+            'format' => 'required|integer'
         ]);
 
         // バリデーションエラーがあればレスポンスを返す
@@ -33,6 +34,7 @@ class RegisterController extends Controller
             'login_id' => $request->login_id,
             'password' => Hash::make($request->password),
             'template' => $request->template,
+            'format' => $request->format,
         ]);
 
         // トークンを生成
