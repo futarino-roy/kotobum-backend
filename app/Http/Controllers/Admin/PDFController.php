@@ -53,7 +53,7 @@ class PDFController extends Controller
         $mpdf = LaravelMpdf::loadHTML($htmlContent);
 
         // mPDFインスタンスにアクセスしてタイトルを設定
-        $mpdf->setTitle('User ' . 'test' . ' PDF'); // setTitleを正しく呼び出す
+        $mpdf->SetTitle('My Title');
 
         // 表示させる場合
         return $mpdf->stream('document.pdf');
