@@ -15,8 +15,9 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/coverHTML/{userid}', [PDFController::class, 'coverHTML'])->name('admin.coverHTML'); 
         Route::get('/bodyHTML/{userid}', [PDFController::class, 'bodyHTML'])->name('admin.bodyHTML'); 
-       /*  Route::post('/PDF', [PDFController::class, 'PDF'])->name('admin.PDF'); 
-        Route::get('ユーザー情報（所属・ステ・関連アルバムID）取得', [::class, ''])->name('');
+        Route::post('/PDF', [PDFController::class, 'PDF'])->name('admin.PDF'); 
+        
+        /* Route::get('ユーザー情報（所属・ステ・関連アルバムID）取得', [::class, ''])->name('');
         Route::get('ユーザー情報（所属個別テーブル？）取得', [::class, ''])->name('');
         Route::get('コトバム編集状況取得', [::class, ''])->name(''); */
 
