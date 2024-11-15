@@ -52,9 +52,6 @@ class PDFController extends Controller
         // HTMLをPDFに変換
         $mpdf = LaravelMpdf::loadHTML($htmlContent);
 
-        // mPDFインスタンスにアクセスしてタイトルを設定
-        $mpdf->SetTitle('My Title');
-
         // 表示させる場合
         return $mpdf->stream('document.pdf');
 
