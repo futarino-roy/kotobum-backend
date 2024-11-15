@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PDFController;
 
 
 
@@ -12,9 +13,9 @@ Route::prefix('admin')->group(function () {
         Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout'); // ログアウト / Logout
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
-        /*Route::get('/coverHTML', [PDFController::class, 'coverHTML'])->name('admin.coverHTML'); 
+        Route::get('/coverHTML', [PDFController::class, 'coverHTML'])->name('admin.coverHTML'); 
         Route::get('/bodyHTML', [PDFController::class, 'bodyHTML'])->name('admin.bodyHTML'); 
-        Route::post('/PDF', [PDFController::class, 'PDF'])->name('admin.PDF'); 
+       /*  Route::post('/PDF', [PDFController::class, 'PDF'])->name('admin.PDF'); 
         Route::get('ユーザー情報（所属・ステ・関連アルバムID）取得', [::class, ''])->name('');
         Route::get('ユーザー情報（所属個別テーブル？）取得', [::class, ''])->name('');
         Route::get('コトバム編集状況取得', [::class, ''])->name(''); */
