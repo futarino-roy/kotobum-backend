@@ -29,8 +29,6 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->template }}</td>
                     <td>{{ $user->created_at }}</td>
-                    <!-- <td><a href="{{ route('', $) }}">編集</a></td>
-                    <td><a href="{{ route('', $) }}">編集</a></td> -->
                     <td><a href="{{ route('admin.coverHTML', $user->id) }}">PDF</a></td>
                     <td><a href="{{ route('admin.bodyHTML', $user->id) }}">PDF</a></td>
                 </tr>
