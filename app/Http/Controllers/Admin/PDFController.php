@@ -11,6 +11,7 @@ use App\Models\Cover;
 use App\Models\User;
 use mPDF;
 use Meneses\LaravelMpdf\Facades\LaravelMpdf;
+use Meneses\LaravelMpdf\LaravelMpdfServiceProvider;
 
 class PDFController extends Controller
 {
