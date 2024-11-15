@@ -49,8 +49,14 @@ class PDFController extends Controller
     {
         $htmlContent = $request->input('html_content');
 
-        // mPDFインスタンスを作成し、HTMLをPDFに変換
-        $mpdf = LaravelMpdf::loadHTML($htmlContent);
+        // mPDFインスタンスを取得
+        $mpdf = LaravelMpdf::getMpdf();
+
+        // PDFタイトルを設定
+        $mpdf->SetTitle('User ' . 'test' . ' PDF');
+
+        // HTMLをPDFに変換
+        $mpdf->WriteHTML($htmlContent);
 
         // 表示させる場合
         return $mpdf->stream('document.pdf');
