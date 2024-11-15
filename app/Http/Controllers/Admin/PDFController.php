@@ -28,10 +28,10 @@ class PDFController extends Controller
     }
 
 
-    public function bodyHTML(Request $request)
+    public function bodyHTML($userid)
     {
         // データを取得
-        $user = User::findOrFail($request);
+        $user = User::findOrFail($userid);
         $album = $user->album()->firstOrFail(); // ユーザーのアルバムを取得
         $cover = $album->cover;  // アルバムに関連する body を取得
     
