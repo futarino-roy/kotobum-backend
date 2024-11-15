@@ -17,7 +17,7 @@ class PDFController extends Controller
     {
         // データを取得
         $user = User::findOrFail($userid);
-        $album = $user->albums()->firstOrFail(); // ユーザーのアルバムを取得
+        $album = $user->album()->firstOrFail(); // ユーザーのアルバムを取得
         $cover = $album->cover;  // アルバムに関連する body を取得
         
         // 表示するテンプレートの種類を決定
@@ -32,7 +32,7 @@ class PDFController extends Controller
     {
         // データを取得
         $user = User::findOrFail($request);
-        $album = $user->albums()->firstOrFail(); // ユーザーのアルバムを取得
+        $album = $user->album()->firstOrFail(); // ユーザーのアルバムを取得
         $cover = $album->cover;  // アルバムに関連する body を取得
     
         // 表示するテンプレートの種類を決定
