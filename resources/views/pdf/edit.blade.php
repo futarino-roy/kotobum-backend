@@ -12,7 +12,7 @@
 
         <!-- 編集可能なテキストエリア（動的に埋め込むテンプレートをここに表示）-->
         <textarea id="html-content" name="html_content">
-            <!-- @include('format.' . $format) --> <!-- 動的にテンプレートを切り替え -->
+             <!-- 動的にテンプレートを切り替え -->
         </textarea><br><br>
 
      <button type="submit">PDFを生成</button>
