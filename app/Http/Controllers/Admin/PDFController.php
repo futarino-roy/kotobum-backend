@@ -13,10 +13,10 @@ use mPDF;
 
 class PDFController extends Controller
 {
-    public function coverHTML(Request $request)
+    public function coverHTML($userid)
     {
         // データを取得
-        $user = User::findOrFail($request);
+        $user = User::findOrFail($userid);
         $album = $user->albums()->firstOrFail(); // ユーザーのアルバムを取得
         $cover = $album->cover;  // アルバムに関連する body を取得
         
