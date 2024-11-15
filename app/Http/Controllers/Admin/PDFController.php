@@ -20,7 +20,7 @@ class PDFController extends Controller
         $cover = $album->cover;  // アルバムに関連する body を取得 */
         
         // 表示するテンプレートの種類を決定
-        // $format = 'template1'; // 条件によって変更
+        // $format = 'template1'; // 条件によって変更//
 
         // ビューにデータを渡す
         return view('pdf.edit'/* , compact('cover', 'template') */);
