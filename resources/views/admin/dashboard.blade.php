@@ -15,8 +15,8 @@
                 <th>メールアドレス</th>
                 <th>A面B面</th>
                 <th>作成日</th>
-                <th>Cover編集（仮）</th>
-                <th>Body編集（仮）</th>
+                <!-- <th>Cover編集（仮）</th>
+                <th>Body編集（仮）</th> -->
                 <th>coverPDF</th>
                 <th>bodyPDF</th>
             </tr>
@@ -29,10 +29,10 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->template }}</td>
                     <td>{{ $user->created_at }}</td>
-                    <td><a href="{{ route('', $) }}">編集</a></td>
-                    <td><a href="{{ route('', $) }}">編集</a></td>
-                    <td><a href="{{ route('', $) }}">PDF</a></td>
-                    <td><a href="{{ route('', $) }}">PDF</a></td>
+                    <!-- <td><a href="{{ route('', $) }}">編集</a></td>
+                    <td><a href="{{ route('', $) }}">編集</a></td> -->
+                    <td><a href="{{ route('admin.coverHTML', $user->id) }}">PDF</a></td>
+                    <td><a href="{{ route('admin.bodyHTML', $user->id) }}">PDF</a></td>
                 </tr>
             @endforeach
         </tbody>
