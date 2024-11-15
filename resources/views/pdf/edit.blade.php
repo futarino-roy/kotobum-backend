@@ -18,7 +18,7 @@
      <button type="submit">PDFを生成</button>
     </form>
 
-    <h2>プレビュー</h2>
+    <h2>プレビュープレビュー</h2>
     <div id="preview"></div>
 
     <script>
