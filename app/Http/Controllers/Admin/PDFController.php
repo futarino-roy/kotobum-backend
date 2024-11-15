@@ -52,7 +52,7 @@ class PDFController extends Controller
         $mpdf = new LaravelMpdf();
 
         // HTMLをPDFに変換
-        $mpdf = mPDF::loadHTML($htmlContent);
+        $mpdf = LaravelMpdf::loadHTML($htmlContent);
 
         // 表示させる場合
         return $mpdf->stream('document.pdf');
