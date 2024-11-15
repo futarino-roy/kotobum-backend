@@ -10,7 +10,7 @@ use App\Models\Body;
 use App\Models\Cover;
 use App\Models\User;
 use mPDF;
-use Meneses\LaravelMpdf\Facades\LaravelMpdf;
+/* use Meneses\LaravelMpdf\Facades\LaravelMpdf; */
 use Meneses\LaravelMpdf\LaravelMpdfServiceProvider;
 
 class PDFController extends Controller
@@ -50,7 +50,7 @@ class PDFController extends Controller
     {
         $htmlContent = $request->input('html_content');
 
-        $mpdf = new LaravelMpdf();
+        /* $mpdf = new LaravelMpdf(); */
 
         // HTMLをPDFに変換
         $mpdf = LaravelMpdf::loadHTML($htmlContent);
