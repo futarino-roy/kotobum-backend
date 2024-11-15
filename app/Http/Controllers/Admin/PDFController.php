@@ -13,12 +13,12 @@ use mPDF;
 
 class PDFController extends Controller
 {
-    public function coverHTML($userid)
+    public function coverHTML(Request $request)
     {
-        /* // データを取得
-        $user = User::findOrFail($userid);
+        // データを取得
+        $user = User::findOrFail($request);
         $album = $user->albums()->firstOrFail(); // ユーザーのアルバムを取得
-        $cover = $album->cover;  // アルバムに関連する body を取得 */
+        $cover = $album->cover;  // アルバムに関連する body を取得
         
         // 表示するテンプレートの種類を決定
         // $format = 'template1'; // 条件によって変更//
@@ -28,12 +28,12 @@ class PDFController extends Controller
     }
 
 
-    public function bodyHTML($userid)
+    public function bodyHTML(Request $request)
     {
         // データを取得
-        /* $user = User::findOrFail($userid);
+        $user = User::findOrFail($request);
         $album = $user->albums()->firstOrFail(); // ユーザーのアルバムを取得
-        $cover = $album->cover;  // アルバムに関連する body を取得 */
+        $cover = $album->cover;  // アルバムに関連する body を取得
     
         // 表示するテンプレートの種類を決定
         // $format = 'template1'; // 条件によって変更
