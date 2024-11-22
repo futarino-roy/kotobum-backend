@@ -9,7 +9,8 @@ use App\Models\Album;
 use App\Models\Body;
 use App\Models\Cover;
 use App\Models\User;
-use Meneses\LaravelMpdf\Facades\LaravelMpdf;
+use mPDF;
+use Mccarlosen\LaravelMpdf\Facades\LaravelMpdf;
 use Meneses\LaravelMpdf\LaravelMpdfServiceProvider;
 
 class PDFController extends Controller

@@ -169,8 +169,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-        // Meneses\LaravelMpdf\LaravelMpdfServiceProvider::class,
-        
+        Mccarlosen\LaravelMpdf\LaravelMpdfServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -187,7 +186,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         "ApiConst" => App\Consts\ApiConst::class,
-        'mPDF' => Meneses\LaravelMpdf\LaravelMpdfServiceProvider::class
+        'mPDF' => Mccarlosen\LaravelMpdf\Facades\LaravelMpdf::class,
     ])->toArray(),
 
 ];
