@@ -22,6 +22,7 @@ class CoverController extends Controller
                 'textData' => $cover->textData,
                 'imageData' => $cover->imageData,
                 'colors' => $cover->colors,
+                'covertext'=> $cover->covertext,
             ]);
         }
     
