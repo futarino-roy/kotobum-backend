@@ -9,6 +9,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
+    body {
+        padding-bottom: 50px; /* フッター高さ分の余白 */
+    }
+    
     table {
       width: 80%;
       margin: 20px auto;
