@@ -18,7 +18,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/bodyHTML/{userid}', [PDFController::class, 'bodyHTML'])->name('admin.bodyHTML'); 
         Route::post('/PDF', [PDFController::class, 'PDF'])->name('admin.PDF'); 
 
-        Route::post('/show-partner/{id}/', [PartnerController::class, 'showPartner'])->name('admin.showPartner');
+        Route::get('/show-partner/{id}/', [PartnerController::class, 'showPartner'])->name('admin.showPartner');
         /* Route::post('/set-partner/{id}/, [PartnerController::class, 'setPartner'])->name('admin.setPartner');
         Route::post('/switch-partner/{id}/', [PartnerController::class, 'switchPartner'])->name('admin.switchPartner');
         Route::post('/detach-partner/{id}/', [PartnerController::class, 'detachPartner'])->name('admin.detachPartner'); */
