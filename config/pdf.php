@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'mode'                     => '',
-    'format'                   => 'A5',//A5とかってサイズじゃない
+    'mode'                     => 'ja',
+    'format'                   => 'A5',
     'default_font_size'        => '12',
     'default_font'             => 'sans-serif',
     'margin_left'              => 10,
@@ -25,9 +25,27 @@ return [
     'watermark_image_alpha'    => 0.2,
     'watermark_image_size'     => 'D',
     'watermark_image_position' => 'P',
-    'custom_font_dir'          => '',
-    'custom_font_data'         => [],
-    'auto_language_detection'  => true,
+    'custom_font_dir'          => public_path('fonts/'),
+    'custom_font_data'         => [ 'ZenMaruGothic' => [ 
+                                        'R' => 'ZenMaruGothic-Regular.ttf',
+                                        'Bl' => 'ZenMaruGothic-Black.ttf',
+                                        'Bo' => 'ZenMaruGothic-Bold.ttf',
+                                        'L' => 'ZenMaruGothic-Light.ttf',
+                                        'M' => 'ZenMaruGothic-Medium.ttf',
+                                    ],
+                                    'LeagueSpartan' => [
+                                        'R' => 'LeagueSpartan-Regular.ttf',
+                                        'Bo' => 'LeagueSpartan-Bold.ttf',
+                                        'SBo' => 'LeagueSpartan-SemiBold.ttf',
+                                        'EBo' => 'LeagueSpartan-ExtraBold.ttf',
+                                        'Bl' => 'LeagueSpartan-Black.ttf',
+                                        'L' => 'LeagueSpartan-Light.ttf',
+                                        'EL' => 'LeagueSpartan-ExtraLight.ttf',
+                                        'M' => 'LeagueSpartan-Medium.ttf',
+                                        'T' => 'LeagueSpartan-Thin.ttf'
+                                    ]
+                                  ],
+    'auto_language_detection'  => false,
     'temp_dir'                 => storage_path('app'),
     'pdfa'                     => false,
     'pdfaauto'                 => false,

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PDFController;
+use App\Http\Controllers\Admin\PartnerController;
 
 
 
@@ -16,6 +17,11 @@ Route::prefix('admin')->group(function () {
         Route::get('/coverHTML/{userid}', [PDFController::class, 'coverHTML'])->name('admin.coverHTML'); 
         Route::get('/bodyHTML/{userid}', [PDFController::class, 'bodyHTML'])->name('admin.bodyHTML'); 
         Route::post('/PDF', [PDFController::class, 'PDF'])->name('admin.PDF'); 
+
+        /* Route::post('/set-partner/{id}/set-partner', [PartnerController::class, 'setPartner']);
+        Route::post('/switch-partner/{id}/switch-partner', [PartnerController::class, 'switchPartner']);
+        Route::post('/detach-partner/{id}/detach-partner', [PartnerController::class, 'detachPartner']); */
+
         
         /* Route::get('ユーザー情報（所属・ステ・関連アルバムID）取得', [::class, ''])->name('');
         Route::get('ユーザー情報（所属個別テーブル？）取得', [::class, ''])->name('');

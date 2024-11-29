@@ -19,15 +19,42 @@ class PDFController extends Controller
     {
         // データを取得
         $user = User::findOrFail($userid);
-        $album = $user->album()->firstOrFail(); // ユーザーのアルバムを取得
+        $album = $user->album()->firstOrFail(); // ユーザーのアルバムを取得 アルバム大文字？
         $cover = $album->cover;  // アルバムに関連する body を取得
+        $coverB = $user->partnerCover()->first(); //パートナーのカバーを取得
+
+        // JSONデータを配列にデコード
+        $textData = json_decode($cover->textdata,true); // trueを設定して連想配列で取得
+        $textDataB = json_decode($coverB->textdata,true); 
+        $colors = json_decode($cover->colors, true);
+        $colorsB = json_decode($coverB->colors, true);
+        $imageData = json_decode($cover->imageData, true);
+        $imageDataB = json_decode($coverB->imageData, true);
+
+        // 各画像データをBase64形式でエンコード
+        if ($imageData['image']) {
+            // 画像データがバイナリの場合、Base64にエンコード
+            $imageData['image'] = 'data:image/jpeg;base64,' . base64_encode($imageData['image']);
+        }
+        if ($imageDataB['image']) {
+            $imageDataB['image'] = 'data:image/jpeg;base64,' . base64_encode($imageDataB['image']);
+        }
         
         // 表示するテンプレートの種類を決定
-        // $format = 'template1'; // 条件によって変更//
+        switch ($user->format) {
+            case 1:
+                $format = 'cover1';
+                break;
+            
+            /* case 2
+                $format = ''
+                break; */
+        }
 
         // ビューにデータを渡す
-        return view('pdf.edit'/* , compact('cover', 'template') */);
+        return view('pdf.edit', compact('format', 'textdata', 'colors', 'imageData'));
     }
+
 
 
     public function bodyHTML($userid)
@@ -35,22 +62,46 @@ class PDFController extends Controller
         // データを取得
         $user = User::findOrFail($userid);
         $album = $user->album()->firstOrFail(); // ユーザーのアルバムを取得
-        $cover = $album->cover;  // アルバムに関連する body を取得
+        $body = $album->body;  // アルバムに関連する body を取得
     
+        // JSONデータを配列にデコード
+        $textData = json_decode($body->textdata,true); // trueを設定して連想配列で取得
+
+        $colors = json_decode($body->colors, true);
+
+        $imageData = json_decode($body->imageData, true);
+
+        // 各画像データをBase64形式でエンコード
+        foreach ($imageData as &$item) {
+            if ($item['image']) {
+                // 画像データがバイナリの場合、Base64にエンコード
+                $item['image'] = 'data:image/jpeg;base64,' . base64_encode($item['image']);
+            }
+        }
+        
         // 表示するテンプレートの種類を決定
-        // $format = 'template1'; // 条件によって変更
+        switch ($user->format) {
+            case 1:
+                $format = 'body1';
+                break;
+            
+            /* case 2
+                $format = ''
+                break; */
+        }
 
         // ビューにデータを渡す
-        return view('pdf.edit'/* , compact('Body', 'template') */);
+        return view('pdf.edit', compact('format', 'textdata', 'colors', 'imageData'));
 
     }
     
+
 
     public function PDF(Request $request)
     {
         $htmlContent = $request->input('html_content');
 
-        /* $mpdf = new LaravelMpdf(); */
+        $mpdf = new LaravelMpdf(); //サイズ指定 カバー335、250　ボディ146、206
 
         // HTMLをPDFに変換
         $mpdf = LaravelMpdf::loadHTML($htmlContent);
