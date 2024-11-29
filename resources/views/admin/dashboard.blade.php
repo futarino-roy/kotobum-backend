@@ -6,7 +6,7 @@
 @section('content')
     <h1>管理者ダッシュボード</h1>
 
-    <h2>ユーザー一覧</h2>
+    <h2 style="margin-left:10%;">ユーザー一覧</h2>
     <table border="1">
         <thead>
             <tr>
