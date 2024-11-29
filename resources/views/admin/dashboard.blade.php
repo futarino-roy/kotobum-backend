@@ -12,7 +12,7 @@
             <tr>
                 <th>ID</th>
                 <th>名前</th>
-                <th>メールアドレス</th>
+                <th>ログインID</th>
                 <th>A面B面</th>
                 <th>作成日</th>
                 <!-- <th>Cover編集（仮）</th>
@@ -26,7 +26,7 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->login_id }}</td>
                     <td>{{ $user->template }}</td>
                     <td>{{ $user->created_at }}</td>
                     <td><a href="{{ route('admin.coverHTML', $user->id) }}">PDF</a></td>

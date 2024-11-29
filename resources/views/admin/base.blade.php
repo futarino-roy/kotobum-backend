@@ -8,6 +8,34 @@
     <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<style>
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse; /* 罫線を重ねてスッキリ表示 */
+      text-align: left;
+    }
+
+    th, td {
+      border: 1px solid #ddd; /* 枠線の色 */
+      padding: 8px; /* セル内の余白 */
+    }
+
+    th {
+      background-color: #f4f4f4; /* ヘッダーの背景色 */
+      font-weight: bold; /* 太字 */
+      text-transform: uppercase; /* 大文字に変換 */
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9; /* 偶数行の背景色 */
+    }
+
+    tr:hover {
+      background-color: #f1f1f1; /* ホバー時の行の色 */
+    }
+  </style>
+
 <body>
     <header class="bg-light p-2 z-3 fixed-top" id="header">
         <div class="container d-flex justify-content-between align-items-center">
