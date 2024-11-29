@@ -13,7 +13,8 @@ class Cover extends Model
         'albums_id', 
         'textData',
         'imageData',   
-        'colors'
+        'colors',
+        'covertext',
     ];
 
     public function album()
@@ -27,7 +28,7 @@ class Cover extends Model
 
         static::updated(function ($cover) {
             // 対象カラムが変更された場合のみ処理を実行
-            if ($cover->isDirty('status')) {
+            if ($cover->isDirty('covertext')) {
                 $album = $cover->album;
                 $user = $album->user; // カバーが紐づいているユーザーを取得
 
@@ -37,7 +38,7 @@ class Cover extends Model
                     foreach ($user->partner->albums as $partnerAlbum) {
                         if ($partnerAlbum->cover) {
                             // パートナーのカバーのstatusを更新
-                            $partnerAlbum->cover->update(['status' => $cover->status]);
+                            $partnerAlbum->cover->update(['covertext' => $cover->status]);
                         }
                  }
              }

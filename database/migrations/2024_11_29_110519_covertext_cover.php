@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('covers', function (Blueprint $table) {
             //
-            $table->integer('covertext')->nullable();
+            $table->json('covertext')->nullable();
         });
     }
 
