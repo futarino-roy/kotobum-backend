@@ -103,7 +103,7 @@ class BodyController extends Controller
 
     
 
-    // ボディを送信する
+    // ボディを保存する
     public function sendBody(Request $request, $albumid)
     {
 

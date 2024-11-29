@@ -71,17 +71,23 @@ class User extends Authenticatable
     public function setPartner($partnerId)
     {
         DB::transaction(function () use ($partnerId) {
-            // 現在のパートナーを解除
-            if ($this->partner) {
-                $this->partner->update(['partner_id' => null]);
-            }
-
-            // 新しいパートナーを設定
-            $this->update(['partner_id' => $partnerId]);
-
-            // パートナーにも自分を設定
             $partner = User::findOrFail($partnerId);
-            $partner->update(['partner_id' => $this->id]);
+            
+             // A面B面が異なる場合にのみリレーションを設定
+             if ($this->sex !== $partner->sex) {
+                // 現在のパートナーを解除
+                if ($this->partner) {
+                    $this->partner->update(['partner_id' => null]);
+                }
+
+                // 新しいパートナーを設定
+                $this->update(['partner_id' => $partnerId]);
+
+                // パートナーにも自分を設定
+                $partner->update(['partner_id' => $this->id]);
+            } else {
+                throw new \Exception('A面B面が異なる場合にのみリレーションを設定できます。');
+            }
         });
     }
     
@@ -89,15 +95,21 @@ class User extends Authenticatable
     public function switchPartner($newPartnerId)
     {
         DB::transaction(function () use ($newPartnerId) {
-            // 現在のパートナーを解除
-            if ($this->partner) {
-                $this->partner->update(['partner_id' => null]);
-            }
-
-            // 新しいパートナーを設定
-            $this->update(['partner_id' => $newPartnerId]);
             $newPartner = User::findOrFail($newPartnerId);
-            $newPartner->update(['partner_id' => $this->id]);
+
+            // A面B面が異なる場合にのみリレーションを設定
+            if ($this->sex !== $newPartner->sex) {
+                // 現在のパートナーを解除
+                if ($this->partner) {
+                    $this->partner->update(['partner_id' => null]);
+                }
+
+                // 新しいパートナーを設定
+                $this->update(['partner_id' => $newPartnerId]);
+                $newPartner->update(['partner_id' => $this->id]);
+            } else {
+                throw new \Exception('A面B面が異なる場合にのみリレーションを設定できます。');
+            }
         });
     }
 
