@@ -74,7 +74,7 @@ class User extends Authenticatable
             $partner = User::findOrFail($partnerId);
             
              // A面B面が異なる場合にのみリレーションを設定
-             if ($this->sex !== $partner->sex) {
+             if ($this->template !== $partner->template) {
                 // 現在のパートナーを解除
                 if ($this->partner) {
                     $this->partner->update(['partner_id' => null]);
@@ -98,7 +98,7 @@ class User extends Authenticatable
             $newPartner = User::findOrFail($newPartnerId);
 
             // A面B面が異なる場合にのみリレーションを設定
-            if ($this->sex !== $newPartner->sex) {
+            if ($this->template !== $newPartner->template) {
                 // 現在のパートナーを解除
                 if ($this->partner) {
                     $this->partner->update(['partner_id' => null]);

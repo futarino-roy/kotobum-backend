@@ -30,6 +30,7 @@ class PDFController extends Controller
         $colorsB = json_decode($coverB->colors, true);
         $imageData = json_decode($cover->imageData, true);
         $imageDataB = json_decode($coverB->imageData, true);
+        $covertext = json_decode($cover->imageData, true);
 
         // 各画像データをBase64形式でエンコード
         if ($imageData['image']) {
@@ -52,7 +53,16 @@ class PDFController extends Controller
         }
 
         // ビューにデータを渡す
-        return view('pdf.edit', compact('format', 'textdata', 'colors', 'imageData'));
+        return view('pdf.edit', 
+                     compact(
+                        'format',
+                        'textdata',
+                        'textdataB', 
+                        'colors',
+                        'colorsB', 
+                        'imageData', 
+                        'imageDataB', 
+                        'coverstext'));
     }
 
 
@@ -91,8 +101,15 @@ class PDFController extends Controller
         }
 
         // ビューにデータを渡す
-        return view('pdf.edit', compact('format', 'textdata', 'colors', 'imageData'));
-
+        return view('pdf.edit', 
+                     compact(
+                        'format',
+                        'textdata',
+                        'textdataB', 
+                        'colors',
+                        'colorsB', 
+                        'imageData', 
+                        'imageDataB', ));
     }
     
 

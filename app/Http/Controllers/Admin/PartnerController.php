@@ -5,9 +5,33 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PartnerController extends Controller
 {
+    public function showPartner($userid)
+    {
+        // ログインしている管理者を取得
+        $admin = Auth::guard('admin')->user();
+        $user = User::findOrFail($userid);
+
+        if($user->template == 'A'){
+            $A = $user;
+            $B = User::find($user->partner_id);
+        }else{
+            $A = User::find($user->partner_id);
+            $B = $user;
+        }
+
+        $users = User::all();
+        $solo = is_null($A) || is_null($B);
+
+        return view('admin.partner', compact('admin','users','A','B','solo'));
+    }
+
+
+
+
     /**
      * パートナーを設定する
      */

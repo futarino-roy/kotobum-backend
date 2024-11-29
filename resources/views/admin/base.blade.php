@@ -12,7 +12,7 @@
     body {
         padding-bottom: 50px; /* フッター高さ分の余白 */
     }
-    
+
     table {
       width: 80%;
       margin: 20px auto;
@@ -38,6 +38,11 @@
     tr:hover {
       background-color: #f1f1f1; /* ホバー時の行の色 */
     }
+    
+    .hidden {
+       display: none;
+    }
+
   </style>
 
 <body>
@@ -46,7 +51,7 @@
             <a href="/" class="mr-auto">
                 <img src="{{ asset('img/f-black@4x 1.png') }}" alt="ロゴ">
             </a>
-            <ul class="nav-list2 d-flex justify-content-end" >
+            <ul class="nav-list2 d-flex justify-content-end {{ auth('admin')->check() ? '' : 'hidden' }}" >
                 <li class="list-items btn btn-danger"><a href="javascript:void(0);" onclick="confirmLogout()" class="nav-link">ログアウト</a></li>
             </ul>
         </div>
