@@ -104,7 +104,7 @@
                     @endif
                 @else
                     @if(optional($A)->id)
-                        <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">B面割り当て</a>
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">B面割り当て{{ $user->id }}</a>
                             <form id="switch-partner-form" action="{{ route('admin.switchPartner', $A->id) }}" method="POST" style="display: none;">
                             @csrf
                                 <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
