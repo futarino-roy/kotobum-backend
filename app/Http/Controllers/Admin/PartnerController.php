@@ -17,11 +17,11 @@ class PartnerController extends Controller
         $user = User::findOrFail($userid);
 
         if($user->template == 'A'){
-            $A = User::with('albums')->find($userid);
-            $B = User::with('albums')->find($user->partner_id);
+            $A = User::with('Album')->find($userid);
+            $B = User::with('Album')->find($user->partner_id);
         }else{
-            $A = User::with('albums')->find($user->partner_id);
-            $B = User::with('albums')->find($userid);
+            $A = User::with('Album')->find($user->partner_id);
+            $B = User::with('Album')->find($userid);
         }
 
         $users = User::all();
