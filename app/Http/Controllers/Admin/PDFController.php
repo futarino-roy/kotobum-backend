@@ -67,8 +67,8 @@ class PDFController extends Controller
         return view('pdf.edit', 
                      compact(
                         'format',
-                        'textdata',
-                        'textdataB', 
+                        'textData',
+                        'textDataB', 
                         'colors',
                         'colorsB', 
                         'imageData', 
