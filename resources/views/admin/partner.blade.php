@@ -86,7 +86,7 @@
             <td>{{ optional($user->album)->body_is_sent === null ? 'N/A' : (optional($user->album)->body_is_sent ? '校了済み' : '未校了') }}</td>
             <td>
                 @if ($user->partner_id !== null)
-                    <a href="{{ route('admin.showPartner', $user->partner_id) }}" style="color:blue;"></a>
+                    <a href="{{ route('admin.showPartner', $user->partner_id) }}" style="color:blue;">{{ $user->partner_id }},{{ $user->partner->name }}</a>
                 @else
                     <span>N/A</span>
                 @endif
