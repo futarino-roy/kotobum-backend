@@ -48,7 +48,7 @@
 <body>
     <header class="bg-light p-2 z-3 fixed-top" id="header">
         <div class="container d-flex justify-content-between align-items-center">
-            <a href="{{ route('admin.dashboard }}" class="mr-auto">
+            <a href="{{ route('admin.dashboard' }}" class="mr-auto">
                 <img src="{{ asset('img/f-black@4x 1.png') }}" alt="ロゴ">
             </a>
             <ul class="nav-list2 d-flex justify-content-end {{ auth('admin')->check() ? '' : 'hidden' }}" >
