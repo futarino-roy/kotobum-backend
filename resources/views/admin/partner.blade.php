@@ -94,7 +94,7 @@
             <td>
                 @if ($user->template === 'A')
                     @if(optional($B)->id) 
-                        <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">A面割り当て</a>
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">A面割り当て{{ $user->id }}</a>
                             <form id="switch-partner-form" action="{{ route('admin.switchPartner', $B->id) }}" method="POST" style="display: none;">
                             @csrf
                                 <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
