@@ -78,8 +78,8 @@
             <td>{{ $user->name }}</td>
             <td>{{ $user->cover_is_send }}</td>
             <td>{{ $user->body_is_send }}</td>
-            <td><a href="{{ route('admin.showPartner', $A->partner_id) }}">割り当て</a></td>
-            <td><a href="{{ route('admin.showPartner', $A->partner_id) }}">移動</a></td>
+            <td><a href="#" style="pointer-events: none; color: gray;">割り当て</a></td>
+            <td><a href="#" style="pointer-events: none; color: gray;">移動</a></td>
         </tr>
     @endforeach
 
