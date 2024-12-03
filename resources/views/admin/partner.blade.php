@@ -88,13 +88,13 @@
             <td>
                 @if ($user->template === 'A')
                     <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">A面割り当て</a>
-                        <form id="switch-partner-form" action="{{ route('admin.switchPartner', $B->id) }}" method="POST" style="display: none;">
+                        <form id="switch-partner-form" action="{{ route('admin.switchPartner', optional($B)->id) }}" method="POST" style="display: none;">
                         @csrf
                             <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
                         </form>
                 @else
                     <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">B面割り当て</a>
-                        <form id="switch-partner-form" action="{{ route('admin.switchPartner', $A->id) }}" method="POST" style="display: none;">
+                        <form id="switch-partner-form" action="{{ route('admin.switchPartner', optional($A)->id) }}" method="POST" style="display: none;">
                         @csrf
                             <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
                         </form>
