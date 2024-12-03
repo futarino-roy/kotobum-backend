@@ -21,10 +21,10 @@
         <tbody>
                 <tr>
                     <td>A</td>
-                    <td>{{ $A->id ?? 'N/A'}}</td>
-                    <td>{{ $A->name ?? 'N/A'}}</td>
-                    <td>{{ $A->album->cover_is_sent ?? 'N/A'}}</td>
-                    <td>{{ $A->album->body_is_sent ?? 'N/A'}}</td>
+                    <td>{{ $A->id ?? ''}}</td>
+                    <td>{{ $A->name ?? ''}}</td>
+                    <td>{{ optional($A->album)->cover_is_sent === null ? '' : (optional($A->album)->cover_is_sent ? '校了済み' : '未校了')}}</td>
+                    <td>{{ optional($A->album)->body_is_sent === null ? '' : (optional($A->album)->body_is_sent ? '校了済み' : '未校了)}}</td>
                     <td>@if(optional($A)->partner_id === null)
                          <!-- partner_idがnullの場合、リンクを無効にしてスタイル変更 -->
                          <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
@@ -37,10 +37,10 @@
                 </tr>
                 <tr>
                     <td>B</td>
-                    <td>{{ $B->id ?? 'N/A'}}</td>
-                    <td>{{ $B->name ?? 'N/A'}}</td>
-                    <td>{{ $B->album->cover_is_sent ?? 'N/A'}}</td>
-                    <td>{{ $B->album->body_is_sent === null ? '' : ($B->album->body_is_sent ? '送信済み' : '未送信')}}</td>
+                    <td>{{ $B->id ?? ''}}</td>
+                    <td>{{ $B->name ?? ''}}</td>
+                    <td>{{ optional($B->album)->cover_is_sent === null ? '' : (optional($B->album)->cover_is_sent ? '校了済み' : '未校了')}}</td>
+                    <td>{{ optional($B->album)->body_is_sent === null ? '' : (optional($B->album)->body_is_sent ? '校了済み' : '未校了')}}</td>
                     <td> @if(optional($B)->partner_id === null)
                          <!-- partner_idがnullの場合、リンクを無効にしてスタイル変更 -->
                          <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
@@ -76,8 +76,8 @@
             <td>{{ $user->template }}</td>
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
-            <td>{{ optional($user->album)->cover_is_sent === null ? 'N/A' : (optional($user->album)->cover_is_sent ? '送信済み' : '未送信') }}</td>
-            <td>{{ optional($user->album)->body_is_sent === null ? 'N/A' : (optional($user->album)->body_is_sent ? '送信済み' : '未送信') }}</td>
+            <td>{{ optional($user->album)->cover_is_sent === null ? 'N/A' : (optional($user->album)->cover_is_sent ? '校了済み' : '未校了') }}</td>
+            <td>{{ optional($user->album)->body_is_sent === null ? 'N/A' : (optional($user->album)->body_is_sent ? '校了済み' : '未校了') }}</td>
             <td>
                 @if ($user->partner_id !== null)
                     <a href="{{ route('admin.showPartner', $A->partner_id) }}" style="color:blue;">{{ $user->partner->name }}</a>
