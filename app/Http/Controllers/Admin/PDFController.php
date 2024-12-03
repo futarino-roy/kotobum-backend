@@ -45,15 +45,23 @@ class PDFController extends Controller
         }
         
         // 表示するテンプレートの種類を決定
+        $format = 'cover1';
+
+        // 表示するテンプレートの種類を決定
         switch ($user->format) {
             case 1:
                 $format = 'cover1';
                 break;
-            
-            /* case 2
-                $format = ''
-                break; */
-        }
+
+            // 必要に応じて他のケースを追加
+            // case 2:
+            //     $format = 'cover2';
+            //     break;
+
+            default:
+                $format = 'cover1'; // デフォルト値
+                break;
+}
 
         // ビューにデータを渡す
         return view('pdf.edit', 
