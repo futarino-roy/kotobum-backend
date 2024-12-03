@@ -64,7 +64,7 @@ class User extends Authenticatable
 
     public function partnerCover()
     {
-        return $this->partner()->with('albums.cover');
+        return $this->partner()->with('Album.cover');
     }
 
     //　パートナーを設定する
