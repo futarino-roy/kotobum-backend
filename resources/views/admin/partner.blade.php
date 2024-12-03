@@ -53,7 +53,7 @@
         </tbody>
     </table>
 
-    <h2 style="margin-left:10%;">他ユーザー</h2>
+    <!-- <h2 style="margin-left:10%;">他ユーザー</h2>
     <table border="1">
         <thead>
             <tr>
@@ -80,7 +80,7 @@
             <td>{{ $user->body_is_send }}</td>
             <td><a href="{{ route('admin.showPartner', $A->partner_id) }}">割り当て</a></td>
             <td><a href="{{ route('admin.showPartner', $A->partner_id) }}">移動</a></td>
-        </tr>
+        </tr> -->
     @endforeach
 @endsection
 
