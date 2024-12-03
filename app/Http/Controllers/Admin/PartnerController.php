@@ -15,8 +15,8 @@ class PartnerController extends Controller
         $admin = Auth::guard('admin')->user();
         $user = User::findOrFail($userid);
 
-        dd($userid);
-        dd($user->partner_id);
+        /* dd($userid); */
+        
 
         if($user->template == 'A'){
             $A = User::with('Album')->find($userid);
