@@ -23,8 +23,8 @@
                     <td>A</td>
                     <td>{{ $A->id ?? ''}}</td>
                     <td>{{ $A->name ?? ''}}</td>
-                    <td>{{ optional($A->album)->cover_is_sent === null ? '' : (optional($A->album)->cover_is_sent ? '校了済み' : '未校了') }}</td>
-                    <td>{{ optional($A->album)->body_is_sent === null ? '' : (optional($A->album)->body_is_sent ? '校了済み' : '未校了') }}</td>
+                    <td>{{ optional(optional($A)->album)->cover_is_sent === null ? '' : (optional($A)->album->cover_is_sent ? '校了済み' : '未校了') }}</td>
+                    <td>{{ optional(optional($A)->album)->body_is_sent === null ? '' : (optional($A)->album->body_is_sent ? '校了済み' : '未校了') }}</td>
                     <td>@if(optional($A)->partner_id === null)
                          <!-- partner_idがnullの場合、リンクを無効にしてスタイル変更 -->
                          <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
@@ -39,8 +39,8 @@
                     <td>B</td>
                     <td>{{ $B->id ?? ''}}</td>
                     <td>{{ $B->name ?? ''}}</td>
-                    <td>{{ optional($B->album)->cover_is_sent === null ? '' : (optional($B->album)->cover_is_sent ? '校了済み' : '未校了') }}</td>
-                    <td>{{ optional($B->album)->body_is_sent === null ? '' : (optional($B->album)->body_is_sent ? '校了済み' : '未校了') }}</td>
+                    <td>{{ optional(optional($B)->album)->cover_is_sent === null ? '' : (optional($B)->album->cover_is_sent ? '校了済み' : '未校了') }}</td>
+                    <td>{{ optional(optional($B)->album)->body_is_sent === null ? '' : (optional($B)->album->body_is_sent ? '校了済み' : '未校了') }}</td>
                     <td> @if(optional($B)->partner_id === null)
                          <!-- partner_idがnullの場合、リンクを無効にしてスタイル変更 -->
                          <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
