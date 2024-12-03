@@ -24,7 +24,7 @@ class PartnerController extends Controller
             $B = User::with('Album')->find($userid);
         }
 
-        $users = User::with('Album')->all();
+        $users = User::with('Album')->get();
         $solo = is_null($A) || is_null($B);
 
         return view('admin.partner', compact('admin','users','A','B','solo'));
