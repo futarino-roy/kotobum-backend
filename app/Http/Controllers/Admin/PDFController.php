@@ -33,12 +33,15 @@ class PDFController extends Controller
         $covertext = json_decode($cover->imageData, true);
 
         // 各画像データをBase64形式でエンコード
-        if ($imageData['image']) {
-            // 画像データがバイナリの場合、Base64にエンコード
+        if (isset($imageData['image']) && !empty($imageData['image'])) {
             $imageData['image'] = 'data:image/jpeg;base64,' . base64_encode($imageData['image']);
+        } else {
+            $imageData['image'] = null; // 必要に応じてデフォルト値
         }
-        if ($imageDataB['image']) {
-            $imageDataB['image'] = 'data:image/jpeg;base64,' . base64_encode($imageDataB['image']);
+        if (isset($imageDataB['image']) && !empty($imageDataB['image'])) {
+            $imageDataB['image'] = 'data:image/jpeg;base64,' . base64_encode($imageData['image']);
+        } else {
+            $imageDataB['image'] = null; // 必要に応じてデフォルト値
         }
         
         // 表示するテンプレートの種類を決定
