@@ -54,7 +54,6 @@
     </table>
 
     
-    @endforeach
 @endsection
 
 @section('scripts')
