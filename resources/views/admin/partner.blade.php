@@ -86,30 +86,19 @@
                 @endif
             </td>
             <td>
-            @if ($user->template === 'A')
-    @if(optional($B)->id)  <!-- $B が存在する場合のみ -->
-        <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">A面割り当て</a>
-        <form id="switch-partner-form" action="{{ route('admin.switchPartner', ['userid' => $user->id]) }}" method="POST" style="display: none;">
-            @csrf
-            <input type="hidden" name="new_partner_id" value="{{ optional($B)->id }}">
-        </form>
-    @else
-        <!-- $B が null の場合の処理 -->
-        <span>パートナーが設定されていません</span>
-    @endif
-@else
-    @if(optional($A)->id)  <!-- $A が存在する場合のみ -->
-        <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">B面割り当て</a>
-        <form id="switch-partner-form" action="{{ route('admin.switchPartner', ['userid' => $user->id]) }}" method="POST" style="display: none;">
-            @csrf
-            <input type="hidden" name="new_partner_id" value="{{ optional($A)->id }}">
-        </form>
-    @else
-        <!-- $A が null の場合の処理 -->
-        <span>パートナーが設定されていません</span>
-    @endif
-@endif
-
+                @if ($user->template === 'A')
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">A面割り当て</a>
+                        <form id="switch-partner-form" action="{{ route('admin.switchPartner', $B->id) }}" method="POST" style="display: none;">
+                        @csrf
+                            <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
+                        </form>
+                @else
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">B面割り当て</a>
+                        <form id="switch-partner-form" action="{{ route('admin.switchPartner', $A->id) }}" method="POST" style="display: none;">
+                        @csrf
+                            <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
+                        </form>
+                @endif
             </td>
             <td><a href="{{ route('admin.showPartner', $user->id) }}">移動</a></td>
         </tr>
