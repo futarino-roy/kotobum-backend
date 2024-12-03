@@ -86,7 +86,7 @@
                 @endif
             </td>
             <td>
-                @if ($user->template === A)
+                @if ($user->template === 'A')
                     <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">A面割り当て</a>
                         <form id="switch-partner-form" action="{{ route('admin.switchPartner', $B->id) }}" method="POST" style="display: none;">
                         @csrf
