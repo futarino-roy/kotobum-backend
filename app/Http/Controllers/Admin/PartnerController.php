@@ -46,7 +46,7 @@ class PartnerController extends Controller
         // パートナーを付け替え
         $user->switchPartner($request->input('new_partner_id'));
 
-        return redirect()->route('admin.showPartner', ['userid' => $userid]);
+        return redirect()->route('admin.showPartner', $userid);
     }
 
     /**
@@ -60,6 +60,6 @@ class PartnerController extends Controller
         // パートナーを解除
         $user->detachPartner();
 
-        return redirect()->route('admin.showPartner', ['userid' => $userid]);
+        return redirect()->route('admin.showPartner', $userid);
     }
 }

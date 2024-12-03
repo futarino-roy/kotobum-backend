@@ -27,10 +27,10 @@
                     <td>{{ optional(optional($A)->album)->body_is_sent === null ? '' : (optional($A)->album->body_is_sent ? '校了済み' : '未校了') }}</td>
                     <td>@if(optional($A)->partner_id === null)
                          <!-- partner_idがnullの場合、リンクを無効にしてスタイル変更 -->
-                         <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
+                         <a href="#" style="pointer-events: none; color: gray;">解除不可</a>
                          @else
                          <!-- partner_idがnullでない場合 -->        
-                         <a href="{{ route('admin.detachPartner', $A->pertner_id) }}">結びつけ解除</a>
+                         <a href="{{ route('admin.detachPartner', $A->pertner_id) }}">解除</a>
                          @endif
                             
                     </td>
@@ -43,10 +43,10 @@
                     <td>{{ optional(optional($B)->album)->body_is_sent === null ? '' : (optional($B)->album->body_is_sent ? '校了済み' : '未校了') }}</td>
                     <td> @if(optional($B)->partner_id === null)
                          <!-- partner_idがnullの場合、リンクを無効にしてスタイル変更 -->
-                         <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
+                         <a href="#" style="pointer-events: none; color: gray;">解除不可</a>
                          @else
                          <!-- partner_idがnullでない場合 -->
-                         <a href="{{ route('admin.detachPartner', $B->pertner_id) }}">結びつけ解除</a>
+                         <a href="{{ route('admin.detachPartner', $B->pertner_id) }}">解除</a>
                          @endif 
                     </td>
                 </tr>
@@ -94,7 +94,7 @@
                                 <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
                             </form>
                     @else
-                        <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
+                        <a href="#" style="pointer-events: none; color: gray;">割り当て不可</a>
                     @endif
                 @else
                     @if(optional($A)->id)
@@ -104,7 +104,7 @@
                                 <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
                             </form>
                     @else
-                        <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
+                        <a href="#" style="pointer-events: none; color: gray;">割り当て不可</a>
                     @endif
                 @endif
             </td>
