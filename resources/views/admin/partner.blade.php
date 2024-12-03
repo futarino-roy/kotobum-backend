@@ -80,24 +80,32 @@
             <td>{{ optional($user->album)->body_is_sent === null ? 'N/A' : (optional($user->album)->body_is_sent ? '校了済み' : '未校了') }}</td>
             <td>
                 @if ($user->partner_id !== null)
-                    <a href="{{ route('admin.showPartner', $A->partner_id) }}" style="color:blue;">{{ $user->partner_id }},{{ $user->partner->name }}</a>
+                    <a href="{{ route('admin.showPartner', $user->partner_id) }}" style="color:blue;">{{ $user->partner_id }},{{ $user->partner->name }}</a>
                 @else
                     <span>N/A</span>
                 @endif
             </td>
             <td>
                 @if ($user->template === 'A')
-                    <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">A面割り当て</a>
-                        <form id="switch-partner-form" action="{{ route('admin.switchPartner', $B->id) }}" method="POST" style="display: none;">
-                        @csrf
-                            <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
-                        </form>
+                    @if(optional($B)->id) 
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">A面割り当て</a>
+                            <form id="switch-partner-form" action="{{ route('admin.switchPartner', $B->id) }}" method="POST" style="display: none;">
+                            @csrf
+                                <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
+                            </form>
+                    @else
+                        <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
+                    @endif
                 @else
-                    <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">B面割り当て</a>
-                        <form id="switch-partner-form" action="{{ route('admin.switchPartner', $A->id) }}" method="POST" style="display: none;">
-                        @csrf
-                            <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
-                        </form>
+                    @if(optional($A)->id)
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">B面割り当て</a>
+                            <form id="switch-partner-form" action="{{ route('admin.switchPartner', $A->id) }}" method="POST" style="display: none;">
+                            @csrf
+                                <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
+                            </form>
+                    @else
+                        <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
+                    @endif
                 @endif
             </td>
             <td><a href="{{ route('admin.showPartner', $user->id) }}">移動</a></td>
