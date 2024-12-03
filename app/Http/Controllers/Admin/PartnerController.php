@@ -54,7 +54,7 @@ class PartnerController extends Controller
      */
     public function detachPartner($userid)
     {
-        // 対象の従業員を取得
+        // 対象のユーザーを取得
         $user = User::findOrFail($userid);
 
         // パートナーを解除
