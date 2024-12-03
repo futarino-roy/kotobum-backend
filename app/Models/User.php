@@ -122,7 +122,7 @@ class User extends Authenticatable
                 $this->partner->update(['partner_id' => null]);
             }
 
-            // 自分のmanager_idを解除
+            // 自分のpartner_idを解除
             $this->update(['partner_id' => null]);
         });
     }

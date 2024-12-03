@@ -13,7 +13,6 @@ class PartnerController extends Controller
     {
         // ログインしている管理者を取得
         $admin = Auth::guard('admin')->user();
-        $admin = Auth::guard('admin')->user();
         $user = User::findOrFail($userid);
 
         if($user->template == 'A'){
@@ -31,27 +30,6 @@ class PartnerController extends Controller
     }
 
 
-
-
-    /**
-     * パートナーを設定する
-     */
-    public function setPartner(Request $request, $userid)
-    {
-        // リクエストバリデーション
-        $request->validate([
-            'partner_id' => 'required|exists:users,id|different:' . $userid,
-        ]);
-
-        // 対象のユーザーを取得
-        $user = User::findOrFail($userid);
-
-        // パートナーを設定
-        $user->setPartner($request->input('partner_id'));
-
-        return ;
-    }
-
     /**
      * パートナーを付け替える
      */
@@ -68,7 +46,7 @@ class PartnerController extends Controller
         // パートナーを付け替え
         $user->switchPartner($request->input('new_partner_id'));
 
-        return ;
+        return redirect()->route('admin.showPartner', ['userid' => $userid]);
     }
 
     /**
@@ -82,6 +60,6 @@ class PartnerController extends Controller
         // パートナーを解除
         $user->detachPartner();
 
-        return ;
+        return redirect()->route('admin.showPartner', ['userid' => $userid]);
     }
 }
