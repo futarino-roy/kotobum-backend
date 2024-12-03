@@ -76,13 +76,13 @@
             <td>{{ $user->template }}</td>
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
-            <td>{{ $user->album->cover_is_sent ?? 'N/A' }}</td>
-            <td>{{ $user->album->body_is_sent ?? 'N/A' }}</td>
+            <td>{{ $user->album->cover_is_sent ? '送信済み' : '未送信' ?? 'N/A' }}</td>
+            <td>{{ $user->album->body_is_sent ? '送信済み' : '未送信' ?? 'N/A' }}</td>
             <td>
                 @if (!is_null($A->partner_id))
                     <a href="{{ route('admin.showPartner', $A->partner_id) }}" style="color:blue;">{{ $user->partner->name }}</a>
                 @else
-                    <span style="color: gray;">N/A</span>
+                    <span>N/A</span>
                 @endif
             </td>
             <td><a href="#" style="pointer-events: none; color: gray;">割り当て</a></td>
