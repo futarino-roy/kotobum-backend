@@ -69,7 +69,7 @@
         </thead>
         <tbody>
             @foreach ($users as $user)
-                @if ($user->id == $A->id || $user->id == $B->id)
+                @if ($user->id == optional($A)->id || $user->id == optional($B)->id)
                     @continue
                 @endif
         <tr>
