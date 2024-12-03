@@ -96,6 +96,7 @@ class User extends Authenticatable
     {
         DB::transaction(function () use ($newPartnerId) {
             $newPartner = User::findOrFail($newPartnerId);
+            dd($newPartnerId);
 
             // A面B面が異なる場合にのみリレーションを設定
             if ($this->template !== $newPartner->template) {
