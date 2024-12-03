@@ -47,7 +47,7 @@ class User extends Authenticatable
 
     public function Album()
     {
-        return $this->hasMany(Album::class);
+        return $this->hasOne(Album::class);
     }
 
     // パートナーリレーション (自己リレーション)
