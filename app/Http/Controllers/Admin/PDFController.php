@@ -73,7 +73,7 @@ class PDFController extends Controller
                         'colorsB', 
                         'imageData', 
                         'imageDataB', 
-                        'coverstext'));
+                        'covertext'));
     }
 
 
