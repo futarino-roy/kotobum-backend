@@ -18,9 +18,9 @@ class PartnerController extends Controller
 
         if($user->template == 'A'){
             $A = User::with('Album')->find($userid);
-            $B = User::with('Album')->find($user->partner_id);
+            $B = User::with('Album')->find($user->partner_id) ?? null;
         }else{
-            $A = User::with('Album')->find($user->partner_id);
+            $A = User::with('Album')->find($user->partner_id) ?? null;
             $B = User::with('Album')->find($userid);
         }
 
