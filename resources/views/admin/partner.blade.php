@@ -21,10 +21,10 @@
         <tbody>
                 <tr>
                     <td>A</td>
-                    <td>{{ $A->id ?? 'N/A'}}</td>
-                    <td>{{ $A->name ?? 'N/A'}}</td>
-                    <td>{{ $A->album->cover_is_sent ?? 'N/A'}}</td>
-                    <td>{{ $A->album->body_is_sent ?? 'N/A'}}</td>
+                    <td>{{ $A->id ?? ''}}</td>
+                    <td>{{ $A->name ?? ''}}</td>
+                    <td>{{ $A->album->cover_is_sent ?? ''}}</td>
+                    <td>{{ $A->album->body_is_sent ?? ''}}</td>
                     <td>@if(optional($A)->partner_id === null)
                          <!-- partner_idがnullの場合、リンクを無効にしてスタイル変更 -->
                          <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
@@ -37,8 +37,8 @@
                 </tr>
                 <tr>
                     <td>B</td>
-                    <td>{{ $B->id ?? 'N/A'}}</td>
-                    <td>{{ $B->name ?? 'N/A'}}</td>
+                    <td>{{ $B->id ?? ''}}</td>
+                    <td>{{ $B->name ?? ''}}</td>
                     <td>{{ $B->album->cover_is_sent ?? ''}}</td>
                     <td>{{ $A->album->body_is_sent ?? ''}}</td>
                     <td> @if(optional($B)->partner_id === null)
