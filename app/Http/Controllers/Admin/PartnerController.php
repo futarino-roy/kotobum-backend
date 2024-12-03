@@ -27,7 +27,7 @@ class PartnerController extends Controller
         }
 
         /* dd(User::with('Album')->find($userid)); */
-        dd(User::with('Album')->find($user->partner_id));
+        /* dd(User::with('Album')->find($user->partner_id)); */
 
         $users = User::with('Album','partner')->get();
         $solo = is_null($A) || is_null($B);
