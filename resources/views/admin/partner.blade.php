@@ -10,7 +10,7 @@
     <table border="1">
         <thead>
             <tr>
-                <th>A面B面</th>
+                <th></th>
                 <th>ID</th>
                 <th>名前</th>
                 <th>表紙校了</th>
@@ -78,8 +78,15 @@
             <td>{{ $user->name }}</td>
             <td>{{ $user->cover_is_send }}</td>
             <td>{{ $user->body_is_send }}</td>
+            <td>
+                @if (!is_null($A->partner_id))
+                    <a href="{{ route('admin.showPartner', $A->partner_id) }}" style="color:blue;">{{ $user->partner->name }}</a>
+                @else
+                    <span style="color: gray;">N/A</span>
+                @endif
+            </td>
             <td><a href="#" style="pointer-events: none; color: gray;">割り当て</a></td>
-            <td><a href="#" style="pointer-events: none; color: gray;">移動</a></td>
+            <td><a href="{{ route('admin.showPartner', $user->id) }}">移動</a></td>
         </tr>
     @endforeach
 
