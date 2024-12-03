@@ -41,7 +41,7 @@
                     <td>{{ $B->name ?? 'N/A'}}</td>
                     <td>{{ $B->album->cover_is_sent ?? 'N/A'}}</td>
                     <td>{{ $B->album->body_is_sent ?? 'N/A'}}</td>
-                    <td> @if(optional($A)->partner_id === null)
+                    <td> @if(optional($B)->partner_id === null)
                          <!-- partner_idがnullの場合、リンクを無効にしてスタイル変更 -->
                          <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
                          @else
@@ -79,7 +79,7 @@
             <td>{{ optional($user->album)->cover_is_sent === null ? 'N/A' : (optional($user->album)->cover_is_sent ? '送信済み' : '未送信') }}</td>
             <td>{{ optional($user->album)->body_is_sent === null ? 'N/A' : (optional($user->album)->body_is_sent ? '送信済み' : '未送信') }}</td>
             <td>
-                @if (!is_null($A->partner_id))
+                @if ($user->partner_id !== null)
                     <a href="{{ route('admin.showPartner', $A->partner_id) }}" style="color:blue;">{{ $user->partner->name }}</a>
                 @else
                     <span>N/A</span>
