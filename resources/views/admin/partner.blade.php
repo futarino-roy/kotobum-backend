@@ -76,8 +76,8 @@
             <td>{{ $user->template }}</td>
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
-            <td>{{ $user->cover_is_send }}</td>
-            <td>{{ $user->body_is_send }}</td>
+            <td>{{ $user->cover_is_sent }}</td>
+            <td>{{ $user->body_is_sent }}</td>
             <td>
                 @if (!is_null($A->partner_id))
                     <a href="{{ route('admin.showPartner', $A->partner_id) }}" style="color:blue;">{{ $user->partner->name }}</a>
