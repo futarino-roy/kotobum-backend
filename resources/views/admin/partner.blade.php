@@ -25,7 +25,7 @@
                     <td>{{ $A->name ?? 'N/A'}}</td>
                     <td>{{ $A->album->cover_is_sent ?? 'N/A'}}</td>
                     <td>{{ $A->album->body_is_sent ?? 'N/A'}}</td>
-                    <td>@if(is_null($A->partner_id))
+                    <td>@if(optional($A)->partner_id === null)
                          <!-- partner_idがnullの場合、リンクを無効にしてスタイル変更 -->
                          <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
                          @else
