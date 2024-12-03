@@ -15,6 +15,9 @@ class PartnerController extends Controller
         $admin = Auth::guard('admin')->user();
         $user = User::findOrFail($userid);
 
+        dd($userid);
+        dd($user->partner_id);
+
         if($user->template == 'A'){
             $A = User::with('Album')->find($userid);
             $B = User::with('Album')->find($user->partner_id) ?? null;
@@ -22,6 +25,9 @@ class PartnerController extends Controller
             $A = User::with('Album')->find($user->partner_id) ?? null;
             $B = User::with('Album')->find($userid);
         }
+
+        dd(User::with('Album')->find($userid));
+        dd(User::with('Album')->find($userid));
 
         $users = User::with('Album','partner')->get();
         $solo = is_null($A) || is_null($B);
