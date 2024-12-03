@@ -13,13 +13,14 @@ class PartnerController extends Controller
     {
         // ログインしている管理者を取得
         $admin = Auth::guard('admin')->user();
-        $user = User::findOrFail($userid);
+        $user = User::with(['Album', 'partner.Album'])->findOrFail($userid);
 
-        if($user->template == 'A'){
+        // 条件に基づいて$Aと$Bを設定
+        if ($user->template == 'A') {
             $A = $user;
-            $B = User::find($user->partner_id);
-        }else{
-            $A = User::find($user->partner_id);
+            $B = $user->partner;
+        } else {
+            $A = $user->partner;
             $B = $user;
         }
 
