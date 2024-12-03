@@ -32,7 +32,7 @@
     }
 
     tr:nth-child(even) {
-      background-color: #f9f9f9; /* 偶数行の背景色 */
+      background-color: #e0e0e0; /* 偶数行の背景色 */
     }
 
     tr:hover {
