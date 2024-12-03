@@ -40,7 +40,7 @@
                     <td>{{ $B->id ?? 'N/A'}}</td>
                     <td>{{ $B->name ?? 'N/A'}}</td>
                     <td>{{ $B->album->cover_is_sent ?? 'N/A'}}</td>
-                    <td>{{ $B->album->body_is_sent ?? 'N/A'}}</td>
+                    <td>{{ $B->album->body_is_sent === null ? '' : ($B->album->body_is_sent ? '送信済み' : '未送信')}}</td>
                     <td> @if(optional($B)->partner_id === null)
                          <!-- partner_idがnullの場合、リンクを無効にしてスタイル変更 -->
                          <a href="#" style="pointer-events: none; color: gray;">結びつけ解除不可</a>
