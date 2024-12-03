@@ -37,8 +37,8 @@
                 </tr>
                 <tr>
                     <td>B</td>
-                    <td>{{ $B->id }}</td>
-                    <td>{{ $B->name }}</td>
+                    <td>{{ $B->id ?? 'N/A'}}</td>
+                    <td>{{ $B->name ?? 'N/A'}}</td>
                     <td>{{ $B->Album->cover_is_send ?? 'N/A'}}</td>
                     <td>{{ $B->Album->body_is_send ?? 'N/A'}}</td>
                     <td> @if(is_null($A->partner_id))
