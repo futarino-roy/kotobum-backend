@@ -98,6 +98,8 @@
                             <form id="switch-partner-form" action="{{ route('admin.switchPartner', $B->id) }}" method="POST" style="display: none;">
                             @csrf
                                 <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
+                                <input type="hidden" name="new_partner_id2" value="{{ $user->id }}">
+                                <input type="hidden" name="new_partner_id3" value="{{ $user->id }}">
                             </form>
                     @else
                         <a href="#" style="pointer-events: none; color: gray;">割り当て不可</a>
