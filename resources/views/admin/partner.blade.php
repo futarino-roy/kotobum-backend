@@ -30,7 +30,10 @@
                          <a href="#" style="pointer-events: none; color: gray;">解除不可</a>
                          @else
                          <!-- partner_idがnullでない場合 -->        
-                         <a href="{{ route('admin.detachPartner', $A->pertner_id) }}">解除</a>
+                         <a href="#" onclick="event.preventDefault(); document.getElementById('detach-partner-form').submit();">解除</a>
+                            <form id="detach-partner-form" action="{{ route('admin.detachPartner', $A->partner_id) }}" method="POST" style="display: none;">
+                            @csrf
+                            </form>
                          @endif
                             
                     </td>
@@ -46,10 +49,9 @@
                          <a href="#" style="pointer-events: none; color: gray;">解除不可</a>
                          @else
                          <!-- partner_idがnullでない場合 -->
-                         <a href="#" onclick="event.preventDefault(); document.getElementById('detach-partner-form').submit();">A面割り当て</a>
+                         <a href="#" onclick="event.preventDefault(); document.getElementById('detach-partner-form').submit();">解除</a>
                             <form id="detach-partner-form" action="{{ route('admin.detachPartner', $B->partner_id) }}" method="POST" style="display: none;">
                             @csrf
-                                <input type="hidden" name="new_partner_id" value="{{ $B->id }}"> <!-- new_partner_id に渡すID -->
                             </form>
                          @endif 
                     </td>
