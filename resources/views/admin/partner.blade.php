@@ -109,6 +109,7 @@
                             @csrf
                                 <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
                             </form>
+                            <p>{{ $user->id }}</p>
                     @else
                         <a href="#" style="pointer-events: none; color: gray;">割り当て不可</a>
                     @endif
