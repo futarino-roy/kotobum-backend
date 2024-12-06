@@ -286,7 +286,7 @@
         <div class="input-drop">
           <div id="textArea1-1" class="text-empty text-color textarea" style="color:{{ $colors['textColor'] }};">{{$textData[0]['text'] ?? ''}}</div>
           <div id="textArea1-2" class="text-empty text-color textarea" style="color:{{ $colors['textColor'] }};">{{$textData[1]['text'] ?? ''}}</div>
-          <div id="dropArea1" class="empty droparea" style="width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};">{{$imageData[0][' 画像のパス '] ?? ''}}</div>
+          <div id="dropArea1" class="empty droparea" style="width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};">{{$imageData[0][' image '] ?? ''}}</div>
           <div id="textArea1-3" class="text-empty textarea">{{$textData[2]['text'] ?? ''}}</div>
         </div>
       </div>
@@ -296,7 +296,7 @@
         <img src="/template/p2@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea2" class="text-empty text-color textarea" style="color:{{ $colors['textColor'] }};">{{$textData[3]['text'] ?? ''}}</div>
-          <div id="dropArea2" class="empty droparea" style="width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};">{{$imageData[1][' 画像のパス '] ?? ''}}</div>
+          <div id="dropArea2" class="empty droparea" style="width: {{ $imageData[1]['width'] }}; height: {{ $imageData[1]['height'] }};">{{$imageData[1][' image '] ?? ''}}</div>
         </div>
       </div>
     </div>
@@ -313,7 +313,7 @@
         <img src="/template/p4@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea4-1" class="text-empty textarea">{{$textData[5]['text'] ?? ''}}</div>
-          <div id="dropArea4" class="empty droparea" style="width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};">{{$imageData[2][' 画像のパス '] ?? ''}}</div>
+          <div id="dropArea4" class="empty droparea" style="width: {{ $imageData[2]['width'] }}; height: {{ $imageData[2]['height'] }};">{{$imageData[2][' image '] ?? ''}}</div>
           <div id="textArea4-2" class="text-empty textarea">{{$textData[6]['text'] ?? ''}}</div>
         </div>
       </div>
@@ -331,7 +331,7 @@
         <img src="/template/p8@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea6-1" class="text-empty text-color textarea" style="color:{{ $colors['textColor'] }};">{{$textData[8]['text'] ?? ''}}</div>
-          <div id="dropArea6" class="empty droparea" style="width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};">{{$imageData[3][' 画像のパス '] ?? ''}}</div>
+          <div id="dropArea6" class="empty droparea" style="width: {{ $imageData[3]['width'] }}; height: {{ $imageData[3]['height'] }};">{{$imageData[3][' image '] ?? ''}}</div>
         </div>
       </div>
     </div>
@@ -348,7 +348,7 @@
         <img src="/template/p8-AB@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea8" class="text-empty textarea">{{$textData[10]['text'] ?? ''}}</div>
-          <div id="dropArea8" class="empty droparea" style="width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};">{{$imageData[4][' 画像のパス '] ?? ''}}</div>
+          <div id="dropArea8" class="empty droparea" style="width: {{ $imageData[4]['width'] }}; height: {{ $imageData[4]['height'] }};">{{$imageData[4][' image '] ?? ''}}</div>
         </div>
       </div>
     </div>
@@ -365,7 +365,7 @@
         <img src="/template/p10@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea10" class="text-empty text-color textarea" style="color:{{ $colors['textColor'] }};">{{$textData[12]['text'] ?? ''}}</div>
-          <div id="dropArea10" class="empty droparea" style="width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};">{{$imageData[5][' 画像のパス '] ?? ''}}</div>
+          <div id="dropArea10" class="empty droparea" style="width: {{ $imageData[5]['width'] }}; height: {{ $imageData[5]['height'] }};">{{$imageData[5][' image '] ?? ''}}</div>
         </div>
       </div>
     </div>

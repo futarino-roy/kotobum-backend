@@ -339,7 +339,7 @@
         <img src="/template/p15@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea22" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] }};">{{$textData[5]['text'] ?? ''}}</div>
-          <div id="dropArea22" class="empty dropareaB" style="width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};"></div>
+          <div id="dropArea22" class="empty dropareaB" style="width: {{ $imageData[1]['width'] }}; height: {{ $imageData[1]['height'] }};">{{$imageData[1][' image '] ?? ''}}</div>
         </div>
       </div>
     </div>
@@ -356,7 +356,7 @@
         <img src="/template/p8-AB@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea20" class="text-empty textarea">{{$textData[7]['text'] ?? ''}}</div>
-          <div id="dropArea20" class="empty dropareaB" style="width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};"></div>
+          <div id="dropArea20" class="empty dropareaB" style="width: {{ $imageData[2]['width'] }}; height: {{ $imageData[2]['height'] }};">{{$imageData[2][' image '] ?? ''}}</div>
         </div>
       </div>
     </div>
@@ -373,7 +373,7 @@
         <img src="/template/p8@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea18" class="text-empty textarea">{{$textData[9]['text'] ?? ''}}</div>
-          <div id="dropArea18" class="empty dropareaB" style="width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};"></div>
+          <div id="dropArea18" class="empty dropareaB" style="width: {{ $imageData[3]['width'] }}; height: {{ $imageData[3]['height'] }};">{{$imageData[3][' image '] ?? ''}}</div>
         </div>
       </div>
     </div>
@@ -390,7 +390,7 @@
         <img src="/template/p21@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea16-1" class="text-empty textarea">{{$textData[11]['text'] ?? ''}}</div>
-          <div id="dropArea16" class="empty dropareaB" style="width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};"></div>
+          <div id="dropArea16" class="empty dropareaB" style="width: {{ $imageData[4]['width'] }}; height: {{ $imageData[4]['height'] }};">{{$imageData[4][' image '] ?? ''}}</div>
           <div id="textArea16-2" class="text-empty textarea">{{$textData[12]['text'] ?? ''}}</div>
         </div>
       </div>
@@ -408,7 +408,7 @@
         <img src="/template/p23@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea14" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] }};">{{$textData[14]['text'] ?? ''}}</div>
-          <div id="dropArea14" class="empty dropareaB" style="width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};"></div>
+          <div id="dropArea14" class="empty dropareaB" style="width: {{ $imageData[5]['width'] }}; height: {{ $imageData[5]['height'] }};">{{$imageData[5][' image '] ?? ''}}</div>
         </div>
       </div>
     </div>
@@ -418,7 +418,7 @@
         <div class="input-drop">
           <div id="textArea13-1" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] }};">{{$textData[17]['text'] ?? ''}}</div>
           <div id="textArea13-2" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] }};">{{$textData[16]['text'] ?? ''}}</div>
-          <div id="dropArea13" class="empty droparea" style="width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};"></div>
+          <div id="dropArea13" class="empty droparea" style="width: {{ $imageData[6]['width'] }}; height: {{ $imageData[6]['height'] }};"><{{$imageData[6][' image '] ?? ''}}/div>
           <div id="textArea13-3" class="text-empty textareaB">{{$textData[15]['text'] ?? ''}}</div>
         </div>
       </div>
