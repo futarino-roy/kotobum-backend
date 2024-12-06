@@ -383,10 +383,10 @@
         <img src="/template/p12@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea12-1" class="text-empty text-diagonal textarea">{{$textData[15]['text'] ?? ''}}</div>
-          <div id="dropArea12-1" class="empty"></div>
+          <div id="dropArea12-1" class="empty droparea" style="width: {{ $imageData[6]['width'] }}; height: {{ $imageData[6]['height'] }};">{{$imageData[6][' image '] ?? ''}}</div>
           <div id="textArea12-2" class="text-empty textarea">{{$textData[16]['text'] ?? ''}}</div>
-          <div id="dropArea12-2" class="empty"></div>
-          <div id="dropArea12-3" class="empty"></div>
+          <div id="dropArea12-2" class="empty droparea" style="width: {{ $imageData[7]['width'] }}; height: {{ $imageData[7]['height'] }};">{{$imageData[7][' image '] ?? ''}}</div>
+          <div id="dropArea12-3" class="empty droparea" style="width: {{ $imageData[8]['width'] }}; height: {{ $imageData[8]['height'] }};">{{$imageData[8][' image '] ?? ''}}</div>
 
           <div id="textArea12-3" class="text-empty textarea">{{$textData[17]['text'] ?? ''}}</div>
         </div>
