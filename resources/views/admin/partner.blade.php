@@ -91,16 +91,13 @@
                     <span>N/A</span>
                 @endif
             </td>
-            @php
-            $user_id = $user->id;
-            @endphp
             <td>
                 @if ($user->template === 'A')
                     @if(optional($B)->id) 
                         <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">A面割り当て{{ $user->id }}</a>
                             <form id="switch-partner-form" action="{{ route('admin.switchPartner', $B->id) }}" method="POST" style="display: none;">
                             @csrf
-                                <input type="hidden" name="new_partner_id" value="{{ $user_id }}"> <!-- new_partner_id に渡すID -->
+                                <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
                             </form>
                     @else
                         <a href="#" style="pointer-events: none; color: gray;">割り当て不可</a>
@@ -110,7 +107,7 @@
                         <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">B面割り当て{{ $user->id }}</a>
                             <form id="switch-partner-form" action="{{ route('admin.switchPartner', $A->id) }}" method="POST" style="display: none;">
                             @csrf
-                                <input type="hidden" name="new_partner_id" value="{{ $user_id }}"> <!-- new_partner_id に渡すID -->
+                                <input type="hidden" name="new_partner_id" value="{{ $user->id }}"> <!-- new_partner_id に渡すID -->
                             </form>
                     @else
                         <a href="#" style="pointer-events: none; color: gray;">割り当て不可</a>

@@ -87,13 +87,11 @@ class PDFController extends Controller
     
         // JSONデータを配列にデコード
         $textData = json_decode($body->textdata,true); // trueを設定して連想配列で取得
-
         $colors = json_decode($body->colors, true);
-
         $imageData = json_decode($body->imageData, true);
 
         // 各画像データをBase64形式でエンコード
-        foreach ($imageData as &$item) {
+        foreach ($imageData as $item) {
             if ($item['image']) {
                 // 画像データがバイナリの場合、Base64にエンコード
                 $item['image'] = 'data:image/jpeg;base64,' . base64_encode($item['image']);
@@ -103,7 +101,11 @@ class PDFController extends Controller
         // 表示するテンプレートの種類を決定
         switch ($user->format) {
             case 1:
-                $format = 'body1';
+                if($user->template === 'A'){
+                    $format = 'body1A';
+                }else{
+                    $format = 'body1B';
+                }
                 break;
             
             /* case 2
@@ -116,11 +118,8 @@ class PDFController extends Controller
                      compact(
                         'format',
                         'textdata',
-                        'textdataB', 
                         'colors',
-                        'colorsB', 
-                        'imageData', 
-                        'imageDataB', ));
+                        'imageData',  ));
     }
     
 
@@ -130,7 +129,7 @@ class PDFController extends Controller
         $htmlContent = $request->input('html_content');
 
         $mpdf = new \Mpdf\Mpdf([
-            'format' => array( 335, 250) 
+            'format' => array( 146, 206) 
         ]); //サイズ指定 カバー335、250　ボディ146、206
 
         // HTMLをPDFに変換

@@ -159,3 +159,59 @@
   </body>
 </html>
 
+<!--   <body style="background-color: {{ $colors['backgroundColor'] }}; color: {{ $colors['textColor'] }};">
+    <div class="content">
+        <img src="/images/cover_PDF@2x.png" alt="Cover Image" style="width: 100%; max-width: 335mm; border: 1px solid #ccc; border-right: none" />
+
+        <div class="uniqueColorB">
+            <div class="img imgB">
+                <div class="input-drop">
+                    @foreach($imageData as $item)
+                        @if($item['image']) 
+                            <div id="{{ $item['id'] }}">
+                                <img src="{{ $item['image'] }}" alt="Image" style="width: 100px; height: 100px;" />
+                            </div>
+                        @else
+                            <div id="{{ $item['id'] }}">{{ $item['id'] }}: No image available</div>
+                        @endif
+                    @endforeach
+
+                    
+                    @foreach($textData as $textItem)
+                        <div id="{{ $textItem['id'] }}" class="text-element">
+                            {{ $textItem['text'] ?? 'No text available' }}
+                        </div>
+                    @endforeach
+
+                    <div id="dropAreaB" class="empty droparea"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="uniqueColor">
+            <div class="img imgA">
+                <div class="input-drop">
+                    
+                    @foreach($imageData as $item)
+                        @if($item['image']) 
+                            <div id="{{ $item['id'] }}">
+                                <img src="{{ $item['image'] }}" alt="Image" style="width: 100px; height: 100px;" />
+                            </div>
+                        @else
+                            <div id="{{ $item['id'] }}">{{ $item['id'] }}: No image available</div>
+                        @endif
+                    @endforeach
+
+                    
+                    @foreach($textData as $textItem)
+                        <div id="{{ $textItem['id'] }}" class="text-element">
+                            {{ $textItem['text'] ?? 'No text available' }}
+                        </div>
+                    @endforeach
+                    
+                    <div id="dropAreaA" class="empty droparea"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body> -->
