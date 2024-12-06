@@ -113,6 +113,8 @@ class PDFController extends Controller
                 break; */
         }
 
+
+        dd($colors);
         // ビューにデータを渡す
         return view('pdf.edit', 
                      compact(
