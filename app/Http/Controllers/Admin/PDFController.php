@@ -84,6 +84,9 @@ class PDFController extends Controller
         $user = User::findOrFail($userid);
         $album = $user->album()->firstOrFail(); // ユーザーのアルバムを取得
         $body = $album->body;  // アルバムに関連する body を取得
+
+        dd($body->textdata);
+        dd($body->colors);
     
         // JSONデータを配列にデコード
         $textData = json_decode($body->textdata,true); // trueを設定して連想配列で取得
