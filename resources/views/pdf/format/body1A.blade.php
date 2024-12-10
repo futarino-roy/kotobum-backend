@@ -373,7 +373,7 @@
         <img src="/template/p8@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea18" class="text-empty textarea">{{$textData[9]['text'] ?? ''}}</div>
-          <div id="dropArea18" class="empty dropareaB" style="width: {{ $imageData[2]['width'] }}; height: {{ $imageData[2]['height'] }};">{{$imageData[2][' image '] ?? ''}}</div>
+          <div id="dropArea18" class="empty dropareaB" style="width: {{ $imageData[2]['width'] ?? '50'}}; height: {{ $imageData[2]['height'] ?? '50'}};">{{$imageData[2][' image '] ?? ''}}</div>
         </div>
       </div>
     </div>
