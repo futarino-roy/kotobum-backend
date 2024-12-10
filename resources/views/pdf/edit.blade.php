@@ -6,7 +6,7 @@
 @section('content')
     <h1>PDF化確認ページ</h1>
 
-    <form action="{{ route('admin.PDF') }}" method="POST" id="html-form">
+    <form action="{{ route('admin.PDF') }}" method="POST" id="html-form" target="_blank">
      @csrf
      <label for="html-content">HTMLコードを編集してください:</label><br><br>
 
