@@ -85,7 +85,7 @@ class PDFController extends Controller
         $album = $user->album()->firstOrFail(); // ユーザーのアルバムを取得
         $body = $album->body;  // アルバムに関連する body を取得
 
-        dd($user, $album, $body);
+        //dd($user, $album, $body);
         dd($body->textData);
         dd($body->colors);
     
