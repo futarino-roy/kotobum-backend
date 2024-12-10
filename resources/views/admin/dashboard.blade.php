@@ -31,10 +31,10 @@
                     <td>{{ $user->login_id }}</td>
                     <td>{{ $user->template }}</td>
                     <td>{{ optional($user->partner)->name }}</td>
-                    <td><a href="{{ route('admin.showPartner', $user->id) }}">フタリノ画面</a></td>
+                    <td><a href="{{ route('admin.showPartner', $user->id) }}" >フタリノ画面</a></td>
                     <td>{{ $user->created_at }}</td>
                     <!-- <td><a href="{{ route('admin.coverHTML', $user->id) }}">PDF</a></td> -->
-                    <td><a href="{{ route('admin.bodyHTML', $user->id) }}">PDF</a></td>
+                    <td><a href="{{ route('admin.bodyHTML', $user->id) }}" target="_blank">PDF</a></td>
                 </tr>
             @endforeach
         </tbody>
