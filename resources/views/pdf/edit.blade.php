@@ -14,7 +14,11 @@
 
         <!-- 編集可能なテキストエリア（動的に埋め込むテンプレートをここに表示）-->
         <textarea id="html-content" name="html_content" style="width: 100%;">
-            @include('pdf.format.' . $format, ['textdata => $textData'],['colors => $colors'],['imageData => $imageData'])
+                 @include('pdf.format.' . $format, [
+                    'textdata' => $textData,
+                    'colors' => $colors,
+                    'imageData' => $imageData
+                    ])
         </textarea><br><br>
 
      <button type="submit">PDFを生成</button>
