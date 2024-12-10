@@ -30,8 +30,8 @@
                          <a href="#" style="pointer-events: none; color: gray;">解除不可</a>
                          @else
                          <!-- partner_idがnullでない場合 -->        
-                         <a href="#" onclick="event.preventDefault(); document.getElementById('detach-partner-form').submit();">解除</a>
-                            <form id="detach-partner-form" action="{{ route('admin.detachPartner', $A->partner_id) }}" method="POST" style="display: none;">
+                         <a href="#" onclick="event.preventDefault(); document.getElementById('detach-partner-form-A').submit();">解除</a>
+                            <form id="detach-partner-form-A" action="{{ route('admin.detachPartner', $A->partner_id) }}" method="POST" style="display: none;">
                             @csrf
                             </form>
                          @endif
@@ -49,8 +49,8 @@
                          <a href="#" style="pointer-events: none; color: gray;">解除不可</a>
                          @else
                          <!-- partner_idがnullでない場合 -->
-                         <a href="#" onclick="event.preventDefault(); document.getElementById('detach-partner-form').submit();">解除</a>
-                            <form id="detach-partner-form" action="{{ route('admin.detachPartner', $B->partner_id) }}" method="POST" style="display: none;">
+                         <a href="#" onclick="event.preventDefault(); document.getElementById('detach-partner-form-B').submit();">解除</a>
+                            <form id="detach-partner-form-B" action="{{ route('admin.detachPartner', $B->partner_id) }}" method="POST" style="display: none;">
                             @csrf
                             </form>
                          @endif 
