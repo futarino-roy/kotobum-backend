@@ -42,7 +42,7 @@ class PartnerController extends Controller
     public function switchPartner(Request $request, $userid)
     {
         /* dd($userid); */
-        dd($request);
+        /* dd($request); */
         // リクエストバリデーション
         $request->validate([
             'new_partner_id' => 'required|exists:users,id|different:' . $userid,
