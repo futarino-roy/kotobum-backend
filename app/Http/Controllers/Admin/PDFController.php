@@ -87,7 +87,7 @@ class PDFController extends Controller
 
         //dd($user, $album, $body);
         //dd($body->textData);
-        //dd($body->colors);
+        dd($body->colors);
     
         // JSONデータを配列にデコード
         $textData = json_decode($body->textData,true); // trueを設定して連想配列で取得
