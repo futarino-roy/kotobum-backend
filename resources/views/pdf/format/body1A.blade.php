@@ -325,7 +325,7 @@
         </div>
       </div>
     </div>
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor' ?? '#ffffff'] }};">
+    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="/template/p14@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
