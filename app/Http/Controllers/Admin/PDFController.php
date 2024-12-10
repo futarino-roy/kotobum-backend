@@ -118,7 +118,7 @@ class PDFController extends Controller
         }
 
         //dd($textData);
-        dd($colors);
+        //dd($colors);
         // ビューにデータを渡す
         return view('pdf.edit', 
                      compact(
