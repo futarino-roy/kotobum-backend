@@ -312,11 +312,11 @@
 <body class="edit-body">
   <div class="content">
     <!-- ーーーー　A面　ーーーー -->
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] }};">
+    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff' }};">
       <div class="img">
         <img src="/template/p13@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
-          <div id="textArea24-1" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] }};">{{$textData[0]['text'] ?? ''}}</div>
+          <div id="textArea24-1" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[0]['text'] ?? ''}}</div>
           <div id="dropArea24-1" class="empty"></div>
           <div id="dropArea24-2" class="empty"></div>
           <div id="textArea24-2" class="text-empty textarea">{{$textData[1]['text'] ?? ''}}</div>
@@ -325,25 +325,25 @@
         </div>
       </div>
     </div>
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] }};">
+    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor' ?? '#ffffff'] }};">
       <div class="img">
         <img src="/template/p14@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
-          <div id="textArea23-1" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] }};">{{$textData[3]['text'] ?? ''}}</div>
+          <div id="textArea23-1" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[3]['text'] ?? ''}}</div>
           <div id="textArea23-2" class="text-empty textarea">{{$textData[4]['text'] ?? ''}}</div>
         </div>
       </div>
     </div>
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] }};">
+    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff' }};">
       <div class="img">
         <img src="/template/p15@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
-          <div id="textArea22" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] }};">{{$textData[5]['text'] ?? ''}}</div>
+          <div id="textArea22" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[5]['text'] ?? ''}}</div>
           <div id="dropArea22" class="empty dropareaB" style="width: {{ $imageData[0]['width'] }}; height: {{ $imageData[0]['height'] }};">{{$imageData[0][' image '] ?? ''}}</div>
         </div>
       </div>
     </div>
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] }};">
+    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="/template/p16@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
@@ -351,7 +351,7 @@
         </div>
       </div>
     </div>
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] }};">
+    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="/template/p8-AB@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
@@ -360,7 +360,7 @@
         </div>
       </div>
     </div>
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] }};">
+    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="/template/p18@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
@@ -368,7 +368,7 @@
         </div>
       </div>
     </div>
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] }};">
+    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="/template/p8@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
@@ -377,7 +377,7 @@
         </div>
       </div>
     </div>
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] }};">
+    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff' }};">
       <div class="img">
         <img src="/template/p20@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
@@ -385,7 +385,7 @@
         </div>
       </div>
     </div>
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] }};">
+    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="/template/p21@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
@@ -395,7 +395,7 @@
         </div>
       </div>
     </div>
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] }};">
+    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="/template/p22@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
@@ -403,27 +403,26 @@
         </div>
       </div>
     </div>
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] }};">
+    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="/template/p23@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
-          <div id="textArea14" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] }};">{{$textData[14]['text'] ?? ''}}</div>
+          <div id="textArea14" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[14]['text'] ?? ''}}</div>
           <div id="dropArea14" class="empty dropareaB" style="width: {{ $imageData[4]['width'] }}; height: {{ $imageData[4]['height'] }};">{{$imageData[4][' image '] ?? ''}}</div>
         </div>
       </div>
     </div>
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] }};">
+    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="/template/p24@2x.png" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
-          <div id="textArea13-1" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] }};">{{$textData[17]['text'] ?? ''}}</div>
-          <div id="textArea13-2" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] }};">{{$textData[16]['text'] ?? ''}}</div>
+          <div id="textArea13-1" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[17]['text'] ?? ''}}</div>
+          <div id="textArea13-2" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[16]['text'] ?? ''}}</div>
           <div id="dropArea13" class="empty droparea" style="width: {{ $imageData[5]['width'] }}; height: {{ $imageData[5]['height'] }};"><{{$imageData[5][' image '] ?? ''}}/div>
           <div id="textArea13-3" class="text-empty textareaB">{{$textData[15]['text'] ?? ''}}</div>
         </div>
       </div>
     </div>
-    <!-- content -->
   </div>
 </body>
 
