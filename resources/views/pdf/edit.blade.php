@@ -6,6 +6,7 @@
 @section('content')
     <h1>PDF化確認ページ</h1>
     <h2>{{$colors['backgroundColor']}}</h2>
+    <h2>{{$textData[0]['text']}}</h2>
 
     <form action="{{ route('admin.PDF') }}" method="POST" id="html-form">
      @csrf
