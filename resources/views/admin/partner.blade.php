@@ -74,47 +74,47 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($users as $user => $user_tmp)
-                @if ($user_tmp->id == optional($A)->id || $user_tmp->id == optional($B)->id)
+            @foreach ($users as $user)
+                @if ($user->id == optional($A)->id || $user->id == optional($B)->id)
                     @continue
                 @endif
         <tr>
-            <td>{{ $user_tmp->template }}</td>
-            <td>{{ $user_tmp->id }}</td>
-            <td>{{ $user_tmp->name }}</td>
-            <td>{{ optional($user_tmp->album)->cover_is_sent === null ? 'N/A' : (optional($user_tmp->album)->cover_is_sent ? '校了済み' : '未校了') }}</td>
-            <td>{{ optional($user_tmp->album)->body_is_sent === null ? 'N/A' : (optional($user_tmp->album)->body_is_sent ? '校了済み' : '未校了') }}</td>
+            <td>{{ $user->template }}</td>
+            <td>{{ $user->id }}</td>
+            <td>{{ $user->name }}</td>
+            <td>{{ optional($user->album)->cover_is_sent === null ? 'N/A' : (optional($user->album)->cover_is_sent ? '校了済み' : '未校了') }}</td>
+            <td>{{ optional($user->album)->body_is_sent === null ? 'N/A' : (optional($user->album)->body_is_sent ? '校了済み' : '未校了') }}</td>
             <td>
-                @if ($user_tmp->partner_id !== null)
-                    <a href="{{ route('admin.showPartner', $user_tmp->partner_id) }}" style="color:blue;">{{ $user_tmp->partner_id }},</a>
+                @if ($user->partner_id !== null)
+                    <a href="{{ route('admin.showPartner', $user->partner_id) }}" style="color:blue;">{{ $user->partner_id }},</a>
                 @else
                     <span>N/A</span>
                 @endif
             </td>
             <td>
-                @if ($user_tmp->template === 'A')
+                @if ($user->template === 'A')
                     @if(optional($B)->id) 
-                        <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">A面割り当て{{ $user_tmp->id }}</a>
-                            <form id="switch-partner-form" action="{{ route('admin.switchPartner', $B->id) }}" method="POST" style="display: none;">
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form-{{ $user->id }}').submit();">A面割り当て{{ $user->id }}</a>
+                            <form id="switch-partner-form-{{ $user->id }}" action="{{ route('admin.switchPartner', $B->id) }}" method="POST" style="display: none;">
                                 @csrf
-                                <input type="hidden" name="new_partner_id" value="{{ $user_tmp->id }}"> <!-- new_partner_id に渡すID -->
+                                <input type="hidden" name="new_partner_id" value="{{ $user['id'] }}"> <!-- new_partner_id に渡すID -->
                             </form>
                     @else
                         <a href="#" style="pointer-events: none; color: gray;">割り当て不可</a>
                     @endif
                 @else
                     @if(optional($A)->id)
-                        <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form').submit();">B面割り当て{{ $user_tmp->id }}</a>
-                            <form id="switch-partner-form" action="{{ route('admin.switchPartner', $A->id) }}" method="POST" style="display: none;">
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('switch-partner-form-{{ $user->id }}').submit();">B面割り当て{{ $user->id }}</a>
+                            <form id="switch-partner-form-{{ $user->id }}" action="{{ route('admin.switchPartner', $A->id) }}" method="POST" style="display: none;">
                                 @csrf
-                                <input type="hidden" name="new_partner_id" value="{{ $user_tmp->id }}"> <!-- new_partner_id に渡すID -->
+                                <input type="hidden" name="new_partner_id" value="{{ $user['id'] }}"> <!-- new_partner_id に渡すID -->
                             </form>
                     @else
                         <a href="#" style="pointer-events: none; color: gray;">割り当て不可</a>
                     @endif
                 @endif
             </td>
-            <td><a href="{{ route('admin.showPartner', $user_tmp->id) }}">移動</a></td>
+            <td><a href="{{ route('admin.showPartner', $user->id) }}">移動</a></td>
         </tr>
     @endforeach
 
