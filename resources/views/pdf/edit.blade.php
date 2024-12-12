@@ -22,7 +22,7 @@
      <button type="submit">PDFを生成</button>
     </form>
 
-    <img src="{{ asset('img/kotobum_format1/p1@2x.jpg') }}" alt="" >
+    <img src="{{ asset('img/kotobum_format1/p1@2x.jpg') }}" alt="">
 
     <h3>プレビューエリア</h3>
     <iframe id="preview"></iframe>
