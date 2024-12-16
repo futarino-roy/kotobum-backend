@@ -40,8 +40,8 @@ class Cover extends Model
                             // パートナーのカバーのstatusを更新
                             $partnerAlbum->cover->update(['covertext' => $cover->status]);
                         }
+                    }
                  }
-             }
             }
         });
     }

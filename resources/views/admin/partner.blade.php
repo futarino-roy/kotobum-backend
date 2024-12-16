@@ -74,10 +74,10 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($users as $user)
-                @if ($user->id == optional($A)->id || $user->id == optional($B)->id)
-                    @continue
-                @endif
+        @foreach ($users as $user)
+            @if ($user->id == optional($A)->id || $user->id == optional($B)->id)
+                @continue
+            @endif
         <tr>
             <td>{{ $user->template }}</td>
             <td>{{ $user->id }}</td>
@@ -116,7 +116,7 @@
             </td>
             <td><a href="{{ route('admin.showPartner', $user->id) }}">移動</a></td>
         </tr>
-    @endforeach
+        @endforeach
 
 @endsection
 

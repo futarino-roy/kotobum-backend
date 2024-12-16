@@ -61,7 +61,7 @@ class CoverController extends Controller
         /* $cover->touch(); */
         /* $album->save(); */
 
-        return response()->json(['message' => 'ボディが保存されました', 'cover' => $cover], 201);
+        return response()->json(['message' => 'カバーが保存されました', 'cover' => $cover], 201);
     }
 
 

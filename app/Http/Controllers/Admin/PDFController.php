@@ -84,10 +84,6 @@ class PDFController extends Controller
         $user = User::findOrFail($userid);
         $album = $user->album()->firstOrFail(); // ユーザーのアルバムを取得
         $body = $album->body;  // アルバムに関連する body を取得
-
-        //dd($user, $album, $body);
-        //dd($body->textData);
-        //dd($body->colors);
     
         // JSONデータを配列にデコード
         $textData = json_decode($body->textData,true); // trueを設定して連想配列で取得
@@ -117,8 +113,6 @@ class PDFController extends Controller
                 break; */
         }
 
-        //dd($textData);
-        //dd($colors);
         // ビューにデータを渡す
         return view('pdf.edit', 
                      compact(
