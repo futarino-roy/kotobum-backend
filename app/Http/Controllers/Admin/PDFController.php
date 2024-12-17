@@ -130,7 +130,10 @@ class PDFController extends Controller
         $htmlContent = $request->input('html_content');
         $mpdfConfig = config('pdf');
 
-        $mpdf = new MpdfMpdf($mpdfConfig); //サイズ指定 カバー335、250　ボディ158、218
+        $mpdf = new MpdfMpdf($mpdfConfig); 
+        
+        // 特定のプロパティだけを変更
+        $mpdf->SetPageSize([210, 297]);//サイズ指定 カバー335、250　ボディ158、218
 
         // HTMLをPDFに変換
         $mpdf->WriteHTML($htmlContent);
