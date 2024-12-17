@@ -134,9 +134,7 @@ class PDFController extends Controller
         ]); //サイズ指定 カバー335、250　ボディ158、218
 
         // HTMLをPDFに変換
-        $mpdf = mPDF::loadHTML($htmlContent,[],[
-            'format' => [158, 218],
-        ]);
+        $mpdf = mPDF::loadHTML($htmlContent);
 
         // 表示させる場合
         return $mpdf->stream('document.pdf');
