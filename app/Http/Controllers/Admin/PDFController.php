@@ -128,7 +128,7 @@ class PDFController extends Controller
     public function PDF(Request $request)
     {
         $htmlContent = $request->input('html_content');
-        $mpdfConfig = config('pdf.default');
+        $mpdfConfig = config('pdf');
 
         $mpdf = new MpdfMpdf($mpdfConfig); //サイズ指定 カバー335、250　ボディ158、218
 
