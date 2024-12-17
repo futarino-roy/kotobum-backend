@@ -137,9 +137,6 @@ class PDFController extends Controller
         $mpdf->WriteHTML($htmlContent);
 
         // 表示させる場合
-        return $mpdf->stream('document.pdf');
-
-        // ダウンロードさせる場合
-        //return $mpdf->download('test.pdf');
+        return $mpdf->Output('document.pdf', \Mpdf\Output\Destination::INLINE);
     }
 }
