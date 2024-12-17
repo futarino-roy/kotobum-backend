@@ -135,7 +135,7 @@ class PDFController extends Controller
 
         // HTMLをPDFに変換
         $mpdf = LaravelMpdf::loadHTML('',$htmlContent,[],[
-            'format' => [158, 218],
+            'format' => array(158, 218),
         ]);
 
         // 表示させる場合
