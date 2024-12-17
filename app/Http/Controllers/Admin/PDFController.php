@@ -134,9 +134,7 @@ class PDFController extends Controller
         ]); //サイズ指定 カバー335、250　ボディ158、218
 
         // HTMLをPDFに変換
-        $mpdf = LaravelMpdf::loadHTML('',$htmlContent,[],[
-            'format' => array(158, 218),
-        ]);
+        $mpdf->WriteHTML($htmlContent);
 
         // 表示させる場合
         return $mpdf->stream('document.pdf');
