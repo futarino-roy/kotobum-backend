@@ -129,7 +129,7 @@ class PDFController extends Controller
         $htmlContent = $request->input('html_content');
 
         $mpdf = new \Mpdf\Mpdf([
-            /* 'format' => array( 158, 218), */
+            'format' => array( 158, 218),
         ]); //サイズ指定 カバー335、250　ボディ158、218
 
         // HTMLをPDFに変換
