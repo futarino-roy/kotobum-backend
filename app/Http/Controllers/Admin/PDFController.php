@@ -12,6 +12,7 @@ use App\Models\User;
 use mPDF;
 use Mccarlosen\LaravelMpdf\Facades\LaravelMpdf;
 use Meneses\LaravelMpdf\LaravelMpdfServiceProvider;
+use Mpdf\Mpdf as MpdfMpdf;
 
 class PDFController extends Controller
 {
@@ -128,12 +129,12 @@ class PDFController extends Controller
     {
         $htmlContent = $request->input('html_content');
 
-        $mpdf = new \Mpdf\Mpdf([
+        $mpdf = new MpdfMpdf([
             'format' => [158, 218],
         ]); //サイズ指定 カバー335、250　ボディ158、218
 
         // HTMLをPDFに変換
-        $mpdf = LaravelMpdf::loadHTML($htmlContent);
+        $mpdf = mPDF::loadHTML($htmlContent);
 
         // 表示させる場合
         return $mpdf->stream('document.pdf');
