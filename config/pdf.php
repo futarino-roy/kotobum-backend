@@ -4,6 +4,7 @@ return [
     'mode'                     => 'ja',
     'default_font_size'        => '12',
     'default_font'             => 'sans-serif',
+    'format' => [158, 218],
     'margin_left'              => 0,
     'margin_right'             => 0,
     'margin_top'               => 0,
