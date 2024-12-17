@@ -315,6 +315,7 @@
     <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff' }};">
       <div class="img">
         <img src="{{ asset('img/kotobum_format1/1-1@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
+        <img src="{{$imageData[0]['image'] ?? ''}}" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea24-1" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[0]['text'] ?? ''}}</div>
           <div id="dropArea24-1" class="empty"></div>
