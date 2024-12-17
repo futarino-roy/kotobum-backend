@@ -98,6 +98,8 @@ class PDFController extends Controller
                 $item['image'] = 'data:image/jpeg;base64,' . base64_encode($item['image']);
             }
         }
+
+        dd($imageData);
         
         // 表示するテンプレートの種類を決定
         switch ($user->format) {
