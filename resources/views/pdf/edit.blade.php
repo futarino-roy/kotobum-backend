@@ -11,7 +11,7 @@
      <label for="html-content">HTMLコードを編集してください:</label><br><br>
 
         <!-- 編集可能なテキストエリア（動的に埋め込むテンプレートをここに表示）-->
-        <textarea id="html-content" name="html_content" style="width: 100%;">
+        <textarea id="html-content" name="html_content" style="width: 100%; height: 500px">
                  @include('pdf.format.' . $format, [
                     'textdata' => $textData,
                     'colors' => $colors,
@@ -25,7 +25,7 @@
     <!-- <img src="{{ asset('img/kotobum_format1/p1@2x.jpg') }}" alt=""> -->
 
     <h3>プレビューエリア</h3>
-    <iframe id="preview" style="width: 100%;  height: 500px"></iframe>
+    <iframe id="preview" style="width: 100%;  height: 600px"></iframe>
 
     <script>
         document.getElementById('html-content').addEventListener('input', function() {
