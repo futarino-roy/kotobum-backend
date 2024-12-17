@@ -137,6 +137,6 @@ class PDFController extends Controller
         $mpdf->WriteHTML($htmlContent);
 
         // 表示させる場合
-        return $mpdf->Output('document.pdf', \Mpdf\Output\Destination::INLINE);
+        return $mpdf->Output( "MyPDF.pdf", "I");
     }
 }
