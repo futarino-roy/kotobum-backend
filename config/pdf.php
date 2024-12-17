@@ -2,7 +2,7 @@
 
 return [
     'mode'                     => 'ja',
-    'format'                   => array( 158, 218),
+    'format'                   => '',
     'default_font_size'        => '12',
     'default_font'             => 'sans-serif',
     'margin_left'              => 0,
