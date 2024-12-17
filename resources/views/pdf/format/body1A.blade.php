@@ -315,7 +315,6 @@
     <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff' }};">
       <div class="img">
         <img src="{{ asset('img/kotobum_format1/1-1@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
-        <img src="{{$imageData[0]['image'] ?? ''}}" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea24-1" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[0]['text'] ?? ''}}</div>
           <div id="dropArea24-1" class="empty"></div>
@@ -346,7 +345,7 @@
         <img src="{{ asset('img/kotobum_format1/1-3@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
         <div class="input-drop">
           <div id="textArea22" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[5]['text'] ?? ''}}</div>
-          <div id="dropArea22" class="empty dropareaB" style="width: {{ $imageData[0]['width'] ?? '50'}}; height: {{ $imageData[0]['height'] ?? '50'}};">{{$imageData[0]['image'] ?? ''}}</div>
+          <div id="dropArea22" class="empty dropareaB" style="width: {{ $imageData[0]['width'] ?? '50'}}; height: {{ $imageData[0]['height'] ?? '50'}};">{{$imageData[0][' image '] ?? ''}}</div>
         </div>
       </div>
     </div>
