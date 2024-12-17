@@ -325,6 +325,9 @@
         </div>
       </div>
     </div>
+    
+    <pagebreak />
+
     <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="{{ asset('img/kotobum_format1/p14@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
@@ -334,6 +337,9 @@
         </div>
       </div>
     </div>
+
+    <pagebreak />
+
     <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff' }};">
       <div class="img">
         <img src="{{ asset('img/kotobum_format1/p15@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
@@ -343,6 +349,9 @@
         </div>
       </div>
     </div>
+
+    <pagebreak />
+
     <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="{{ asset('img/kotobum_format1/p16@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
@@ -351,6 +360,9 @@
         </div>
       </div>
     </div>
+
+    <pagebreak />
+
     <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="{{ asset('img/kotobum_format1/p8-AB@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
@@ -360,6 +372,9 @@
         </div>
       </div>
     </div>
+
+    <pagebreak />
+
     <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="{{ asset('img/kotobum_format1/p18@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
@@ -368,6 +383,9 @@
         </div>
       </div>
     </div>
+
+    <pagebreak />
+
     <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="{{ asset('img/kotobum_format1/p8@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
@@ -377,6 +395,9 @@
         </div>
       </div>
     </div>
+
+    <pagebreak />
+
     <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff' }};">
       <div class="img">
         <img src="{{ asset('img/kotobum_format1/p20@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
@@ -385,6 +406,9 @@
         </div>
       </div>
     </div>
+
+    <pagebreak />
+
     <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="{{ asset('img/kotobum_format1/p21@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
@@ -395,6 +419,9 @@
         </div>
       </div>
     </div>
+
+    <pagebreak />
+
     <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="{{ asset('img/kotobum_format1/p22@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
@@ -403,6 +430,9 @@
         </div>
       </div>
     </div>
+
+    <pagebreak />
+
     <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="{{ asset('img/kotobum_format1/p23@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
@@ -412,6 +442,9 @@
         </div>
       </div>
     </div>
+
+    <pagebreak />
+
     <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
       <div class="img">
         <img src="{{ asset('img/kotobum_format1/p24@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
