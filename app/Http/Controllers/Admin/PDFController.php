@@ -109,9 +109,29 @@ class PDFController extends Controller
                 }
                 break;
             
-            /* case 2
-                $format = ''
-                break; */
+            case 2:
+                if($user->template === 'A'){
+                    $format = 'body2A';
+                }else{
+                    $format = 'body2B';
+                }
+                break;
+            
+            case 3:
+                if($user->template === 'A'){
+                    $format = 'body3A';
+                }else{
+                    $format = 'body3B';
+                }
+                break;
+
+            case 4:
+                if($user->template === 'A'){
+                    $format = 'body4A';
+                }else{
+                    $format = 'body4B';
+                }
+                break;
         }
 
         // ビューにデータを渡す
