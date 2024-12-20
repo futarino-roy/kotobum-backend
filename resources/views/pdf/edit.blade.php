@@ -25,7 +25,7 @@
     <!-- <img src="{{ asset('img/kotobum_format1/p1@2x.jpg') }}" alt=""> -->
 
     <h3>プレビューエリア</h3>
-    <iframe id="preview" style="width: 100%;  height: 600px"></iframe>
+    <iframe id="preview" style="width: 60%;  height: 600px; margin: 0 auto;"></iframe>
 
     <script>
         document.getElementById('html-content').addEventListener('input', function() {
