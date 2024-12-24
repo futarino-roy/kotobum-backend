@@ -309,154 +309,89 @@
   </style>
 </head>
 
-<body class="edit-body">
-  <div class="content">
-    <!-- ーーーー　A面　ーーーー -->
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff' }};">
-      <div class="img">
-        <img src="{{ asset('img/kotobum_format1/2-12@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
-        <div class="input-drop">
-          <div id="textArea24-1" class="text-empty text-colorB textarea" style="position: relative;  width: 48%; height: 28.2%;  border: 2px solid #ccc;  top: 55.5%;  left: 26%; color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[0]['text'] ?? ''}}</div>
-          <div id="dropArea24-1" class="empty"></div>
-          <div id="dropArea24-2" class="empty"></div>
-          <div id="textArea24-2" class="text-empty textarea">{{$textData[1]['text'] ?? ''}}</div>
-          <div id="dropArea24-3" class="empty"></div>
-          <div id="textArea24-4" class="text-empty textareaB">{{$textData[2]['text'] ?? ''}}</div>
-        </div>
-      </div>
-    </div>
+<body class="edit-body" style="background-color:rgb(0, 145, 65);">
+  <img src="{{ asset('img/kotobum_format1/2-12@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
+  <div id="textArea24-1" class="text-empty text-colorB textarea" style="position: relative;  width: 48%; height: 28.2%;  border: 2px solid #ccc;  top: 55.5%;  left: 26%; color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[0]['text'] ?? ''}}</div>
+  <div id="dropArea24-1" class="empty"></div>
+  <div id="dropArea24-2" class="empty"></div>
+  <div id="textArea24-2" class="text-empty textarea">{{$textData[1]['text'] ?? ''}}</div>
+  <div id="dropArea24-3" class="empty"></div>
+  <div id="textArea24-4" class="text-empty textareaB">{{$textData[2]['text'] ?? ''}}</div>
+
     
-    <pagebreak />
+  <pagebreak />
 
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
-      <div class="img">
-        <img src="{{ asset('img/kotobum_format1/2-11@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
-        <div class="input-drop">
-          <div id="textArea23-1" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[3]['text'] ?? ''}}</div>
-          <div id="textArea23-2" class="text-empty textarea">{{$textData[4]['text'] ?? ''}}</div>
-        </div>
-      </div>
-    </div>
+  <img src="{{ asset('img/kotobum_format1/2-11@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
+  <div id="textArea23-1" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[3]['text'] ?? ''}}</div>
+  <div id="textArea23-2" class="text-empty textarea">{{$textData[4]['text'] ?? ''}}</div>
 
-    <pagebreak />
 
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff' }};">
-      <div class="img">
-        <img src="{{ asset('img/kotobum_format1/2-10@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
-        <div class="input-drop">
-          <div id="textArea22" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[5]['text'] ?? ''}}</div>
-          <div id="dropArea22" class="empty dropareaB" style="width: {{ $imageData[0]['width'] ?? '50'}}; height: {{ $imageData[0]['height'] ?? '50'}};">{{$imageData[0][' image '] ?? ''}}</div>
-        </div>
-      </div>
-    </div>
+  <pagebreak />
 
-    <pagebreak />
+  <img src="{{ asset('img/kotobum_format1/2-10@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
+  <div id="textArea22" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[5]['text'] ?? ''}}</div>
+  <div id="dropArea22" class="empty dropareaB" style="width: {{ $imageData[0]['width'] ?? '50'}}; height: {{ $imageData[0]['height'] ?? '50'}};">{{$imageData[0][' image '] ?? ''}}</div>
 
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
-      <div class="img">
-        <img src="{{ asset('img/kotobum_format1/2-9@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
-        <div class="input-drop">
-          <div id="textArea21" class="text-empty textareaB">{{$textData[6]['text'] ?? ''}}</div>
-        </div>
-      </div>
-    </div>
+  <pagebreak />
 
-    <pagebreak />
+  <img src="{{ asset('img/kotobum_format1/2-9@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
+  <div class="input-drop">
+  <div id="textArea21" class="text-empty textareaB">{{$textData[6]['text'] ?? ''}}</div>
 
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
-      <div class="img">
-        <img src="{{ asset('img/kotobum_format1/2-8@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
-        <div class="input-drop">
-          <div id="textArea20" class="text-empty textarea">{{$textData[7]['text'] ?? ''}}</div>
-          <div id="dropArea20" class="empty dropareaB" style="width: {{ $imageData[1]['width'] ?? '50'}}; height: {{ $imageData[1]['height'] ?? '50'}};">{{$imageData[1][' image '] ?? ''}}</div>
-        </div>
-      </div>
-    </div>
 
-    <pagebreak />
+  <pagebreak />
 
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
-      <div class="img">
-        <img src="{{ asset('img/kotobum_format1/2-7@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
-        <div class="input-drop">
-          <div id="textArea19" class="text-empty textareaB">{{$textData[8]['text'] ?? ''}}</div>
-        </div>
-      </div>
-    </div>
+  <img src="{{ asset('img/kotobum_format1/2-8@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
+  <div id="textArea20" class="text-empty textarea">{{$textData[7]['text'] ?? ''}}</div>
+  <div id="dropArea20" class="empty dropareaB" style="width: {{ $imageData[1]['width'] ?? '50'}}; height: {{ $imageData[1]['height'] ?? '50'}};">{{$imageData[1][' image '] ?? ''}}</div>
 
-    <pagebreak />
+  <pagebreak />
 
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
-      <div class="img">
-        <img src="{{ asset('img/kotobum_format1/2-6@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
-        <div class="input-drop">
-          <div id="textArea18" class="text-empty textarea">{{$textData[9]['text'] ?? ''}}</div>
-          <div id="dropArea18" class="empty dropareaB" style="width: {{ $imageData[2]['width'] ?? '50'}}; height: {{ $imageData[2]['height'] ?? '50'}};">{{$imageData[2][' image '] ?? ''}}</div>
-        </div>
-      </div>
-    </div>
+  <img src="{{ asset('img/kotobum_format1/2-7@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
+  <div class="input-drop">
+  <div id="textArea19" class="text-empty textareaB">{{$textData[8]['text'] ?? ''}}</div>
 
-    <pagebreak />
+  <pagebreak />
 
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff' }};">
-      <div class="img">
-        <img src="{{ asset('img/kotobum_format1/2-5@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
-        <div class="input-drop">
-          <div id="textArea17" class="text-empty textareaB">{{$textData[10]['text'] ?? ''}}</div>
-        </div>
-      </div>
-    </div>
+  <img src="{{ asset('img/kotobum_format1/2-6@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
+  <div id="textArea18" class="text-empty textarea">{{$textData[9]['text'] ?? ''}}</div>
+  <div id="dropArea18" class="empty dropareaB" style="width: {{ $imageData[2]['width'] ?? '50'}}; height: {{ $imageData[2]['height'] ?? '50'}};">{{$imageData[2][' image '] ?? ''}}</div>
 
-    <pagebreak />
+  <pagebreak />
 
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
-      <div class="img">
-        <img src="{{ asset('img/kotobum_format1/1-4@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
-        <div class="input-drop">
-          <div id="textArea16-1" class="text-empty textarea">{{$textData[11]['text'] ?? ''}}</div>
-          <div id="dropArea16" class="empty dropareaB" style="width: {{ $imageData[3]['width'] ?? '50'}}; height: {{ $imageData[3]['height'] ?? '50'}};">{{$imageData[3][' image '] ?? ''}}</div>
-          <div id="textArea16-2" class="text-empty textarea">{{$textData[12]['text'] ?? ''}}</div>
-        </div>
-      </div>
-    </div>
+  <img src="{{ asset('img/kotobum_format1/2-5@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
+  <div class="input-drop">
+  <div id="textArea17" class="text-empty textareaB">{{$textData[10]['text'] ?? ''}}</div>
 
-    <pagebreak />
+  <pagebreak />
 
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
-      <div class="img">
-        <img src="{{ asset('img/kotobum_format1/1-3@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
-        <div class="input-drop">
-          <div id="textArea15" class="text-empty textareaB">{{$textData[13]['text'] ?? ''}}</div>
-        </div>
-      </div>
-    </div>
+  <img src="{{ asset('img/kotobum_format1/1-4@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
+  <div id="textArea16-1" class="text-empty textarea">{{$textData[11]['text'] ?? ''}}</div>
+  <div id="dropArea16" class="empty dropareaB" style="width: {{ $imageData[3]['width'] ?? '50'}}; height: {{ $imageData[3]['height'] ?? '50'}};">{{$imageData[3][' image '] ?? ''}}</div>
+  <div id="textArea16-2" class="text-empty textarea">{{$textData[12]['text'] ?? ''}}</div>
 
-    <pagebreak />
+  <pagebreak />
 
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
-      <div class="img">
-        <img src="{{ asset('img/kotobum_format1/1-2@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
-        <div class="input-drop">
-          <div id="textArea14" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[14]['text'] ?? ''}}</div>
-          <div id="dropArea14" class="empty dropareaB" style="width: {{ $imageData[4]['width'] ?? '50'}}; height: {{ $imageData[4]['height'] ?? '50'}};">{{$imageData[4][' image '] ?? ''}}</div>
-        </div>
-      </div>
-    </div>
 
-    <pagebreak />
+  <img src="{{ asset('img/kotobum_format1/1-3@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
+  <div class="input-drop">
+  <div id="textArea15" class="text-empty textareaB">{{$textData[13]['text'] ?? ''}}</div>
 
-    <div class="uniqueColorB" style="background-color:{{ $colors['backgroundColor'] ?? '#ffffff'}};">
-      <div class="img">
-        <img src="{{ asset('img/kotobum_format1/1-1@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
-        <div class="input-drop">
-          <div id="textArea13-1" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[17]['text'] ?? ''}}</div>
-          <div id="textArea13-2" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[16]['text'] ?? ''}}</div>
-          <div id="dropArea13" class="empty droparea" style="width: {{ $imageData[5]['width'] ?? '50'}}; height: {{ $imageData[5]['height'] ?? '50'}};"><{{$imageData[5][' image '] ?? ''}}/div>
-          <div id="textArea13-3" class="text-empty textareaB">{{$textData[15]['text'] ?? ''}}</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <pagebreak />
+
+  <img src="{{ asset('img/kotobum_format1/1-2@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
+  <div class="input-drop">
+  <div id="textArea14" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[14]['text'] ?? ''}}</div>
+  <div id="dropArea14" class="empty dropareaB" style="width: {{ $imageData[4]['width'] ?? '50'}}; height: {{ $imageData[4]['height'] ?? '50'}};">{{$imageData[4][' image '] ?? ''}}</div>
+
+  <pagebreak />
+
+  <img src="{{ asset('img/kotobum_format1/1-1@2x.png') }}" alt="" style="width: 100%; max-width: 600px" />
+  <div id="textArea13-1" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[17]['text'] ?? ''}}</div>
+  <div id="textArea13-2" class="text-empty text-colorB textarea" style="color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[16]['text'] ?? ''}}</div>
+  <div id="dropArea13" class="empty droparea" style="width: {{ $imageData[5]['width'] ?? '50'}}; height: {{ $imageData[5]['height'] ?? '50'}};"><{{$imageData[5][' image '] ?? ''}}/div>
+  <div id="textArea13-3" class="text-empty textareaB">{{$textData[15]['text'] ?? ''}}</div>
+
 </body>
 
 </html>
