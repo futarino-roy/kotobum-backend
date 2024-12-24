@@ -151,7 +151,7 @@ class PDFController extends Controller
         $mpdfConfig = config('pdf');
 
         $customConfig = array_merge($mpdfConfig, [
-            'format' => [158, 217] //サイズ指定 カバー335、250　ボディ158、218
+            'format' => [158, 218] //サイズ指定 カバー335、250　ボディ158、218
         ]);
 
         $mpdf = new MpdfMpdf($customConfig); 
