@@ -4,6 +4,8 @@ return [
     'mode'                     => 'ja',
     'default_font_size'        => '12',
     'default_font'             => 'sans-serif',
+    'shrink_tables_to_fit'     => 0, // 内容の縮小を無効にする
+    'bleed_margin'             => 0, // 余白を完全に無効化
     'margin_left'              => 0,
     'margin_right'             => 0,
     'margin_top'               => 0,

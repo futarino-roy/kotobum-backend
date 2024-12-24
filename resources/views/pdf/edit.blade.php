@@ -26,7 +26,7 @@
 
     <div style="display: grid; place-items: center; margin-top: 50px">
         <h3>プレビューエリア</h3>
-        <iframe id="preview" style="width: 60%; height: 600px;"></iframe>
+        <iframe id="preview" style="width: 158mm; height: 600px;"></iframe>
     </div>
 
     <script>
