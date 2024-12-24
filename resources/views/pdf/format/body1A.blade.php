@@ -302,7 +302,7 @@
   </style>
 </head>
 
-<body style="background-color:rgb(0, 145, 65);">
+<body style="background-color:{{ $colors['backgroundColor'] ?? '#000000' }}; ">
   <img src="{{ asset('img/kotobum_format1/2-12@2x.png') }}" alt="" style="width: 158mm; height:218mm;"/>
   <div id="textArea24-1" class="empty text-colorB textarea" style="position:absolute;  width: 48%; height: 28.2%;  border: 2px solid #ccc;  top: 55.5%;  left: 26%; color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[0]['text'] ?? ''}}</div>
   <div id="dropArea24-1" class="empty" style="position:absolute;"></div>
