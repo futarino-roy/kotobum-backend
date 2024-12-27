@@ -57,14 +57,14 @@
   <img src="{{ asset('img/kotobum_format1/1-1@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
   <div id="textArea1-1" class="text-empty text-color textarea" style="position:absolute; width:{{ $textData[0]['width'] ?? '50'}}; height:{{ $textData[0]['height'] ?? '50'}}; top:{{ $textData[0]['top'] ?? '50'}};  left:{{ $textData[0]['left'] ?? '50'}}; font-family: 'League Spartan', sans-serif; margin:30px 0 0 0; font-size:1.2rem; line-height:1.2; font-weight:bold; text-align:center; color:{{ $colors['textColor'] }};">{{$textData[0]['text'] ?? ''}}</div>
   <div id="textArea1-2" class="text-empty text-color textarea" style="position:absolute; width:{{ $textData[0]['width'] ?? '50'}}; height:{{ $textData[0]['height'] ?? '50'}}; top:{{ $textData[0]['top'] ?? '50'}};  left:{{ $textData[0]['left'] ?? '50'}}; font-family: 'League Spartan', sans-serif; margin:0; font-size:0.45rem; text-align:center; line-height:1.5; font-weight:bold; color:{{ $colors['textColor'] }};">{{$textData[1]['text'] ?? ''}}</div>
-  <div id="dropArea1" class="empty droparea" style="position:absolute; width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};">{{$imageData[0][' image '] ?? ''}}</div>
+  <div id="dropArea1" class="empty droparea" style="position:absolute; width: {{ $imageData['width'] }}; height: {{ $imageData['height'] }};">
   <div id="textArea1-3" class="text-empty textarea" style="position:absolute; width:{{ $textData[0]['width'] ?? '50'}}; height:{{ $textData[0]['height'] ?? '50'}}; top:{{ $textData[0]['top'] ?? '50'}};  left:{{ $textData[0]['left'] ?? '50'}}; text-align:center;">{{$textData[2]['text'] ?? ''}}</div>
 
   <pagebreak />
 
   <img src="{{ asset('img/kotobum_format1/1-2@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
   <div id="textArea2" class="text-empty text-color textarea" style="position:absolute; width:{{ $textData[0]['width'] ?? '50'}}; height:{{ $textData[0]['height'] ?? '50'}}; top:{{ $textData[0]['top'] ?? '50'}};  left:{{ $textData[0]['left'] ?? '50'}}; font-size:0.6rem; line-height:1.5; font-weight:bold; text-align:center; color:{{ $colors['textColor'] }};">{{$textData[3]['text'] ?? ''}}</div>
-  <div id="dropArea2" class="empty droparea" style="position:absolute; width: {{ $imageData[1]['width'] }}; height: {{ $imageData[1]['height'] }};">{{$imageData[1][' image '] ?? ''}}</div>
+  <div id="dropArea2" class="empty droparea" style="position:absolute; width: {{ $imageData[1]['width'] }}; height: {{ $imageData[1]['height'] }};">
 
   <pagebreak />
 
@@ -76,7 +76,7 @@
 
   <img src="{{ asset('img/kotobum_format1/1-4@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
   <div id="textArea4-1" class="text-empty textarea" style="position:absolute; width:{{ $textData[0]['width'] ?? '50'}}; height:{{ $textData[0]['height'] ?? '50'}}; top:{{ $textData[0]['top'] ?? '50'}};  left:{{ $textData[0]['left'] ?? '50'}}; font-size: 0.6rem; line-height: 1.5; font-weight: bold; color: #fef8f6; text-align: center; top: 28%;">{{$textData[5]['text'] ?? ''}}</div>
-  <div id="dropArea4" class="empty droparea" style="position:absolute; width: {{ $imageData[2]['width'] }}; height: {{ $imageData[2]['height'] }};">{{$imageData[2][' image '] ?? ''}}</div>
+  <div id="dropArea4" class="empty droparea" style="position:absolute; width: {{ $imageData[2]['width'] }}; height: {{ $imageData[2]['height'] }};">
   <div id="textArea4-2" class="text-empty textarea" style="position:absolute; width:{{ $textData[0]['width'] ?? '50'}}; height:{{ $textData[0]['height'] ?? '50'}}; top:{{ $textData[0]['top'] ?? '50'}};  left:{{ $textData[0]['left'] ?? '50'}}; font-size:0.6rem; line-height:1.5; font-weight:bold; color:#fef8f6; text-align:center;">{{$textData[6]['text'] ?? ''}}</div>
 
   <pagebreak />
@@ -89,7 +89,7 @@
 
   <img src="{{ asset('img/kotobum_format1/1-6@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
   <div id="textArea6-1" class="text-empty text-color textarea" style="position:absolute; width:{{ $textData[0]['width'] ?? '50'}}; height:{{ $textData[0]['height'] ?? '50'}}; top:{{ $textData[0]['top'] ?? '50'}};  left:{{ $textData[0]['left'] ?? '50'}};  font-size:0.6rem; line-height:1.5; font-weight:bold; text-align:center; color:{{ $colors['textColor'] }};">{{$textData[8]['text'] ?? ''}}</div>
-  <div id="dropArea6" class="empty droparea" style="position:absolute; width: {{ $imageData[3]['width'] }}; height: {{ $imageData[3]['height'] }};">{{$imageData[3][' image '] ?? ''}}</div>
+  <div id="dropArea6" class="empty droparea" style="position:absolute; width: {{ $imageData[3]['width'] }}; height: {{ $imageData[3]['height'] }};">
 
   <pagebreak />
 
@@ -101,7 +101,7 @@
 
   <img src="{{ asset('img/kotobum_format1/1-8@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
   <div id="textArea8" class="text-empty textarea" style="position:absolute; width:{{ $textData[0]['width'] ?? '50'}}; height:{{ $textData[0]['height'] ?? '50'}}; top:{{ $textData[0]['top'] ?? '50'}};  left:{{ $textData[0]['left'] ?? '50'}}; font-size:0.6rem; line-height:1.5; font-weight:bold; text-align:center; color:#fef8f6;">{{$textData[10]['text'] ?? ''}}</div>
-  <div id="dropArea8" class="empty droparea" style="position:absolute; width: {{ $imageData[4]['width'] }}; height: {{ $imageData[4]['height'] }};">{{$imageData[4][' image '] ?? ''}}</div>
+  <div id="dropArea8" class="empty droparea" style="position:absolute; width: {{ $imageData[4]['width'] }}; height: {{ $imageData[4]['height'] }};">
 
 
   <pagebreak />
@@ -114,7 +114,7 @@
 
   <img src="{{ asset('img/kotobum_format1/1-10@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
   <div id="textArea10" class="text-empty text-color textarea" style="position:absolute; width:{{ $textData[0]['width'] ?? '50'}}; height:{{ $textData[0]['height'] ?? '50'}}; top:{{ $textData[0]['top'] ?? '50'}};  left:{{ $textData[0]['left'] ?? '50'}};  font-size:0.6rem; line-height:1.5; font-weight:bold; text-align:center; color:{{ $colors['textColor'] }};">{{$textData[12]['text'] ?? ''}}</div>
-  <div id="dropArea10" class="empty droparea" style="position:absolute; width: {{ $imageData[5]['width'] }}; height: {{ $imageData[5]['height'] }};">{{$imageData[5][' image '] ?? ''}}</div>
+  <div id="dropArea10" class="empty droparea" style="position:absolute; width: {{ $imageData[5]['width'] }}; height: {{ $imageData[5]['height'] }};">
 
 
   <pagebreak />
@@ -132,12 +132,12 @@
   <img src="{{ asset('img/kotobum_format1/1-12@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
 
   <div id="textArea12-1" class="text-empty text-diagonal textarea">{{$textData[15]['text'] ?? ''}}</div>
-  <div id="dropArea12-1" class="empty droparea" style="position:absolute; width: {{ $imageData[6]['width'] }}; height: {{ $imageData[6]['height'] }};">{{$imageData[6][' image '] ?? ''}}</div>
+  <div id="dropArea12-1" class="empty droparea" style="position:absolute; width: {{ $imageData[6]['width'] }}; height: {{ $imageData[6]['height'] }};">
   <div id="textArea12-2" class="text-empty textarea" style="position:absolute; width:{{ $textData[0]['width'] ?? '50'}}; height:{{ $textData[0]['height'] ?? '50'}}; top:{{ $textData[0]['top'] ?? '50'}};  left:{{ $textData[0]['left'] ?? '50'}}; font-size:0.25rem;">{{$textData[16]['text'] ?? ''}}</div>
-  <div id="dropArea12-2" class="empty droparea" style="position:absolute; width: {{ $imageData[7]['width'] }}; height: {{ $imageData[7]['height'] }};">{{$imageData[7][' image '] ?? ''}}</div>
-  <div id="dropArea12-3" class="empty droparea" style="position:absolute; width: {{ $imageData[8]['width'] }}; height: {{ $imageData[8]['height'] }}; text-align:center; line-height:1.5; font-weight:bold; color:#fef8f6; font-size:12px;">{{$imageData[8][' image '] ?? ''}}</div>
+  <div id="dropArea12-2" class="empty droparea" style="position:absolute; width: {{ $imageData[7]['width'] }}; height: {{ $imageData[7]['height'] }};">
+  <div id="dropArea12-3" class="empty droparea" style="position:absolute; width: {{ $imageData[8]['width'] }}; height: {{ $imageData[8]['height'] }};">
 
-  <div id="textArea12-3" class="text-empty textarea" style="width:{{ $textData[0]['width'] ?? '50'}}; height:{{ $textData[0]['height'] ?? '50'}}; top:{{ $textData[0]['top'] ?? '50'}};  left:{{ $textData[0]['left'] ?? '50'}};">{{$textData[17]['text'] ?? ''}}</div>
+  <div id="textArea12-3" class="text-empty textarea" style="width:{{ $textData[0]['width'] ?? '50'}}; height:{{ $textData[0]['height'] ?? '50'}}; top:{{ $textData[0]['top'] ?? '50'}};  left:{{ $textData[0]['left'] ?? '50'}}; text-align:center; line-height:1.5; font-weight:bold; color:#fef8f6; font-size:12px;">{{$textData[17]['text'] ?? ''}}</div>
 
 </body>
 
