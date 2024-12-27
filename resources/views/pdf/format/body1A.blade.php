@@ -40,7 +40,7 @@
 <body style="background-color:{{ $colors['backgroundColor'] ?? '#000000' }}; text-align:center;">
   <img src="{{ asset('img/kotobum_format1/2-12@2x.png') }}" alt="" style="width: 158mm; height:218mm;"/>
   <div id="textArea24-1" class="empty text-colorB textarea" style="position:absolute; width:{{ $textData[0]['width'] ?? '50'}}px; height:{{ $textData[0]['height'] ?? '50'}}px; top:{{ $textData[0]['top'] ?? '50'}}px;  left:{{ $textData[0]['left'] ?? '50'}}px; text-orientation:upright; font-size:0.7rem; line-height:1; font-family:'League Spartan',sans-serif; text-align:center; font-weight: bold; color:{{ $colors['textColor'] ?? '#000000'}};">{{$textData[0]['text'] ?? ''}}</div>
-  <div id="dropArea24-1" class="empty" style="position:absolute;"></div>
+  <img src="{{ $imageData[0]['image'] }}" id="dropArea24-1" class="empty" style="position:absolute;">
   <div id="dropArea24-2" class="empty" style="position:absolute;"></div>
   <div id="textArea24-2" class="empty textarea" style="position:absolute; width:{{ $textData[1]['width'] ?? '50'}}px; height:{{ $textData[1]['height'] ?? '50'}}px; top:{{ $textData[1]['top'] ?? '50'}}px;  left:{{ $textData[1]['left'] ?? '50'}}px; writing-mode:vertical-rl; font-size:0.26rem; text-orientation:upright;">{{$textData[1]['text'] ?? ''}}</div>
   <div id="dropArea24-3" class="empty" style="position:absolute;"></div>
