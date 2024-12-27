@@ -46,9 +46,6 @@
       border: 2px solid #ccc;
     }
 
-    .text-diagonal {
-      transform: rotate(-8deg); width:34%; text-align:center; font-size:0.6rem; font-weight:bold; line-height:1.2; color:#fef8f6;
-    }
   </style>
 </head>
 
@@ -131,7 +128,7 @@
 
   <img src="{{ asset('img/kotobum_format1/1-12@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
 
-  <div id="textArea12-1" class="text-empty text-diagonal textarea" style="position:absolute; width:{{ $textData[15]['width'] ?? '50'}}pt; height:{{ $textData[15]['height'] ?? '50'}}pt; top:{{ $textData[15]['top'] ?? '50'}}pt;  left:{{ $textData[15]['left'] ?? '50'}}pt; font-size:18pt;">{{$textData[15]['text'] ?? ''}}</div>
+  <div id="textArea12-1" class="text-empty textarea" style="position:absolute; width:{{ $textData[15]['width'] ?? '50'}}pt; height:{{ $textData[15]['height'] ?? '50'}}pt; top:{{ $textData[15]['top'] ?? '50'}}pt;  left:{{ $textData[15]['left'] ?? '50'}}pt; transform: rotate(-8deg); width:34%; text-align:center; font-size:18pt; font-weight:bold; line-height:1.2; color:#fef8f6;">{{$textData[15]['text'] ?? ''}}</div>
   <img src="{{ $imageData[6]['image'] }}" id="dropArea12-1" class="empty droparea" style="position:absolute; width:{{ $imageData[6]['width'] ?? '50'}}pt; height:{{ $imageData[6]['height'] ?? '50'}}pt; top:{{ $imageData[6]['top'] ?? '50'}}pt;  left:{{ $imageData[6]['left'] ?? '50'}}pt;">
   <div id="textArea12-2" class="text-empty textarea" style="position:absolute; width:{{ $textData[16]['width'] ?? '50'}}pt; height:{{ $textData[16]['height'] ?? '50'}}pt; top:{{ $textData[16]['top'] ?? '50'}}pt;  left:{{ $textData[16]['left'] ?? '50'}}pt; font-size:7.5pt;">{{$textData[16]['text'] ?? ''}}</div>
   <img src="{{ $imageData[7]['image'] }}" id="dropArea12-2" class="empty droparea" style="position:absolute; width:{{ $imageData[7]['width'] ?? '50'}}pt; height:{{ $imageData[7]['height'] ?? '50'}}pt; top:{{ $imageData[7]['top'] ?? '50'}}pt;  left:{{ $imageData[7]['left'] ?? '50'}}pt;">
