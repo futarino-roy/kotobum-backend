@@ -69,7 +69,7 @@
   <pagebreak />
 
   <img src="{{ asset('img/kotobum_format1/2-8@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
-  <div id="textArea20" class="empty textarea" style="position:absolute; width:{{ $textData[7]['width'] ?? '50'}}; height:{{ $textData[7]['height'] ?? '50'}}pt; top:{{ $textData[7]['top'] ?? '50'}}pt;  left:{{ $textData[7]['left'] ?? '50'}}pt; font-size:0.6rem; line-height:1.5; font-weight:bold; text-align:center; color:#fef8f6; text-orientation:upright;">{{$textData[7]['text'] ?? ''}}</div>
+  <div id="textArea20" class="empty textarea" style="position:absolute; width:{{ $textData[7]['width'] ?? '50'}}pt; height:{{ $textData[7]['height'] ?? '50'}}pt; top:{{ $textData[7]['top'] ?? '50'}}pt;  left:{{ $textData[7]['left'] ?? '50'}}pt; font-size:0.6rem; line-height:1.5; font-weight:bold; text-align:center; color:#fef8f6; text-orientation:upright;">{{$textData[7]['text'] ?? ''}}</div>
   <img src="{{ $imageData[4]['image'] }}" id="dropArea20" class="empty dropareaB" style="position:absolute; width:{{ $imageData[4]['width'] ?? '50'}}pt; height:{{ $imageData[4]['height'] ?? '50'}}pt; top:{{ $imageData[4]['top'] ?? '50'}}pt;  left:{{ $imageData[4]['left'] ?? '50'}}pt;">
 
   <pagebreak />
