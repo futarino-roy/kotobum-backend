@@ -156,6 +156,8 @@ class PDFController extends Controller
 
         $mpdf = new MpdfMpdf($customConfig); 
 
+        dd($mpdf);
+
         // HTMLをPDFに変換
         $mpdf->WriteHTML($htmlContent);
 
