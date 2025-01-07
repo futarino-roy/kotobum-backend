@@ -27,14 +27,14 @@ return [
     'watermark_image_size'     => 'D',
     'watermark_image_position' => 'P',
     'custom_font_dir'          => public_path('fonts/'),
-    'custom_font_data'         => [ 'ZenMaruGothic' => [ 
+    'custom_font_data'         => [ 'zenmarugothic' => [ 
                                         'R' => 'ZenMaruGothic-Regular.ttf',
                                         'Bl' => 'ZenMaruGothic-Black.ttf',
                                         'Bo' => 'ZenMaruGothic-Bold.ttf',
                                         'L' => 'ZenMaruGothic-Light.ttf',
                                         'M' => 'ZenMaruGothic-Medium.ttf',
                                     ],
-                                    'LeagueSpartan' => [
+                                    'leaguespartan' => [
                                         'R' => 'LeagueSpartan-Regular.ttf',
                                         'Bo' => 'LeagueSpartan-Bold.ttf',
                                         'SBo' => 'LeagueSpartan-SemiBold.ttf',
