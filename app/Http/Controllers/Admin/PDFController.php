@@ -150,12 +150,10 @@ class PDFController extends Controller
         $htmlContent = $request->input('html_content');
         $mpdfConfig = config('pdf');
 
-        dd($mpdfConfig);
-
         $customConfig = array_merge($mpdfConfig, [
             'format' => [159, 219] //サイズ指定 カバー335、250　ボディ158、218
         ]);
-
+        dd($customConfig);
         $mpdf = new MpdfMpdf($customConfig); 
 
         // HTMLをPDFに変換
