@@ -44,7 +44,11 @@ return [
                                         'EL' => 'LeagueSpartan-ExtraLight.ttf',
                                         'M' => 'LeagueSpartan-Medium.ttf',
                                         'T' => 'LeagueSpartan-Thin.ttf'
-                                    ]
+                                    ],
+                                    'notosansjp' => [
+                                        'Bo' => 'NotoSansJP-Bold.ttf',
+                                        'Bl' => 'NotoSansJP-Black.ttf',
+                                    ],
                                   ],
     'auto_language_detection'  => false,
     'temp_dir'                 => storage_path('app'),

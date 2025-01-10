@@ -155,7 +155,9 @@ class PDFController extends Controller
         ]);
 
         $mpdf = new MpdfMpdf($customConfig); 
-        $mpdf->BMPonly[] = 'zenmarugothic';
+        $mpdf->BMPonly[] = 'notosansjp';
+
+
 
         // HTMLをPDFに変換
         $mpdf->WriteHTML($htmlContent);

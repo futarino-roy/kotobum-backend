@@ -6,7 +6,6 @@
   <title>PDFテンプレートinside</title>
   <style>
     body {
-      font-family: 'genmarugothic', sans-serif;
       margin: 0;
       padding: 0;
     }
@@ -18,11 +17,11 @@
   </style>
 </head>
 
-<body style="background-color:{{$colors['backgroundColor'] ?? '#000000' }}; ">
+<body style="background-color:{{$colors['backgroundColor'] ?? '#000000' }}; text-align:center; font-family:notosansjp,sans-serif;">
 
   <img src="{{ asset('img/kotobum_format1/1-1@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
-  <div id="textArea1-1"  style="position:absolute; width:{{$textData[0]['width']??'50'}}pt; height:{{$textData[0]['height']??'50'}}pt; top:{{$textData[0]['top']??'50'}}pt; left:{{$textData[0]['left']??'50'}}pt; font-family: 'leaguespartan', sans-serif; margin:30px 0 0 0; font-size:28.6pt; line-height:1.2; font-weight:bold; text-align:center; color:{{$colors['textColor'] }};">{{$textData[0]['text'] ?? ''}}</div>
-  <div id="textArea1-2"  style="position:absolute; width:{{$textData[1]['width']??'50'}}pt; height:{{$textData[1]['height']??'50'}}pt; top:{{$textData[1]['top']??'50'}}pt; left:{{$textData[1]['left']??'50'}}pt; font-family: 'leaguespartan', sans-serif; margin:0; font-size:12pt; text-align:center; line-height:1.5; font-weight:bold; color:{{$colors['textColor'] }};">{{$textData[1]['text'] ?? ''}}</div>
+  <div id="textArea1-1"  style="position:absolute; width:{{$textData[0]['width']??'50'}}pt; height:{{$textData[0]['height']??'50'}}pt; top:{{$textData[0]['top']??'50'}}pt; left:{{$textData[0]['left']??'50'}}pt; margin:30px 0 0 0; font-size:28.6pt; line-height:1.2; font-weight:bold; text-align:center; color:{{$colors['textColor'] }};">{{$textData[0]['text'] ?? ''}}</div>
+  <div id="textArea1-2"  style="position:absolute; width:{{$textData[1]['width']??'50'}}pt; height:{{$textData[1]['height']??'50'}}pt; top:{{$textData[1]['top']??'50'}}pt; left:{{$textData[1]['left']??'50'}}pt; margin:0; font-size:12pt; text-align:center; line-height:1.5; font-weight:bold; color:{{$colors['textColor'] }};">{{$textData[1]['text'] ?? ''}}</div>
   <div id="frontimg1" class="img-radius" style="position:absolute; width:{{$imageData[0]['width']??'50'}}pt; height:{{$imageData[0]['height']??'50'}}pt; top:{{$imageData[0]['top']??'50'}}pt; left:{{$imageData[0]['left']??'50'}}pt;"><img src="{{ $imageData[0]['image'] }}" style="width:{{$imageData[0]['width']??'50'}}pt; height:{{$imageData[0]['height']??'50'}}pt;"></div>
   <div id="textArea1-3"  style="position:absolute; width:{{$textData[2]['width']??'50'}}pt; height:{{$textData[2]['height']??'50'}}pt; top:{{$textData[2]['top']??'50'}}pt; left:{{$textData[2]['left']??'50'}}pt; font-size:7.5pt; text-align:center;">{{$textData[2]['text'] ?? ''}}</div>
 
@@ -88,7 +87,7 @@
 
   <img src="{{ asset('img/kotobum_format1/1-11@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
 
-  <div id="textArea11-1"  style="position:absolute; width:{{$textData[13]['width']??'50'}}pt; height:{{$textData[13]['height']??'50'}}pt; top:{{$textData[13]['top']??'50'}}pt; left:{{$textData[13]['left']??'50'}}pt; font-family:'leaguespartan', sans-serif; min-width:60%; margin-bottom:5%; margin-top:5%; font-size:7.5pt; line-height:1.5; font-weight:bold; text-align:center; color:{{$colors['textColor'] }};">{{$textData[13]['text'] ?? ''}}</div>
+  <div id="textArea11-1"  style="position:absolute; width:{{$textData[13]['width']??'50'}}pt; height:{{$textData[13]['height']??'50'}}pt; top:{{$textData[13]['top']??'50'}}pt; left:{{$textData[13]['left']??'50'}}pt; min-width:60%; margin-bottom:5%; margin-top:5%; font-size:7.5pt; line-height:1.5; font-weight:bold; text-align:center; color:{{$colors['textColor'] }};">{{$textData[13]['text'] ?? ''}}</div>
   <div id="textArea11-2"  style="position:absolute; width:{{$textData[14]['width']??'50'}}pt; height:{{$textData[14]['height']??'50'}}pt; top:{{$textData[14]['top']??'50'}}pt; left:{{$textData[14]['left']??'50'}}pt; min-height:50%; max-height:30%; margin-bottom:2.5%; margin-top:2.5%; font-size:8.3pt;">{{$textData[14]['text'] ?? ''}}</div>
 
 
