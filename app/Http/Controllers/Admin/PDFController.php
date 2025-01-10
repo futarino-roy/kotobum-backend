@@ -154,7 +154,7 @@ class PDFController extends Controller
             'format' => [159, 219] //サイズ指定 カバー335、250　ボディ158、218
         ]);
 
-        $mpdf = new MpdfMpdf($customConfig); 
+        $mpdf = new LaravelMpdf($customConfig); 
         $mpdf->BMPonly[] = 'notosansjp';
 
         /* dump($mpdfConfig);
