@@ -149,9 +149,22 @@ class PDFController extends Controller
     {
         $htmlContent = $request->input('html_content');
         $mpdfConfig = config('pdf');
-
         $customConfig = array_merge($mpdfConfig, [
             'format' => [159, 219] //サイズ指定 カバー335、250　ボディ158、218
+        ]);
+
+        $customConfig = array_merge($customConfig, [
+            'fontDir' => array_merge(
+                (new \Mpdf\Config\ConfigVariables())->getDefaults()['fontDir'],
+                [public_path('fonts/')],
+            ),
+            'fontdata' => (new \Mpdf\Config\FontVariables())->getDefaults()['fontdata'] + [ // フォントデータにカスタムフォントを追加
+                'notosansjp' => [
+                    'Bo' => 'NotoSansJP-Bold.ttf',
+                    'Bl' => 'NotoSansJP-Black.ttf',
+                ],
+            ],
+            'default_font' => 'notosansjp', // デフォルトフォントを指定
         ]);
 
         $mpdf = new MpdfMpdf($customConfig); 
