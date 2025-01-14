@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 
 
@@ -93,7 +93,7 @@
 
     <img src="{{ asset('img/kotobum_format1/1-4@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
     <div id="textArea16-1" style="position:absolute; width:{{$textData[11]['width']??'50'}}%; height:{{$textData[11]['height']??'50'}}%; top:{{$textData[11]['top']??'50'}}%; left:{{$textData[11]['left']??'50'}}%; font-size:16pt; line-height:1.5; font-weight:bold; text-align:center; color:#fef8f6; text-orientation:upright;">{{$textData[11]['text'] ?? ''}}</div>
-    <div id="frontimg16" style="position:absolute; width:{{$imageData[6]['width']??'50'}}pt; height:{{$imageData[6]['height']??'50'}}pt; top:{{$imageData[6]['top']??'50'}}pt; left:{{$imageData[6]['left']??'50'}}pt; background-image: url('{{$imageData[6]['image'] }}')"></div>
+    <div id="frontimg16" class="img-radius" style="position:absolute; width:{{$imageData[6]['width']??'50'}}pt; height:{{$imageData[6]['height']??'50'}}pt; top:{{$imageData[6]['top']??'50'}}pt; left:{{$imageData[6]['left']??'50'}}pt; background-image: url('{{$imageData[6]['image'] }}')"></div>
     <div id="textArea16-2" style="position:absolute; width:{{$textData[12]['width']??'50'}}%; height:{{$textData[12]['height']??'50'}}%; top:{{$textData[12]['top']??'50'}}%; left:{{$textData[12]['left']??'50'}}%; font-size:14pt; line-height:1.5; font-weight:bold; text-align:center; color:#fef8f6; text-orientation:upright;">{{$textData[12]['text'] ?? ''}}</div>
 
 
