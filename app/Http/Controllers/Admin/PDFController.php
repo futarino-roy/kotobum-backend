@@ -170,14 +170,14 @@ class PDFController extends Controller
         $mpdf = new MpdfMpdf($customConfig); 
         $mpdf->BMPonly[] = 'notosansjp';
 
-        dump($mpdfConfig);
-        dump($customConfig);
+        /* dump($mpdfConfig);
+        dump($customConfig); */
         /* dump($mpdf); */
 
         // HTMLをPDFに変換
         $mpdf->WriteHTML($htmlContent);
 
-        dd($htmlContent);
+        /* dd($htmlContent); */
 
         // 表示させる場合
         return $mpdf->Output( "MyPDF.pdf", "I");
