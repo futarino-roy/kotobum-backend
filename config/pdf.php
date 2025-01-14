@@ -50,7 +50,7 @@ return [
                                         'Bl' => 'NotoSansJP-Black.ttf',
                                     ],
                                   ],
-    'auto_language_detection'  => false,
+    'auto_language_detection'  => true,
     'temp_dir'                 => storage_path('app'),
     'pdfa'                     => false,
     'pdfaauto'                 => false,
