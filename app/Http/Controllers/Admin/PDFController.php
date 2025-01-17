@@ -169,7 +169,7 @@ class PDFController extends Controller
 
         $mpdf = new MpdfMpdf($customConfig); 
         $mpdf->BMPonly[] = 'notosansjp';
-        $mpdf->SetDefaultFont = 'notosansjp'
+        $mpdf->SetDefaultFont = 'notosansjp';
 
         /* dump($mpdfConfig);
         dump($customConfig); */
