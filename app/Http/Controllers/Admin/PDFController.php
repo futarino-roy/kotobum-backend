@@ -160,8 +160,8 @@ class PDFController extends Controller
             ),
             'fontdata' => (new \Mpdf\Config\FontVariables())->getDefaults()['fontdata'] + [ // フォントデータにカスタムフォントを追加
                 'notosansjp' => [
-                    'Bo' => 'NotoSansJP-Bold.ttf',
-                    'Bl' => 'NotoSansJP-Black.ttf',
+                    'B' => 'NotoSansJP-Bold.ttf',
+                    'R' => 'NotoSansJP-Black.ttf',
                 ],
             ],
             'default_font' => 'notosansjp', // デフォルトフォントを指定
@@ -171,6 +171,9 @@ class PDFController extends Controller
         $mpdf->default_font = 'notosansjp';
         $mpdf->BMPonly = ['notosansjp'];
         $mpdf->original_default_font = 'notosansjp';
+        $mpdf->FontFamily = 'notosansjp';
+        $mpdf->backupSubsFont = ['notosansjp'];
+        $mpdf->FontFamily = 'notosansjp';
         $mpdf->FontFamily = 'notosansjp';
 
 
