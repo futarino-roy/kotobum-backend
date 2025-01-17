@@ -171,8 +171,9 @@ class PDFController extends Controller
                     'R' => 'Montserrat-Regular.ttf',
                     'I' => 'Montserrat-Italic.ttf',
                     'Bl' => 'Montserrat-Black.ttf',
-            ],
+                ],
             'default_font' => 'notosansjp', // デフォルトフォントを指定
+            ]
         ]);
 
         $mpdf = new MpdfMpdf($customConfig); 
