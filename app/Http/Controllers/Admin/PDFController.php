@@ -171,14 +171,14 @@ class PDFController extends Controller
         $mpdf->default_font = 'notosansjp';
         $mpdf->BMPonly = ['notosansjp'];
 
-        /* dump($mpdfConfig);
+        dump($mpdfConfig);
         dump($customConfig);
-        dump($mpdf); */
+        dump($mpdf);
 
         // HTMLをPDFに変換
         $mpdf->WriteHTML($htmlContent);
 
-        /* dd($htmlContent); */
+        dd($htmlContent);
 
         // 表示させる場合
         return $mpdf->Output( "MyPDF.pdf", "I");
