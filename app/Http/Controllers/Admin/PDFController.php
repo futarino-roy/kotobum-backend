@@ -199,6 +199,6 @@ class PDFController extends Controller
         /* dd($htmlContent); */
 
         // 表示させる場合
-        return $mpdf->Output( "MyPDF.pdf", "I");
+        return $mpdf->stream( "MyPDF.pdf");
     }
 }
