@@ -55,4 +55,5 @@ return [
     'pdfa'                     => false,
     'pdfaauto'                 => false,
     'use_active_forms'         => false,
+    'BMPonly'                  => ['notosansjp']
 ];
