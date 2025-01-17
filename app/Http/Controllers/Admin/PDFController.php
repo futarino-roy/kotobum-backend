@@ -175,7 +175,7 @@ class PDFController extends Controller
         /* dump($mpdf); */
 
         // HTMLをPDFに変換
-        $mpdf->WriteHTML($htmlContent);
+        $mpdf->loadHTML($htmlContent);
 
         /* dd($htmlContent); */
 
