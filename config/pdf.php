@@ -3,7 +3,7 @@
 return [
     'mode'                     => 'ja',
     'default_font_size'        => '12',
-    'default_font'             => 'sans-serif',
+    'default_font'             => 'notosansjp',
     'shrink_tables_to_fit'     => 0, // 内容の縮小を無効にする
     'bleed_margin'             => 0, // 余白を完全に無効化
     'margin_left'              => 0,
@@ -50,7 +50,7 @@ return [
                                         'Bl' => 'NotoSansJP-Black.ttf',
                                     ],
                                   ],
-    'auto_language_detection'  => true,
+    'auto_language_detection'  => false,
     'temp_dir'                 => storage_path('app'),
     'pdfa'                     => false,
     'pdfaauto'                 => false,

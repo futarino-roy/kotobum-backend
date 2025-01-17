@@ -167,7 +167,7 @@ class PDFController extends Controller
             'default_font' => 'notosansjp', // デフォルトフォントを指定
         ]);
 
-        $mpdf = LaravelMpdf::loadHTML($htmlContent);
+        $mpdf = LaravelMpdf::WriteHTML($htmlContent);
         /* $mpdf->BMPonly[] = 'notosansjp'; */
 
         /* dump($mpdfConfig);
