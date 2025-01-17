@@ -153,7 +153,7 @@ class PDFController extends Controller
             'format' => [159, 219] //サイズ指定 カバー335、250　ボディ158、218
         ]);
 
-        $customConfig = array_merge($customConfig, [
+       /*  $customConfig = array_merge($customConfig, [
             'fontDir' => array_merge(
                 (new \Mpdf\Config\ConfigVariables())->getDefaults()['fontDir'],
                 [public_path('fonts/')],
@@ -165,17 +165,17 @@ class PDFController extends Controller
                 ],
             ],
             'default_font' => 'notosansjp', // デフォルトフォントを指定
-        ]);
+        ]); */
 
         $mpdf = new MpdfMpdf($customConfig); 
-        $mpdf->default_font = 'notosansjp';
-        /* $mpdf->BMPonly = ['notosansjp'];
+        /* $mpdf->default_font = 'notosansjp';
+        $mpdf->BMPonly = ['notosansjp'];
         $mpdf->original_default_font = 'notosansjp';
         $mpdf->FontFamily = 'notosansjp';
         $mpdf->backupSubsFont = ['notosansjp'];
         $mpdf->FontFamily = 'notosansjp';
-        $mpdf->FontFamily = 'notosansjp'; */
-
+        $mpdf->FontFamily = 'notosansjp';
+ */
 
         /* dump($mpdfConfig);
         dump($customConfig);
