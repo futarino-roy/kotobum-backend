@@ -16,7 +16,7 @@
     </style>
 </head>
 
-<body style="background-color:{{$colors['backgroundColor'] ?? '#000000' }}; text-align:center; font-family:notosansjp,sans-serif;">
+<body style="background-color:{{$colors['backgroundColor'] ?? '#000000' }}; text-align:center; font-family:'notosansjp';">
     <img src="{{ asset('img/kotobum_format1/2-12@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
     <div id="textArea24-1" style="position:absolute; width:{{$textData[0]['width']??'50'}}%; height:{{$textData[0]['height']??'50'}}%; top:{{$textData[0]['top']??'50'}}%; left:{{$textData[0]['left']??'50'}}%; text-orientation:upright; font-size:13pt; line-height:1; text-align:center; font-weight: bold; color:{{$colors['textColor'] ?? '#000000'}};">{{$textData[0]['text'] ?? ''}}</div>
     <div id="frontimg24-1" class="img-radius" style="position:absolute; width:28%; height:16%; top:21%; left:18.5%; background-image: url('{{$imageData[0]['image'] }}');"></div>
