@@ -46,8 +46,8 @@ return [
                                         'T' => 'LeagueSpartan-Thin.ttf'
                                     ],
                                     'notosansjp' => [
-                                        'Bo' => 'NotoSansJP-Bold.ttf',
-                                        'Bl' => 'NotoSansJP-Black.ttf',
+                                        'B' => 'NotoSansJP-Bold.ttf',
+                                        'R' => 'NotoSansJP-Black.ttf',
                                     ],
                                   ],
     'auto_language_detection'  => false,

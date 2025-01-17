@@ -161,30 +161,24 @@ class PDFController extends Controller
             'fontdata' => (new \Mpdf\Config\FontVariables())->getDefaults()['fontdata'] + [ // フォントデータにカスタムフォントを追加
                 'notosansjp' => [
                     'B' => 'NotoSansJP-Bold.ttf',
-                    'R' => 'NotoSansJP-Black.ttf',
+                    'R' => 'NotoSansJP-Regular.ttf',
+                    'L' => 'NotoSansJP-Light.ttf',
+                    'M' => 'NotoSansJP-Medium.ttf',
+                    'Bl' => 'NotoSansJP-Black.ttf',
                 ],
+                'montserrat' => [
+                    'B' => 'Montserrat-Bold.ttf',
+                    'R' => 'Montserrat-Regular.ttf',
+                    'I' => 'Montserrat-Italic.ttf',
+                    'Bl' => 'Montserrat-Black.ttf',
             ],
             'default_font' => 'notosansjp', // デフォルトフォントを指定
         ]);
 
         $mpdf = new MpdfMpdf($customConfig); 
-        /* $mpdf->default_font = 'notosansjp';
-        $mpdf->BMPonly = ['notosansjp'];
-        $mpdf->original_default_font = 'notosansjp';
-        $mpdf->FontFamily = 'notosansjp';
-        $mpdf->backupSubsFont = ['notosansjp'];
-        $mpdf->FontFamily = 'notosansjp';
-        $mpdf->FontFamily = 'notosansjp';
- */
-
-        /* dump($mpdfConfig);
-        dump($customConfig);
-        dump($mpdf); */
 
         // HTMLをPDFに変換
         $mpdf->WriteHTML($htmlContent);
-
-        /* dd($htmlContent); */
 
         // 表示させる場合
         return $mpdf->Output( "MyPDF.pdf", "I");
