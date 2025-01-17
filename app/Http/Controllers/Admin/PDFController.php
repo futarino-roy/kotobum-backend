@@ -145,9 +145,9 @@ class PDFController extends Controller
     
 
 
-    public function PDF($userid)
+    public function PDF(Request $request)
     {
-        /* $htmlContent = $request->input('html_content'); */
+        $htmlContent = $request->input('html_content');
         $mpdfConfig = config('pdf');
         $customConfig = array_merge($mpdfConfig, [
             'format' => [159, 219] //サイズ指定 カバー335、250　ボディ158、218
@@ -167,38 +167,19 @@ class PDFController extends Controller
             'default_font' => 'notosansjp', // デフォルトフォントを指定
         ]);
 
-        // データを取得
-        $user = User::findOrFail($userid);
-        $album = $user->album()->firstOrFail(); // ユーザーのアルバムを取得
-        $body = $album->body;  // アルバムに関連する body を取得
-    
-        // JSONデータを配列にデコード
-        $textData = json_decode($body->textData,true); // trueを設定して連想配列で取得
-        $colors = json_decode($body->colors, true);
-        $imageData = json_decode($body->imageData, true);
-
-        // 各画像データをBase64形式でエンコード
-        foreach ($imageData as $item) {
-            if ($item['image']) {
-                // 画像データがバイナリの場合、Base64にエンコード
-                $item['image'] = 'data:image/jpeg;base64,' . base64_encode($item['image']);
-            }
-        }
-
-        $mpdf = LaravelMpdf::loadView('pdf.format.body1A',compact('textData','colors','imageData'), [], $customConfig);
-        /* $mpdf->BMPonly[] = 'notosansjp'; */
+        $mpdf = new MpdfMpdf($customConfig); 
+        $mpdf->BMPonly[] = 'notosansjp';
 
         /* dump($mpdfConfig);
         dump($customConfig); */
         /* dump($mpdf); */
 
         // HTMLをPDFに変換
-        /* $mpdf->WriteHTML($htmlContent); */
-        
+        $mpdf->WriteHTML($htmlContent);
 
         /* dd($htmlContent); */
 
         // 表示させる場合
-        return $mpdf->stream( "MyPDF.pdf");
+        return $mpdf->Output( "MyPDF.pdf", "I");
     }
 }
