@@ -185,7 +185,7 @@ class PDFController extends Controller
             }
         }
 
-        $mpdf = LaravelMpdf::loadView('pdf.format.body1A',compact('textData','colors','imageData'));
+        $mpdf = LaravelMpdf::loadView('pdf.format.body1A',compact('textData','colors','imageData'), [], $customConfig);
         /* $mpdf->BMPonly[] = 'notosansjp'; */
 
         /* dump($mpdfConfig);
