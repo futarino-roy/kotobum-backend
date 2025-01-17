@@ -167,8 +167,9 @@ class PDFController extends Controller
             'default_font' => 'notosansjp', // デフォルトフォントを指定
         ]);
 
-        $mpdf = new MpdfMpdf($customConfig); 
-        $mpdf->BMPonly = ['notosansjp'];
+        /* $mpdf = new MpdfMpdf($customConfig); 
+        $mpdf->default_font = 'notosansjp';
+        $mpdf->BMPonly = ['notosansjp']; */
 
         dump($mpdfConfig);
         dump($customConfig);
@@ -177,7 +178,7 @@ class PDFController extends Controller
         // HTMLをPDFに変換
         $mpdf->WriteHTML($htmlContent);
 
-        dd($htmlContent);
+        /* dd($htmlContent); */
 
         // 表示させる場合
         return $mpdf->Output( "MyPDF.pdf", "I");
