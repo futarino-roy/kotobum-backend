@@ -94,13 +94,12 @@ class PDFController extends Controller
         //$textData->text = nl2br($textData->text);
         //dd($body->textData);
 
-        foreach ($textData as $text) {
+        foreach ($textData as &$text) {
             if ($text['text']) {
-                // 画像データがバイナリの場合、Base64にエンコード
                 $text['text'] = nl2br($text['text']);
             }
         }
-
+        unset($text);
         dd($textData);
 
         // 各画像データをBase64形式でエンコード
