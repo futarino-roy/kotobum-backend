@@ -91,6 +91,8 @@ class PDFController extends Controller
         $colors = json_decode($body->colors, true);
         $imageData = json_decode($body->imageData, true);
 
+        $textData = nl2br($textData);
+
         // 各画像データをBase64形式でエンコード
         foreach ($imageData as $item) {
             if ($item['image']) {
@@ -177,10 +179,6 @@ class PDFController extends Controller
         ]);
 
         $mpdf = new MpdfMpdf($customConfig); 
-
-        $htmlContent = nl2br($htmlContent);
-
-        dd($htmlContent);
 
         // HTMLをPDFに変換
         $mpdf->WriteHTML($htmlContent);
