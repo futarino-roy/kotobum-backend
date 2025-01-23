@@ -101,6 +101,8 @@ class PDFController extends Controller
             }
         }
 
+        dd($textData);
+
         // 各画像データをBase64形式でエンコード
         foreach ($imageData as $item) {
             if ($item['image']) {
