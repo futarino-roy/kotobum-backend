@@ -46,9 +46,7 @@
 
 
 
-    <img src="{{ asset('img/kotobum_format1/2-11@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
-    <!-- <div id="textArea23-1" style="position:absolute; width:{{$textData[3]['width']??'50'}}%; height:{{$textData[3]['height']??'50'}}%; top:{{$textData[3]['top']??'50'}}%; left:{{$textData[3]['left']??'50'}}%; color:{{$colors['textColor'] ?? '#000000'}}; font-size:0.7rem; line-height:1.5; font-weight:bold; text-align:center; text-orientation:upright;">{{$textData[3]['text'] ?? ''}}</div> -->
-    <div id="textArea23-2" style="position:absolute; width:{{$textData[3]['width']??'50'}}%; height:{{$textData[3]['height']??'50'}}%; top:{{$textData[3]['top']??'50'}}%; left:{{$textData[3]['left']??'50'}}%; text-orientation:upright; font-size: 7.5pt;">{{$textData[3]['text'] ?? ''}}</div>
+    <img src="{{ asset('img/kotobum_format1/2-11@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />    <div id="textArea23-2" style="position:absolute; width:48%; height:{{$textData[3]['height']??'50'}}%; top:{{$textData[3]['top']??'50'}}%; left:27%; text-orientation:upright; font-size: 7.5pt;">{{$textData[3]['text'] ?? ''}}</div>
 
 
 
@@ -63,7 +61,7 @@
 
 
     <img src="{{ asset('img/kotobum_format1/2-10@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
-    <div id="textArea22" style="position:absolute; width:{{$textData[4]['width']??'50'}}%; height:{{$textData[4]['height']??'50'}}%; top:{{$textData[4]['top']??'50'}}%; left:{{$textData[4]['left']??'50'}}%; color:{{$colors['textColor'] ?? '#000000'}}; font-size:14pt; line-height: 1.5; text-align:center; font-weight:bold;">{{$textData[4]['text'] ?? ''}}</div>
+    <div id="textArea22" style="position:absolute; width:{{$textData[4]['width']??'50'}}%; height:{{$textData[4]['height']??'50'}}%; top:22%; left:{{$textData[4]['left']??'50'}}%; color:{{$colors['textColor'] ?? '#000000'}}; font-size:14pt; line-height: 1.5; text-align:center; font-weight:bold;">{{$textData[4]['text'] ?? ''}}</div>
     <div id="frontimg22" class="img-radius" style="position:absolute; width:48%; height:45.31%; top:27.94%; left:26%;background-size: contain; background-repeat: no-repeat; background-position: center;background-image: url('{{$imageData[3]['image'] }}')"></div>
 
 
@@ -75,7 +73,7 @@
 
 
     <img src="{{ asset('img/kotobum_format1/2-9@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
-    <div id="textArea21" style="position:absolute; width:{{$textData[5]['width']??'50'}}%; height:{{$textData[5]['height']??'50'}}%; top:{{$textData[5]['top']??'50'}}%; left:{{$textData[5]['left']??'50'}}%; writing-mode:vertical-rl; font-size:7.5pt;letter-spacing:1pt;">{{$textData[5]['text'] ?? ''}}</div>
+    <div id="textArea21" style="position:absolute; width:57%; height:{{$textData[5]['height']??'50'}}%; top:{{$textData[5]['top']??'50'}}%; left:22%; writing-mode:vertical-rl; font-size:7.5pt;letter-spacing:1pt;">{{$textData[5]['text'] ?? ''}}</div>
 
 
 
@@ -102,7 +100,7 @@
 
 
     <img src="{{ asset('img/kotobum_format1/2-7@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
-    <div id="textArea19" style="position:absolute; width:{{$textData[7]['width']??'50'}}%; height:{{$textData[7]['height']??'50'}}%; top:{{$textData[7]['top']??'50'}}%; left:{{$textData[7]['left']??'50'}}%; writing-mode:vertical-rl; font-size:7.5pt; text-orientation:upright; letter-spacing:1pt;">{{$textData[7]['text'] ?? ''}}</div>
+    <div id="textArea19" style="position:absolute; width:51%; height:{{$textData[7]['height']??'50'}}%; top:{{$textData[7]['top']??'50'}}%; left:25%; writing-mode:vertical-rl; font-size:7.5pt; text-orientation:upright; letter-spacing:1pt;">{{$textData[7]['text'] ?? ''}}</div>
 
 
 
@@ -113,7 +111,7 @@
 
 
     <img src="{{ asset('img/kotobum_format1/2-6@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
-    <div id="textArea18" style="position:absolute; width:{{$textData[8]['width']??'50'}}%; height:{{$textData[8]['height']??'50'}}%; top:{{$textData[8]['top']??'50'}}%; left:{{$textData[8]['left']??'50'}}%; font-size:14pt; line-height: 1.5; text-align:center; font-weight:bold; text-orientation:upright;">{{$textData[8]['text'] ?? ''}}</div>
+    <div id="textArea18" style="position:absolute; width:{{$textData[8]['width']??'50'}}%; height:{{$textData[8]['height']??'50'}}%; top:{{$textData[8]['top']??'50'}}%; left:{{$textData[8]['left']??'50'}}%; color:{{$colors['textColor'] ?? '#000000'}}; font-size:14pt; line-height: 1.5; text-align:center; font-weight:bold; text-orientation:upright;">{{$textData[8]['text'] ?? ''}}</div>
     <div id="frontimg18" class="img-radius" style="position:absolute; width:50%; height:41.04%; top:29.22%; left:25%; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{{$imageData[5]['image'] }}')"></div>
 
 
@@ -125,7 +123,7 @@
 
 
     <img src="{{ asset('img/kotobum_format1/2-5@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
-    <div id="textArea17" style="position:absolute; width:{{$textData[9]['width']??'50'}}%; height:{{$textData[9]['height']??'50'}}%; top:{{$textData[9]['top']??'50'}}%; left:{{$textData[9]['left']??'50'}}%; text-align:justify; font-size:7.5pt; text-orientation:upright; letter-spacing:1pt;">{{$textData[9]['text'] ?? ''}}</div>
+    <div id="textArea17" style="position:absolute; width:50%; height:{{$textData[9]['height']??'50'}}%; top:{{$textData[9]['top']??'50'}}%; left:26%; text-align:justify; font-size:7.5pt; text-orientation:upright; letter-spacing:1pt;">{{$textData[9]['text'] ?? ''}}</div>
 
 
 
@@ -153,7 +151,7 @@
 
 
     <img src="{{ asset('img/kotobum_format1/1-3@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
-    <div id="textArea15" style="position:absolute; width:{{$textData[12]['width']??'50'}}%; height:{{$textData[12]['height']??'50'}}%; top:{{$textData[12]['top']??'50'}}%; left:{{$textData[12]['left']??'50'}}%; text-align:justify; font-size:7.5pt; text-orientation:upright; letter-spacing:1pt;">{{$textData[12]['text'] ?? ''}}</div>
+    <div id="textArea15" style="position:absolute; width:70%; height:{{$textData[12]['height']??'50'}}%; top:{{$textData[12]['top']+5??'50'}}%; left:15%; text-align:justify; font-size:7.5pt; text-orientation:upright; letter-spacing:1pt;">{{$textData[12]['text'] ?? ''}}</div>
 
 
 
@@ -164,7 +162,7 @@
 
 
     <img src="{{ asset('img/kotobum_format1/1-2@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
-    <div id="textArea14" style="position:absolute; width:{{$textData[13]['width']??'50'}}%; height:{{$textData[13]['height']??'50'}}%; top:{{$textData[13]['top']??'50'}}%; left:{{$textData[13]['left']??'50'}}%; color:{{$colors['textColor'] ?? '#000000'}}; font-size:16pt; line-height: 1.5; text-align:center; font-weight:bold; text-orientation:upright;">{{$textData[13]['text'] ?? ''}}</div>
+    <div id="textArea14" style="position:absolute; width:{{$textData[13]['width']??'50'}}%; height:{{$textData[13]['height']??'50'}}%; top:31%; left:20%; color:{{$colors['textColor'] ?? '#000000'}}; font-size:16pt; line-height: 1.5; text-align:center; font-weight:bold; text-orientation:upright;">{{$textData[13]['text'] ?? ''}}</div>
     <div id="frontimg14" class="img-radius" style="position:absolute; width:50%; height:28.21%; top:36.49%; left:25%; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{{$imageData[7]['image'] }}')"></div>
 
 
@@ -176,10 +174,10 @@
 
 
     <img src="{{ asset('img/kotobum_format1/1-1@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
-    <div id="textArea13-1" style="position:absolute; width:{{$textData[14]['width']??'50'}}%; height:{{$textData[14]['height']??'50'}}%; top:{{$textData[14]['top']??'50'}}%; left:{{$textData[14]['left']??'50'}}%; color:{{$colors['textColor'] ?? '#000000'}}; margin:30px 0 0 0; font-size:28.6pt; line-height:1.2; font-weight:bold; text-align:center;">{{$textData[14]['text'] ?? ''}}</div>
-    <div id="textArea13-2" style="position:absolute; width:{{$textData[15]['width']??'50'}}%; height:{{$textData[15]['height']??'50'}}%; top:{{$textData[15]['top']??'50'}}%; left:{{$textData[15]['left']??'50'}}%; font-size:12pt; text-align:center; line-height:1.5; font-weight:bold;">{{$textData[15]['text'] ?? ''}}</div>
+    <div id="textArea13-1" style="position:absolute; width:{{$textData[14]['width']??'50'}}%; height:{{$textData[14]['height']??'50'}}%; top:16.5%; left:20%; color:{{$colors['textColor'] ?? '#000000'}}; margin:30px 0 0 0; font-size:28.6pt; line-height:1.2; font-weight:bold; text-align:center;">{{$textData[14]['text'] ?? ''}}</div>
+    <div id="textArea13-2" style="position:absolute; width:{{$textData[15]['width']??'50'}}%; height:{{$textData[15]['height']??'50'}}%; top:27.67%; left:62%; color:{{$colors['textColor'] ?? '#000000'}}; font-size:12pt; text-align:center; line-height:1.5; font-weight:bold;">{{$textData[15]['text'] ?? ''}}</div>
     <div id="frontimg13" class="img-radius" style="position:absolute; width:50%; height:33.34%; top:33.29%; left:25%; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{{$imageData[8]['image'] }}')"></div>
-    <div id="textArea13-3" style="position:absolute;width:{{$textData[16]['width']??'50'}}%; height:{{$textData[16]['height']??'50'}}%; top:{{$textData[16]['top']??'50'}}%; left:{{$textData[16]['left']??'50'}}%; font-size:7.5pt; text-orientation:upright;">{{$textData[16]['text'] ?? ''}}</div>
+    <div id="textArea13-3" style="position:absolute;width:{{$textData[16]['width']??'50'}}%; height:{{$textData[16]['height']??'50'}}%; top:70.05%; left:20%; font-size:7.5pt; text-orientation:upright;">{{$textData[16]['text'] ?? ''}}</div>
 
 
 
