@@ -92,7 +92,7 @@ class PDFController extends Controller
         $imageData = json_decode($body->imageData, true);
 
         //$textData->text = nl2br($textData->text);
-        dd($textData);
+        dd($body->textData);
 
         // 各画像データをBase64形式でエンコード
         foreach ($imageData as $item) {
