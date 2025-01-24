@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('format');
             $table->unsignedBigInteger('Auser_id')->nullable();
             $table->unsignedBigInteger('Buser_id')->nullable();
             $table->timestamps();
