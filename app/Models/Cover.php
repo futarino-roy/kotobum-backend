@@ -22,7 +22,7 @@ class Cover extends Model
         return $this->belongsTo(Album::class, 'albums_id');
     }
 
-    protected static function boot()
+    /* protected static function boot()
     {
         parent::boot();
 
@@ -38,11 +38,11 @@ class Cover extends Model
                     foreach ($user->partner->albums as $partnerAlbum) {
                         if ($partnerAlbum->cover) {
                             // パートナーのカバーのstatusを更新
-                            $partnerAlbum->cover->update(['covertext' => $cover->status]);
+                            $partnerAlbum->cover->update(['covertext' => $cover->status]); ??
                         }
                     }
                  }
             }
         });
-    }
+    } */
 }

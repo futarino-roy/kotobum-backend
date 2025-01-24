@@ -50,13 +50,18 @@ class User extends Authenticatable
         return $this->hasOne(Album::class);
     }
 
-    // パートナーリレーション (自己リレーション)
+    public function Group()
+    {
+        return $this->belongsTo(Group::class);
+    }
+
+    // ファミリーリレーション (自己リレーション)
     public function partner()
     {
         return $this->hasOne(User::class, 'partner_id','id');
     }
 
-    // 逆方向のリレーション (パートナーから見た自分)
+    // パートナーリレーション (パートナーから見た自分)
     public function partnerBack()
     {
         return $this->hasOne(User::class, 'id', 'partner_id');
@@ -67,7 +72,7 @@ class User extends Authenticatable
         return $this->partner()->with('Album.cover');
     }
 
-    //　パートナーを設定する
+    //　ファミリーを設定する
     public function setPartner($partnerId)
     {
         DB::transaction(function () use ($partnerId) {
@@ -91,7 +96,7 @@ class User extends Authenticatable
         });
     }
     
-    // パートナーを付け替える
+    // ファミリーを替える（警告表示必須）
     public function switchPartner($newPartnerId)
     {
         DB::transaction(function () use ($newPartnerId) {
@@ -113,7 +118,7 @@ class User extends Authenticatable
         });
     }
 
-    // パートナーを解除
+    // ファミリーを解除
     public function detachPartner()
     {
         DB::transaction(function () {
