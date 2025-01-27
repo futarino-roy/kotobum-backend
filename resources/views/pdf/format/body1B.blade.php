@@ -26,7 +26,7 @@
     <div id="textArea1-1" style="position:absolute; width:{{$textData[0]['width']??'50'}}%; height:{{$textData[0]['height']??'50'}}%; top:16.5%; left:{{$textData[0]['left']??'50'}}%; margin:30px 0 0 0; font-size:28.6pt; line-height:1.2; font-weight:bold; text-align:center; color:{{$colors['textColor'] }};">{{$textData[0]['text'] ?? ''}}</div>
     <div id="textArea1-2" style="position:absolute; width:{{$textData[1]['width']??'50'}}%; height:{{$textData[1]['height']??'50'}}%; top:27.67%; left:{{$textData[1]['left']??'50'}}%; margin:0; font-size:12pt; text-align:center; line-height:1.5; font-weight:bold; color:{{$colors['textColor'] }};">{{$textData[1]['text'] ?? ''}}</div>
     <div id="frontimg1" class="img-radius" style="position:absolute; width:50%; height:33.34%; top:33.29%; left:27.5%; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{{$imageData[0]['image'] }}')"></div>
-    <div id="textArea1-3" style="position:absolute; width:width:57%; height:{{$textData[2]['height']??'50'}}%; top:70.05%; left:{{$textData[2]['left']??'50'}}; font-size:7.5pt; text-align:center; line-height:2;">{{$textData[2]['text'] ?? ''}}</div>
+    <div id="textArea1-3" style="position:absolute; width:57%; height:{{$textData[2]['height']??'50'}}%; top:70.05%; left:{{$textData[2]['left']??'50'}}; font-size:7.5pt; text-align:center; line-height:2;">{{$textData[2]['text'] ?? ''}}</div>
 
 
     <pagebreak />
