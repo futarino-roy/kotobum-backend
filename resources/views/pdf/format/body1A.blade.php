@@ -176,7 +176,7 @@
     <img src="{{ asset('img/kotobum_format1/1-1@2x.png') }}" alt="" style="width: 158mm; height:218mm;" />
     <div id="textArea13-1" style="position:absolute; width:{{$textData[14]['width']??'50'}}%; height:{{$textData[14]['height']??'50'}}%; top:16%; left:20%; color:{{$colors['textColor'] ?? '#000000'}}; margin:30px 0 0 0; font-size:28.6pt; line-height:1.2; font-weight:bold; text-align:center;">{{$textData[14]['text'] ?? ''}}</div>
     <div id="textArea13-2" style="position:absolute; width:{{$textData[15]['width']??'50'}}%; height:{{$textData[15]['height']??'50'}}%; top:27.67%; left:32%; color:#fef8f6; font-size:12pt; text-align:center; line-height:1.5; font-weight:bold;">{{$textData[15]['text'] ?? ''}}</div>
-    <div id="frontimg13" class="img-radius" style="position:absolute; width:50%; height:33.34%; top:33.29%; left:25%; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{{$imageData[8]['image'] }}')"></div>
+    <div id="frontimg13" class="img-radius" style="position:absolute; width:50%; height:33.34%; top:34.29%; left:25%; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{{$imageData[8]['image'] }}')"></div>
     <div id="textArea13-3" style="position:absolute;width:52%; height:{{$textData[16]['height']??'50'}}%; top:70%; left:24.5%; font-size:8.2pt; text-orientation:upright; line-height:2;">{{$textData[16]['text'] ?? ''}}</div>
 
 
