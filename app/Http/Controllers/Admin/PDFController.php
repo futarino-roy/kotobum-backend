@@ -182,6 +182,17 @@ class PDFController extends Controller
                     'I' => 'Montserrat-Italic.ttf',
                     'Bl' => 'Montserrat-Black.ttf',
                 ],
+                'leaguespartan' => [
+                    'R' => 'LeagueSpartan-Regular.ttf',
+                    'B' => 'LeagueSpartan-Bold.ttf',
+                    'SB' => 'LeagueSpartan-SemiBold.ttf',
+                    'EB' => 'LeagueSpartan-ExtraBold.ttf',
+                    'Bl' => 'LeagueSpartan-Black.ttf',
+                    'L' => 'LeagueSpartan-Light.ttf',
+                    'EL' => 'LeagueSpartan-ExtraLight.ttf',
+                    'M' => 'LeagueSpartan-Medium.ttf',
+                    'T' => 'LeagueSpartan-Thin.ttf'
+                                    ],
             'default_font' => 'notosansjp', // デフォルトフォントを指定
             ]
         ]);
