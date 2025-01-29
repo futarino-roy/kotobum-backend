@@ -13,7 +13,7 @@
 
 
         .img-radius {
-            border-radius: 10%;
+            border-radius: 15pt;
         }
     </style>
 </head>
@@ -130,11 +130,11 @@
 
 
     <div id="textArea12-1" style="font-family:montserrat; position:absolute; width:{{$textData[14]['width']??'50'}}%; height:{{$textData[14]['height']??'50'}}%;  top:{{$textData[14]['top']??'50'}}%; left:{{$textData[14]['left']??'50'}}%; transform: rotate(-8deg); width:34%; text-align:center; font-size:18pt; font-weight:bold; line-height:1; color:#fef8f6;">{{$textData[14]['text'] ?? ''}}</div>
-    <div id="frontimg12-1" style="position:absolute; width:68.5%; height:29.5%; top:56.56%; left:16.5%; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{{$imageData[6]['image'] }}')"></div>
-    <div id="textArea12-2" style="position:absolute; width:{{$textData[15]['width']??'50'}}%; height:{{$textData[15]['height']??'50'}}%; top:{{$textData[15]['top']??'50'}}%; left:{{$textData[15]['left']??'50'}}%; font-size:7.5pt; letter-spacing:1.2; line-height:2;">{{$textData[15]['text'] ?? ''}}</div>
-    <div id="frontimg12-2" style="position:absolute; width:27%; height:17.5%; top:35.6%; left: 16.5%; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{{$imageData[7]['image'] }}')"></div>
-    <div id="frontimg12-3" style="position:absolute; width:27%; height:17.5%; top:35.6%; left: 16.5%; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{{$imageData[8]['image'] }}')"></div>
-    <div id="textArea12-3" style="font-family:montserrat; width:{{$textData[16]['width']??'50'}}%; height:{{$textData[16]['height']??'50'}}%; top:{{$textData[16]['top']+0.6 ??'50'}}%; left:{{$textData[16]['left']??'50'}}%; text-align:center; line-height:1.5; font-weight:bold; color:#fef8f6; font-size:12.3pt;">{{$textData[16]['text'] ?? ''}}</div>
+    <div id="frontimg12-1" style="position:absolute; width:68.5%; height:29.5%; top:15.864%; right:16.5%; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{{$imageData[6]['image'] }}')"></div>
+    <div id="textArea12-2" style="position:absolute; width:{{$textData[15]['width']+5 ??'50'}}%; height:{{$textData[15]['height']??'50'}}%; top:{{$textData[15]['top']??'50'}}%; left:{{$textData[15]['left']-3 ??'50'}}%; font-size:7.5pt; letter-spacing:1.2; line-height:2;">{{$textData[15]['text'] ?? ''}}</div>
+    <div id="frontimg12-2" style="position:absolute; width:27%; height:17.5%; top:48.57%; right: 16.5%; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{{$imageData[7]['image'] }}')"></div>
+    <div id="frontimg12-3" style="position:absolute; width:27%; height:17.5%; top:69.06%; right: 16.5%; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('{{$imageData[8]['image'] }}')"></div>
+    <div id="textArea12-3" style="position:absolute; font-family:montserrat; width:{{$textData[16]['width']??'50'}}%; height:{{$textData[16]['height']+1 ??'50'}}%; top:{{$textData[16]['top']-0.6 ??'50'}}%; left:{{$textData[16]['left']??'50'}}%; text-align:center; line-height:1.5; font-weight:bold; color:#fef8f6; font-size:12.3pt;">{{$textData[16]['text'] ?? ''}}</div>
 
 
 </body>
