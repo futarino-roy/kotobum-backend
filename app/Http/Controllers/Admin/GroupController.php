@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class GroupController extends Controller
 {
+    public function createGroup(Request $request)
+    {
+        
+    }
+
+
+
     public function showGroup($userid)
     {
         // ログインしている管理者を取得
