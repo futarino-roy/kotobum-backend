@@ -39,7 +39,7 @@ class CoverController extends Controller
             'textData' => 'required|JSON',
             'imageData' => 'required|JSON',
             'colors' => 'required|JSON',
-            'covertext' => 'required|JSON',
+            /* 'covertext' => 'required|JSON', */
         ]);  
 
         $album = Album::findOrFail($albumid);
@@ -56,7 +56,7 @@ class CoverController extends Controller
         $cover->textData = $request->input('textData');
         $cover->imageData = $request->input('imageData');
         $cover->colors = $request->input('colors');
-        $cover->covertext = $request->input('covertext');
+        /* $cover->covertext = $request->input('covertext'); */
         $cover->save();
         /* $cover->touch(); */
         /* $album->save(); */
