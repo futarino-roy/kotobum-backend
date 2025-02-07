@@ -24,13 +24,13 @@
 
     <!-- <img src="{{ asset('img/kotobum_format1/p1@2x.jpg') }}" alt=""> -->
 
-    <div style="display: grid; place-items: center; margin-top: 50px">
+    <!-- <div style="display: grid; place-items: center; margin-top: 50px">
         <h3>プレビューエリア</h3>
         <iframe id="preview" style="width: 158mm; height: 600px;"></iframe>
-    </div>
+    </div> -->
 
     <script>
-        document.getElementById('html-content').addEventListener('input', function() {
+  /*       document.getElementById('html-content').addEventListener('input', function() {
             var htmlContent = document.getElementById('html-content').value;
             var iframe = document.getElementById('preview');
             var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
@@ -39,6 +39,6 @@
             iframeDocument.open();
             iframeDocument.write(htmlContent);
             iframeDocument.close();
-        });
+        }); */
     </script>
 @endsection
