@@ -23,7 +23,7 @@ class User extends Authenticatable
         'password',
         'template',
         'format',
-        'partner_id'
+        'group_id'
     ];
 
     /**
@@ -56,7 +56,7 @@ class User extends Authenticatable
     }
 
     // ファミリーリレーション (自己リレーション)
-    public function partner()
+    /* public function partner()
     {
         return $this->hasOne(User::class, 'partner_id','id');
     }
@@ -70,10 +70,10 @@ class User extends Authenticatable
     public function partnerCover()
     {
         return $this->partner()->with('Album.cover');
-    }
+    } */
 
     //　ファミリーを設定する
-    public function setPartner($partnerId)
+    /* public function setPartner($partnerId)
     {
         DB::transaction(function () use ($partnerId) {
             $partner = User::findOrFail($partnerId);
@@ -94,10 +94,10 @@ class User extends Authenticatable
                 throw new \Exception('A面B面が異なる場合にのみリレーションを設定できます。');
             }
         });
-    }
+    } */
     
     // ファミリーを替える（警告表示必須）
-    public function switchPartner($newPartnerId)
+    /* public function switchPartner($newPartnerId)
     {
         DB::transaction(function () use ($newPartnerId) {
             $newPartner = User::findOrFail($newPartnerId);
@@ -116,10 +116,10 @@ class User extends Authenticatable
                 throw new \Exception('A面B面が異なる場合にのみリレーションを設定できます。');
             }
         });
-    }
+    } */
 
     // ファミリーを解除
-    public function detachPartner()
+    /* public function detachPartner()
     {
         DB::transaction(function () {
             // 現在のパートナーを解除
@@ -130,5 +130,5 @@ class User extends Authenticatable
             // 自分のpartner_idを解除
             $this->update(['partner_id' => null]);
         });
-    }
+    } */
 }

@@ -24,4 +24,42 @@ class Group extends Model
     {
         return $this->hasOne(User::class, 'id','Buser_id')->where('template', 'B');
     }
+
+    public function setAuser(User $user)
+    {
+        if ($user->template !== 'A') {
+            throw new \Exception('User template must be A');
+        }
+        $this->Auser_id = $user->id;
+        $this->save();
+        
+        $user->group_id = $this->id;
+        $user->save();
+    }
+
+    public function setBuser(User $user)
+    {
+        if ($user->template !== 'B') {
+            throw new \Exception('User template must be B');
+        }
+        $this->Buser_id = $user->id;
+        $this->save();
+        
+        $user->group_id = $this->id;
+        $user->save();
+    }
+
+    public function detachuser(User $user)
+    {
+        if ($this->Auser_id === $user->id) {
+            $this->Auser_id = null;
+        }
+        if ($this->Buser_id === $user->id) {
+            $this->Buser_id = null;
+        }
+        $this->save();
+        
+        $user->group_id = null;
+        $user->save();
+    }
 }

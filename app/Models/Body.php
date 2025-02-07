@@ -12,7 +12,8 @@ class Body extends Model
     protected $fillable = [
         'albums_id', 
         'textData',
-        'imageData',   
+        'imageData',
+        'pdfImage',
         'colors'
     ];
 

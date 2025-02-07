@@ -4,7 +4,7 @@
 @section('title', '管理者ダッシュボード')
 
 @section('content')
-    <h1>管理者ダッシュボード</h1>
+    <h1>管理者仮トップページ</h1>
 
     <h2 style="margin-left:10%;">ユーザー一覧</h2>
     <table border="1">
