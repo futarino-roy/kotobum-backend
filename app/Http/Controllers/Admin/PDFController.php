@@ -157,6 +157,8 @@ class PDFController extends Controller
 
     public function PDF(Request $request)
     {
+        ini_set("pcre.backtrack_limit", "10000000");
+        
         $htmlContent = $request->input('html_content');
         $mpdfConfig = config('pdf');
         $customConfig = array_merge($mpdfConfig, [
