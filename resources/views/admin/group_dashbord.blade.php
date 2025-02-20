@@ -6,7 +6,7 @@
 @section('content')
     <h1 style="margin-left:10%;">ページ上部にグループ作成領域</h1>
 
-    <br />
+    <hr>
 
     <h2 style="margin-left:10%;">グループ一覧</h2>
     <table border="1">
