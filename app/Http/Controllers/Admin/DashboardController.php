@@ -25,4 +25,19 @@ class DashboardController extends Controller
         // ダッシュボードビューを返す
         return view('admin.dashboard', compact('admin','users'));
     }
+
+    public function group_dashbord()
+    {
+        return view('admin.group_dashbord');
+    }
+
+    public function group_infomation()
+    {
+        return view('admin.GroupInformation');
+    }
+
+    public function user_infomation()
+    {
+        return view('admin.UserInfomation');
+    }
 }

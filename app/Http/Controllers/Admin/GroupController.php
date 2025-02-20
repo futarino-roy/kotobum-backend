@@ -33,9 +33,6 @@ class GroupController extends Controller
             $B = User::with('Album')->find($userid);
         }
 
-        /* dd(User::with('Album')->find($userid)); */
-        /* dd(User::with('Album')->find($user->partner_id)); */
-
         $users = User::with('Album','partner')->get();
         $solo = is_null($A) || is_null($B);
 
@@ -48,8 +45,6 @@ class GroupController extends Controller
      */
     public function setGroup(Request $request, $userid)
     {
-        /* dd($userid); */
-        /* dd($request); */
         // リクエストバリデーション
         $request->validate([
             'new_partner_id' => 'required|exists:users,id|different:' . $userid,
