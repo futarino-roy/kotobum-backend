@@ -25,7 +25,7 @@
     </table>
 
 
-    <div class="d-flex">
+    <div class="d-flex justify-content-between">
         <table border="1">
             <thead>
                 <tr>
