@@ -6,7 +6,7 @@
 @section('content')
     <h1>管理者仮トップページ</h1>
 
-    <h3><a href="{{ route('admin.user_infomation') }}">レイアウト確認ページ</a></h3>
+    <h3><a href="{{ route('admin.group_dashbord') }}">レイアウト確認ページ</a></h3>
 
     <h2 style="margin-left:10%;">ユーザー一覧</h2>
     <table border="1">
