@@ -14,6 +14,8 @@
         </tbody>
     </table>
 
+    <hr>
+
     <table border="1">
         <thead>
             <tr>
