@@ -9,6 +9,12 @@
     <h2 style="margin-left:10%;">基本情報</h2>
 
     <table border="1">
+        <tbody>
+            <tr><th>校了状態:両方済み</td><th>選択FMT:1</th><th>表紙PDFボタン</th><th>全体データ削除</th></tr>
+        </tbody>
+    </table>
+
+    <table border="1">
         <thead>
             <tr>
                 <th></th>
@@ -24,18 +30,18 @@
         </thead>
         <tbody>
             <tr>
-                <th></th>
+                <th>A面</th>
                 <th>1</th>
                 <th>佐藤太郎</th>
                 <th>2025/1/10 10:00:00</th>
                 <th>全格納済み</th>
                 <th>校了済み</th>
-                <th><a href="{{ route('admin.group_infomation') }}">詳細ボタン</a></th>
+                <th><a href="{{ route('admin.user_infomation') }}">詳細ボタン</a></th>
                 <th>編集ボタン</th>
                 <th>割り当て解除</th>
             </tr>
             <tr>
-                <th></th>
+                <th>B面</th>
                 <th>1</th>
                 <th>佐藤花子</th>
                 <th>2025/1/10 00:00:00</th>
