@@ -9,7 +9,7 @@ use App\Models\Album;
 
 class UserAlbumController extends Controller
 {
-    public function getOrCreateAlbum(Request $request)
+    public function getOrCreateAlbum()
 {
         $userId = Auth::id();
 

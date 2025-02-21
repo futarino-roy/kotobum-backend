@@ -10,14 +10,15 @@
 
     <table border="1">
         <tbody>
-            <tr><th>ID</th><td colspan="3">1</td></tr>
-            <tr><th>パスワード</th><td colspan="3">12345678</td></tr>
-            <tr><th>所属グループ</th><td colspan="3">佐藤太郎</td></tr>
-            <tr><th>選択フォーマット</th><td colspan="3">1</td></tr>
-            <tr><th>選択面</th><td colspan="3">B面</td></tr>
-            <tr><th>データ格納状況</th><td colspan="3">全格納済み</td></tr>
-            <tr><th>最終編集時刻</th><td colspan="3">2025/1/10 00:00:00</td></tr>
-            <tr><th>校了状態</th><td colspan="3">校了済み</td></tr>
+            <tr><th>ID</th><td colspan="2">1</td></tr>
+            <tr><th>名前</th><td colspan="2">佐藤太郎</td></tr>
+            <tr><th>パスワード</th><td colspan="2">12345678</td></tr>
+            <tr><th>所属グループ</th><td colspan="2">佐藤家</td></tr>
+            <tr><th>選択フォーマット</th><td colspan="2">1</td></tr>
+            <tr><th>選択面</th><td colspan="2">B面</td></tr>
+            <tr><th>データ格納状況</th><td colspan="2">全格納済み</td></tr>
+            <tr><th>最終編集時刻</th><td colspan="2">2025/1/10 00:00:00</td></tr>
+            <tr><th>校了状態</th><td colspan="2">校了済み</td></tr>
         </tbody>
         <tfoot>
             <tr><th>編集ページボタン</th><th>PDF化ボタン</th><th>データ削除ボタン（警告あり）</th></tr>
