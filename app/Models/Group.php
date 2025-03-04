@@ -11,6 +11,7 @@ class Group extends Model
 
     protected $fillable = [
         'name', 
+        'format',
         'Auser_id',
         'Buser_id',
     ];
@@ -25,6 +26,7 @@ class Group extends Model
         return $this->hasOne(User::class, 'id','Buser_id')->where('template', 'B');
     }
 
+    // 修正必要あり
     public function setAuser(User $user)
     {
         if ($user->template !== 'A') {
@@ -37,6 +39,7 @@ class Group extends Model
         $user->save();
     }
 
+    // 修正必要あり
     public function setBuser(User $user)
     {
         if ($user->template !== 'B') {
@@ -49,7 +52,7 @@ class Group extends Model
         $user->save();
     }
 
-    public function detachuser(User $user)
+    public function deleteuser(User $user)
     {
         if ($this->Auser_id === $user->id) {
             $this->Auser_id = null;
@@ -59,6 +62,7 @@ class Group extends Model
         }
         $this->save();
         
+        // 修正必要あり
         $user->group_id = null;
         $user->save();
     }

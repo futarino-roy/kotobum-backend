@@ -3,12 +3,34 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Group;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class GroupController extends Controller
 {
+
+    public function indexGroup()
+    {
+        // ログインしている管理者を取得
+        $admin = Auth::guard('admin')->user();
+        $groups = Group::get();
+
+        if (!is_null($groups->Auser_id) && !is_null($groups->Buser_id)) {
+            $plan = 2;
+        } elseif (is_null($groups->Auser_id) || is_null($groups->Buser_id)) {
+            $plan = 1;
+        } else {
+            $plan = 0;
+        }
+        
+        // ダッシュボードビューを返す
+        return view('admin.group_dashbord', compact('admin','groups','plan'));
+    }
+
+
+
     public function createGroup(Request $request)
     {
         
@@ -16,39 +38,27 @@ class GroupController extends Controller
 
 
 
-    public function showGroup($userid)
+    public function showGroup($groupid)
     {
         // ログインしている管理者を取得
         $admin = Auth::guard('admin')->user();
-        $user = User::findOrFail($userid);
-
-        /* dd($userid); */
+        $group = Group::with(['Auser.Album', 'Buser.Album'])->get();
+        
         
 
-        if($user->template == 'A'){
-            $A = User::with('Album')->find($userid);
-            $B = User::with('Album')->find($user->partner_id) ?? null;
-        }else{
-            $A = User::with('Album')->find($user->partner_id) ?? null;
-            $B = User::with('Album')->find($userid);
-        }
-
-        $users = User::with('Album','partner')->get();
-        $solo = is_null($A) || is_null($B);
-
-        return view('admin.partner', compact('admin','users','A','B','solo'));
+        return view('admin.partner', compact('admin','group','sent'));
     }
 
 
     /**
-     * パートナーを付け替える
+     * ユーザーを追加
      */
     public function setGroup(Request $request, $userid)
     {
         // リクエストバリデーション
         $request->validate([
             'new_partner_id' => 'required|exists:users,id|different:' . $userid,
-        ]);
+        ]); 
 
         // 対象のユーザーを取得
         $user = User::findOrFail($userid);
@@ -60,7 +70,7 @@ class GroupController extends Controller
     }
 
     /**
-     * パートナーを解除する
+     * 割り当てユーザーを削除
      */
     public function detachGroup($userid)
     {

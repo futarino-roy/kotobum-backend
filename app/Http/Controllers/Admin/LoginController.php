@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,6 +40,25 @@ class LoginController extends Controller
         return redirect()->route('admin.login_form')->with([
             'logout_msg' => 'ログアウトしました',
         ]);
+    }
+
+    public function admin_user_redirect($userid)
+    {
+        if (Auth::guard('admin')->check()) {
+            // 管理者情報を取得
+            $admin = Auth::guard('admin')->user();
+    
+            // 対象ユーザーを取得
+            $user = User::with(['album'])->findOrFail($userid);
+    
+            $token = $admin->createToken("admin:user{$user->id}")->plainTextToken;
+    
+            // 必要なら、トークンをURLに含めてリダイレクト
+            return redirect()->away('https://develop-front.kotobum.com/edit/');
+        } else {
+            // 管理者がログインしていない場合、ログインページにリダイレクト
+            return redirect()->route('admin.login_form')->withErrors(['message' => '管理者としてログインしてください。']);
+        }
     }
 }
 

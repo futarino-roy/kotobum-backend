@@ -20,7 +20,7 @@ class DashboardController extends Controller
     {
         // ログインしている管理者を取得
         $admin = Auth::guard('admin')->user();
-        $users = User::/* with('partner')-> */get();
+        $users = User::get();
         
         // ダッシュボードビューを返す
         return view('admin.dashboard', compact('admin','users'));
