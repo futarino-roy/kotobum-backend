@@ -10,7 +10,11 @@
 
     <table border="1">
         <tbody>
-            <tr><th>校了状態:両方済み</td><th>選択FMT:1</th><th>表紙PDFボタン</th><th>全体データ削除</th></tr>
+            <tr>
+                <th>校了状態:両方済み</td>
+                <th>選択FMT:1</th>
+                <th>表紙PDFボタン</th>
+                <th>全体データ削除</th></tr>
         </tbody>
     </table>
 
@@ -22,7 +26,7 @@
                 <th>ID</th>
                 <th>名前</th>
                 <th>最終更新時間</th>
-                <th>格納状況</th>
+                <th>未格納画像</th>
                 <th>校了状態</th>
                 <th></th>
                 <th></th>
