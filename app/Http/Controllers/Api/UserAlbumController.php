@@ -11,11 +11,9 @@ class UserAlbumController extends Controller
 {
     public function getOrCreateAlbum()
 {
-
-    
         $userId = Auth::id();
 
-        if (!$user) {
+        if (!$userId) {
             return response()->json(['error' => 'Unauthorized, please reauthenticate'], 401);
         }
         // ユーザーに関連するアルバムを取得または作成
