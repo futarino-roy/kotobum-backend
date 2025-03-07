@@ -35,7 +35,7 @@
                     <td>{{ $user->template }}</td>
                     <td>{{ $user->format }}</td>
                     <td>{{ $user->created_at }}</td>
-                    <td><a href="{{ route('admin_user_redirect', $user->id,'body') }}" target="_blank">PDF</a></td>
+                    <td><a href="{{ route('admin_user_redirect', ['userid' => $user->id, 'parts' => 'body']) }}" target="_blank">PDF</a></td>
                     <!-- <td><a href="{{ route('admin.coverHTML', $user->id) }}">PDF</a></td> -->
                     <td><a href="{{ route('admin.bodyHTML', $user->id) }}" target="_blank">PDF</a></td>
                 </tr>
