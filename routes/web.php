@@ -22,11 +22,12 @@ Route::prefix('admin')->group(function () {
         Route::get('/layout_GroupInfomation', [DashboardController::class, 'group_infomation'])->name('admin.group_infomation'); 
         Route::get('/layout_UserInfomation', [DashboardController::class, 'user_infomation'])->name('admin.user_infomation'); 
 
-        Route::get('/show-partner/{id}/', [PartnerController::class, 'showPartner'])->name('admin.showPartner');
+        /* Route::get('/show-partner/{id}/', [PartnerController::class, 'showPartner'])->name('admin.showPartner');
         Route::post('/detach-partner/{id}/', [PartnerController::class, 'detachPartner'])->name('admin.detachPartner');
-        Route::post('/switch-partner/{id}/', [PartnerController::class, 'switchPartner'])->name('admin.switchPartner');
+        Route::post('/switch-partner/{id}/', [PartnerController::class, 'switchPartner'])->name('admin.switchPartner'); */
         /* Route::post('/set-partner/{id}/', [PartnerController::class, 'setPartner'])->name('admin.setPartner');*/
 
+        Route::get('/admin_user_redirect/{userid}/{parts}', [LoginController::class, 'admin_user_redirect'])->name('admin_user_redirect');
         
         /* Route::get('ユーザー情報（所属・ステ・関連アルバムID）取得', [::class, ''])->name('');
         Route::get('ユーザー情報（所属個別テーブル？）取得', [::class, ''])->name('');

@@ -48,6 +48,11 @@ return [
             'hash' => false,
         ],
 
+        'sanctum' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',

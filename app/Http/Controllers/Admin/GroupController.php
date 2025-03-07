@@ -17,37 +17,129 @@ class GroupController extends Controller
         $admin = Auth::guard('admin')->user();
         $groups = Group::get();
 
-        if (!is_null($groups->Auser_id) && !is_null($groups->Buser_id)) {
-            $plan = 2;
-        } elseif (is_null($groups->Auser_id) || is_null($groups->Buser_id)) {
-            $plan = 1;
-        } else {
-            $plan = 0;
+        foreach ($groups as $group) {
+            if (!is_null($group->Auser_id) && !is_null($group->Buser_id)) {
+                $group->plan = "ペア";
+            } elseif (is_null($group->Auser_id) && is_null($group->Buser_id)) {
+                $group->plan = "NULL";
+            } else {
+                $group->plan = "ソロ";
+            }
         }
-        
+
+        /* 完了状態をどう判別する？ 
+        foreach ($groups as $group) {
+            if (!is_null($group->Auser_id) && !is_null($group->Buser_id)) {
+                $group-> = "ペア";
+            } elseif (is_null($group->Auser_id) && is_null($group->Buser_id)) {
+                $group->plan = "NULL";
+            } else {
+                $group->plan = "ソロ";
+            }
+        } */
+
         // ダッシュボードビューを返す
-        return view('admin.group_dashbord', compact('admin','groups','plan'));
+        return view('admin.group_dashbord', compact('admin', 'groups'));
     }
 
 
-
-    public function createGroup(Request $request)
+    public function createGroup(Request $request) 
     {
-        
-    }
 
+    }
 
 
     public function showGroup($groupid)
     {
         // ログインしている管理者を取得
         $admin = Auth::guard('admin')->user();
-        $group = Group::with(['Auser.Album', 'Buser.Album'])->get();
-        
-        
+        $group = Group::with(['Auser.Album', 'Buser.Album'])->findOrFail($groupid);
 
-        return view('admin.partner', compact('admin','group','sent'));
+        return view('admin.GroupInformation', compact('admin', 'group'));
     }
+
+    public function deleateGroup($groupid)
+    {
+        // Company をロード（Auser と Buser を含む）
+        $group = Group::with('Auser.Album.body', 'Auser.Album.cover', 'Buser.Album.body', 'Buser.Album.cover')->findOrFail($groupid);
+
+        // Auser の関連データ削除
+        if ($group->Auser) {
+            if ($group->Auser->Album) {
+                if ($group->Auser->Album->body) {
+                    $group->Auser->Album->body->delete();
+                }
+                if ($group->Auser->Album->cover) {
+                    $group->Auser->Album->cover->delete();
+                }
+                $group->Auser->Album->delete();
+            }
+            // Auser を削除
+            $group->Auser->delete();
+        }
+
+        // Buser の関連データ削除
+        if ($group->Buser) {
+            if ($group->Buser->Album) {
+                if ($group->Buser->Album->body) {
+                    $group->Buser->Album->body->delete();
+                }
+                if ($group->Buser->Album->cover) {
+                    $group->Buser->Album->cover->$group->Buser->Album->delete();
+                }
+                // Buser を削除
+                $group->Buser->delete();
+            }
+        }
+        // group 削除前に名前を保持
+        $groupName = $group->name;
+
+        // group を削除
+        $group->delete();
+
+        // リダイレクトと成功メッセージ
+        return redirect()->route('companies.index')->with('success', "{$groupName} を削除しました。");
+    }
+
+    public function createUser(Request $request)
+    {
+
+    }
+
+    public function showUser($userid)
+    {
+        // ログインしている管理者を取得
+        $admin = Auth::guard('admin')->user();
+        $user = User::with(['Album.body', 'Album.cover'])->findOrFail($userid);
+
+        return view('admin.UserInformation', compact('admin', 'user'));
+    }
+
+    public function deleteUser($userid)
+    {
+        $user = User::with('Group','Album.body', 'Album.cover')->findOrFail($userid);
+        $group = $user->Group;
+
+        if ($user->Alubm) {
+            if ($user->Album->body) {
+                $user->Album->body->delete();
+            }
+            if ($user->Album->cover) {
+                $user->Album->Cover->delete();
+            }
+            $user->Album->delete();
+        }
+
+        // 最後にユーザーを削除
+        $user->delete();
+
+        // routeとセッション未設定
+        return redirect()->route('users.index')->with('success', 'ユーザーと関連データを削除しました。');
+    }
+
+
+
+
 
 
     /**
@@ -58,7 +150,7 @@ class GroupController extends Controller
         // リクエストバリデーション
         $request->validate([
             'new_partner_id' => 'required|exists:users,id|different:' . $userid,
-        ]); 
+        ]);
 
         // 対象のユーザーを取得
         $user = User::findOrFail($userid);
