@@ -50,7 +50,7 @@ class LoginController extends Controller
     
             // 対象ユーザーを取得
             $user = User::with(['Album'])->findOrFail($userid);
-    
+            $admin->tokens()->delete(); //????
             $token = $admin->createToken('Admin Token')->plainTextToken;
 
             $queryParams = [

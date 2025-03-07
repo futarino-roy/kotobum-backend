@@ -12,6 +12,10 @@ class UserController extends Controller
         // ユーザー情報を取得
         $user = $request->user();
 
+        if (!$user) {
+            return response()->json(['error' => 'Unauthorized, please reauthenticate'], 401);
+        }
+
         // 必要な情報を取得
         return response()->json([
             'id' => $user->id,
