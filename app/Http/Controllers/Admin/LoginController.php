@@ -57,7 +57,7 @@ class LoginController extends Controller
                 'parts' => $parts,
                 'format' => $user->format,
                 'template' => $user->template,
-                'albumid' => $user->Album->id,
+                'albumId' => $user->Album->id,
                 'token' => $token,
             ];
 

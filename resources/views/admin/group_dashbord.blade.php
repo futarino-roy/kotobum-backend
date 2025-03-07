@@ -22,33 +22,44 @@
             </tr>
         </thead>
         <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>佐藤家</td>
-                    <td>ペア</td>
-                    <td>1</td>
-                    <td>2025/1/1</td>
-                    <td><a href="{{ route('admin.group_infomation') }}">詳細ボタン</a></td>
-                    <th>校了済み</th>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>田中ソロ</td>
-                    <td>ソロ</td>
-                    <td>2</td>
-                    <td>2025/1/1</td>
-                    <td>詳細ボタン</td>
-                    <th>完了</th>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>テスト</td>
-                    <td>null</td>
-                    <td>3</td>
-                    <td>2025/1/1</td>
-                    <td>詳細ボタン</td>
-                    <th>編集中</th>
-                </tr>
+            <tr>
+                <td>1</td>
+                <td>佐藤家</td>
+                <td>ペア</td>
+                <td>1</td>
+                <td>2025/1/1</td>
+                <td><a href="{{ route('admin.group_infomation') }}">詳細ボタン</a></td>
+                <th>校了済み</th>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>田中ソロ</td>
+                <td>ソロ</td>
+                <td>2</td>
+                <td>2025/1/1</td>
+                <td>詳細ボタン</td>
+                <th>完了</th>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>テスト</td>
+                <td>null</td>
+                <td>3</td>
+                <td>2025/1/1</td>
+                <td>詳細ボタン</td>
+                <th>編集中</th>
+            </tr>
+            @foreach ($groups as $group)
+            <tr>
+                <td>{{ $group->id }}</td>
+                <td>{{ $group->name }}</td>
+                <td>{{ $group->plan }}</td>
+                <td>{{ $user->format }}</td>
+                <td>{{ $user->created_at }}</td>
+                <td><a href="{{ route('admin.group_infomation') }}">詳細ボタン</a></td>
+                <td>完了状態</td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
 @endsection
