@@ -5,7 +5,7 @@
 
 @section('content')
     <h2>グループ作成</h2>
-    <form action="{{ route('groups.store') }}" method="POST">
+    <form action="" method="POST">
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">グループ名</label>

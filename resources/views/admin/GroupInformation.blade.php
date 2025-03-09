@@ -63,7 +63,7 @@
     <hr>
 
     <h2 style="margin-left:10%;">ユーザー作成</h2>
-    <form action="{{ route('users.store') }}" method="POST">
+    <form action="" method="POST">
         @csrf
         <div class="mb-3">
             <label for="group_id" class="form-label">グループID</label>
