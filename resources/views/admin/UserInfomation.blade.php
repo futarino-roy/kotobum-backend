@@ -16,12 +16,15 @@
             <tr><th>所属グループ</th><td colspan="2">佐藤家</td></tr>
             <tr><th>選択フォーマット</th><td colspan="2">1</td></tr>
             <tr><th>選択面</th><td colspan="2">B面</td></tr>
-            <tr><th>データ格納状況</th><td colspan="2">全格納済み</td></tr>
+            <tr><th>未格納画像</th><td colspan="2">全格納済み</td></tr>
             <tr><th>最終編集時刻</th><td colspan="2">2025/1/10 00:00:00</td></tr>
             <tr><th>校了状態</th><td colspan="2">校了済み</td></tr>
         </tbody>
         <tfoot>
-            <tr><th>編集ページボタン</th><th>PDF化ボタン</th><th>データ削除ボタン（警告あり）</th></tr>
+            <tr>
+                <th>編集ページボタン</th>
+                <th>PDF化ボタン</th>
+                <th>データ削除ボタン（警告あり）</th></tr>
         </tfoot>
     </table>
 
@@ -62,10 +65,6 @@
             </tbody>
         </table>
     </div>
-
-
-    <!-- テキストデータ表と画像票のレイアウトは検討　ページごとという案もある -->
-
 
 @endsection
 

@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Group;
 use App\Models\User;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class GroupController extends Controller
 {
@@ -43,10 +45,31 @@ class GroupController extends Controller
     }
 
 
-    public function createGroup(Request $request) 
-    {
 
+
+    public function createGroup(Request $request)
+    {
+        // バリデーション
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'format' => 'required|integer',
+        ]);
+
+        // グループ作成（Auser, Buser はNULLのまま）
+        $group = Group::create([
+            'name' => $validated['name'],
+            'format' => $validated['format'],
+            'Auser_id' => null,
+            'Buser_id' => null,
+        ]);
+
+        return response()->json([
+            'message' => 'グループが作成されました。',
+            'group' => $group,
+        ], Response::HTTP_CREATED);
     }
+
+
 
 
     public function showGroup($groupid)
@@ -58,9 +81,11 @@ class GroupController extends Controller
         return view('admin.GroupInformation', compact('admin', 'group'));
     }
 
+
+
     public function deleateGroup($groupid)
     {
-        // Company をロード（Auser と Buser を含む）
+        // Group をロード（Auser と Buser を含む）
         $group = Group::with('Auser.Album.body', 'Auser.Album.cover', 'Buser.Album.body', 'Buser.Album.cover')->findOrFail($groupid);
 
         // Auser の関連データ削除
@@ -101,10 +126,62 @@ class GroupController extends Controller
         return redirect()->route('companies.index')->with('success', "{$groupName} を削除しました。");
     }
 
-    public function createUser(Request $request)
-    {
 
+
+    public function createUser(int $groupId, Request $request)
+    {
+        // バリデーション
+        $validated = $request->validate([
+            'name'      => 'required|string|max:255',
+            'login_id'  => 'required|string|unique:users',
+            'password'  => 'required|string|min:8',
+            'template'  => 'required|string|max:255',
+            'format'    => 'required|integer',
+        ]);
+
+        // グループ取得
+        $group = Group::find($groupId);
+        if (!$group) {
+            return response()->json(['error' => '指定されたグループが存在しません。'], Response::HTTP_NOT_FOUND);
+        }
+
+        // どちらのユーザーを作成するか判定
+        if ($group->Buser_id === null) {
+            // Buser を作成
+            $user = User::create([
+                'name'     => $validated['name'],
+                'login_id' => $validated['login_id'],
+                'password' => Hash::make($validated['password']),
+                'template' => $validated['template'],
+                'format'   => $validated['format'],
+                'group_id' => $group->id,
+            ]);
+            $group->update(['Buser_id' => $user->id]);
+            $role = 'Buser';
+        } elseif ($group->Auser_id === null) {
+            // Auser を作成（Buser がすでにいる場合のみ）
+            $user = User::create([
+                'name'     => $validated['name'],
+                'login_id' => $validated['login_id'],
+                'password' => Hash::make($validated['password']),
+                'template' => $validated['template'],
+                'format'   => $validated['format'],
+                'group_id' => $group->id,
+            ]);
+            $group->update(['Auser_id' => $user->id]);
+            $role = 'Auser';
+        } else {
+            return response()->json(['error' => 'このグループにはすでにAuserとBuserが存在します。'], Response::HTTP_BAD_REQUEST);
+        }
+
+        return response()->json([
+            'message' => "{$role} が作成され、グループに関連付けられました。",
+            'user'    => $user,
+            'group'   => $group,
+        ], Response::HTTP_CREATED);
     }
+
+
 
     public function showUser($userid)
     {
@@ -114,6 +191,8 @@ class GroupController extends Controller
 
         return view('admin.UserInformation', compact('admin', 'user'));
     }
+
+
 
     public function deleteUser($userid)
     {
@@ -135,43 +214,5 @@ class GroupController extends Controller
 
         // routeとセッション未設定
         return redirect()->route('users.index')->with('success', 'ユーザーと関連データを削除しました。');
-    }
-
-
-
-
-
-
-    /**
-     * ユーザーを追加
-     */
-    public function setGroup(Request $request, $userid)
-    {
-        // リクエストバリデーション
-        $request->validate([
-            'new_partner_id' => 'required|exists:users,id|different:' . $userid,
-        ]);
-
-        // 対象のユーザーを取得
-        $user = User::findOrFail($userid);
-
-        // パートナーを付け替え
-        $user->switchPartner($request->input('new_partner_id'));
-
-        return redirect()->route('admin.showPartner', $userid);
-    }
-
-    /**
-     * 割り当てユーザーを削除
-     */
-    public function detachGroup($userid)
-    {
-        // 対象のユーザーを取得
-        $user = User::findOrFail($userid);
-
-        // パートナーを解除
-        $user->detachPartner();
-
-        return redirect()->route('admin.showPartner', $userid);
     }
 }

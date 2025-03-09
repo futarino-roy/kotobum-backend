@@ -4,7 +4,19 @@
 @section('title', 'グループダッシュボード')
 
 @section('content')
-    <h1 style="margin-left:10%;">ページ上部にグループ作成領域</h1>
+    <h2>グループ作成</h2>
+    <form action="{{ route('groups.store') }}" method="POST">
+        @csrf
+        <div class="mb-3">
+            <label for="name" class="form-label">グループ名</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="format" class="form-label">フォーマット</label>
+            <input type="number" class="form-control" id="format" name="format" required>
+        </div>
+        <button type="submit" class="btn btn-primary">グループ作成</button>
+    </form>
 
     <hr>
 

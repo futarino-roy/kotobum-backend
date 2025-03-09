@@ -62,7 +62,35 @@
 
     <hr>
 
-    <h1 style="margin-left:10%;">検索機能付きページ下部に割り当て用のユーザー一覧</h1>
+    <h2 style="margin-left:10%;">ユーザー作成</h2>
+    <form action="{{ route('users.store') }}" method="POST">
+        @csrf
+        <div class="mb-3">
+            <label for="group_id" class="form-label">グループID</label>
+            <input type="number" class="form-control" id="group_id" name="group_id" required>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">名前</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="login_id" class="form-label">ログインID</label>
+            <input type="text" class="form-control" id="login_id" name="login_id" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">パスワード</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="mb-3">
+            <label for="template" class="form-label">テンプレート</label>
+            <input type="text" class="form-control" id="template" name="template" required>
+        </div>
+        <div class="mb-3">
+            <label for="format" class="form-label">フォーマット</label>
+            <input type="number" class="form-control" id="format" name="format" required>
+        </div>
+        <button type="submit" class="btn btn-primary">ユーザー作成</button>
+    </form>
 
     <!-- テキストデータ表と画像票のレイアウトは検討　ページごとという案もある -->
 
