@@ -19,6 +19,7 @@ class GroupController extends Controller
         $admin = Auth::guard('admin')->user();
         $groups = Group::get();
 
+        // ペアになったら戻らん？
         foreach ($groups as $group) {
             if (!is_null($group->Auser_id) && !is_null($group->Buser_id)) {
                 $group->plan = "ペア";
@@ -141,7 +142,6 @@ class GroupController extends Controller
             'name'      => 'required|string|max:255',
             'login_id'  => 'required|string|unique:users',
             'password'  => 'required|string|min:8',
-            'template'  => 'required|string|max:255',
             'format'    => 'required|integer',
         ]);
 
@@ -158,7 +158,7 @@ class GroupController extends Controller
                 'name'     => $validated['name'],
                 'login_id' => $validated['login_id'],
                 'password' => Hash::make($validated['password']),
-                'template' => $validated['template'],
+                'template' => 'B',
                 'format'   => $validated['format'],
                 'group_id' => $group->id,
             ]);
@@ -170,7 +170,7 @@ class GroupController extends Controller
                 'name'     => $validated['name'],
                 'login_id' => $validated['login_id'],
                 'password' => Hash::make($validated['password']),
-                'template' => $validated['template'],
+                'template' => 'A',
                 'format'   => $validated['format'],
                 'group_id' => $group->id,
             ]);

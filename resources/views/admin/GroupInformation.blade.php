@@ -95,7 +95,7 @@
                 <th>{{ $group->Buser->name ?? 'N/A' }}</th>
                 <th>{{ $group->Buser->updated_at ?? 'N/A' }}</th>
                 <th>{{ $naCountB }}</th>
-                <th>{{ $group->Buser->Album->body_is_sent ?? 'N/A' }}<</th>
+                <th>{{ $group->Buser->Album->body_is_sent ?? 'N/A' }}</th>
                 <th>
                     @if($group->Buser)
                         <a href="{{ route('admin.user_infomation', $group->Buser->id) }}">詳細</a>
@@ -146,10 +146,6 @@
         <div class="mb-3">
             <label for="password" class="form-label">パスワード</label>
             <input type="password" class="form-control" id="password" name="password" required>
-        </div>
-        <div class="mb-3">
-            <label for="template" class="form-label">テンプレート</label>
-            <input type="text" class="form-control" id="template" name="template" required>
         </div>
         <div class="mb-3">
             <label for="format" class="form-label">フォーマット</label>
