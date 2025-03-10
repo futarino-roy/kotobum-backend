@@ -132,8 +132,8 @@
         @csrf
         <div class="mb-3">
             <label for="group_id" class="form-label">グループID</label>
-            <span id="group_id" class="form-control">{{ $group->id }}</span> <!-- ユーザーには見せるだけ -->
-            <input type="hidden" name="group_id" value="{{ $group->id }}"> <!-- サーバーに送信するためのhiddenフィールド -->
+            <!-- ユーザーには表示されないが、フォーム送信時にデータとして渡される -->
+            <input type="hidden" name="group_id" value="{{ $group->id }}">
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">名前</label>
@@ -149,8 +149,7 @@
         </div>
         <div class="mb-3">
             <label for="format" class="form-label">フォーマット</label>
-            <span id="format" class="form-control">{{ $group->format }}</span> <!-- ユーザーには見せるだけ -->
-            <input type="hidden" name="format" value="{{ $group->format }}"> <!-- サーバーに送信するためのhiddenフィールド -->
+            <input type="hidden" name="format" value="{{ $group->format }}">
         </div>
         <button type="submit" class="btn btn-primary">ユーザー作成</button>
     </form>
