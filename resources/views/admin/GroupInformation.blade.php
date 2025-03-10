@@ -24,7 +24,7 @@
         @endforeach
     @endif
 
-    <h1 style="margin-left:10%;">{{ $group->name }}家 詳細ページ</h1>
+    <h1 style="margin-left:10%;">{{ $group->name }} 詳細ページ</h1>
 
     <h2 style="margin-left:10%;">基本情報</h2>
 
@@ -128,7 +128,7 @@
     <hr>
 
     <h3>ユーザー作成 B→A</h3>
-    <form action="{{ route('admin.create_user') }}" method="POST">
+    <form action="{{ route('admin.create_user', $group->id) }}" method="POST">
         @csrf
         <div class="mb-3">
             <label for="group_id" class="form-label">グループID</label>
