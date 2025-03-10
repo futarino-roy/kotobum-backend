@@ -108,7 +108,7 @@
                 </th>
                 <th>
                     @if($group->Buser)
-                        <a href="{{ route('admin.user_delete', ['userid' => $group->Buser->id]) }}"
+                        <a href="{{ route('admin.delete_user', ['userid' => $group->Buser->id]) }}"
                         onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
                         style="color: red;">削除</a>
                     @else
@@ -124,7 +124,7 @@
     <hr>
 
     <h2 style="margin-left:10%;">ユーザー作成 B→A</h2>
-    <form action="" method="POST">
+    <form action="{{ route('admin.create_user') }}" method="POST">
         @csrf
         <div class="mb-3">
             <label for="group_id" class="form-label">グループID</label>
