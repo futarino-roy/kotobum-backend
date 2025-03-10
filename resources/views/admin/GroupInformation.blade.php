@@ -133,7 +133,7 @@
         <div class="mb-3">
             <label for="group_id" class="form-label">グループID</label>
             <span id="group_id" class="form-control">{{ $group->id }}</span> <!-- ユーザーには見せるだけ -->
-            <input type="hidden" name="group_id" value="{{ $groupId }}"> <!-- サーバーに送信するためのhiddenフィールド -->
+            <input type="hidden" name="group_id" value="{{ $group->id }}"> <!-- サーバーに送信するためのhiddenフィールド -->
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">名前</label>
