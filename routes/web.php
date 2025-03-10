@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\GroupController;
 use App\Http\Controllers\Admin\PDFController;
 use App\Http\Controllers\Admin\PartnerController;
 
@@ -18,21 +19,13 @@ Route::prefix('admin')->group(function () {
         Route::get('/bodyHTML/{userid}', [PDFController::class, 'bodyHTML'])->name('admin.bodyHTML'); 
         Route::post('/PDF', [PDFController::class, 'PDF'])->name('admin.PDF'); 
 
-        Route::get('/layout_Groupdashbord', [DashboardController::class, 'group_dashbord'])->name('admin.group_dashbord'); 
-        Route::get('/layout_GroupInfomation', [DashboardController::class, 'group_infomation'])->name('admin.group_infomation'); 
-        Route::get('/layout_UserInfomation', [DashboardController::class, 'user_infomation'])->name('admin.user_infomation'); 
+        Route::get('/group/dashbord', [GroupController::class, 'indexGroup'])->name('admin.group_dashbord'); 
+        Route::get('/group/infomation/{groupid}', [GroupController::class, 'showGroup'])->name('admin.group_infomation'); 
+        Route::get('/user/infomation{userid}', [DashboardController::class, 'showUser'])->name('admin.user_infomation'); 
 
-        /* Route::get('/show-partner/{id}/', [PartnerController::class, 'showPartner'])->name('admin.showPartner');
-        Route::post('/detach-partner/{id}/', [PartnerController::class, 'detachPartner'])->name('admin.detachPartner');
-        Route::post('/switch-partner/{id}/', [PartnerController::class, 'switchPartner'])->name('admin.switchPartner'); */
-        /* Route::post('/set-partner/{id}/', [PartnerController::class, 'setPartner'])->name('admin.setPartner');*/
+        Route::post('/delete_group/{groupid}', [GroupController::class, 'deleteGroup'])->name('admin.delete_group'); 
 
         Route::get('/admin_user_redirect/{userid}/{parts}', [LoginController::class, 'admin_user_redirect'])->name('admin_user_redirect');
-        
-        /* Route::get('ユーザー情報（所属・ステ・関連アルバムID）取得', [::class, ''])->name('');
-        Route::get('ユーザー情報（所属個別テーブル？）取得', [::class, ''])->name('');
-        Route::get('コトバム編集状況取得', [::class, ''])->name(''); */
-
 
     });
     Route::get('/login', [LoginController::class, 'login_form'])->name('admin.login_form');

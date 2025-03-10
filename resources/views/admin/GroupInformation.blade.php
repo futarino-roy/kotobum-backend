@@ -4,7 +4,23 @@
 @section('title', 'ユーザー詳細ページ')
 
 @section('content')
-    <h1 style="margin-left:10%;">佐藤家 詳細ページ</h1>
+    @php
+        $naCountA = 0;
+        $naCountB = 0;
+    @endphp
+
+    @foreach ($imageDataA as $imageA)
+        @php 
+            if (!isset($imageA->image)) $naCountA++; 
+        @endphp
+    @endforeach
+    @foreach ($imageDataB as $Bimage)
+        @php 
+            if (!isset($imageB->image)) $naCountB++; 
+        @endphp
+    @endforeach
+
+    <h1 style="margin-left:10%;">{{ $group->name }}家 詳細ページ</h1>
 
     <h2 style="margin-left:10%;">基本情報</h2>
 
@@ -12,9 +28,13 @@
         <tbody>
             <tr>
                 <th>校了状態:両方済み</td>
-                <th>選択FMT:1</th>
+                <th>選択FMT:{{ $group->format }}</th>
                 <th>表紙PDFボタン</th>
-                <th>全体データ削除</th></tr>
+                <th><a href="{{ route('admin.delete_group', $group->id) }}"
+                    onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
+                    style="color: red;">全体データ削除</a>
+                </th>
+            </tr>
         </tbody>
     </table>
 
@@ -26,7 +46,7 @@
                 <th>ID</th>
                 <th>名前</th>
                 <th>最終更新時間</th>
-                <th>未格納画像</th>
+                <th>未格納画像数</th>
                 <th>校了状態</th>
                 <th></th>
                 <th></th>
@@ -36,25 +56,66 @@
         <tbody>
             <tr>
                 <th>A面</th>
-                <th>1</th>
-                <th>佐藤太郎</th>
-                <th>2025/1/10 10:00:00</th>
-                <th>全格納済み</th>
-                <th>校了済み</th>
-                <th><a href="{{ route('admin.user_infomation') }}">詳細ボタン</a></th>
-                <th>編集ボタン</th>
-                <th>割り当て解除</th>
+                <th>{{ $group->Auser->id }}</th>
+                <th>{{ $group->Auser->name ?? 'N/A' }}</th>
+                <th>{{ $group->Auser->updated_at ?? 'N/A' }}</th>
+                <th>{{ $naCountA }}</th>
+                <th>{{ $group->Auser->Album->body_is_sent ?? 'N/A' }}</th>
+                <th>
+                    @if($group->Auser)
+                        <a href="{{ route('admin.user_infomation', $group->Auser->id) }}">詳細</a>
+                    @else
+                        N/A
+                    @endif
+                </th>
+                <th>
+                    @if($group->Auser)
+                        <a href="{{ route('admin_user_redirect', ['userid' => $group->Auser->id, 'parts' => 'body']) }}" target="_blank">編集</a>
+                    @else
+                        N/A
+                    @endif
+                </th>
+                <th>
+                    @if($group->Auser)
+                        <a href="{{ route('admin.user_delete', ['userid' => $group->Auser->id]) }}"
+                        onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
+                        style="color: red;">削除</a>
+                    @else
+                        N/A
+                    @endif
+                </th>
             </tr>
             <tr>
                 <th>B面</th>
-                <th>1</th>
-                <th>佐藤花子</th>
-                <th>2025/1/10 00:00:00</th>
-                <th>全格納済み</th>
-                <th>校了済み</th>
-                <th>詳細ボタン</th>
-                <th>編集ボタン</th>
-                <th>割り当て解除</th>
+                <th>{{ $group->Buser->id ?? 'N/A' }}</th>
+                <th>{{ $group->Buser->name ?? 'N/A' }}</th>
+                <th>{{ $group->Buser->updated_at ?? 'N/A' }}</th>
+                <th>{{ $naCountB }}</th>
+                <th>{{ $group->Buser->Album->body_is_sent ?? 'N/A' }}<</th>
+                <th>
+                    @if($group->Buser)
+                        <a href="{{ route('admin.user_infomation', $group->Buser->id) }}">詳細</a>
+                    @else
+                        N/A
+                    @endif
+                </th>
+                <th>
+                    @if($group->Buser)
+                        <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'body']) }}" target="_blank">編集</a>
+                    @else
+                        N/A
+                    @endif
+                </th>
+                <th>
+                    @if($group->Buser)
+                        <a href="{{ route('admin.user_delete', ['userid' => $group->Buser->id]) }}"
+                        onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
+                        style="color: red;">削除</a>
+                    @else
+                        N/A
+                    @endif
+                </th>
+            </tr>
             </tr>
         </tbody>
     </table>
@@ -62,7 +123,7 @@
 
     <hr>
 
-    <h2 style="margin-left:10%;">ユーザー作成</h2>
+    <h2 style="margin-left:10%;">ユーザー作成 B→A</h2>
     <form action="" method="POST">
         @csrf
         <div class="mb-3">

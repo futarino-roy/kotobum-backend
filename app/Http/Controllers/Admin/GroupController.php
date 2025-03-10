@@ -83,7 +83,7 @@ class GroupController extends Controller
 
 
 
-    public function deleateGroup($groupid)
+    public function deleteGroup($groupid)
     {
         // Group をロード（Auser と Buser を含む）
         $group = Group::with('Auser.Album.body', 'Auser.Album.cover', 'Buser.Album.body', 'Buser.Album.cover')->findOrFail($groupid);
@@ -187,9 +187,12 @@ class GroupController extends Controller
     {
         // ログインしている管理者を取得
         $admin = Auth::guard('admin')->user();
-        $user = User::with(['Album.body', 'Album.cover'])->findOrFail($userid);
+        $user = User::with(['Group','Album.body', 'Album.cover'])->findOrFail($userid);
 
-        return view('admin.UserInformation', compact('admin', 'user'));
+        $textData = json_decode($user->Album->body->textdata,true); 
+        $imageData = json_decode($user->Album->body->imageData, true);
+
+        return view('admin.UserInformation', compact('admin', 'user', 'textData', 'imageData'));
     }
 
 

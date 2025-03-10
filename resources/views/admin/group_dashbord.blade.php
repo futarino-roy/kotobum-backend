@@ -40,7 +40,7 @@
                 <td>ペア</td>
                 <td>1</td>
                 <td>2025/1/1</td>
-                <td><a href="{{ route('admin.group_infomation') }}">詳細ボタン</a></td>
+                <td>詳細ボタン</td>
                 <th>校了済み</th>
             </tr>
             <tr>
@@ -68,7 +68,7 @@
                 <td>{{ $group->plan }}</td>
                 <td>{{ $user->format }}</td>
                 <td>{{ $user->created_at }}</td>
-                <td><a href="{{ route('admin.group_infomation') }}">詳細ボタン</a></td>
+                <td><a href="{{ route('admin.group_infomation', $group->id) }}">詳細ボタン</a></td>
                 <td>完了状態</td>
             </tr>
             @endforeach

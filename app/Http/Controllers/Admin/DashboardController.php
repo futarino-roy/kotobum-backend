@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin;
+use App\Models\Group;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -28,10 +29,14 @@ class DashboardController extends Controller
 
     public function group_dashbord()
     {
-        return view('admin.group_dashbord');
+        // ログインしている管理者を取得
+        $admin = Auth::guard('admin')->user();
+        $groups =Group::get();
+
+        return view('admin.group_dashbord', compact('admin','groups'));
     }
 
-    public function group_infomation()
+    /* public function group_infomation()
     {
         return view('admin.GroupInformation');
     }
@@ -39,5 +44,5 @@ class DashboardController extends Controller
     public function user_infomation()
     {
         return view('admin.UserInfomation');
-    }
+    } */
 }
