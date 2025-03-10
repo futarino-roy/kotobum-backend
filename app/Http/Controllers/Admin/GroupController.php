@@ -134,7 +134,7 @@ class GroupController extends Controller
 
 
 
-    public function createUser(int $groupId, Request $request)
+    public function createUser(int $groupid, Request $request)
     {
         // バリデーション
         $validated = $request->validate([
@@ -146,7 +146,7 @@ class GroupController extends Controller
         ]);
 
         // グループ取得
-        $group = Group::find($groupId);
+        $group = Group::find($groupid);
         if (!$group) {
             return response()->json(['error' => '指定されたグループが存在しません。'], Response::HTTP_NOT_FOUND);
         }
