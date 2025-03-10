@@ -66,6 +66,12 @@
             </div>
         @endif -->
 
+        @if(session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
+
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -113,8 +119,4 @@
 </body>
 </html>
 
-@if(session('message'))
-    <div class="alert alert-success">
-        {{ session('message') }}
-    </div>
-@endif
+
