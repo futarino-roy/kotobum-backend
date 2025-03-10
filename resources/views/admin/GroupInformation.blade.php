@@ -127,12 +127,13 @@
 
     <hr>
 
-    <h2 style="margin-left:10%;">ユーザー作成 B→A</h2>
+    <h3>ユーザー作成 B→A</h3>
     <form action="{{ route('admin.create_user') }}" method="POST">
         @csrf
         <div class="mb-3">
             <label for="group_id" class="form-label">グループID</label>
-            <input type="number" class="form-control" id="group_id" name="group_id" required>
+            <span id="group_id" class="form-control">{{ $group->id }}</span> <!-- ユーザーには見せるだけ -->
+            <input type="hidden" name="group_id" value="{{ $groupId }}"> <!-- サーバーに送信するためのhiddenフィールド -->
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">名前</label>
@@ -152,7 +153,8 @@
         </div>
         <div class="mb-3">
             <label for="format" class="form-label">フォーマット</label>
-            <input type="number" class="form-control" id="format" name="format" required>
+            <span id="format" class="form-control">{{ $group->format }}</span> <!-- ユーザーには見せるだけ -->
+            <input type="hidden" name="format" value="{{ $format }}"> <!-- サーバーに送信するためのhiddenフィールド -->
         </div>
         <button type="submit" class="btn btn-primary">ユーザー作成</button>
     </form>
