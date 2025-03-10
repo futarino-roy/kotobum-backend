@@ -63,10 +63,7 @@ class GroupController extends Controller
             'Buser_id' => null,
         ]);
 
-        return response()->json([
-            'message' => 'グループが作成されました。',
-            'group' => $group,
-        ], Response::HTTP_CREATED);
+        return redirect()->back()->with('message', 'グループが作成されました。')->with('group', $group);
     }
 
 
@@ -123,7 +120,7 @@ class GroupController extends Controller
         $group->delete();
 
         // リダイレクトと成功メッセージ
-        return redirect()->route('companies.index')->with('success', "{$groupName} を削除しました。");
+        return redirect()->route('admin.group_dashbord')->with('success', "{$groupName} を削除しました。");
     }
 
 
@@ -174,11 +171,7 @@ class GroupController extends Controller
             return response()->json(['error' => 'このグループにはすでにAuserとBuserが存在します。'], Response::HTTP_BAD_REQUEST);
         }
 
-        return response()->json([
-            'message' => "{$role} が作成され、グループに関連付けられました。",
-            'user'    => $user,
-            'group'   => $group,
-        ], Response::HTTP_CREATED);
+        return redirect()->back()->with('message', "{$role} が作成され、グループに関連付けられました。")->with('user', $user)->with('group', $group);
     }
 
 
