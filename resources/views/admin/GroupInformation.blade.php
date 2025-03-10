@@ -60,7 +60,7 @@
         <tbody>
             <tr>
                 <th>A面</th>
-                <th>{{ $group->Auser->id }}</th>
+                <th>{{ $group->Auser->id ?? 'N/A'}}</th>
                 <th>{{ $group->Auser->name ?? 'N/A' }}</th>
                 <th>{{ $group->Auser->updated_at ?? 'N/A' }}</th>
                 <th>{{ $naCountA }}</th>
