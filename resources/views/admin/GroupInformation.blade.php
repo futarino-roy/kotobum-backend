@@ -154,7 +154,7 @@
         <div class="mb-3">
             <label for="format" class="form-label">フォーマット</label>
             <span id="format" class="form-control">{{ $group->format }}</span> <!-- ユーザーには見せるだけ -->
-            <input type="hidden" name="format" value="{{ $format }}"> <!-- サーバーに送信するためのhiddenフィールド -->
+            <input type="hidden" name="format" value="{{ $group->format }}"> <!-- サーバーに送信するためのhiddenフィールド -->
         </div>
         <button type="submit" class="btn btn-primary">ユーザー作成</button>
     </form>
