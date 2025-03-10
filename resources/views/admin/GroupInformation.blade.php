@@ -81,7 +81,7 @@
                 </th>
                 <th>
                     @if($group->Auser)
-                        <a href="{{ route('admin.user_delete', ['userid' => $group->Auser->id]) }}"
+                        <a href="{{ route('admin.delete_user', ['userid' => $group->Auser->id]) }}"
                         onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
                         style="color: red;">削除</a>
                     @else
