@@ -73,9 +73,16 @@ class GroupController extends Controller
     {
         // ログインしている管理者を取得
         $admin = Auth::guard('admin')->user();
-        $group = Group::with(['Auser.Album', 'Buser.Album'])->findOrFail($groupid);
+        $group = Group::with(['Auser.Album.body', 'Buser.Album.body'])->findOrFail($groupid);
 
-        return view('admin.GroupInformation', compact('admin', 'group'));
+        if (isset($group->Buser->Album->body->imageData)) {
+            $imageDataA = json_decode($group->Auser->Album->body->imageData, true);
+        }
+        if (isset($group->Auser->Album->body->imageData)) {
+            $imageDataA = json_decode($group->Auser->Album->body->imageData, true);
+        }
+
+        return view('admin.GroupInformation', compact('admin', 'group', 'imageDataA', 'imageDataB'));
     }
 
 

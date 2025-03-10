@@ -9,16 +9,20 @@
         $naCountB = 0;
     @endphp
 
-    @foreach ($imageDataA as $imageA)
+    @if(!empty($imageDataA))
+        @foreach ($imageDataA as $imageA)
         @php 
             if (!isset($imageA->image)) $naCountA++; 
         @endphp
-    @endforeach
-    @foreach ($imageDataB as $Bimage)
+        @endforeach
+    @endif
+    @if(!empty($imageDataB))
+        @foreach ($imageDataB as $Bimage)
         @php 
             if (!isset($imageB->image)) $naCountB++; 
         @endphp
-    @endforeach
+        @endforeach
+    @endif
 
     <h1 style="margin-left:10%;">{{ $group->name }}家 詳細ページ</h1>
 
