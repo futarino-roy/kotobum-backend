@@ -26,7 +26,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/create_group', [GroupController::class, 'createGroup'])->name('admin.create_group'); 
         Route::get('/delete_group/{groupid}', [GroupController::class, 'deleteGroup'])->name('admin.delete_group'); 
         Route::post('/create_User/{groupid}', [GroupController::class, 'createUser'])->name('admin.create_user'); 
-        Route::get('/delete_User/{groupid}', [GroupController::class, 'deleteUser'])->name('admin.delete_user'); 
+        Route::get('/delete_User/{userid}', [GroupController::class, 'deleteUser'])->name('admin.delete_user'); 
 
         Route::get('/admin_user_redirect/{userid}/{parts}', [LoginController::class, 'admin_user_redirect'])->name('admin_user_redirect');
 
