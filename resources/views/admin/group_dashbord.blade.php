@@ -66,8 +66,8 @@
                 <td>{{ $group->id }}</td>
                 <td>{{ $group->name }}</td>
                 <td>{{ $group->plan }}</td>
-                <td>{{ $user->format }}</td>
-                <td>{{ $user->created_at }}</td>
+                <td>{{ $group->format }}</td>
+                <td>{{ $group->created_at }}</td>
                 <td><a href="{{ route('admin.group_infomation', $group->id) }}">詳細ボタン</a></td>
                 <td>完了状態</td>
             </tr>
