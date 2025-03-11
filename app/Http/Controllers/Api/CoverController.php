@@ -17,14 +17,19 @@ class CoverController extends Controller
         $group = $album->user->group;
         $cover = $album->cover;
 
-        if ($album->user->id == $group->Auser_id) {
-            // Auserに関連するAlbumのIDを取得
-            $partner = $group->Buser && $group->Buser->album ? $group->Buser->album->id : null;
-        } elseif ($album->user->id == $group->Buser_id) {
-            // Buserに関連するAlbumのIDを取得
-            $partner = $group->Auser && $group->Auser->album ? $group->Auser->album->id : null;
+        if ($group) {
+            if ($album->user->id == $group->Auser_id) {
+                // Auserに関連するAlbumのIDを取得
+                $partner = $group->Buser && $group->Buser->album ? $group->Buser->album->id : null;
+            } elseif ($album->user->id == $group->Buser_id) {
+                // Buserに関連するAlbumのIDを取得
+                $partner = $group->Auser && $group->Auser->album ? $group->Auser->album->id : null;
+            } else {
+                // 条件に合致しない場合、$partnerはnullになる
+                $partner = null;
+            }
         } else {
-            // 条件に合致しない場合、$partnerはnullになる
+            // $groupがnullの場合、$partnerをnullに設定
             $partner = null;
         }
 
