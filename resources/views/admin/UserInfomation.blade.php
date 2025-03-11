@@ -30,7 +30,7 @@
             <tr><th>選択面</th><td>{{ $user->template }}</td></tr>
             <tr><th>未格納画像数</th><td>{{ $naCount }}</td></tr>
             <tr><th>最終編集時刻</th><td>{{ $user->Album->body->update_at ?? 'N/A'}}</td></tr>
-            <tr><th>校了状態</th><td>{{ $user->Album->body_is_sent }}</td></tr>
+            <tr><th>校了状態</th><td>{{ $user->Album->body_is_sent ? '校了済み' : '未校了' }}</td></tr>
         </tbody>
         <tfoot>
             <tr>

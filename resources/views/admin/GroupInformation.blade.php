@@ -64,7 +64,7 @@
                 <th>{{ $group->Auser->name ?? 'N/A' }}</th>
                 <th>{{ $group->Auser->updated_at ?? 'N/A' }}</th>
                 <th>{{ $naCountA }}</th>
-                <th>{{ $group->Auser->Album->body_is_sent ?? 'false' }}</th>
+                <th>{{ $group->Auser->Album->body_is_sent ? '校了済み' : '未校了'' }}</th>
                 <th>
                     @if($group->Auser)
                         <a href="{{ route('admin.user_infomation', $group->Auser->id) }}">詳細</a>
@@ -95,7 +95,7 @@
                 <th>{{ $group->Buser->name ?? 'N/A' }}</th>
                 <th>{{ $group->Buser->updated_at ?? 'N/A' }}</th>
                 <th>{{ $naCountB }}</th>
-                <th>{{ $group->Buser->Album->body_is_sent ?? 'false' }}</th>
+                <th>{{ $group->Buser->Album->body_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
                     @if($group->Buser)
                         <a href="{{ route('admin.user_infomation', $group->Buser->id) }}">詳細</a>
