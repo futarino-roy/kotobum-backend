@@ -217,6 +217,12 @@ class GroupController extends Controller
         $user = User::with('Group','Album.body', 'Album.cover')->findOrFail($userid);
         $group = $user->Group;
 
+        if ($group->Auser_id == $userid) {
+            $group->Auser_id = null;
+        } elseif ($group->Buser_id == $userid) {
+            $group->Buser_id = null;
+        }
+
         if ($user->Alubm) {
             if ($user->Album->body) {
                 $user->Album->body->delete();
