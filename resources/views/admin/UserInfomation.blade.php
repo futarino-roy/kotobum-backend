@@ -22,15 +22,15 @@
 
     <table border="1">
         <tbody>
-            <tr><th>ID</th><td colspan="2">{{ $user->id }}</td></tr>
-            <tr><th>名前</th><td colspan="2">{{ $user->name }}</td></tr>
-            <tr><th>パスワード</th><td colspan="2">{{ $user->password }}</td></tr>
-            <tr><th>所属グループ</th><td colspan="2">{{ $user->Group->name }}</td></tr>
-            <tr><th>選択フォーマット</th><td colspan="2">{{ $user->format }}</td></tr>
-            <tr><th>選択面</th><td colspan="2"></td></tr>
-            <tr><th>未格納画像数</th><td colspan="2">{{ $naCount }}</td></tr>
-            <tr><th>最終編集時刻</th><td colspan="2">{{ $user->Album->body->update_at ?? 'N/A'}}</td></tr>
-            <tr><th>校了状態</th><td colspan="2">{{ $user->Album->body_is_sent }}</td></tr>
+            <tr><th>ID</th><td>{{ $user->id }}</td></tr>
+            <tr><th>名前</th><td>{{ $user->name }}</td></tr>
+            <tr><th>パスワード</th><td>{{ $user->password }}</td></tr>
+            <tr><th>所属グループ</th><td>{{ $user->Group->name }}</td></tr>
+            <tr><th>選択フォーマット</th><td>{{ $user->format }}</td></tr>
+            <tr><th>選択面</th><td></td></tr>
+            <tr><th>未格納画像数</th><td>{{ $naCount }}</td></tr>
+            <tr><th>最終編集時刻</th><td>{{ $user->Album->body->update_at ?? 'N/A'}}</td></tr>
+            <tr><th>校了状態</th><td>{{ $user->Album->body_is_sent }}</td></tr>
         </tbody>
         <tfoot>
             <tr>
