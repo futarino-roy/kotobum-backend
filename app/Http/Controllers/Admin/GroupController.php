@@ -191,8 +191,10 @@ class GroupController extends Controller
         $admin = Auth::guard('admin')->user();
         $user = User::with(['Group','Album.body', 'Album.cover'])->findOrFail($userid);
 
-        $textData = json_decode($user->Album->body->textdata,true); 
-        $imageData = json_decode($user->Album->body->imageData, true);
+        if ($user->Album->body) {
+            $textData = json_decode($user->Album->body->textdata, true);
+            $imageData = json_decode($user->Album->body->imageData, true);
+        }
 
         return view('admin.UserInformation', compact('admin', 'user', 'textData', 'imageData'));
     }

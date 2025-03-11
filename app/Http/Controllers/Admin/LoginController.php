@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Album;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,7 @@ class LoginController extends Controller
         ]);
     }
 
+
     public function admin_user_redirect($userid,$parts)
     {
         if (Auth::guard('admin')->check()) {
@@ -52,6 +54,13 @@ class LoginController extends Controller
             $user = User::with(['Album'])->findOrFail($userid);
             $admin->tokens()->delete(); 
             $token = $admin->createToken('Admin Token')->plainTextToken;
+
+            if (!$user->Album) {
+                $user->Album = Album::firstOrCreate(
+                    ['user_id' => $user->id],
+                    ['body_is_sent' => false, 'cover_is_sent' => false, 'template' => null]
+                );
+            }
 
             $queryParams = [
                 'parts' => $parts,

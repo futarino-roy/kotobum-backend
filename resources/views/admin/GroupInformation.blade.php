@@ -130,10 +130,8 @@
     <h3>ユーザー作成 B→A</h3>
     <form action="{{ route('admin.create_user', $group->id) }}" method="POST">
         @csrf
-        <div class="mb-3">
-            <!-- <label for="group_id" class="form-label">グループID</label> -->
-            <input type="hidden" name="group_id" value="{{ $group->id }}">
-        </div>
+        <input type="hidden" name="group_id" value="{{ $group->id }}">
+        <input type="hidden" name="format" value="{{ $group->format }}">
         <div class="mb-3">
             <label for="name" class="form-label">名前</label>
             <input type="text" class="form-control" id="name" name="name" required>
@@ -145,10 +143,6 @@
         <div class="mb-3">
             <label for="password" class="form-label">パスワード（八桁）</label>
             <input type="password" class="form-control" id="password" name="password" required>
-        </div>
-        <div class="mb-3">
-            <!-- <label for="format" class="form-label">フォーマット</label> -->
-            <input type="hidden" name="format" value="{{ $group->format }}">
         </div>
         <button type="submit" class="btn btn-primary">ユーザー作成</button>
     </form>
