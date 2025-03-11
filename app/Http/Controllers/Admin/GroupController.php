@@ -218,26 +218,23 @@ class GroupController extends Controller
         $group = $user->Group;
 
         if ($group->Auser_id == $user->id) {
-            $group->Auser_id = null;
+            $group->update(['Auser_id' => null]);
         } elseif ($group->Buser_id == $user->id) {
-            $group->Buser_id = null;
+            $group->update(['Buser_id' => null]);
         }
 
-        if ($user->Alubm) {
+        if ($user->Album) {
             if ($user->Album->body) {
                 $user->Album->body->delete();
             }
             if ($user->Album->cover) {
-                $user->Album->Cover->delete();
+                $user->Album->cover->delete();
             }
             $user->Album->delete();
         }
 
         // 最後にユーザーを削除
         $user->delete();
-
-        dd($group);
-        dd($user);
 
         // routeとセッション未設定
         return redirect()->route('admin.group_infomation',$group->id)->with('success', 'ユーザーと関連データを削除しました。');
