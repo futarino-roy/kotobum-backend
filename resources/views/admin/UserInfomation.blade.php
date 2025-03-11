@@ -8,11 +8,13 @@
         $naCount = 0;
     @endphp
 
-    @foreach ($imageData as $image)
-        @php 
-            if (!isset($image->image)) $naCount++; 
-        @endphp
-    @endforeach
+    @if (!empty($imageData))
+        @foreach ($imageData as $image)
+            @php 
+                if (!isset($image->image)) $naCount++; 
+            @endphp
+        @endforeach
+    @endif
 
     <h1 style="margin-left:10%;">{{ $user->name }} 様 詳細ページ</h1>
 
@@ -51,13 +53,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($textData as $text)
-                <tr>
-                    <th>{{ $text->id ?? 'N/A' }}</th>
-                    <td>{{ $text->page ?? 'N/A' }}</td>
-                    <td>{{ $text->text ?? 'N/A' }}</td>
-                </tr>
-                @endforeach
+                @if (!empty($textData))
+                    @foreach ($textData as $text)
+                    <tr>
+                        <th>{{ $text->id ?? 'N/A' }}</th>
+                        <td>{{ $text->page ?? 'N/A' }}</td>
+                        <td>{{ $text->text ?? 'N/A' }}</td>
+                    </tr>
+                    @endforeach
+                @endif
             </tbody>
         </table>
 
@@ -71,13 +75,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($imageData as $image)
-                <tr>
-                    <th>{{ $image->id ?? 'N/A' }}</th>
-                    <td>{{ $image->page ?? 'N/A' }}</td>
-                    <td>{{ $image->image ?? 'N/A' }}</td>
-                </tr>
-                @endforeach
+                @if (!empty($imageData))
+                    @foreach ($imageData as $image)
+                    <tr>
+                        <th>{{ $image->id ?? 'N/A' }}</th>
+                        <td>{{ $image->page ?? 'N/A' }}</td>
+                        <td>{{ $image->image ?? 'N/A' }}</td>
+                    </tr>
+                    @endforeach
+                @endif
             </tbody>
         </table>
     </div>
