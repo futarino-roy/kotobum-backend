@@ -24,7 +24,7 @@
         @endforeach
     @endif
 
-    <h1 style="margin-left:10%;">{{ $group->name }} 詳細ページ</h1>
+    <h1 style="margin-left:10%;">{{ $group->name }} グループ 詳細ページ</h1>
 
     <h2 style="margin-left:10%;">基本情報</h2>
 
@@ -64,7 +64,7 @@
                 <th>{{ $group->Auser->name ?? 'N/A' }}</th>
                 <th>{{ $group->Auser->updated_at ?? 'N/A' }}</th>
                 <th>{{ $naCountA }}</th>
-                <th>{{ $group->Auser->Album->body_is_sent ? '校了済み' : '未校了'' }}</th>
+                <th>{{ $group->Auser->Album->body_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
                     @if($group->Auser)
                         <a href="{{ route('admin.user_infomation', $group->Auser->id) }}">詳細</a>
