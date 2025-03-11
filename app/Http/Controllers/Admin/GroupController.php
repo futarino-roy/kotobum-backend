@@ -236,6 +236,9 @@ class GroupController extends Controller
         // 最後にユーザーを削除
         $user->delete();
 
+        dd($group);
+        dd($user);
+
         // routeとセッション未設定
         return redirect()->route('admin.group_infomation',$group->id)->with('success', 'ユーザーと関連データを削除しました。');
     }
