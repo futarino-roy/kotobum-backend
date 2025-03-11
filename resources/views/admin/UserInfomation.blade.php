@@ -27,7 +27,7 @@
             <tr><th>パスワード</th><td>{{ $user->password }}</td></tr>
             <tr><th>所属グループ</th><td>{{ $user->Group->name }}</td></tr>
             <tr><th>選択フォーマット</th><td>{{ $user->format }}</td></tr>
-            <tr><th>選択面</th><td></td></tr>
+            <tr><th>選択面</th><td></td>{{ $user->template }}</tr>
             <tr><th>未格納画像数</th><td>{{ $naCount }}</td></tr>
             <tr><th>最終編集時刻</th><td>{{ $user->Album->body->update_at ?? 'N/A'}}</td></tr>
             <tr><th>校了状態</th><td>{{ $user->Album->body_is_sent }}</td></tr>
@@ -35,9 +35,12 @@
         <tfoot>
             <tr>
                 <th><a href="{{ route('admin_user_redirect', ['userid' => $user->id, 'parts' => 'body']) }}" target="_blank">編集ページボタン</a></th>
-                <th><a href="{{ route('admin.delete_user', ['userid' => $user->id]) }}"
+                <th>
+                    <a href="{{ route('admin.delete_user', ['userid' => $user->id]) }}"
                         onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
-                        style="color: red;">データ削除ボタン</a></th>
+                        style="color: red;">データ削除ボタン
+                    </a>
+                </th>
             </tr>
         </tfoot>
     </table>
