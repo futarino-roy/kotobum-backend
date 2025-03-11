@@ -207,7 +207,7 @@ class GroupController extends Controller
             $imageData = null;
         }
 
-        return view('admin.UserInformation', compact('admin', 'user', 'textData', 'imageData'));
+        return view('admin.UserInfomation', compact('admin', 'user', 'textData', 'imageData'));
     }
 
 
