@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Album;
 use App\Models\Group;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -191,9 +192,19 @@ class GroupController extends Controller
         $admin = Auth::guard('admin')->user();
         $user = User::with(['Group','Album.body', 'Album.cover'])->findOrFail($userid);
 
-        if ($user->Album->body) {
+        if (!$user->Album) {
+            $user->Album = Album::firstOrCreate(
+                ['user_id' => $user->id],
+                ['body_is_sent' => false, 'cover_is_sent' => false, 'template' => null]
+            );
+            $textData = null;
+            $imageData = null;
+        }elseif($user->Album->body){
             $textData = json_decode($user->Album->body->textdata, true);
             $imageData = json_decode($user->Album->body->imageData, true);
+        }else{
+            $textData = null;
+            $imageData = null;
         }
 
         return view('admin.UserInformation', compact('admin', 'user', 'textData', 'imageData'));
