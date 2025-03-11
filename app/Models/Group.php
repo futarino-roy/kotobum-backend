@@ -26,7 +26,7 @@ class Group extends Model
         return $this->hasOne(User::class, 'id','Buser_id')->where('template', 'B');
     }
 
-    // 修正必要あり
+    /* // 修正必要あり
     public function setAuser(User $user)
     {
         if ($user->template !== 'A') {
@@ -65,5 +65,5 @@ class Group extends Model
         // 修正必要あり
         $user->group_id = null;
         $user->save();
-    }
+    } */
 }

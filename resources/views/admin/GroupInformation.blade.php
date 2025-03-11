@@ -32,7 +32,7 @@
         <tbody>
             <tr>
                 <th>校了状態:両方済み</td>
-                <th>選択FMT:{{ $group->format }}</th>
+                <th>FMT:{{ $group->format }}</th>
                 <th>表紙編集</th>
                 <th><a href="{{ route('admin.delete_group', $group->id) }}"
                     onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
@@ -64,19 +64,19 @@
                 <th>{{ $group->Auser->name ?? 'N/A' }}</th>
                 <th>{{ $group->Auser->updated_at ?? 'N/A' }}</th>
                 <th>{{ $naCountA }}</th>
-                <th>{{ $group->Auser->Album->body_is_sent ?? 'N/A' }}</th>
+                <th>{{ $group->Auser->Album->body_is_sent ?? 'false' }}</th>
                 <th>
                     @if($group->Auser)
                         <a href="{{ route('admin.user_infomation', $group->Auser->id) }}">詳細</a>
                     @else
-                        N/A
+                        詳細
                     @endif
                 </th>
                 <th>
                     @if($group->Auser)
                         <a href="{{ route('admin_user_redirect', ['userid' => $group->Auser->id, 'parts' => 'body']) }}" target="_blank">編集</a>
                     @else
-                        N/A
+                        編集
                     @endif
                 </th>
                 <th>
@@ -85,7 +85,7 @@
                         onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
                         style="color: red;">削除</a>
                     @else
-                        N/A
+                        削除
                     @endif
                 </th>
             </tr>
@@ -95,19 +95,19 @@
                 <th>{{ $group->Buser->name ?? 'N/A' }}</th>
                 <th>{{ $group->Buser->updated_at ?? 'N/A' }}</th>
                 <th>{{ $naCountB }}</th>
-                <th>{{ $group->Buser->Album->body_is_sent ?? 'N/A' }}</th>
+                <th>{{ $group->Buser->Album->body_is_sent ?? 'false' }}</th>
                 <th>
                     @if($group->Buser)
                         <a href="{{ route('admin.user_infomation', $group->Buser->id) }}">詳細</a>
                     @else
-                        N/A
+                        詳細
                     @endif
                 </th>
                 <th>
                     @if($group->Buser)
                         <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'body']) }}" target="_blank">編集</a>
                     @else
-                        N/A
+                        編集
                     @endif
                 </th>
                 <th>
@@ -116,7 +116,7 @@
                         onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
                         style="color: red;">削除</a>
                     @else
-                        N/A
+                        削除
                     @endif
                 </th>
             </tr>
@@ -131,8 +131,7 @@
     <form action="{{ route('admin.create_user', $group->id) }}" method="POST">
         @csrf
         <div class="mb-3">
-            <label for="group_id" class="form-label">グループID</label>
-            <!-- ユーザーには表示されないが、フォーム送信時にデータとして渡される -->
+            <!-- <label for="group_id" class="form-label">グループID</label> -->
             <input type="hidden" name="group_id" value="{{ $group->id }}">
         </div>
         <div class="mb-3">
@@ -144,11 +143,11 @@
             <input type="text" class="form-control" id="login_id" name="login_id" required>
         </div>
         <div class="mb-3">
-            <label for="password" class="form-label">パスワード</label>
+            <label for="password" class="form-label">パスワード（八桁）</label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <div class="mb-3">
-            <label for="format" class="form-label">フォーマット</label>
+            <!-- <label for="format" class="form-label">フォーマット</label> -->
             <input type="hidden" name="format" value="{{ $group->format }}">
         </div>
         <button type="submit" class="btn btn-primary">ユーザー作成</button>
