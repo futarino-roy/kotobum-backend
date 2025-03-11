@@ -29,7 +29,7 @@
             <tr><th>選択フォーマット</th><td colspan="2">{{ $user->format }}</td></tr>
             <tr><th>選択面</th><td colspan="2"></td></tr>
             <tr><th>未格納画像数</th><td colspan="2">{{ $naCount }}</td></tr>
-            <tr><th>最終編集時刻</th><td colspan="2">{{ $user->Album->body->update_at }}</td></tr>
+            <tr><th>最終編集時刻</th><td colspan="2">{{ $user->Album->body->update_at ?? 'N/A'}}</td></tr>
             <tr><th>校了状態</th><td colspan="2">{{ $user->Album->body_is_sent }}</td></tr>
         </tbody>
         <tfoot>
