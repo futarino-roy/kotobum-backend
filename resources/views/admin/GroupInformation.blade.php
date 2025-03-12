@@ -33,7 +33,7 @@
             <tr>
                 <th>校了状態:両方済み</td>
                 <th>FMT:{{ $group->format }}</th>
-                <th>表紙編集</th>
+                <th><a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'cover']) }}" target="_blank">表紙編集</a></th>
                 <th><a href="{{ route('admin.delete_group', $group->id) }}"
                     onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
                     style="color: red;">全体データ削除</a>
