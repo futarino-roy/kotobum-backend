@@ -14,24 +14,7 @@ class CoverController extends Controller
     public function showCover($albumid)
     {
         $album = Album::findOrFail($albumid);
-        $group = $album->user->group;
         $cover = $album->cover;
-
-        if ($group) {
-            if ($album->user->id == $group->Auser_id) {
-                // Auserに関連するAlbumのIDを取得
-                $partner = $group->Buser && $group->Buser->album ? $group->Buser->album->id : null;
-            } elseif ($album->user->id == $group->Buser_id) {
-                // Buserに関連するAlbumのIDを取得
-                $partner = $group->Auser && $group->Auser->album ? $group->Auser->album->id : null;
-            } else {
-                // 条件に合致しない場合、$partnerはnullになる
-                $partner = null;
-            }
-        } else {
-            // $groupがnullの場合、$partnerをnullに設定
-            $partner = null;
-        }
 
         if ($cover) {
             // Bodyが存在する場合、データを返す
@@ -40,7 +23,6 @@ class CoverController extends Controller
                 'imageData' => $cover->imageData,
                 'colors' => $cover->colors,
                 'covertext'=> $cover->covertext,
-                'partner_id' => $partner
             ]);
         }
     

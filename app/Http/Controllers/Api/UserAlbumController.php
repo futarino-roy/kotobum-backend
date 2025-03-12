@@ -22,7 +22,25 @@ class UserAlbumController extends Controller
             ['body_is_sent' => false, 'cover_is_sent' => false, 'template' => null]
         );
 
-        return response()->json(['albumId' => $album->id]);
+        $group = $album->user->group;
+
+        if ($group) {
+            if ($album->user->id == $group->Auser_id) {
+                // Auserに関連するAlbumのIDを取得
+                $partner = $group->Buser && $group->Buser->album ? $group->Buser->album->id : null;
+            } elseif ($album->user->id == $group->Buser_id) {
+                // Buserに関連するAlbumのIDを取得
+                $partner = $group->Auser && $group->Auser->album ? $group->Auser->album->id : null;
+            } else {
+                // 条件に合致しない場合、$partnerはnullになる
+                $partner = null;
+            }
+        } else {
+            // $groupがnullの場合、$partnerをnullに設定
+            $partner = null;
+        }
+
+        return response()->json(['albumId' => $album->id, 'partner_id' => $partner ]);
     }
 
 }
