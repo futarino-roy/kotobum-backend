@@ -59,11 +59,11 @@
         </tbody>
         <tfoot>
             <tr>
-                <th><a href="{{ route('admin_user_redirect', ['userid' => $user->id, 'parts' => 'body']) }}" target="_blank">編集ページボタン</a></th>
+                <th><a href="{{ route('admin_user_redirect', ['userid' => $user->id, 'parts' => 'body']) }}" target="_blank">中身編集ページ</a></th>
                 <th>
                     <a href="{{ route('admin.delete_user', ['userid' => $user->id]) }}"
                         onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
-                        style="color: red;">データ削除ボタン
+                        style="color: red;">データ削除
                     </a>
                 </th>
             </tr>
