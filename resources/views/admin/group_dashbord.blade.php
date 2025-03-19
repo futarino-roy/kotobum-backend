@@ -50,7 +50,13 @@
                 <td>{{ $group->format }}</td>
                 <td>{{ $group->created_at }}</td>
                 <td><a href="{{ route('admin.group_infomation', $group->id) }}">詳細ボタン</a></td>
-                <td>完了状態</td>
+                <td>
+                    @if($group->user->Album->cover_is_sent && $group->user->Album->body_is_sent)
+                        <span class="text-success">完了</span>
+                    @else
+                        <span class="text-danger">未完了</span>
+                    @endif
+                </td>
             </tr>
             @endforeach
         </tbody>
