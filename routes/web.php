@@ -2,13 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GroupController;
 use App\Http\Controllers\Admin\PDFController;
-use App\Http\Controllers\Admin\PartnerController;
-
-
 
 Route::prefix('admin')->group(function () {
     Route::middleware('auth:admin')->group(function () {
@@ -28,7 +24,9 @@ Route::prefix('admin')->group(function () {
         Route::post('/create_User/{groupid}', [GroupController::class, 'createUser'])->name('admin.create_user'); 
         Route::get('/delete_User/{userid}', [GroupController::class, 'deleteUser'])->name('admin.delete_user'); 
 
+        Route::post('/user/{id}/reset-password', [GroupController::class, 'resetPassword'])->name('admin.reset-password');
         Route::get('/admin_user_redirect/{userid}/{parts}', [LoginController::class, 'admin_user_redirect'])->name('admin_user_redirect');
+        Route::post('/albums/{id}/reset-status/{type}', [GroupController::class, 'resetStatus'])->name('admin.reset-status');
 
     });
     Route::get('/login', [LoginController::class, 'login_form'])->name('admin.login_form');

@@ -31,7 +31,6 @@
     <table border="1">
         <tbody>
             <tr>
-                <th>校了状態:両方済み</td>
                 <th>FMT:{{ $group->format }}</th>
                 <th><a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'cover']) }}" target="_blank">表紙編集</a></th>
                 <th><a href="{{ route('admin.delete_group', $group->id) }}"
@@ -51,7 +50,8 @@
                 <th>名前</th>
                 <th>最終更新時間</th>
                 <th>未格納画像数</th>
-                <th>校了状態</th>
+                <th>表紙校了状態</th>
+                <th>中身校了状態</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -64,6 +64,7 @@
                 <th>{{ $group->Auser->name ?? 'N/A' }}</th>
                 <th>{{ $group->Auser->updated_at ?? 'N/A' }}</th>
                 <th>{{ $naCountA }}</th>
+                <th>{{ $group->Auser?->Album?->cover_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>{{ $group->Auser?->Album?->body_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
                     @if($group->Auser)
@@ -95,6 +96,7 @@
                 <th>{{ $group->Buser->name ?? 'N/A' }}</th>
                 <th>{{ $group->Buser->updated_at ?? 'N/A' }}</th>
                 <th>{{ $naCountB }}</th>
+                <th>{{ $group->Buser?->Album?->cover_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>{{ $group->Buser?->Album?->body_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
                     @if($group->Buser)

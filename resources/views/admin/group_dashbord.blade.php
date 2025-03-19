@@ -13,7 +13,15 @@
         </div>
         <div class="mb-3">
             <label for="format" class="form-label">フォーマット</label>
-            <input type="number" class="form-control" id="format" name="format" required>
+            <select class="form-control" id="format" name="format" required>
+                <option value="4">ペア１</option>
+                <option value="3">ペア２</option>
+                <option value="1">ペア３</option>
+                <option value="2">ペア４</option>
+                <option value="5">ソロ１</option>
+                <option value="6">ソロ２</option>
+                <option value="7">ソロ３</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">グループ作成</button>
     </form>

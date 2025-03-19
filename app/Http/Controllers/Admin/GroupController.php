@@ -237,6 +237,54 @@ class GroupController extends Controller
         $user->delete();
 
         // routeとセッション未設定
-        return redirect()->route('admin.group_infomation',$group->id)->with('success', 'ユーザーと関連データを削除しました。');
+        return redirect()->route('admin.group_infomation',$group->id)->with('success', 'ユーザーと関連データを削除しました。');   
+    }
+
+
+    public function resetPassword(Request $request, $id)
+    {
+        $request->validate([
+            'password' => 'required|min:8', // パスワードのバリデーション
+        ]);
+
+        $user = User::findOrFail($id);
+        $newPassword = $request->input('password'); // 入力された新しいパスワード
+
+        // パスワードをハッシュ化して保存
+        $user->password = Hash::make($newPassword);
+        $user->save();
+
+        return response()->json([
+            'message' => 'パスワードをリセットしました。',
+            'password' => $newPassword // 一時的にハッシュ前のパスワードを返す
+        ]);
+    }
+    
+
+    public function resetStatus($id, $type)
+    {
+        $album = Album::findOrFail($id);
+
+        // 校了状態を変更する対象を決定
+        if ($type === 'cover') {
+            $column = 'cover_is_sent';
+        } elseif ($type === 'body') {
+            $column = 'body_is_sent';
+        } else {
+            return response()->json(['error' => '無効なタイプ指定です。'], 400);
+        }
+
+        // 校了済みなら未校了に戻す
+        if ($album->$column) {
+            $album->$column = false;
+            $album->save();
+
+            return response()->json([
+                'message' => "「{$type}」の校了状態を「未校了」に変更しました。",
+                'new_status' => $album->$column ? '校了済み' : '未校了'
+            ]);
+        }
+
+        return response()->json(['message' => "「{$type}」はすでに未校了です。"]);
     }
 }
