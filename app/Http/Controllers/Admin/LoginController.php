@@ -23,7 +23,7 @@ class LoginController extends Controller
         $credentials = $request->only(['email', 'password']);
 
         if (Auth::guard('admin')->attempt($credentials)) {
-            return redirect()->route('admin.dashboard')->with([
+            return redirect()->route('admin.group_dashbord')->with([
                 'login_msg' => 'ログインしました。',
             ]);
         }
