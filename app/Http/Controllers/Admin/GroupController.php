@@ -20,7 +20,6 @@ class GroupController extends Controller
         $admin = Auth::guard('admin')->user();
         $groups = Group::get();
 
-        // ペアになったら戻らん？
         foreach ($groups as $group) {
             if (!is_null($group->Auser_id) && !is_null($group->Buser_id)) {
                 $group->plan = "ペア";
@@ -259,7 +258,7 @@ class GroupController extends Controller
             'password' => $newPassword // 一時的にハッシュ前のパスワードを返す
         ]);
     }
-    
+
 
     public function resetStatus($id, $type)
     {

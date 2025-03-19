@@ -11,9 +11,9 @@ Route::prefix('admin')->group(function () {
         Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout'); // ログアウト / Logout
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
-        Route::get('/coverHTML/{userid}', [PDFController::class, 'coverHTML'])->name('admin.coverHTML'); 
+        /* Route::get('/coverHTML/{userid}', [PDFController::class, 'coverHTML'])->name('admin.coverHTML'); 
         Route::get('/bodyHTML/{userid}', [PDFController::class, 'bodyHTML'])->name('admin.bodyHTML'); 
-        Route::post('/PDF', [PDFController::class, 'PDF'])->name('admin.PDF'); 
+        Route::post('/PDF', [PDFController::class, 'PDF'])->name('admin.PDF');  */
 
         Route::get('/group/dashbord', [GroupController::class, 'indexGroup'])->name('admin.group_dashbord'); 
         Route::get('/group/infomation/{groupid}', [GroupController::class, 'showGroup'])->name('admin.group_infomation'); 
