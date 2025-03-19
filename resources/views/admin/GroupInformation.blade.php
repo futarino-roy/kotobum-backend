@@ -31,7 +31,7 @@
     <table border="1">
         <tbody>
             <tr>
-                <th>FMT:{{ $group->format }}</th>
+                <th>FMT：{{ $group->format }}</th>
                 <th>
                     @if($group->Buser)
                         <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'cover']) }}" target="_blank">表紙編集</a>
