@@ -24,6 +24,7 @@
         <tbody>
             <tr><th>ID</th><td>{{ $user->id }}</td></tr>
             <tr><th>名前</th><td>{{ $user->name }}</td></tr>
+            <tr><th>ログインID</th><td>{{ $user->login_id }}</td>
             <tr><th>パスワード</th><td><button class="reset-password-btn btn btn-danger" data-route="{{ route('admin.reset-password', ['id' => 'USER_ID']) }}" data-id="{{ $user->id }}">リセット</button></td></tr>
             <tr><th>所属グループ</th><td>{{ $user->Group->name }}</td></tr>
             <tr><th>選択フォーマット</th><td>{{ $user->format }}</td></tr>
@@ -172,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".reset-password-btn").forEach(button => {
         button.addEventListener("click", function () {
             selectedUserId = this.getAttribute("data-id");
-            let passwordModal = new bootstrap.Modal(document.getElementById("passwordModal"));
+            let passwordModal = new bootstrap.Modal(document.getElementById("resetPasswordModal"));
             passwordModal.show();
         });
     });
