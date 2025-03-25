@@ -130,7 +130,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
-                        <button type="button" id="confirmReset" class="btn btn-danger">確定</button>
+                        <button type="button" id="confirm-reset" class="btn btn-danger">確定</button>
                     </div>
                 </div>
             </div>
