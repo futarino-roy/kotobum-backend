@@ -64,22 +64,42 @@ class BodyController extends Controller
     }    
 
     // ボディを保存する
-    public function sendBody($userid)
+    public function sendBody(Request $request,$id)
     {
-        $user = User::findOrFail($userid);
+        if($request->id === 'userId'){
+            $user = User::findOrFail($id);
 
-        // ユーザーの権限をチェック
-        if ($user->id !== auth()->id()) {
-            return response()->json(['message' => 'Unauthorized'], 403);
+            // ユーザーの権限をチェック
+            if ($user->id !== auth()->id()) {
+                return response()->json(['message' => 'Unauthorized'], 403);
+            }
+
+            if ($user->album->body_is_sent) {
+                return response()->json(['message' => 'Already sent'], 400);
+            }
+
+            $user->album->body_is_sent = true;
+            $user->album->save();
+
+        }elseif($request->id === 'albumId'){
+            $album = Album::findOrFail($id);
+
+            // ユーザーの権限をチェック
+            if ($album->user_id !== auth()->id()) {
+                return response()->json(['message' => 'Unauthorized'], 403);
+            }
+
+            if ($album->body_is_sent) {
+                return response()->json(['message' => 'Already sent'], 400);
+            }
+
+            $album->body_is_sent = true;
+            $album->save();
+            
+        }else{
+            return response()->json(['message' => 'テーブルを指定してください'], 400);
         }
 
-        if ($user->album->body_is_sent) {
-            return response()->json(['message' => 'Already sent'], 400);
-        }
-
-        $user->album->body_is_sent = true;
-        $user->album->save();
-
-        return response()->json(['message' => 'ボディが送信されました'/* , 'body' => $body */], 200);
+        return response()->json(['message' => 'ボディが送信されました'], 200);
     }
 }
