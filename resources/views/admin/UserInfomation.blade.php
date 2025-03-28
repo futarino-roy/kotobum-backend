@@ -6,6 +6,15 @@
 @section('content')
     @php
         $naCount = 0;
+        $formats = [
+            4 => 'ペア１',
+            3 => 'ペア２',
+            1 => 'ペア３',
+            2 => 'ペア４',
+            5 => 'ソロ１',
+            6 => 'ソロ２',
+            7 => 'ソロ３',
+        ];
     @endphp
 
     @if (!empty($imageData))
@@ -27,7 +36,7 @@
             <tr><th>ログインID</th><td>{{ $user->login_id }}</td>
             <tr><th>パスワード</th><td><button class="reset-password-btn btn btn-danger" data-route="{{ route('admin.reset-password', ['id' => 'USER_ID']) }}" data-id="{{ $user->id }}">リセット</button></td></tr>
             <tr><th>所属グループ</th><td>{{ $user->Group->name }}</td></tr>
-            <tr><th>選択フォーマット</th><td>{{ $user->format }}</td></tr>
+            <tr><th>選択フォーマット</th><td>{{ $formats[$user->format] ?? '不明' }}</td></tr>
             <tr><th>選択面</th><td>{{ $user->template }}</td></tr>
             <tr><th>未格納画像数</th><td>{{ $naCount }}</td></tr>
             <tr><th>最終編集時刻</th><td>{{ $user->Album->body->update_at ?? 'N/A'}}</td></tr>

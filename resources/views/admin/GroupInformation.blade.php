@@ -7,6 +7,15 @@
     @php
         $naCountA = 0;
         $naCountB = 0;
+        $formats = [
+            4 => 'ペア１',
+            3 => 'ペア２',
+            1 => 'ペア３',
+            2 => 'ペア４',
+            5 => 'ソロ１',
+            6 => 'ソロ２',
+            7 => 'ソロ３',
+        ];
     @endphp
 
     @if(!empty($imageDataA))
@@ -31,7 +40,7 @@
     <table border="1">
         <tbody>
             <tr>
-                <th>FMT：{{ $group->format }}</th>
+                <th>FMT：{{ $formats[$group->format] ?? '不明' }}</th>
                 <th>
                     @if($group->Buser)
                         <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'cover']) }}" target="_blank">表紙編集</a>
@@ -56,8 +65,8 @@
                 <th>名前</th>
                 <th>最終更新時間</th>
                 <th>未格納画像数</th>
-                <th>表紙校了状態</th>
-                <th>中身校了状態</th>
+                <th>表紙校了</th>
+                <th>中身校了</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -76,14 +85,12 @@
                     @if($group->Auser)
                         <a href="{{ route('admin.user_infomation', $group->Auser->id) }}">詳細</a>
                     @else
-                        詳細
                     @endif
                 </th>
                 <th>
                     @if($group->Auser)
                         <a href="{{ route('admin_user_redirect', ['userid' => $group->Auser->id, 'parts' => 'body']) }}" target="_blank">編集</a>
                     @else
-                        編集
                     @endif
                 </th>
                 <th>
@@ -92,7 +99,6 @@
                         onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
                         style="color: red;">削除</a>
                     @else
-                        削除
                     @endif
                 </th>
             </tr>
@@ -108,14 +114,12 @@
                     @if($group->Buser)
                         <a href="{{ route('admin.user_infomation', $group->Buser->id) }}">詳細</a>
                     @else
-                        詳細
                     @endif
                 </th>
                 <th>
                     @if($group->Buser)
                         <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'body']) }}" target="_blank">編集</a>
                     @else
-                        編集
                     @endif
                 </th>
                 <th>
@@ -124,7 +128,6 @@
                         onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
                         style="color: red;">削除</a>
                     @else
-                        削除
                     @endif
                 </th>
             </tr>
