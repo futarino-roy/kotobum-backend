@@ -145,6 +145,24 @@
                 </div>
             </div>
         </div>
+        
+        <div id="warningModal" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">警告</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>本当にパスワードをリセットしますか？</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                        <button type="button" id="confirm-warning" class="btn btn-danger">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- モーダル (結果表示) -->
         <div id="resultModal" class="modal" tabindex="-1">
@@ -179,7 +197,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let selectedUserId = null;
     let enteredPassword = null;
 
-    // 🔹 パスワード入力モーダルを開く
     document.querySelectorAll(".reset-password-btn").forEach(button => {
         button.addEventListener("click", function () {
             selectedUserId = this.getAttribute("data-id");
@@ -188,7 +205,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 🔹 「変更を確定」を押したら警告モーダルを表示
     document.getElementById("confirm-reset").addEventListener("click", function () {
         let passwordInput = document.getElementById("newPassword");
         if (!passwordInput) {
@@ -203,35 +219,45 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        let warningModal = new bootstrap.Modal(document.getElementById("warningModal"));
+        let warningModalElement = document.getElementById("warningModal");
+        if (!warningModalElement) {
+            console.error("警告モーダルが見つかりません。");
+            return;
+        }
+
+        let warningModal = new bootstrap.Modal(warningModalElement);
         warningModal.show();
     });
 
-    // 🔹 警告モーダルの「OK」を押したらサーバーに送信
-    document.getElementById("confirm-warning").addEventListener("click", function () {
-        fetch(`/admin/reset-password/${selectedUserId}`, { 
-            method: "POST",
-            headers: { 
-                "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ new_password: enteredPassword })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                let warningModal = bootstrap.Modal.getInstance(document.getElementById("warningModal"));
-                warningModal.hide();
+    let confirmWarningBtn = document.getElementById("confirm-warning");
+    if (confirmWarningBtn) {
+        confirmWarningBtn.addEventListener("click", function () {
+            fetch(`/admin/reset-password/${selectedUserId}`, { 
+                method: "POST",
+                headers: { 
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ new_password: enteredPassword })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    let warningModal = bootstrap.Modal.getInstance(document.getElementById("warningModal"));
+                    warningModal.hide();
 
-                document.getElementById("display-password").textContent = enteredPassword;
-                let displayPasswordModal = new bootstrap.Modal(document.getElementById("displayPasswordModal"));
-                displayPasswordModal.show();
-            } else {
-                alert("エラーが発生しました。");
-            }
-        })
-        .catch(error => console.error("Error:", error));
-    });
+                    document.getElementById("newPasswordDisplay").textContent = enteredPassword;
+                    let displayPasswordModal = new bootstrap.Modal(document.getElementById("resultModal"));
+                    displayPasswordModal.show();
+                } else {
+                    alert("エラーが発生しました。");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    } else {
+        console.error("confirm-warning ボタンが見つかりません。");
+    }
 });
 
 document.querySelectorAll(".reset-status-btn").forEach(button => {
