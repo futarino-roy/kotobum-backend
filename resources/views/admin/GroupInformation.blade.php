@@ -41,13 +41,6 @@
         <tbody>
             <tr>
                 <th>FMT：{{ $formats[$group->format] ?? '不明' }}</th>
-                <th>
-                    @if($group->Buser)
-                        <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'cover']) }}" target="_blank">表紙編集</a>
-                    @else
-                        表紙編集
-                    @endif
-                </th>
                 <th><a href="{{ route('admin.delete_group', $group->id) }}"
                     onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
                     style="color: red;">全体データ削除</a>
@@ -66,10 +59,11 @@
                 <th>最終更新時間</th>
                 <th>未格納画像数</th>
                 <th>表紙校了</th>
+                <th>表紙編集</th>
                 <th>中身校了</th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>中身編集</th>
+                <th>詳細ページ</th>
+                <th>削除</th>
             </tr>
         </thead>
         <tbody>
@@ -80,16 +74,22 @@
                 <th>{{ $group->Auser->updated_at ?? 'N/A' }}</th>
                 <th>{{ $naCountA }}</th>
                 <th>{{ $group->Auser?->Album?->cover_is_sent ? '校了済み' : '未校了' }}</th>
+                <th>
+                    @if($group->Auser)
+                        <a href="{{ route('admin_user_redirect', ['userid' => $group->Auser->id, 'parts' => 'cover']) }}" target="_blank">表紙編集</a>
+                    @else
+                    @endif
+                </th>
                 <th>{{ $group->Auser?->Album?->body_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
                     @if($group->Auser)
-                        <a href="{{ route('admin.user_infomation', $group->Auser->id) }}">詳細</a>
+                        <a href="{{ route('admin_user_redirect', ['userid' => $group->Auser->id, 'parts' => 'body']) }}" target="_blank">編集</a>
                     @else
                     @endif
                 </th>
                 <th>
                     @if($group->Auser)
-                        <a href="{{ route('admin_user_redirect', ['userid' => $group->Auser->id, 'parts' => 'body']) }}" target="_blank">編集</a>
+                        <a href="{{ route('admin.user_infomation', $group->Auser->id) }}">詳細</a>
                     @else
                     @endif
                 </th>
@@ -109,16 +109,22 @@
                 <th>{{ $group->Buser->updated_at ?? 'N/A' }}</th>
                 <th>{{ $naCountB }}</th>
                 <th>{{ $group->Buser?->Album?->cover_is_sent ? '校了済み' : '未校了' }}</th>
+                <th>
+                    @if($group->Buser)
+                        <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'cover']) }}" target="_blank">表紙編集</a>
+                    @else
+                    @endif
+                </th>
                 <th>{{ $group->Buser?->Album?->body_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
                     @if($group->Buser)
-                        <a href="{{ route('admin.user_infomation', $group->Buser->id) }}">詳細</a>
+                        <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'body']) }}" target="_blank">編集</a>
                     @else
                     @endif
                 </th>
                 <th>
                     @if($group->Buser)
-                        <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'body']) }}" target="_blank">編集</a>
+                        <a href="{{ route('admin.user_infomation', $group->Buser->id) }}">詳細</a>
                     @else
                     @endif
                 </th>
