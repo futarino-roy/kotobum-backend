@@ -58,10 +58,8 @@
                 <th>名前</th>
                 <th>最終更新時間</th>
                 <th>未格納画像数</th>
-                <th>表紙校了</th>
-                <th>表紙編集</th>
-                <th>中身校了</th>
-                <th>中身編集</th>
+                <th colspan=”2″>表紙</th>
+                <th colspan=”2″>中身</th>
                 <th>詳細ページ</th>
                 <th>削除</th>
             </tr>
@@ -118,7 +116,7 @@
                 <th>{{ $group->Buser?->Album?->body_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
                     @if($group->Buser)
-                        <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'body']) }}" target="_blank">編集</a>
+                        <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'body']) }}" target="_blank">中身編集</a>
                     @else
                     @endif
                 </th>

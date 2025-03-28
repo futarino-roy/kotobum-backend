@@ -69,7 +69,8 @@
         </tbody>
         <tfoot>
             <tr>
-                <th><a href="{{ route('admin_user_redirect', ['userid' => $user->id, 'parts' => 'body']) }}" target="_blank">中身編集ページ</a></th>
+            <th><a href="{{ route('admin_user_redirect', ['userid' => $user->id, 'parts' => 'cover']) }}" target="_blank">表紙編集</a></th>
+            <th><a href="{{ route('admin_user_redirect', ['userid' => $user->id, 'parts' => 'body']) }}" target="_blank">中身編集</a></th>
                 <th>
                     <a class="btn btn-warning"
                         href="{{ route('admin.delete_user', ['userid' => $user->id]) }}"
