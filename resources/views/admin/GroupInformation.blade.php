@@ -67,11 +67,11 @@
         <tbody>
             <tr>
                 <th>A面</th>
-                <th style="text-decoration: none;">{{ $group->Auser->id ?? ''}}</th>
-                <th style="text-decoration: none;">{{ $group->Auser->name ?? '' }}</th>
-                <th style="text-decoration: none;">{{ $group->Auser->updated_at ?? '' }}</th>
-                <th style="text-decoration: none;">{{ $naCountA }}</th>
-                <th style="text-decoration: none;">{{ $group->Auser?->Album?->cover_is_sent ? '校了済み' : '未校了' }}</th>
+                <th style="text-transform: none;">{{ $group->Auser->id ?? ''}}</th>
+                <th style="text-transform: none;">{{ $group->Auser->name ?? '' }}</th>
+                <th style="text-transform: none;">{{ $group->Auser->updated_at ?? '' }}</th>
+                <th style="text-transform: none;">{{ $naCountA }}</th>
+                <th style="text-transform: none;">{{ $group->Auser?->Album?->cover_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
                     @if($group->Auser)
                         <a href="{{ route('admin_user_redirect', ['userid' => $group->Auser->id, 'parts' => 'cover']) }}" target="_blank">表紙編集</a>
@@ -81,7 +81,7 @@
                 <th text-decoration: none;>{{ $group->Auser?->Album?->body_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
                     @if($group->Auser)
-                        <a href="{{ route('admin_user_redirect', ['userid' => $group->Auser->id, 'parts' => 'body']) }}" target="_blank">編集</a>
+                        <a href="{{ route('admin_user_redirect', ['userid' => $group->Auser->id, 'parts' => 'body']) }}" target="_blank">中身編集</a>
                     @else
                     @endif
                 </th>
@@ -102,18 +102,18 @@
             </tr>
             <tr>
                 <th>B面</th>
-                <th style="text-decoration: none;">{{ $group->Buser->id ?? '' }}</th>
-                <th style="text-decoration: none;">{{ $group->Buser->name ?? '' }}</th>
-                <th style="text-decoration: none;">{{ $group->Buser->updated_at ?? '' }}</th>
-                <th style="text-decoration: none;">{{ $naCountB }}</th>
-                <th style="text-decoration: none;">{{ $group->Buser?->Album?->cover_is_sent ? '校了済み' : '未校了' }}</th>
+                <th style="text-transform: none;">{{ $group->Buser->id ?? '' }}</th>
+                <th style="text-transform: none;">{{ $group->Buser->name ?? '' }}</th>
+                <th style="text-transform: none;">{{ $group->Buser->updated_at ?? '' }}</th>
+                <th style="text-transform: none;">{{ $naCountB }}</th>
+                <th style="text-transform: none;">{{ $group->Buser?->Album?->cover_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
                     @if($group->Buser)
                         <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'cover']) }}" target="_blank">表紙編集</a>
                     @else
                     @endif
                 </th>
-                <th style="text-decoration: none;"{{ $group->Buser?->Album?->body_is_sent ? '校了済み' : '未校了' }}</th>
+                <th style="text-transform: none;"{{ $group->Buser?->Album?->body_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
                     @if($group->Buser)
                         <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'body']) }}" target="_blank">中身編集</a>
