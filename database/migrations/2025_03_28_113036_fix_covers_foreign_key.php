@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('covers', function (Blueprint $table) {
-            //
+            // 間違った外部キー制約を削除
+            $table->dropForeign(['albums_id']);
+
+            // 正しい外部キー制約を追加
+            $table->foreign('albums_id')->references('id')->on('albums')->onDelete('cascade');
         });
     }
 
@@ -22,7 +26,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('covers', function (Blueprint $table) {
-            //
+            // 修正を元に戻す（誤った制約を再追加）
+            $table->dropForeign(['albums_id']);
+            $table->foreign('albums_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 };
