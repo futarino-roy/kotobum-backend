@@ -45,8 +45,8 @@ class CoverController extends Controller
         $album = Album::findOrFail($albumid);
 
         // ユーザーの権限をチェック
-        if ($album->user_id !== auth()->id() || $album->cover_is_sent) {
-            return response()->json(['message' => 'Unauthorized or already sent'], 403);
+        if ($album->cover_is_sent) {
+            return response()->json(['message' => 'already sent'], 403);
         }
 
         $cover = $album->cover ?? new Cover();

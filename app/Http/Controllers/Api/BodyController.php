@@ -44,8 +44,8 @@ class BodyController extends Controller
         $album = Album::findOrFail($albumid);
 
         // ユーザーの権限をチェック
-        if ($album->user_id !== auth()->id() || $album->body_is_sent) {
-            return response()->json(['message' => 'Unauthorized or already sent'], 403);
+        if ($album->body_is_sent) {
+            return response()->json(['message' => 'already sent'], 403);
         }
 
         $body = $album->body ?? new Body();
