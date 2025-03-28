@@ -136,7 +136,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                        <input type="password" id="newPassword" class="form-control" placeholder="新しいパスワード">
+                        <input type="text" id="newPassword" class="form-control" placeholder="新しいパスワード">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 🔹 「変更を確定」を押したら警告モーダルを表示
     document.getElementById("confirm-reset").addEventListener("click", function () {
-        enteredPassword = document.getElementById("new-password").value;
+        enteredPassword = document.getElementById("newpassword").value;
 
         if (enteredPassword.length < 8) {
             alert("パスワードは8文字以上で入力してください。");
