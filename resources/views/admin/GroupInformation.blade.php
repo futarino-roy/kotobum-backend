@@ -113,7 +113,7 @@
                     @else
                     @endif
                 </th>
-                <th style="text-transform: none;"{{ $group->Buser?->Album?->body_is_sent ? '校了済み' : '未校了' }}</th>
+                <th style="text-transform: none;">{{ $group->Buser?->Album?->body_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
                     @if($group->Buser)
                         <a href="{{ route('admin_user_redirect', ['userid' => $group->Buser->id, 'parts' => 'body']) }}" target="_blank">中身編集</a>
