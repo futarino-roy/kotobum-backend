@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let confirmWarningBtn = document.getElementById("confirm-warning");
     if (confirmWarningBtn) {
         confirmWarningBtn.addEventListener("click", function () {
-            fetch(`/admin/reset-password/${selectedUserId}`, { 
+            fetch(`/admin/${selectedUserId}/reset-password/`, { 
                 method: "POST",
                 headers: { 
                     "X-CSRF-TOKEN": "{{ csrf_token() }}",
