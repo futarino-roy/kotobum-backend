@@ -69,9 +69,9 @@
         <tbody>
             <tr>
                 <th>A面</th>
-                <th>{{ $group->Auser->id ?? 'N/A'}}</th>
-                <th>{{ $group->Auser->name ?? 'N/A' }}</th>
-                <th>{{ $group->Auser->updated_at ?? 'N/A' }}</th>
+                <th>{{ $group->Auser->id ?? ''}}</th>
+                <th>{{ $group->Auser->name ?? '' }}</th>
+                <th>{{ $group->Auser->updated_at ?? '' }}</th>
                 <th>{{ $naCountA }}</th>
                 <th>{{ $group->Auser?->Album?->cover_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
@@ -104,9 +104,9 @@
             </tr>
             <tr>
                 <th>B面</th>
-                <th>{{ $group->Buser->id ?? 'N/A' }}</th>
-                <th>{{ $group->Buser->name ?? 'N/A' }}</th>
-                <th>{{ $group->Buser->updated_at ?? 'N/A' }}</th>
+                <th>{{ $group->Buser->id ?? '' }}</th>
+                <th>{{ $group->Buser->name ?? '' }}</th>
+                <th>{{ $group->Buser->updated_at ?? '' }}</th>
                 <th>{{ $naCountB }}</th>
                 <th>{{ $group->Buser?->Album?->cover_is_sent ? '校了済み' : '未校了' }}</th>
                 <th>
