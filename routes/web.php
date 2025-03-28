@@ -21,7 +21,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/create_User/{groupid}', [GroupController::class, 'createUser'])->name('admin.create_user'); 
         Route::get('/delete_User/{userid}', [GroupController::class, 'deleteUser'])->name('admin.delete_user'); 
 
-        Route::post('/user/{id}/reset-password', [GroupController::class, 'resetPassword'])->name('admin.reset-password');
+        Route::post('/admin/{id}/reset-password', [GroupController::class, 'resetPassword'])->name('admin.reset-password');
         Route::get('/admin_user_redirect/{userid}/{parts}', [LoginController::class, 'admin_user_redirect'])->name('admin_user_redirect');
         Route::post('/albums/{id}/reset-status/{type}', [GroupController::class, 'resetStatus'])->name('admin.reset-status');
 
