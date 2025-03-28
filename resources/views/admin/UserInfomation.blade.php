@@ -190,7 +190,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 🔹 「変更を確定」を押したら警告モーダルを表示
     document.getElementById("confirm-reset").addEventListener("click", function () {
-        enteredPassword = document.getElementById("newpassword").value;
+        let passwordInput = document.getElementById("newPassword");
+        if (!passwordInput) {
+            console.error("新しいパスワードの入力フィールドが見つかりません。");
+            return;
+        }
+
+        enteredPassword = passwordInput.value;
 
         if (enteredPassword.length < 8) {
             alert("パスワードは8文字以上で入力してください。");
