@@ -34,7 +34,7 @@
             <tr><th>ID</th><td>{{ $user->id }}</td></tr>
             <tr><th>名前</th><td>{{ $user->name }}</td></tr>
             <tr><th>ログインID</th><td>{{ $user->login_id }}</td>
-            <tr><th>パスワード</th><td><button class="reset-password-btn btn btn-danger" data-route="{{ route('admin.reset-password', ['id' => $user->id]) }}" data-id="{{ $user->id }}" onclick="resetPassword(this)">リセット</button></td></tr>
+            <tr><th>パスワード</th><td> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#resetPasswordModal">リセット</button></td></tr>
             <tr><th>所属グループ</th><td>{{ $user->Group->name }}</td></tr>
             <tr><th>選択フォーマット</th><td>{{ $formats[$user->format] ?? '不明' }}</td></tr>
             <tr><th>選択面</th><td>{{ $user->template }}</td></tr>
@@ -81,6 +81,31 @@
             </tr>
         </tfoot>
     </table>
+
+    <div class="modal fade" id="resetPasswordModal" tabindex="-1" aria-labelledby="resetPasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resetPasswordModalLabel">パスワードリセット</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{ route('admin.reset-password', $user->id) }}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="password" class="form-label">新しいパスワード</label>
+                            <input type="password" class="form-control" id="password" name="password" required minlength="8">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                        <button type="submit" class="btn btn-primary">パスワードをリセット</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 
     <div class="d-flex justify-content-between">

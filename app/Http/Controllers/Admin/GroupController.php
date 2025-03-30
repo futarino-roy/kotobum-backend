@@ -242,7 +242,6 @@ class GroupController extends Controller
 
     public function resetPassword(Request $request, $id)
     {
-        dd($request);
         $request->validate([
             'password' => 'required|min:8', // パスワードのバリデーション
         ]);
@@ -253,8 +252,6 @@ class GroupController extends Controller
         // パスワードをハッシュ化して保存
         $user->password = Hash::make($newPassword);
         $user->save();
-
-        dd($newPassword);
 
         return response()->json([
             'message' => 'パスワードをリセットしました。',
