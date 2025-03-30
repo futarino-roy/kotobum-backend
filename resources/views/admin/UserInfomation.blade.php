@@ -27,6 +27,7 @@
 
     @if(session('newPassword'))
     <div class="alert alert-success">
+        {{ session('success') }}
         <br>
         新しいパスワード: {{ session('newPassword') }}
     </div>
@@ -102,12 +103,12 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="password" class="form-label">新しいパスワード</label>
-                            <input type="password" class="form-control" id="password" name="password" required minlength="8">
+                            <input type="text" class="form-control" id="password" name="password" required minlength="8">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
-                        <button type="submit" class="btn btn-primary">パスワードをリセット</button>
+                        <button type="submit" class="btn btn-primary" onclick="return confirm('本当に削除しますか？この操作は取り消せません。')">パスワードをリセット</button>
                     </div>
                 </form>
             </div>
