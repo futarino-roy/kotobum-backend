@@ -171,6 +171,7 @@ function resetPassword(button) {
     .catch(error => console.error("エラー:", error));
 }
 
+
 document.querySelectorAll(".reset-status-btn").forEach(button => {
     button.addEventListener("click", function () {
         let resetRoute = this.getAttribute("data-route");

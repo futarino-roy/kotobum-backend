@@ -242,22 +242,27 @@ class GroupController extends Controller
 
     public function resetPassword(Request $request, $id)
     {
-        $request->validate([
-            'password' => 'required|min:8', // パスワードのバリデーション
-        ]);
+        try {
+            $request->validate([
+                'password' => 'required|min:8', // パスワードのバリデーション
+            ]);
 
-        $user = User::findOrFail($id);
-        $newPassword = $request->input('password'); // 入力された新しいパスワード
+            $user = User::findOrFail($id);
+            $newPassword = $request->input('password'); // 入力された新しいパスワード
 
-        // パスワードをハッシュ化して保存
-        $user->password = Hash::make($newPassword);
-        $user->save();
+            // パスワードをハッシュ化して保存
+            $user->password = Hash::make($newPassword);
+            $user->save();
 
-        return response()->json([
-            'message' => 'パスワードをリセットしました。',
-            'password' => $newPassword // 一時的にハッシュ前のパスワードを返す
-        ]);
+            return response()->json([
+                'message' => 'パスワードをリセットしました。',
+                'password' => $newPassword // 一時的にハッシュ前のパスワードを返す
+            ]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
     }
+
 
 
     public function resetStatus($id, $type)
