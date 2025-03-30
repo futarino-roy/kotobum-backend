@@ -102,13 +102,13 @@
                     @method('POST')
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="password" class="form-label">新しいパスワード</label>
+                            <label for="password" class="form-label">新しいパスワード(八桁)</label>
                             <input type="text" class="form-control" id="password" name="password" required minlength="8">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
-                        <button type="submit" class="btn btn-primary" onclick="return confirm('本当に削除しますか？この操作は取り消せません。')">パスワードをリセット</button>
+                        <button type="submit" class="btn btn-primary" onclick="return confirm('本当にリセットしますか？この操作は取り消せません。')">パスワードをリセット</button>
                     </div>
                 </form>
             </div>
