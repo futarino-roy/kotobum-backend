@@ -242,6 +242,7 @@ class GroupController extends Controller
 
     public function resetPassword(Request $request, $id)
     {
+        dd($request);
         $request->validate([
             'password' => 'required|min:8', // パスワードのバリデーション
         ]);
