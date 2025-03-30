@@ -34,7 +34,7 @@
             <tr><th>ID</th><td>{{ $user->id }}</td></tr>
             <tr><th>名前</th><td>{{ $user->name }}</td></tr>
             <tr><th>ログインID</th><td>{{ $user->login_id }}</td>
-            <tr><th>パスワード</th><td><button class="reset-password-btn btn btn-danger" data-route="{{ route('admin.reset-password', ['id' => 'USER_ID']) }}" data-id="{{ $user->id }}">リセット</button></td></tr>
+            <tr><th>パスワード</th><td><button class="reset-password-btn btn btn-danger" data-route="{{ route('admin.reset-password', ['id' => $user->id]) }}" data-id="{{ $user->id }}" onclick="resetPassword(this)">リセット</button></td></tr>
             <tr><th>所属グループ</th><td>{{ $user->Group->name }}</td></tr>
             <tr><th>選択フォーマット</th><td>{{ $formats[$user->format] ?? '不明' }}</td></tr>
             <tr><th>選択面</th><td>{{ $user->template }}</td></tr>
@@ -126,61 +126,6 @@
                 @endif
             </tbody>
         </table>
-
-        <!-- モーダル (入力用) -->
-        <div id="resetPasswordModal" class="modal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">新しいパスワードを入力</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="text" id="newPassword" class="form-control" placeholder="新しいパスワード">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
-                        <button type="button" id="confirm-reset" class="btn btn-danger">確定</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div id="warningModal" class="modal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">警告</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>本当にパスワードをリセットしますか？</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
-                        <button type="button" id="confirm-warning" class="btn btn-danger">OK</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- モーダル (結果表示) -->
-        <div id="resultModal" class="modal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">パスワードリセット完了</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>新しいパスワード: <strong id="newPasswordDisplay"></strong></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 @endsection
@@ -193,72 +138,38 @@ function confirmLogout() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    let selectedUserId = null;
-    let enteredPassword = null;
-
-    document.querySelectorAll(".reset-password-btn").forEach(button => {
-        button.addEventListener("click", function () {
-            selectedUserId = this.getAttribute("data-id");
-            let passwordModal = new bootstrap.Modal(document.getElementById("resetPasswordModal"));
-            passwordModal.show();
-        });
-    });
-
-    document.getElementById("confirm-reset").addEventListener("click", function () {
-        let passwordInput = document.getElementById("newPassword");
-        if (!passwordInput) {
-            console.error("新しいパスワードの入力フィールドが見つかりません。");
-            return;
-        }
-
-        enteredPassword = passwordInput.value;
-
-        if (enteredPassword.length < 8) {
-            alert("パスワードは8文字以上で入力してください。");
-            return;
-        }
-
-        let warningModalElement = document.getElementById("warningModal");
-        if (!warningModalElement) {
-            console.error("警告モーダルが見つかりません。");
-            return;
-        }
-
-        let warningModal = new bootstrap.Modal(warningModalElement);
-        warningModal.show();
-    });
-
-    let confirmWarningBtn = document.getElementById("confirm-warning");
-    if (confirmWarningBtn) {
-        confirmWarningBtn.addEventListener("click", function () {
-            fetch(`{{ route('admin.reset-password', ['id' => '__ID__']) }}`.replace('__ID__', selectedUserId), { 
-                method: "POST",
-                headers: { 
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ new_password: enteredPassword })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    let warningModal = bootstrap.Modal.getInstance(document.getElementById("warningModal"));
-                    warningModal.hide();
-
-                    document.getElementById("newPasswordDisplay").textContent = enteredPassword;
-                    let displayPasswordModal = new bootstrap.Modal(document.getElementById("resultModal"));
-                    displayPasswordModal.show();
-                } else {
-                    alert("エラーが発生しました。");
-                }
-            })
-            .catch(error => console.error("Error:", error));
-        });
-    } else {
-        console.error("confirm-warning ボタンが見つかりません。");
+function resetPassword(button) {
+    if (!confirm('本当にリセットしますか？この操作は取り消せません。')) {
+        return;
     }
-});
+
+    let userId = button.getAttribute("data-id");
+    let resetRoute = button.getAttribute("data-route");
+    let newPassword = prompt("新しいパスワードを入力してください（8文字以上）:");
+
+    if (!newPassword || newPassword.length < 8) {
+        alert("パスワードは8文字以上で入力してください。");
+        return;
+    }
+
+    fetch(resetRoute, {
+        method: "POST",
+        headers: {
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ password: newPassword })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(`パスワードリセット完了\n新しいパスワード: ${newPassword}`);
+        } else {
+            alert("エラーが発生しました。");
+        }
+    })
+    .catch(error => console.error("エラー:", error));
+}
 
 document.querySelectorAll(".reset-status-btn").forEach(button => {
     button.addEventListener("click", function () {
