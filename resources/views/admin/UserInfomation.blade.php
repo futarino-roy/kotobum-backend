@@ -39,15 +39,15 @@
 
     <table border="1">
         <tbody>
-            <tr><th>ID</th><td>{{ $user->id }}</td></tr>
-            <tr><th>名前</th><td>{{ $user->name }}</td></tr>
-            <tr><th>ログインID</th><td>{{ $user->login_id }}</td>
-            <tr><th>パスワード</th><td> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#resetPasswordModal">リセット</button></td></tr>
-            <tr><th>所属グループ</th><td>{{ $user->Group->name }}</td></tr>
-            <tr><th>選択フォーマット</th><td>{{ $formats[$user->format] ?? '不明' }}</td></tr>
-            <tr><th>選択面</th><td>{{ $user->template }}</td></tr>
-            <tr><th>未格納画像数</th><td>{{ $naCount }}</td></tr>
-            <tr><th>最終編集時刻</th><td>{{ $user->Album->body->update_at ?? 'N/A'}}</td></tr>
+            <tr><th>ID</th><td colspan="2">{{ $user->id }}</td></tr>
+            <tr><th>名前</th><td colspan="2">{{ $user->name }}</td></tr>
+            <tr><th>ログインID</th><td colspan="2">{{ $user->login_id }}</td>
+            <tr><th>パスワード</th><td colspan="2"> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#resetPasswordModal">リセット</button></td></tr>
+            <tr><th>所属グループ</th><td colspan="2">{{ $user->Group->name }}</td></tr>
+            <tr><th>選択フォーマット</th><td colspan="2">{{ $formats[$user->format] ?? '不明' }}</td></tr>
+            <tr><th>選択面</th><td colspan="2">{{ $user->template }}</td></tr>
+            <tr><th>未格納画像数</th><td colspan="2">{{ $naCount }}</td></tr>
+            <tr><th>最終編集時刻</th><td colspan="2">{{ $user->Album->body->update_at ?? 'N/A'}}</td></tr>
             <tr>
                 <th>表紙校了状態</th>
                     <td>
