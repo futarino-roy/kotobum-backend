@@ -25,6 +25,13 @@
         @endforeach
     @endif
 
+    @if(session('newPassword'))
+    <div class="alert alert-success">
+        <br>
+        新しいパスワード: {{ session('newPassword') }}
+    </div>
+    @endif
+
     <h1 style="margin-left:10%;">{{ $user->name }} 様 詳細ページ</h1>
 
     <h2 style="margin-left:10%;">基本情報</h2>
@@ -162,40 +169,6 @@ function confirmLogout() {
         window.location.href = "{{ route('admin.logout') }}";
     }
 }
-
-function resetPassword(button) {
-    if (!confirm('本当にリセットしますか？この操作は取り消せません。')) {
-        return;
-    }
-
-    let userId = button.getAttribute("data-id");
-    let resetRoute = button.getAttribute("data-route");
-    let newPassword = prompt("新しいパスワードを入力してください（8文字以上）:");
-
-    if (!newPassword || newPassword.length < 8) {
-        alert("パスワードは8文字以上で入力してください。");
-        return;
-    }
-
-    fetch(resetRoute, {
-        method: "POST",
-        headers: {
-            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ password: newPassword })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert(`パスワードリセット完了\n新しいパスワード: ${newPassword}`);
-        } else {
-            alert("エラーが発生しました。");
-        }
-    })
-    .catch(error => console.error("エラー:", error));
-}
-
 
 document.querySelectorAll(".reset-status-btn").forEach(button => {
     button.addEventListener("click", function () {

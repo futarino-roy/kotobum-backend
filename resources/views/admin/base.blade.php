@@ -60,13 +60,6 @@
     <main id="main-content" ></main>
     
     <div class="container">
-        <!-- フラッシュメッセージの表示 -->
-        <!-- @if (session('login_msg'))
-            <div class="alert alert-success" id="flash-message">
-                {{ session('login_msg') }}
-            </div>
-        @endif -->
-
         @if(session('message'))
             <div class="alert alert-success">
                 {{ session('message') }}

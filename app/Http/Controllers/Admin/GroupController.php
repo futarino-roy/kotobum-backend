@@ -253,10 +253,10 @@ class GroupController extends Controller
         $user->password = Hash::make($newPassword);
         $user->save();
 
-        return response()->json([
-            'message' => 'パスワードをリセットしました。',
-            'password' => $newPassword // 一時的にハッシュ前のパスワードを返す
-        ]);
+        return redirect()->back()->with([
+            'success' => 'パスワードをリセットしました。',
+            'newPassword' => $newPassword, // 新しいパスワードも返す
+        ]);// セッションにフラッシュメッセージを保存して元のページにリダイレクト
     }
 
 
