@@ -77,12 +77,16 @@ class CoverController extends Controller
                 return response()->json(['message' => 'Unauthorized'], 403);
             }
 
-            if ($user->album->cover_is_sent) {
+            if (!$user->Album) {
+                return response()->json(['message' => 'Album not found'], 404);
+            }
+
+            if ($user->Album->cover_is_sent) {
                 return response()->json(['message' => 'Already sent'], 400);
             }
 
-            $user->album->cover_is_sent = true;
-            $user->album->save();
+            $user->Album->cover_is_sent = true;
+            $user->Album->save();
 
         }elseif($request->id === 'albumId'){
             $album = Album::findOrFail($id);
