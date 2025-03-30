@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let confirmWarningBtn = document.getElementById("confirm-warning");
     if (confirmWarningBtn) {
         confirmWarningBtn.addEventListener("click", function () {
-            fetch(`/admin/${selectedUserId}/reset-password/`, { 
+            fetch(`{{ route('admin.reset-password', ['id' => '__ID__']) }}`.replace('__ID__', selectedUserId), { 
                 method: "POST",
                 headers: { 
                     "X-CSRF-TOKEN": "{{ csrf_token() }}",
