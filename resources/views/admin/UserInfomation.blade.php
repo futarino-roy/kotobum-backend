@@ -112,63 +112,66 @@
     </div>
 
 
-    <div class="d-flex justify-content-between">
-        <table border="1" style="margin-right: 20px;">
-            <thead>
-                <tr>
-                    <th style="width: 17ch;">ID</th>
-                    <th style="width: 5ch;">ページ</th>
-                    <th>内容</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (!empty($textData))
-                    @foreach ($textData as $text)
+    <div class="d-flex" style="width: 100%; margin: 0;">
+        <div class="table-container" style="flex: 1; margin: 0 2%;">
+            <table border="1" style="width: 100%; margin: 0;">
+                <thead>
                     <tr>
-                        <th>{{ $text['id'] ?? 'N/A' }}</th>
-                        <td>{{ $text['pageNumber'] ?? 'N/A' }}</td>
-                        <td style="text-transform: none;">
-                            {{ $text['text'] ?? 'N/A' }}
-                            @if (!empty($text['text']))
-                            <br>
-                            <button class="copy-text-btn" data-text="{{ $text['text'] }}">コピー</button>
-                            @endif
-                        </td>
+                        <th style="width: 17ch;">ID</th>
+                        <th style="width: 5ch;">ページ</th>
+                        <th>内容</th>
                     </tr>
+                </thead>
+                <tbody>
+                    @if (!empty($textData))
+                        @foreach ($textData as $text)
+                            <tr>
+                            <th>{{ $text['id'] ?? 'N/A' }}</th>
+                            <td>{{ $text['pageNumber'] ?? 'N/A' }}</td>
+                            <td style="text-transform: none;">
+                                {{ $text['text'] ?? 'N/A' }}
+                                @if (!empty($text['text']))
+                                <br>
+                                <button class="copy-text-btn" data-text="{{ $text['text'] }}">コピー</button>
+                                @endif
+                            </td>
+                        </tr>
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-container" style="flex: 1; margin: 0 2%;">
+            <table border="1" style="width: 100%; margin: 0;">
+                <thead>
+                    <tr>
+                        <th style="width: 17ch;">ID</th>
+                        <th style="width: 5ch;">ページ</th>
+                        <th>内容</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @if(!empty($imageData) && is_array($imageData))
+                    @foreach ($imageData as $image)
+                        <tr>
+                            <th>{{ $image['id'] ?? 'N/A' }}</th>
+                            <td>{{ $image['pageNumber'] ?? 'N/A' }}</td>
+                            <td style="text-transform: none;">
+                                @if (!empty($image['image']))
+                                    <img src="{{ $image['image'] }}" alt="Image" style="max-width: 100px; max-height: 100px;">
+                                    <br>
+                                    <a href="{{ $image['image'] }}" download="image.png" class="btn btn-success">DL</a>
+                                @else
+                                    N/A
+                                @endif
+                            </td>
+                        </tr>
                     @endforeach
                 @endif
-            </tbody>
-        </table>
-
-    
-        <table border="1" style="margin-left: 20px;">
-            <thead>
-                <tr>
-                    <th style="width: 17ch;">ID</th>
-                    <th style="width: 5ch;">ページ</th>
-                    <th>内容</th>
-                </tr>
-            </thead>
-            <tbody>
-            @if (!empty($imageData) && is_array($imageData))
-                @foreach ($imageData as $image)
-                    <tr>
-                        <th>{{ $image['id'] ?? 'N/A' }}</th>
-                        <td>{{ $image['pageNumber'] ?? 'N/A' }}</td>
-                        <td style="text-transform: none;">
-                            @if (!empty($image['image']))
-                                <img src="{{ $image['image'] }}" alt="Image" style="max-width: 100px; max-height: 100px;">
-                                <br>
-                                <a href="{{ $image['image'] }}" download="image.png" class="btn btn-success">DL</a>
-                            @else
-                                N/A
-                            @endif
-                        </td>
-                    </tr>
-                @endforeach
-            @endif
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 @endsection
