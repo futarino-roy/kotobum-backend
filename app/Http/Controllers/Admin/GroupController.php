@@ -25,8 +25,7 @@ class GroupController extends Controller
     // グループ名やプランで検索
     if ($request->has('search') && $request->input('search') !== '') {
         $searchTerm = $request->input('search');
-        $query->where('name', 'like', '%' . $searchTerm . '%')
-              ->orWhere('plan', 'like', '%' . $searchTerm . '%');
+        $query->where('name', 'like', '%' . $searchTerm . '%');
     }
 
     $groups = $query->get();
