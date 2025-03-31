@@ -118,7 +118,7 @@
                 <thead>
                     <tr>
                         <th style="width: 17ch;">ID</th>
-                        <th style="width: 5ch;">ページ</th>
+                        <th style="width: 7ch;">ページ</th>
                         <th>内容</th>
                     </tr>
                 </thead>
@@ -147,7 +147,7 @@
                 <thead>
                     <tr>
                         <th style="width: 17ch;">ID</th>
-                        <th style="width: 5ch;">ページ</th>
+                        <th style="width: 7ch;">ページ</th>
                         <th>内容</th>
                     </tr>
                 </thead>
