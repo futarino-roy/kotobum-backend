@@ -4,6 +4,18 @@
 @section('title', 'グループダッシュボード')
 
 @section('content')
+    @php
+        $formats = [
+            4 => 'ペア１',
+            3 => 'ペア２',
+            1 => 'ペア３',
+            2 => 'ペア４',
+            5 => 'ソロ１',
+            6 => 'ソロ２',
+            7 => 'ソロ３',
+        ];
+    @endphp
+
     <h2>グループ作成</h2>
     <form action="{{ route('admin.create_group') }}" method="POST">
         @csrf
@@ -46,7 +58,7 @@
                 <td>{{ $group->id }}</td>
                 <td>{{ $group->name }}</td>
                 <td>{{ $group->plan }}</td>
-                <td>{{ $group->format }}</td>
+                <td>{{ $formats[$group->format] }}</td>
                 <td>{{ $group->created_at }}</td>
                 <td><a href="{{ route('admin.group_infomation', $group->id) }}">詳細ボタン</a></td>
             @endforeach
