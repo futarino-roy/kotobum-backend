@@ -24,13 +24,22 @@
             if (!isset($imageA['image'])) $naCountA++; 
         @endphp
         @endforeach
+    @else
+        @php 
+            $naCountA = "データなし";
+        @endphp
     @endif
+
     @if(!empty($imageDataB))
         @foreach ($imageDataB as $imageB)
         @php 
             if (!isset($imageB['image'])) $naCountB++; 
         @endphp
         @endforeach
+    @else
+        @php 
+            $naCountB = "データなし";
+        @endphp
     @endif
 
     <h1 style="margin-left:10%;">{{ $group->name }} グループ 詳細ページ</h1>
