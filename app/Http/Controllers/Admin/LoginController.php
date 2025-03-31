@@ -90,7 +90,7 @@ class LoginController extends Controller
             ];
 
             // 遷移先のURLを設定（外部ドメイン）
-            $externalUrl = 'https://develop-front.kotobum.com/admin/index.html';
+            $externalUrl = 'https://app.kotobum.com/admin/index.html';
 
             // クエリパラメータをURLに付与
             $urlWithParams = $externalUrl . '?' . http_build_query($queryParams);
