@@ -43,7 +43,7 @@
     <hr>
 
     <h2 style="margin-left:10%;">グループ一覧</h2>
-    <form method="GET" action="{{ route('admin.group_dashbord') }}" style="margin-left: 10%; margin-bottom: 20px;" class="d-flex">
+    <form method="GET" action="{{ route('admin.group_dashbord') }}" style="margin-left: 10%; width:30%;margin-bottom: 20px;" class="d-flex">
         <input type="text" class="form-control me-2" name="search" placeholder="グループ名で検索" value="{{ request('search') }}">
         <button type="submit" class="btn btn-primary">検索</button>
     </form>
