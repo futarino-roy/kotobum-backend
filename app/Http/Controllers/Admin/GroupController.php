@@ -199,7 +199,7 @@ class GroupController extends Controller
             $textData = null;
             $imageData = null;
         }elseif($user->Album->body){
-            $textData = json_decode($user->Album->body->textdata, true);
+            $textData = json_decode($user->Album->body->textData, true);
             $imageData = json_decode($user->Album->body->imageData, true);
         }else{
             $textData = null;
