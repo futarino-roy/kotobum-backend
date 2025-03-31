@@ -33,7 +33,7 @@
     </div>
     @endif
 
-    <h1 style="margin-left:10%;">{{ $user->name }} 様 詳細ページ</h1>
+    <h1 style="margin-left:10%; margin: top 20px bottom 20px;">{{ $user->name }} 様 詳細ページ</h1>
 
     <h2 style="margin-left:10%;">基本情報</h2>
 
@@ -74,12 +74,11 @@
                         </button>
                     @endif
                 </td>
+                <td><a href="{{ route('admin_user_redirect', ['userid' => $user->id, 'parts' => 'body']) }}" target="_blank">中身編集</a></td>
             </tr>
         </tbody>
         <tfoot>
             <tr>
-            <th><a href="{{ route('admin_user_redirect', ['userid' => $user->id, 'parts' => 'cover']) }}" target="_blank">表紙編集</a></th>
-            <th><a href="{{ route('admin_user_redirect', ['userid' => $user->id, 'parts' => 'body']) }}" target="_blank">中身編集</a></th>
                 <th>
                     <a class="btn btn-warning"
                         href="{{ route('admin.delete_user', ['userid' => $user->id]) }}"
@@ -175,9 +174,6 @@
             </tbody>
         </table>
     </div>
-
-    @dump($textData)
-    @dump($imageData)
 
 @endsection
 
