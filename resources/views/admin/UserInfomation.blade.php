@@ -35,7 +35,14 @@
 
     <h1 style="margin: 100px 0 30px 10%;">{{ $user->name }} 様 詳細ページ</h1>
 
-    <h2 style="margin-left:10%;">基本情報</h2>
+    <div class="d-flex justify-content-between">
+        <h2 style="margin-left:10%;">基本情報</h2>
+        <a class="btn btn-warning"
+            href="{{ route('admin.delete_user', ['userid' => $user->id]) }}"
+            onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
+            style="color: red;">データ削除
+        </a>
+    </div>
 
     <table border="1">
         <tbody>
