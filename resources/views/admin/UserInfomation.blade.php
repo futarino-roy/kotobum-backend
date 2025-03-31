@@ -132,7 +132,12 @@
                     <tr>
                         <th>{{ $text['id'] ?? 'N/A' }}</th>
                         <td>{{ $text['pageNumber'] ?? 'N/A' }}</td>
-                        <td>{{ $text['text'] ?? 'N/A' }}</td>
+                        <td>
+                            {{ $text['text'] ?? 'N/A' }}
+                            @if (!empty($text['text']))
+                            <button class="copy-text-btn" data-text="{{ $text['text'] }}">コピー</button>
+                        @endif
+                        </td>
                     </tr>
                     @endforeach
                 @endif
@@ -157,6 +162,8 @@
                         <td>
                             @if (!empty($image['image']))
                                 <img src="{{ $image['image'] }}" alt="Image" style="max-width: 100px; max-height: 100px;">
+                                <br>
+                                <a href="{{ $image['image'] }}" download="image.png" class="btn btn-success">ダウンロード</a>
                             @else
                                 N/A
                             @endif
