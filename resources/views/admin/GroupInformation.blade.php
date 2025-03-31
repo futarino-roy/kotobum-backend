@@ -152,7 +152,7 @@
     <hr>
 
     <h3 style="margin-left:10%;">ユーザー作成 B→A</h3>
-    <form style="margin-left: 0 10% 0 10%;" action="{{ route('admin.create_user', $group->id) }}" method="POST">
+    <form style="margin: 0 10% 0 10%;" action="{{ route('admin.create_user', $group->id) }}" method="POST">
         @csrf
         <input type="hidden" name="group_id" value="{{ $group->id }}">
         <input type="hidden" name="format" value="{{ $group->format }}">

@@ -16,7 +16,7 @@
         ];
     @endphp
 
-    <h2 style="margin: 100px 0 0 10%;">グループ作成</h2>
+    <h3 style="margin: 100px 0 0 10%;">グループ作成</h3>
     <form action="{{ route('admin.create_group') }}" method="POST" style="margin: 0 10% 30px 10%;">
         @csrf
         <div class="mb-3">
