@@ -118,7 +118,7 @@
                 <thead>
                     <tr>
                         <th style="width: 17ch;">ID</th>
-                        <th style="width: 7ch;">ページ</th>
+                        <th style="width: 6ch;">ページ</th>
                         <th>内容</th>
                     </tr>
                 </thead>
@@ -147,7 +147,7 @@
                 <thead>
                     <tr>
                         <th style="width: 17ch;">ID</th>
-                        <th style="width: 7ch;">ページ</th>
+                        <th style="width: 6ch;">ページ</th>
                         <th>内容</th>
                     </tr>
                 </thead>
@@ -159,7 +159,7 @@
                             <td>{{ $image['pageNumber'] ?? 'N/A' }}</td>
                             <td style="text-transform: none;">
                                 @if (!empty($image['image']))
-                                    <img src="{{ $image['image'] }}" alt="Image" style="max-width: 100px; max-height: 100px;">
+                                    <img src="{{ $image['image'] }}" alt="Image" style="width: 100%; height: 100%; object-fit: contain;">
                                     <br>
                                     <a href="{{ $image['image'] }}" download="image.png" class="btn btn-success">DL</a>
                                 @else
