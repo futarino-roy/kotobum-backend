@@ -33,7 +33,7 @@
     </div>
     @endif
 
-    <h1 style="margin: 100px 0 25px 10%;">{{ $user->name }} 様 詳細ページ</h1>
+    <h1 style="margin: 100px 0 30px 10%;">{{ $user->name }} 様 詳細ページ</h1>
 
     <h2 style="margin-left:10%;">基本情報</h2>
 
