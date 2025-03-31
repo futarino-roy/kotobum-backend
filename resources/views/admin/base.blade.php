@@ -47,11 +47,6 @@
   </style>
 
 <body>
-    @if(!Auth::guard('admin')->check()) 
-    <script>
-        window.location.href = "{{ route('admin.login_form') }}";
-    </script>
-    @endif
     <header class="bg-light p-2 z-3 fixed-top" id="header">
         <div class="container d-flex justify-content-between align-items-center">
             <a href="{{ route('admin.group_dashbord') }}" class="mr-auto">
