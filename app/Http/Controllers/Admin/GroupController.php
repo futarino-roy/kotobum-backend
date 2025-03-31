@@ -41,6 +41,8 @@ class GroupController extends Controller
         }
     }
 
+    $groups = $groups->reverse();
+
     // ダッシュボードビューを返す
     return view('admin.group_dashbord', compact('admin', 'groups'));
 }
