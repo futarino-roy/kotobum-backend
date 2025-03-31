@@ -127,7 +127,7 @@
                     <tr>
                         <th>{{ $text['id'] ?? 'N/A' }}</th>
                         <td>{{ $text['pageNumber'] ?? 'N/A' }}</td>
-                        <td>
+                        <td style="text-transform: none;">
                             {{ $text['text'] ?? 'N/A' }}
                             @if (!empty($text['text']))
                             <br>
@@ -155,7 +155,7 @@
                     <tr>
                         <th>{{ $image['id'] ?? 'N/A' }}</th>
                         <td>{{ $image['pageNumber'] ?? 'N/A' }}</td>
-                        <td>
+                        <td style="text-transform: none;">
                             @if (!empty($image['image']))
                                 <img src="{{ $image['image'] }}" alt="Image" style="max-width: 100px; max-height: 100px;">
                                 <br>
