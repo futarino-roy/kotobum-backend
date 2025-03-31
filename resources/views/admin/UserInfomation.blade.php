@@ -129,9 +129,9 @@
                 @if (!empty($textData))
                     @foreach ($textData as $text)
                     <tr>
-                        <th>{{ $text->id ?? 'N/A' }}</th>
-                        <td>{{ $text->page ?? 'N/A' }}</td>
-                        <td>{{ $text->text ?? 'N/A' }}</td>
+                        <th>{{ $text['id'] ?? 'N/A' }}</th>
+                        <td>{{ $text['page'] ?? 'N/A' }}</td>
+                        <td>{{ $text['text'] ?? 'N/A' }}</td>
                     </tr>
                     @endforeach
                 @endif
@@ -148,15 +148,21 @@
                 </tr>
             </thead>
             <tbody>
-                @if (!empty($imageData))
-                    @foreach ($imageData as $image)
+            @if (!empty($imageData) && is_array($imageData))
+                @foreach ($imageData as $image)
                     <tr>
-                        <th>{{ $image->id ?? 'N/A' }}</th>
-                        <td>{{ $image->page ?? 'N/A' }}</td>
-                        <td>{{ $image->image ?? 'N/A' }}</td>
+                        <th>{{ $image['id'] ?? 'N/A' }}</th>
+                        <td>{{ $image['page'] ?? 'N/A' }}</td>
+                        <td>
+                            @if (!empty($image['image']))
+                                <img src="{{ $image['image'] }}" alt="Image" style="max-width: 100px; max-height: 100px;">
+                            @else
+                                N/A
+                            @endif
+                        </td>
                     </tr>
-                    @endforeach
-                @endif
+                @endforeach
+            @endif
             </tbody>
         </table>
     </div>
