@@ -40,7 +40,7 @@
         <a class="btn btn-warning"
             href="{{ route('admin.delete_user', ['userid' => $user->id]) }}"
             onclick="return confirm('本当に削除しますか？この操作は取り消せません。')"
-            style="color: red;">データ削除
+            style="color: red; margin-left:10%;">データ削除
         </a>
     </div>
 
