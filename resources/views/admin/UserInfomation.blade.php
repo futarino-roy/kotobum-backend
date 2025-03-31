@@ -112,27 +112,26 @@
     </div>
 
 
-    <div class="d-flex" style="display: flex; justify-content: space-between; gap: 20px;">
-        <table border="1" style="border-collapse: collapse; width: auto; table-layout: auto;">
+    <div class="d-flex justify-content-between">
+        <table border="1" style="margin-right: 20px;">
             <thead>
                 <tr>
-                    <th style="padding: 8px 12px; text-align: left; white-space: nowrap;">ID</th>
-                    <th style="padding: 8px 12px; text-align: left; white-space: nowrap;">ページ</th>
-                    <th style="padding: 8px 12px; text-align: left; white-space: nowrap;">内容</th>
+                    <th style="width: 17ch;">ID</th>
+                    <th style="width: 5ch;">ページ</th>
+                    <th>内容</th>
                 </tr>
             </thead>
             <tbody>
                 @if (!empty($textData))
                     @foreach ($textData as $text)
-                        <tr>
-                            <th style="padding: 8px 12px; text-align: left; white-space: nowrap;">{{ $text['id'] ?? 'N/A' }}</th>
-                            <td style="padding: 8px 12px; text-align: left; white-space: nowrap;">{{ $text['pageNumber'] ?? 'N/A' }}</td>
-                            <td style="padding: 8px 12px; text-align: left;">
-                                {{ $text['text'] ?? 'N/A' }}
-                                @if (!empty($text['text']))
+                    <tr>
+                        <th>{{ $text['id'] ?? 'N/A' }}</th>
+                        <td>{{ $text['pageNumber'] ?? 'N/A' }}</td>
+                        <td>
+                            {{ $text['text'] ?? 'N/A' }}
+                            @if (!empty($text['text']))
                             <br>
-                           <button class="copy-text-btn" data-text="{{ $text['text'] }}" 
-                                    style="margin-top: 5px; padding: 4px 8px; font-size: 12px;">コピー</button>
+                            <button class="copy-text-btn" data-text="{{ $text['text'] }}">コピー</button>
                             @endif
                         </td>
                     </tr>
@@ -141,27 +140,26 @@
             </tbody>
         </table>
 
-        <table border="1" style="border-collapse: collapse; width: auto; table-layout: auto;">
+    
+        <table border="1" style="margin-left: 20px;">
             <thead>
                 <tr>
-                    <th style="padding: 8px 12px; text-align: left; white-space: nowrap;">ID</th>
-                    <th style="padding: 8px 12px; text-align: left; white-space: nowrap;">ページ</th>
-                    <th style="padding: 8px 12px; text-align: left; white-space: nowrap;">内容</th>
+                    <th style="width: 17ch;">ID</th>
+                    <th style="width: 5ch;">ページ</th>
+                    <th>内容</th>
                 </tr>
             </thead>
             <tbody>
             @if (!empty($imageData) && is_array($imageData))
                 @foreach ($imageData as $image)
                     <tr>
-                        <th style="padding: 8px 12px; text-align: left; white-space: nowrap;">{{ $image['id'] ?? 'N/A' }}</th>
-                        <td style="padding: 8px 12px; text-align: left; white-space: nowrap;">{{ $image['pageNumber'] ?? 'N/A' }}</td>
-                        <td style="padding: 8px 12px; text-align: left;">
+                        <th>{{ $image['id'] ?? 'N/A' }}</th>
+                        <td>{{ $image['pageNumber'] ?? 'N/A' }}</td>
+                        <td>
                             @if (!empty($image['image']))
-                                <img src="{{ $image['image'] }}" alt="Image" 
-                                    style="max-width: 100px; max-height: 100px; display: block; margin-bottom: 5px;">
+                                <img src="{{ $image['image'] }}" alt="Image" style="max-width: 100px; max-height: 100px;">
                                 <br>
-                                <a href="{{ $image['image'] }}" download="image.png" 
-                                   style="display: inline-block; padding: 4px 8px; background-color: #28a745; color: white; text-decoration: none; font-size: 12px; border-radius: 4px;">DL</a>
+                                <a href="{{ $image['image'] }}" download="image.png" class="btn btn-success">DL</a>
                             @else
                                 N/A
                             @endif
