@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -18,9 +19,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'login_id',
         'password',
         'template',
+        'format',
+        'group_id'
     ];
 
     /**
@@ -38,7 +41,18 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    protected $casts = [
+    /* protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
+    ]; */
+
+    public function Album()
+    {
+        return $this->hasOne(Album::class);
+    }
+
+    public function Group()
+    {
+        return $this->belongsTo(Group::class);
+    }
+
 }

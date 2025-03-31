@@ -4,20 +4,26 @@
 @section('title', '管理者ダッシュボード')
 
 @section('content')
-    <ul class="nav-list2">
-        <li class="list-items btn btn-danger"><a href="javascript:void(0);" onclick="confirmLogout()" class="nav-link">ログアウト</a></li>
-    </ul>
-    <h1>管理者ダッシュボード</h1>
+    <h1>管理者仮トップページ</h1>
 
-    <h2>ユーザー一覧</h2>
+    <h3><a href="{{ route('admin.group_dashbord') }}">レイアウト確認ページ</a></h3>
+
+    <h2 style="margin-left:10%;">ユーザー一覧</h2>
     <table border="1">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>名前</th>
-                <th>メールアドレス</th>
-                <th>テンプレート</th>
+                <th>ログインID</th>
+                <th>A面B面</th>
+                <th>フォーマット</th>
+                <!-- <th>パートナー</th>
+                <th>フタリノ状況</th> -->
                 <th>作成日</th>
+                <th>編集</th>
+                <!-- <th>Body編集（仮）</th> -->
+                <!-- <th>coverPDF</th> -->
+                <th>中身PDF</th>
             </tr>
         </thead>
         <tbody>
@@ -25,9 +31,13 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->login_id }}</td>
                     <td>{{ $user->template }}</td>
+                    <td>{{ $user->format }}</td>
                     <td>{{ $user->created_at }}</td>
+                    <td><a href="{{ route('admin_user_redirect', ['userid' => $user->id, 'parts' => 'body']) }}" target="_blank">編集</a></td>
+                    <!-- <td><a href="{{ route('admin.coverHTML', $user->id) }}">PDF</a></td> -->
+                    <td><a href="{{ route('admin.bodyHTML', $user->id) }}" target="_blank">PDF</a></td>
                 </tr>
             @endforeach
         </tbody>

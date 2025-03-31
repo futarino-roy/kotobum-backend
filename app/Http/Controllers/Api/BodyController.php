@@ -5,68 +5,105 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Album;
+use App\Models\Body;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\PDF;
+
 
 class BodyController extends Controller
 {
+    // ボディ情報を取得する
+    public function showBody($albumid)
+    {
+        $album = Album::findOrFail($albumid);
+        $body = $album->body;
+
+        if ($body) {
+            // Bodyが存在する場合、データを返す
+            return response()->json([
+                'textData' => $body->textData,
+                'imageData' => $body->imageData,
+                'colors' => $body->colors,
+            ]);
+        }
+    
+        // Bodyが存在しない場合はそのまま返す
+        return response()->json(null, 204); // 204 No Content
+    }
+
+
+
     // ボディを作成または更新する
-    public function createOrUpdateBody(Request $request, Album $album)
+    public function createOrUpdateBody(Request $request, $albumid)
     {
         $request->validate([
-            'body' => 'required|string',
-        ]);
+            'textData' => 'required|JSON',
+            'imageData' => 'required|JSON',
+            'colors' => 'required|JSON',
+        ]);  
+
+        $album = Album::findOrFail($albumid);
 
         // ユーザーの権限をチェック
-        if ($album->user_id !== auth()->id() || $album->is_sent) {
-            return response()->json(['message' => 'Unauthorized or already sent'], 403);
+        if ($album->body_is_sent) {
+            return response()->json(['message' => 'already sent'], 403);
         }
 
-        // リクエストからボディデータを取得
-        $body = $request->input('body'); // リクエストからボディデータを取得
-        $album->body = $body; // アルバムのボディを更新
-        $album->save(); // データベースに保存
+        $body = $album->body ?? new Body();
+        $body->albums_id = $album->id;
 
-        return response()->json(['message' => 'ボディが保存されました', 'album' => $album], 201);
-    }
+        // ボディデータ格納とアルバムデータの保存
+        $body->textData = $request->input('textData');
+        $body->imageData = $request->input('imageData');
+        $body->colors = $request->input('colors');
+        $body->save();
+        /* $body->touch(); */
+        /* $album->save(); */
 
-    // ボディを更新する
-    public function updateBody(Request $request, Album $album)
+        return response()->json(['message' => 'ボディが保存されました', 'body' => $body], 201);
+    }    
+
+    // ボディを保存する
+    public function sendBody(Request $request,$id)
     {
-        // ユーザーの権限をチェック
-        if ($album->user_id !== auth()->id() || $album->is_sent) {
-            return response()->json(['message' => 'Unauthorized or already sent'], 403);
+        if($request->id === 'userId'){
+            $user = User::findOrFail($id);
+
+            // ユーザーの権限をチェック
+            if ($user->id !== auth()->id()) {
+                return response()->json(['message' => 'Unauthorized'], 403);
+            }
+
+            if (!$user->Album) {
+                return response()->json(['message' => 'Album not found'], 404);
+            }
+
+            if ($user->Album->body_is_sent) {
+                return response()->json(['message' => 'Already sent'], 400);
+            }
+
+            $user->Album->body_is_sent = true;
+            $user->Album->save();
+
+        }elseif($request->id === 'albumId'){
+            $album = Album::findOrFail($id);
+
+            // ユーザーの権限をチェック
+            if ($album->user_id !== auth()->id()) {
+                return response()->json(['message' => 'Unauthorized'], 403);
+            }
+
+            if ($album->body_is_sent) {
+                return response()->json(['message' => 'Already sent'], 400);
+            }
+
+            $album->body_is_sent = true;
+            $album->save();
+            
+        }else{
+            return response()->json(['message' => 'テーブルを指定してください'], 400);
         }
 
-        $request->validate([
-            'body' => 'required|string',
-        ]);
-
-        // リクエストからボディデータを取得してアルバムに設定
-        $album->body = $request->input('body'); // リクエストからボディデータを取得
-        $album->save(); // データベースに保存
-
-        return response()->json(['message' => 'ボディが更新されました', 'album' => $album], 200);
-    }
-
-    // ボディを送信する
-    public function sendBody(Request $request, Album $album)
-    {
-        // ユーザーの権限をチェック
-        if ($album->user_id !== auth()->id()) {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
-
-        if ($album->is_sent) {
-            return response()->json(['message' => 'Already sent'], 400);
-        }
-
-        $album->is_sent = true;
-        $album->save();
-
-        // ボディのみを含むPDF生成を追加
-        $pdf = PDF::loadView('pdf.album_body', ['album' => $album]);
-        $pdf->save(storage_path('app/public/albums/' . $album->id . '_body.pdf'));
-
-        return response()->json(['message' => 'ボディが送信され、PDFが生成されました', 'album' => $album], 200);
+        return response()->json(['message' => 'ボディが送信されました'], 200);
     }
 }

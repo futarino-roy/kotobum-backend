@@ -5,68 +5,108 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Album;
+use App\Models\Cover;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\PDF;
 
 class CoverController extends Controller
 {
+    // カバー情報を取得する
+    public function showCover($albumid)
+    {
+        $album = Album::findOrFail($albumid);
+        $cover = $album->cover;
+
+        if ($cover) {
+            // Bodyが存在する場合、データを返す
+            return response()->json([
+                'textData' => $cover->textData,
+                'imageData' => $cover->imageData,
+                'colors' => $cover->colors,
+                'covertext'=> $cover->covertext,
+            ]);
+        }
+    
+        // Coverが存在しない場合はそのまま返す
+        return response()->json(null, 204); // 204 No Content
+    }
+
+
+
     // カバーを作成または更新する
-    public function createOrUpdateCover(Request $request, Album $album)
+    public function createOrUpdateCover(Request $request, $albumid)
     {
         $request->validate([
-            'cover' => 'required|string',
-        ]);
+            'textData' => 'required|JSON',
+            'imageData' => 'required|JSON',
+            'colors' => 'required|JSON',
+            'covertext' => 'required|JSON',
+        ]);  
+
+        $album = Album::findOrFail($albumid);
 
         // ユーザーの権限をチェック
-        if ($album->user_id !== auth()->id() || $album->is_sent) {
-            return response()->json(['message' => 'Unauthorized or already sent'], 403);
+        if ($album->cover_is_sent) {
+            return response()->json(['message' => 'already sent'], 403);
         }
 
-        // リクエストからカバーデータを取得してアルバムに設定
-        $cover = $request->input('cover'); // リクエストからカバーデータを取得
-        $album->cover = $cover; // アルバムのカバーを更新
-        $album->save(); // データベースに保存
+        $cover = $album->cover ?? new Cover();
+        $cover->albums_id = $album->id;
 
-        return response()->json(['message' => 'カバーが保存されました', 'album' => $album], 201);
+        // ボディデータ格納とアルバムデータの保存
+        $cover->textData = $request->input('textData');
+        $cover->imageData = $request->input('imageData');
+        $cover->colors = $request->input('colors');
+        $cover->covertext = $request->input('covertext');
+        $cover->save();
+        /* $cover->touch(); */
+        /* $album->save(); */
+
+        return response()->json(['message' => 'カバーが保存されました', 'cover' => $cover], 201);
     }
 
-    // カバーを更新する
-    public function updateCover(Request $request, Album $album)
+
+    // カバーを保存する
+    public function sendCover(Request $request,$id)
     {
-        // ユーザーの権限をチェック
-        if ($album->user_id !== auth()->id() || $album->is_sent) {
-            return response()->json(['message' => 'Unauthorized or already sent'], 403);
+        if($request->id === 'userId'){
+            $user = User::findOrFail($id);
+
+            // ユーザーの権限をチェック
+            if ($user->id !== auth()->id()) {
+                return response()->json(['message' => 'Unauthorized'], 403);
+            }
+
+            if (!$user->Album) {
+                return response()->json(['message' => 'Album not found'], 404);
+            }
+
+            if ($user->Album->cover_is_sent) {
+                return response()->json(['message' => 'Already sent'], 400);
+            }
+
+            $user->Album->cover_is_sent = true;
+            $user->Album->save();
+
+        }elseif($request->id === 'albumId'){
+            $album = Album::findOrFail($id);
+
+            // ユーザーの権限をチェック
+            if ($album->user_id !== auth()->id()) {
+                return response()->json(['message' => 'Unauthorized'], 403);
+            }
+
+            if ($album->cover_is_sent) {
+                return response()->json(['message' => 'Already sent'], 400);
+            }
+
+            $album->cover_is_sent = true;
+            $album->save();
+            
+        }else{
+            return response()->json(['message' => 'テーブルを指定してください'], 400);
         }
 
-        $request->validate([
-            'cover' => 'required|string',
-        ]);
-
-        // リクエストからカバーデータを取得してアルバムに設定
-        $album->cover = $request->input('cover'); // リクエストからカバーデータを取得
-        $album->save(); // データベースに保存
-
-        return response()->json(['message' => 'カバーが更新されました', 'album' => $album], 200);
-    }
-
-    // カバーを送信する
-    public function sendCover(Request $request, Album $album)
-    {
-        // ユーザーの権限をチェック
-        if ($album->user_id !== auth()->id()) {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
-
-        if ($album->is_sent) {
-            return response()->json(['message' => 'Already sent'], 400);
-        }
-
-        $album->is_sent = true;
-        $album->save();
-
-        // カバーのみを含むPDF生成を追加
-        $pdf = PDF::loadView('pdf.album_cover', ['album' => $album]);
-        $pdf->save(storage_path('app/public/albums/' . $album->id . '_cover.pdf'));
-
-        return response()->json(['message' => 'カバーが送信され、PDFが生成されました', 'album' => $album], 200);
+        return response()->json(['message' => 'ボディが送信されました'], 200);
     }
 }

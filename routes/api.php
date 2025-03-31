@@ -20,14 +20,16 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user/album', [UserAlbumController::class, 'getOrCreateAlbum']);
     
     // カバー操作
-    Route::post('/albums/{album}/cover', [CoverController::class, 'createOrUpdateCover']);
-    Route::put('/albums/{album}/cover', [CoverController::class, 'updateCover']);
-    Route::post('/albums/{album}/cover/send', [CoverController::class, 'sendCover']);
+    Route::get('/albums/{albumid}/showCover', [CoverController::class, 'showCover']);
+    Route::post('/albums/{albumid}/cover', [CoverController::class, 'createOrUpdateCover']);
+    Route::put('/albums/{albumid}/cover', [CoverController::class, 'updateCover']);
+    Route::post('/albums/{id}/cover/send', [CoverController::class, 'sendCover']);
 
     // ボディ操作
-    Route::post('/albums/{album}/body', [BodyController::class, 'createOrUpdateBody']);
-    Route::put('/albums/{album}/body', [BodyController::class, 'updateBody']);
-    Route::post('/albums/{album}/body/send', [BodyController::class, 'sendBody']);
+    Route::get('/albums/{albumid}/showBody', [BodyController::class, 'showBody']);
+    Route::post('/albums/{albumid}/body', [BodyController::class, 'createOrUpdateBody']);
+    Route::put('/albums/{albumid}/body', [BodyController::class, 'updateBody']);
+    Route::post('/albums/{id}/body/send', [BodyController::class, 'sendBody']);
     
     // 簡易ユーザー情報取得
     Route::get('/profile', function (Request $request) {

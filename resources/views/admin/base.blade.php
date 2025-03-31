@@ -4,25 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'デフォルトタイトル')</title>
     <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<style>
+    body {
+        padding-bottom: 50px; /* フッター高さ分の余白 */
+    }
+
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse; /* 罫線を重ねてスッキリ表示 */
+      text-align: left;
+    }
+
+    th, td {
+      border: 1px solid #ddd; /* 枠線の色 */
+      padding: 8px; /* セル内の余白 */
+    }
+
+    th {
+      background-color: #f4f4f4; /* ヘッダーの背景色 */
+      font-weight: bold; /* 太字 */
+      text-transform: uppercase; /* 大文字に変換 */
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9; /* 偶数行の背景色 */
+    }
+
+    tr:hover {
+      background-color: #f1f1f1; /* ホバー時の行の色 */
+    }
+    
+    .hidden {
+       display: none;
+    }
+
+  </style>
+
 <body>
-    <header class="bg-light p-2 z-3 fixed-top">
-        <div class="container d-flex align-items-center">
-            <a href="/" class="mr-auto">
+    <header class="bg-light p-2 z-3 fixed-top" id="header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="{{ route('admin.group_dashbord') }}" class="mr-auto">
                 <img src="{{ asset('img/f-black@4x 1.png') }}" alt="ロゴ">
             </a>
+            <ul class="nav-list2 d-flex justify-content-end {{ auth('admin')->check() ? '' : 'hidden' }}" >
+                <li class="list-items btn btn-danger"><a href="javascript:void(0);" onclick="confirmLogout()" class="nav-link">ログアウト</a></li>
+            </ul>
         </div>
     </header>
+    <main id="main-content" ></main>
+    
     <div class="container">
-        <!-- フラッシュメッセージの表示 -->
-        <!-- @if (session('login_msg'))
-            <div class="alert alert-success" id="flash-message">
-                {{ session('login_msg') }}
+        @if(session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
             </div>
-        @endif -->
+        @endif
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -42,17 +84,22 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- <script>
-        // フラッシュメッセージを数秒後に非表示にする
-        document.addEventListener('DOMContentLoaded', function () {
-            setTimeout(function () {
-                var flashMessage = document.getElementById('flash-message');
-                if (flashMessage) {
-                    flashMessage.style.display = 'none';
-                }
-            }, 3000); // 3秒後にメッセージを非表示にする
-        });
-    </script> -->
+
+    <script>
+    window.onload = function() {
+        var header = document.getElementById('header');
+        var mainContent = document.getElementById('main-content');
+        
+        // ヘッダーの高さを取得
+        var headerHeight = header.offsetHeight;
+        
+        // メインコンテンツにマージンを設定
+        mainContent.style.marginTop = headerHeight + 'px';
+    };
+    </script>
+
     @yield('scripts')
 </body>
 </html>
+
+
