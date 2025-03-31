@@ -20,7 +20,7 @@
     @if (!empty($imageData))
         @foreach ($imageData as $image)
             @php 
-                if (!isset($image->image)) $naCount++; 
+                if (!isset($image['image'])) $naCount++; 
             @endphp
         @endforeach
     @endif
@@ -49,8 +49,8 @@
             <tr><th>未格納画像数</th><td colspan="2">{{ $naCount }}</td></tr>
             <tr><th>最終編集時刻</th><td colspan="2">{{ $user->Album->body->update_at ?? 'N/A'}}</td></tr>
             <tr>
-                <th>表紙校了状態</th>
-                    <td>
+                <th>表紙状態</th>
+                <td>
                     {{ $user->Album->cover_is_sent ? '校了済み' : '未校了' }}
                     @if($user->Album->cover_is_sent)
                         <button class="reset-status-btn btn btn-warning"
@@ -60,10 +60,11 @@
                         </button>
                     @endif
                 </td>
+                <td><a href="{{ route('admin_user_redirect', ['userid' => $user->id, 'parts' => 'cover']) }}" target="_blank">表紙編集</a></td>
             </tr>
             <tr>
-                <th>中身校了状態</th>
-                    <td>
+                <th>中身状態</th>
+                <td>
                     {{ $user->Album->body_is_sent ? '校了済み' : '未校了' }}
                     @if($user->Album->body_is_sent)
                         <button class="reset-status-btn btn btn-warning"

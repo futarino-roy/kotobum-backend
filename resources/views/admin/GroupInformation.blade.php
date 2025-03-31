@@ -21,14 +21,14 @@
     @if(!empty($imageDataA))
         @foreach ($imageDataA as $imageA)
         @php 
-            if (!isset($imageA->image)) $naCountA++; 
+            if (!isset($imageA['image'])) $naCountA++; 
         @endphp
         @endforeach
     @endif
     @if(!empty($imageDataB))
-        @foreach ($imageDataB as $Bimage)
+        @foreach ($imageDataB as $imageB)
         @php 
-            if (!isset($imageB->image)) $naCountB++; 
+            if (!isset($imageB['image'])) $naCountB++; 
         @endphp
         @endforeach
     @endif
