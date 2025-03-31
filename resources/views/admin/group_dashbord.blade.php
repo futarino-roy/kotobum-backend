@@ -38,9 +38,17 @@
         <button type="submit" class="btn btn-primary">グループ作成</button>
     </form>
 
+    
+
     <hr>
 
     <h2 style="margin-left:10%;">グループ一覧</h2>
+    <form method="GET" action="{{ route('admin.group_dashbord') }}" style="margin-left: 10%; margin-bottom: 20px;">
+        <div class="mb-3">
+            <input type="text" class="form-control" name="search" placeholder="検索" value="{{ request('search') }}">
+        </div>
+        <button type="submit" class="btn btn-primary">検索</button>
+    </form>
     <table border="1">
         <thead>
             <tr>

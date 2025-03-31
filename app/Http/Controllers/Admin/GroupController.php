@@ -14,37 +14,37 @@ use Illuminate\Support\Facades\Hash;
 class GroupController extends Controller
 {
 
-    public function indexGroup()
-    {
-        // ログインしている管理者を取得
-        $admin = Auth::guard('admin')->user();
-        $groups = Group::get();
+    public function indexGroup(Request $request)
+{
+    // ログインしている管理者を取得
+    $admin = Auth::guard('admin')->user();
 
-        foreach ($groups as $group) {
-            if (!is_null($group->Auser_id) && !is_null($group->Buser_id)) {
-                $group->plan = "ペア";
-            } elseif (is_null($group->Auser_id) && is_null($group->Buser_id)) {
-                $group->plan = "NULL";
-            } else {
-                $group->plan = "ソロ";
-            }
-        }
+    // 検索条件
+    $query = Group::query();
 
-        /* 完了状態をどう判別する？ 
-        foreach ($groups as $group) {
-            if (!is_null($group->Auser_id) && !is_null($group->Buser_id)) {
-                $group-> = "ペア";
-            } elseif (is_null($group->Auser_id) && is_null($group->Buser_id)) {
-                $group->plan = "NULL";
-            } else {
-                $group->plan = "ソロ";
-            }
-        } */
-
-        // ダッシュボードビューを返す
-        return view('admin.group_dashbord', compact('admin', 'groups'));
+    // グループ名やプランで検索
+    if ($request->has('search') && $request->input('search') !== '') {
+        $searchTerm = $request->input('search');
+        $query->where('name', 'like', '%' . $searchTerm . '%')
+              ->orWhere('plan', 'like', '%' . $searchTerm . '%');
     }
 
+    $groups = $query->get();
+
+    // グループのプランを設定
+    foreach ($groups as $group) {
+        if (!is_null($group->Auser_id) && !is_null($group->Buser_id)) {
+            $group->plan = "ペア";
+        } elseif (is_null($group->Auser_id) && is_null($group->Buser_id)) {
+            $group->plan = "NULL";
+        } else {
+            $group->plan = "ソロ";
+        }
+    }
+
+    // ダッシュボードビューを返す
+    return view('admin.group_dashbord', compact('admin', 'groups'));
+}
 
 
 
