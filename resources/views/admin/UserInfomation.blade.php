@@ -161,6 +161,9 @@
         </table>
     </div>
 
+    @dump($textData)
+    @dump($imageData)
+
 @endsection
 
 @section('scripts')
