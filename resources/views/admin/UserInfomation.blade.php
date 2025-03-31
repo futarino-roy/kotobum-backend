@@ -135,8 +135,9 @@
                         <td>
                             {{ $text['text'] ?? 'N/A' }}
                             @if (!empty($text['text']))
+                            <br>
                             <button class="copy-text-btn" data-text="{{ $text['text'] }}">コピー</button>
-                        @endif
+                            @endif
                         </td>
                     </tr>
                     @endforeach
@@ -163,7 +164,7 @@
                             @if (!empty($image['image']))
                                 <img src="{{ $image['image'] }}" alt="Image" style="max-width: 100px; max-height: 100px;">
                                 <br>
-                                <a href="{{ $image['image'] }}" download="image.png" class="btn btn-success">ダウンロード</a>
+                                <a href="{{ $image['image'] }}" download="image.png" class="btn btn-success">DL</a>
                             @else
                                 N/A
                             @endif
@@ -187,6 +188,17 @@ function confirmLogout() {
         window.location.href = "{{ route('admin.logout') }}";
     }
 }
+
+document.querySelectorAll(".copy-text-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            let textToCopy = this.getAttribute("data-text");
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert("テキストをコピーしました！");
+            }).catch(err => {
+                console.error("コピーに失敗しました", err);
+            });
+        });
+    });
 
 document.querySelectorAll(".reset-status-btn").forEach(button => {
     button.addEventListener("click", function () {
